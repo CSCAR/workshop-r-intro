@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Introduction to R",
     "section": "",
-    "text": "Preface\nThese notes are split into four primary sections:\nThese sections will generally be presented in sequence. The discussion will alternate between theory and practice. The format will alternate between lecture and exercises. Please ask questions as soon as they arise in your mind. Please provide feedback or voice concerns.\nThere are two additional sections:",
+    "text": "Preface",
     "crumbs": [
       "Preface"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#creation-of-this-document",
     "title": "Introduction to R",
     "section": "Creation of this document",
-    "text": "Creation of this document\nThese notes are published using Quarto. The Stata code is first rendered using a Stata dynamic document. The source code for these notes can be found at https://github.com/CSCAR/workshop-stata-intro for the curious.\nAll images should link to full-size versions to see detail if needed.\nDark mode can be toggled on via the switch in the top left corner. Images are color-reversed in dark mode to avoid brightness; mouse over them (or click on mobile) to display originals.",
+    "text": "Creation of this document\nThese notes are published using Quarto. The source code for these notes can be found at https://github.com/CSCAR/workshop-r-intro for the curious.\nAll images should link to full-size versions to see detail if needed.\nDark mode can be toggled on via the switch in the top left corner. Images are color-reversed in dark mode to avoid brightness; mouse over them (or click on mobile) to display originals.",
     "crumbs": [
       "Preface"
     ]
@@ -24,7 +24,7 @@
     "href": "index.html#contact-information",
     "title": "Introduction to R",
     "section": "Contact information",
-    "text": "Contact information\n\nCSCAR\nhttp://cscar.research.umich.edu/\nCSCAR is available for free consultations with PhD statisticians (email deskpeople@umich.edu to request a consultation).\nCSCAR also has GSRAs available for more immediate help. Walk-ins to our office in Rackham are welcomed Monday-Friday 9am to 5pm (Closed Tuesdays 12-1pm). Alternatively, on our website, you can self-schedule into an hour consultation with the graduate students, which can be either remote or in-person (these are usually available same-day or next-day).\nCSCAR operates a email for help with statistical questions, feel free to send concise questions to stats-consulting@umich.edu.\nThe current contact for questions about the notes: Josh Errickson (jerrick@umich.edu).",
+    "text": "Contact information\n\nCSCAR\nhttp://cscar.research.umich.edu/\nCSCAR is available for free consultations with PhD statisticians (email deskpeople@umich.edu to request a consultation).\nCSCAR also has GSRAs available for more immediate help. Walk-ins to our office in Rackham are welcomed Monday-Friday 9am to 5pm (Closed Tuesdays 12-1pm). Alternatively, on our website, you can self-schedule into an hour consultation with the graduate students, which can be either remote or in-person (these are usually available same-day or next-day).\nCSCAR operates a email for help with statistical questions, feel free to send concise questions to stats-consulting@umich.edu.\nThe current contact for questions about the notes: Xiru Lyu (xlyu@umich.edu).",
     "crumbs": [
       "Preface"
     ]
@@ -34,7 +34,7 @@
     "href": "index.html#acknowledgments",
     "title": "Introduction to R",
     "section": "Acknowledgments",
-    "text": "Acknowledgments\nThese notes have evolved over the years thanks to many CSCAR statisticians, including Josh Errickson, Giselle Kolenic, Brady West, Heidi Reichert, and Lingling Zhang.\nThis material was created for use in workshops and short courses presented by faculty and staff from the Consulting for Statistics, Computing & Analytics Research (CSCAR) at the University of Michigan. No part of this material may be used for other purposes, copied, changed, or sold.",
+    "text": "Acknowledgments\nThese notes have evolved over the years thanks to Xiru Lyu and Chris Andrews.\nThis material was created for use in workshops and short courses presented by faculty and staff from the Consulting for Statistics, Computing & Analytics Research (CSCAR) at the University of Michigan. No part of this material may be used for other purposes, copied, changed, or sold.",
     "crumbs": [
       "Preface"
     ]

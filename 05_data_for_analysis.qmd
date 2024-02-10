@@ -1,0 +1,244 @@
+# Data for Analysis
+
+## Creating Data: Random numbers
+
+**[R]{.sans-serif}** has excellent number generating capabilities. This
+makes **[R]{.sans-serif}** a good programming environment for simulation
+studies. The `rnorm` function randomly draws from a univariate normal
+distribution. (The 'r' stands for random.)
+
+`> rnorm(3)`
+
+`> rnorm(3, mean=10, sd=0.5)`
+
+`> x = rnorm(100, mean=10, sd=2)`
+
+`> hist(x, col="blue", main="100 Random Numbers from a Normal Distribution")`
+
+See `help(rnorm)` for more details. You can generate from many
+distributions using functions such as `rnorm`, `rt`, `rf`, `rbinom`,
+`runif`, `rexp`, and `rgamma`.
+
+### Functions about Probability Distributions
+
+**[R]{.sans-serif}** is also a source of exact probability tables and
+therefore eliminates the need to flip to the back of a statistics
+textbook to calculate probabilities under curves or critical values. For
+example, you can calculate the 95% critical value of a t distribution
+with 34 degrees of freedom with the following command:
+
+`> qt(0.975, df=34)`
+
+We can find the critical value of a standard normal distribution using
+`qnorm`. (The 'q' stands for quantile function.)
+
+`> qnorm(0.975)`
+
+We can also find cumulative probabilities needed for p-values. (The 'p'
+stands for probability function.)
+
+`> pnorm(-1.96)`
+
+## Reading data from files
+
+Researchers often analyze data that are stored in spread-sheet or text
+formats. The most common function to import data is `read.table`. Before
+looking at an example of how `read.table` is used, let's consider common
+issues that arise when reading data into any program.
+
+-   What is the file name?
+
+-   What is the file type?
+
+-   Where is the file located?
+
+-   Does the file include variable names?
+
+-   How are fields separated (e.g., tab, comma, white-space)?
+
+-   How are missing values stored?
+
+The `read.table` function is used in **[R]{.sans-serif}** for importing
+text data into data set objects. This function requires that you have a
+valid data table in a text format (where rows are observations, and
+columns are variables) with every cell containing a data point. If there
+are any blanks, the function may not work properly. Missing values by
+default should be coded as NA before attempting to import text data.
+Columns should be separated by white space.
+
+The `read.table` function has arguments that allow the user to control
+data importation features.
+
+`> help(read.table)`
+
+The four most important arguments to the `read.table` function are
+*file*, *header*, *sep*, and *na.strings*. Let's practice by importing
+the *samp2.dat* text file. Be sure to first change the working directory
+to the folder that contains *samp2.dat*. In **[R]{.sans-serif}**Studio
+you can either use the Session \> Set Working Directory menu option or
+use the `setwd()` function.
+
+`> gro = read.table("groceries.txt")`
+
+`> head(gro)`
+
+`> str(gro)`
+
+By passing only the *file* argument to `read.table`, we have left all
+other arguments at their default values. Notice that
+**[R]{.sans-serif}** reads the variable names to be the first row of
+data rather than the column names. **[R]{.sans-serif}** has stored the
+columns of *gro* as a factor.
+
+`> gro = read.table("groceries.txt", header=TRUE)`
+
+`> head(gro)`
+
+`> str(gro)`
+
+`> tail(gro)`
+
+`> summary(gro)`
+
+`> dim(gro)`
+
+## Importing from Excel
+
+"How do I import my data into **[R]{.sans-serif}** from Excel?" is a
+common question.
+
+My answer is often: "Don't!"
+
+Excel spreadsheets contain attributes and formatting that often cause
+difficulty when transferring files between applications. In particular,
+dates, or text that looks like dates, are troublesome. Zip codes and
+MRNs lose their leading zeros. The easiest thing to do is to first
+export the data into either a tab-delimited (.dat, .tsv) or comma
+separated values (.csv) file. After the file is in a more portable
+format, then use `read.table` or `read.csv` into **[R]{.sans-serif}**.
+
+We use the *samp2.csv* file for practice.
+
+`> dat2 = read.csv("samp2.csv", na.strings=c(NA, 88, 999))`
+
+`> dat2`
+
+`read.csv` simply invokes `read.table` with a different set of default
+arguments. Notice that the default for `read.csv` is to include a
+header.
+
+`> help(read.csv)`
+
+### Straight from Excel
+
+However it is possible to skip the .csv step using one of several
+**[R]{.sans-serif}** packages. Option 1: Use the Import Dataset button
+above the environment window in **[R]{.sans-serif}**Studio (obviously
+this only applies if using **[R]{.sans-serif}**Studio). Option 2: Use
+the `read_excel` function in the `readxl` package (actually, Option 1
+uses Option 2). Option 3: use package `xlsx`. Option 4: \...
+
+These approaches may result in slightly different data formats. This is
+not a problem, just be certain to investigate your data after loading.
+
+## Data from other Formats
+
+**[R]{.sans-serif}** can read directly from other formats with varying
+levels of success. Functions exist for fixed width formats, .sas7bdat,
+SAS xport, SPSS, Stata, DBF, \...
+
+## Exporting Data
+
+**[R]{.sans-serif}** has facilities for exporting data. Suppose you make
+changes to a data set within **[R]{.sans-serif}** and you want to save
+those changes permanently in a .csv or .xls file. The `write.csv`
+command exports an **[R]{.sans-serif}** object to a text file. All you
+have to do is give `write.csv` two arguments: 1) the
+**[R]{.sans-serif}** object to be exported, and 2) the name of the file.
+
+For example, `write.csv(M, "newfile.csv")` will export the
+**[R]{.sans-serif}** object `M` to a newly created file `newfile.csv`.
+We will modify `dat2` to include an `id` variable, and we write the
+updated data object to a csv file.
+
+`> dat2$id = 1:nrow(dat2)`
+
+`> dat2`
+
+`> write.csv(dat2, "newfile.csv")`
+
+**[R]{.sans-serif}** can also write to text files using `write.table`.
+
+## Missing Values in Data files
+
+Data files can represent missing data in many ways. Often Excel files
+have blank cells. Text files may use a special value such as 999 to
+represent missingness. SAS uses a period. Different codes may specify
+different reasons for the missingness such as non-response or an
+unreasonable value.
+
+There are several ways to convert these conventions to NA in
+**[R]{.sans-serif}** so they will (more likely) be treated properly in
+analyses. (There are entire statistics courses on "properly" dealing
+with missing data.)
+
+Suppose that the $88$ and $999$ are codes indicating missing values. We
+want **[R]{.sans-serif}** to interpret these values as missing rather
+than numeric. We can change these values to NA after reading in the
+data. First we identify them and then replace them by NA.
+
+`> dat = read.csv("samp2.csv")`
+
+`> dat`
+
+`> dat$z == 88 | dat$z == 999`
+
+`> dat$z[dat$z == 88 | dat$z == 999]`
+
+`> dat$z[dat$z == 88 | dat$z == 999] = NA`
+
+`> dat`
+
+### The `which` function
+
+While we are on the subject of missing data (NA) and logical values
+(TRUE, FALSE), I want to mention the `which` function. It statement
+takes a logical statement (or a series of logical statements, some which
+may be missing) as an argument. It returns the indices for which the
+logical statement is TRUE.
+
+`> a = c(6, 9, 10, 2, 999, NA)`
+
+`> is.na(a)`
+
+`> which(is.na(a))`
+
+`> which(!is.na(a))`
+
+`> a == 999`
+
+`> a[a == 999]`
+
+`> which(a == 999)`
+
+`> a[which(a == 999)]`
+
+`> a[which(a == 999)] = NA`
+
+`> a`
+
+`> is.na(a)`
+
+The `which` command is a very powerful tool for data management.
+Consider the following three scenarios:
+
+-   You have a data set and wish to perform an analysis on only males.
+
+-   All missing values have been coded as 99, 888, or 999.
+
+-   A scatterplot reveals several outliers, and you need to identify the
+    cases corresponding to the outliers.
+
+In each scenario, `which` can be used to select the appropriate subset
+of the data.
+

@@ -1,0 +1,37 @@
+# Creating Functions
+
+Another very nice feature of **[R]{.sans-serif}** is the ability to
+easily write your own programs and functions. We will begin by creating
+a new function called `add.machine` that will simply sum two numbers:
+
+`add.machine `$=$` function(num1, num2){`\
+`result `$=$` num1 `$+$` num2`\
+`return(result)`\
+`}`
+
+The following are important components of the code above:
+
+-   `add.machine` is the name of the newly created object
+
+-   `function` declares that `add.machine` will be a function
+
+-   `num1` and `num2` are the arguments that `add.machine` will take as
+    input
+
+-   The body of the function is enclosed in curly braces
+
+-   `return` (is optional) but specifies the output that is returned
+    from the function
+
+Let's test out the newly created function
+
+`> add.machine`
+
+`> add.machine(3,5)`
+
+What happens if we don't specify valid arguments?
+
+`> add.machine(3)`
+
+`> add.machine(3, "Hi")`
+

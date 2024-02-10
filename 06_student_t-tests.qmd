@@ -1,0 +1,118 @@
+# Student t-tests
+
+A t-test is a statistical hypothesis test in which the test statistic
+follows a t-distribution. Three common applications of the t-test are:
+
+-   A one-sample t-test of whether the mean of a normally distributed
+    population is a particular value ($H_0: \mu = 70$)
+
+-   An independent samples t-test to determine whether the means of two
+    normally distributed populations are equal ($H_0: \mu_1 = \mu_2$)
+
+-   A paired samples t-test to determine whether the means of two
+    normally distributed populations are equal ($H_0: \mu_1 = \mu_2$)
+
+Another t-test arises when testing whether a regression parameter equals
+0 ($H_0: \beta_1 = 0$).
+
+## One-sample t-test
+
+Clean up the workspace and import `height.csv` into
+**[R]{.sans-serif}**.
+
+`> rm(list=ls()) # removes all objects`
+
+`> dat = read.csv("height.csv", header=TRUE)`
+
+`> head(dat)`
+
+Let's start with a one-sample t-test. Test the hypothesis that the
+population mean height for men is 70 inches ($H_0:\mu_{men} = 70$)
+
+First we need to get the subset where gender $==$ male.
+
+`> dat$gender == "male"`
+
+`> men.ht = dat$height[dat$gender == "male"]`
+
+Before doing any formal analyses, it is always a good idea to summarize
+the data both numerically and visually.
+
+`> summary(men.ht)`
+
+`> boxplot(men.ht)`
+
+`> hist(men.ht, main="My First Histogram in R!")`
+
+The `t.test` function will perform a one sample t-test for the height of
+men. Suppose we wish to test the hypothesis $H_0: \mu_{men} = 70$ versus
+the alternative $H_a: \mu_{men} \neq 70$. We must give the `t.test`
+function 1) the vector of male height values, and 2) the value of the
+mean under the null hypothesis. The default alternative is two-sided.
+
+`> t.test(men.ht, mu=70)`
+
+What if you want to calculate a 90% confidence interval?
+
+`> help(t.test)`
+
+The *conf.level* argument will be used to change the confidence level.
+
+`> t.test(men.ht, mu=70, conf.level= 0.90)`
+
+`> t.out = t.test(men.ht, mu=70, conf.level= 0.90)`
+
+`> names(t.out)`
+
+`> t.out$conf.int`
+
+## Independent Samples t-tests
+
+Now suppose we wish to test whether there is a difference between the
+population mean heights for men and women ($H_0: \mu_m = \mu_w$). Before
+running the t-test, let's make side-by-side boxplots to visually compare
+the heights of men and women.
+
+`> boxplot(men.ht, women.ht)`
+
+### The formula operator ($\sim$)
+
+It is possible to avoid creating separate vectors for two groups that
+you would like to compare. This is done with the formula operator and
+many R functions can accept a formula as the first argument. The second
+argument must then nearly always be the data.frame where the formula
+should be evaluated.
+
+`> boxplot(height `$\sim$` gender, data=dat)`
+
+If you don't include the data argument, you'll likely get an error
+message:
+
+`> boxplot(height `$\sim$` gender)` \# error: data not found?
+
+The variables in the `dat` data.frame can be made available temporarily
+by wrapping the command inside a call to `with`:
+
+`> with(dat, boxplot(height `$\sim$` gender))`
+
+If you need access to the variables in a data.frame for an extended
+session and you aren't going to change the variables in the data.frame,
+you can use the `attach(dat)` function to access height and gender
+directly. However, using `attach` is discouraged by some analysts. It
+puts a second copy of the data.frame on the "search path" and can make
+updating your data tricky. **Remember to `detach` when you are done.**
+
+`> height`
+
+`> attach(dat)`
+
+`> height`
+
+`> detach(dat)`
+
+`> height`
+
+Now perform the independent samples t-test.
+
+`> t.test(height `$\sim$` gender, data=dat)`
+

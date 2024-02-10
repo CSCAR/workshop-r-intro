@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R</title>
+<title>Introduction to R - 2&nbsp; Getting Started with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_the_r_environment.html" rel="next">
+<link href="./03_using_scripts.html" rel="next">
+<link href="./01_the_r_environment.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -82,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_getting_started_with_r.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with <strong><span class="sans-serif">R</span></strong></span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -112,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -124,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_getting_started_with_r.html" class="sidebar-item-text sidebar-link">
+  <a href="./02_getting_started_with_r.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with <strong><span class="sans-serif">R</span></strong></span></span></a>
   </div>
 </li>
@@ -198,15 +228,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
-  <ul class="collapse">
-  <li><a href="#creation-of-this-document" id="toc-creation-of-this-document" class="nav-link" data-scroll-target="#creation-of-this-document">Creation of this document</a></li>
-  <li><a href="#contact-information" id="toc-contact-information" class="nav-link" data-scroll-target="#contact-information">Contact information</a>
-  <ul class="collapse">
-  <li><a href="#cscar" id="toc-cscar" class="nav-link" data-scroll-target="#cscar">CSCAR</a></li>
-  </ul></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
-  </ul></li>
+  <li><a href="#using-r-as-a-calculator" id="toc-using-r-as-a-calculator" class="nav-link active" data-scroll-target="#using-r-as-a-calculator"><span class="header-section-number">2.1</span> Using <strong><span class="sans-serif">R</span></strong> as a Calculator</a></li>
+  <li><a href="#making-comparisons-logical-operators" id="toc-making-comparisons-logical-operators" class="nav-link" data-scroll-target="#making-comparisons-logical-operators"><span class="header-section-number">2.2</span> Making Comparisons: Logical Operators</a></li>
+  <li><a href="#vectors-and-sequences" id="toc-vectors-and-sequences" class="nav-link" data-scroll-target="#vectors-and-sequences"><span class="header-section-number">2.3</span> Vectors and Sequences</a></li>
+  <li><a href="#matrices-and-arrays" id="toc-matrices-and-arrays" class="nav-link" data-scroll-target="#matrices-and-arrays"><span class="header-section-number">2.4</span> Matrices and Arrays</a></li>
   </ul>
 </nav>
     </div>
@@ -215,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to R</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with <strong><span class="sans-serif">R</span></strong></span></h1>
 </div>
 
 
@@ -232,46 +257,122 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Last modified: 2024-02-09</p>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>These notes are split into four primary sections:</p>
-<ul>
-<li><a href="01-the-basics-of-stata.html">Chapter 1: The Basics of Stata</a> - Interacting with Stata.</li>
-<li><a href="02-working-with-data-sets.html">Chapter 2: Working with Data Sets</a> - Importing, opening, and saving data sets.</li>
-<li><a href="03-data-management.html">Chapter 3: Data Management</a> - The basics of maintaining and exploring a data set.</li>
-<li><a href="04-data-manipulation.html">Chapter 4: Data Manipulation</a> - Creating and modifying variables and other ways of manipulating your data.</li>
-</ul>
-<p>These sections will generally be presented in sequence. The discussion will alternate between theory and practice. The format will alternate between lecture and exercises. Please ask questions as soon as they arise in your mind. Please provide feedback or voice concerns.</p>
-<p>There are two additional sections:</p>
-<ul>
-<li><a href="05-programming.html">Chapter 5: Programming &amp; Advanced Topics</a> - Topics for users who wish to move beyond the basics.</li>
-<li><a href="06-appendix.html">Appendix</a> - Houses the exercise solutions.</li>
-</ul>
-<section id="creation-of-this-document" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="creation-of-this-document">Creation of this document</h2>
-<p>These notes are published using <a href="https://quarto.org">Quarto</a>. The Stata code is first rendered using a Stata <a href="https://www.stata.com/manuals/rptdynamicdocumentsintro.pdf">dynamic document</a>. The source code for these notes can be found at <a href="https://github.com/CSCAR/workshop-stata-intro" class="uri">https://github.com/CSCAR/workshop-stata-intro</a> for the curious.</p>
-<p>All images should link to full-size versions to see detail if needed.</p>
-<p>Dark mode can be toggled on via the switch in the top left corner. Images are color-reversed in dark mode to avoid brightness; mouse over them (or click on mobile) to display originals.</p>
+<p>Launch <strong><span class="sans-serif">R</span></strong> from the Start Menu or the desktop icon. (We’ll shift to <strong><span class="sans-serif">R</span></strong>Studio after we have some familiarity with using <strong><span class="sans-serif">R</span></strong> interactively.)</p>
+<section id="using-r-as-a-calculator" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="using-r-as-a-calculator"><span class="header-section-number">2.1</span> Using <strong><span class="sans-serif">R</span></strong> as a Calculator</h2>
+<p><strong><span class="sans-serif">R</span></strong> can perform basic arithmetic operations. Type the following expressions at the command prompt in the <strong><span class="sans-serif">R</span></strong> console window.</p>
+<p><code>&gt; 5+3</code></p>
+<p><code>&gt; 5-3</code></p>
+<p><code>&gt; 5/3</code></p>
+<p><code>&gt; 5*3</code></p>
+<p><code>&gt; 5^3</code></p>
+<p><code>&gt; 4 + 2 * 3</code></p>
+<p><code>&gt; (4 + 2) * 3</code></p>
+<p>If you have missing input (represented in <strong><span class="sans-serif">R</span></strong> by NA), the output will likely be missing:</p>
+<p><code>&gt; (4 + NA) * 3</code></p>
+<p>If you try something mathematically shoddy, you will likely be told:</p>
+<p><code>&gt; 0 / 0</code></p>
+<p><code>&gt; 1 / 0</code></p>
+<p><code>&gt; -1 / 0</code></p>
+<p><strong><span class="sans-serif">R</span></strong> has many built-in mathematical functions.</p>
+<p><code>&gt; log(100)</code></p>
+<p><code>&gt; sqrt(9)</code></p>
+<p><code>&gt; sqrt(-9)</code></p>
+<p><code>&gt; sqrt(-9 + 0i)</code></p>
+<p>This is your first indication that an <strong><span class="sans-serif">R</span></strong> function may behave differently depending on the <em>type</em> of input.</p>
+<p><code>&gt; sqrt(NA)</code></p>
+<p><code>&gt; exp(1)</code></p>
+<p>An <em>argument</em> is a parameter that is passed to a function. The <code>sqrt</code> and <code>exp</code> functions only take a single argument. Many functions, including <code>log</code>, take more than one argument. Arguments are separated by commas.</p>
+<p><code>&gt; round(5.123, 2)</code></p>
+<p>If not all arguments are provided, <strong><span class="sans-serif">R</span></strong> may use a default value.</p>
+<p><code>&gt; round(5.123)</code></p>
+<p>Some other basic functions:</p>
+<p><code>&gt; ceiling(5.123)</code></p>
+<p><code>&gt; floor(5.123)</code></p>
+<p>The “Remainder” and Integer Division operations:</p>
+<p><code>&gt; 17 %% 5</code></p>
+<p><code>&gt; 17 %/% 5</code></p>
+<p><strong>Review of logarithms</strong> If <span class="math inline">\(a^y = x\)</span>, then <span class="math inline">\(\log_a(x) = y\)</span>. For example, <span class="math inline">\(10^2 = 100\)</span> and <span class="math inline">\(\log_{10}(100) = 2\)</span>. Three common choices of the base are <span class="math inline">\(10\)</span>, <span class="math inline">\(2\)</span>, and <span class="math inline">\(e\)</span>. What is the default choice in <strong><span class="sans-serif">R</span></strong>?</p>
+<p><code>&gt; log(10)</code></p>
+<p><code>&gt; log(2)</code></p>
+<p><code>&gt; log(exp(1))</code></p>
+<p>Suppose you are working with a dataset and you wish to apply the <span class="math inline">\(\log_{10}\)</span> transformation. How can we instruct <strong><span class="sans-serif">R</span></strong> to take logarithms base 10? <strong><span class="sans-serif">R</span></strong>’s help pages are good sources of information for questions such as these. Two ways to view a function’s help page are ‘?’ and ‘help’. A more generic approach might be searching “take log in r” with your favorite search engine.</p>
+<p><code>&gt; ?log</code></p>
+<p><code>&gt; help(log)</code></p>
+<p>The <code>log</code> function can take two arguments including the <em>base</em> argument. Arguments can be specified in several ways.</p>
+<p>The argument name can be stated explicitly:</p>
+<p><code>&gt; log(x=25, base=5)</code></p>
+<p>The argument name can be abbreviated as long as the abbreviation is unique:</p>
+<p><code>&gt; log(x=25, b=5)</code></p>
+<p>Not all arguments need to be named:</p>
+<p><code>&gt; log(25, b=5)</code></p>
+<p><code>&gt; log(b=5, 25)</code></p>
+<p>We don’t have to use the argument names at all, in which case the arguments are matched by the order listed. Compare</p>
+<p><code>&gt; log(25, 5)</code></p>
+<p><code>&gt; log(5, 25)</code></p>
+<p><strong><span class="sans-serif">R</span></strong> may return an error if you incorrectly name a function argument.</p>
+<p><code>&gt; log(25, be=5)</code></p>
 </section>
-<section id="contact-information" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="contact-information">Contact information</h2>
-<section id="cscar" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="cscar">CSCAR</h3>
-<p><a href="http://cscar.research.umich.edu/" class="uri">http://cscar.research.umich.edu/</a></p>
-<p>CSCAR is available for free consultations with PhD statisticians (email deskpeople@umich.edu to request a consultation).</p>
-<p>CSCAR also has GSRAs available for more immediate help. Walk-ins to our office in Rackham are welcomed Monday-Friday 9am to 5pm (Closed Tuesdays 12-1pm). Alternatively, on our website, you can self-schedule into an hour consultation with the graduate students, which can be either remote or in-person (these are usually available same-day or next-day).</p>
-<p>CSCAR operates a email for help with statistical questions, feel free to send concise questions to stats-consulting@umich.edu.</p>
-<p>The current contact for questions about the notes: Josh Errickson (jerrick@umich.edu).</p>
+<section id="making-comparisons-logical-operators" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="making-comparisons-logical-operators"><span class="header-section-number">2.2</span> Making Comparisons: Logical Operators</h2>
+<p><strong><span class="sans-serif">R</span></strong> has logical operators that will return “TRUE” or “FALSE” (or possibly “NA” if you have missing values).</p>
+<p><code>&gt; 5 == 6</code></p>
+<p><code>&gt; 5 != 6</code></p>
+<p><code>&gt; 5 &lt; 6</code></p>
+<p><code>&gt; 5 &gt; 6</code></p>
+<p><code>&gt; 5 &lt;= 6</code></p>
+<p><code>&gt; 5 &lt;= NA</code></p>
+<p><code>&gt; 5 &lt;= Inf</code></p>
+<p><code>&gt; !TRUE</code></p>
+<p><code>&gt; (1 + 2) == 3</code></p>
+<p><strong><span class="sans-serif">R</span></strong> has “and” and “or” operators (there are others):</p>
+<p><code>&gt; (5 &lt; 6) &amp; (7 == 8)</code></p>
+<p><code>&gt; (5 &lt; 6) | (7 == 8)</code></p>
+<p><code>&gt; (5 &lt; 6) | NA</code></p>
+<p><strong>Be careful of comparisons and floating point arithmetic</strong>:</p>
+<p><code>&gt; (.1 + .2) == .3</code></p>
+<p><code>&gt; 5 == sqrt(5)^2</code></p>
+<p><code>&gt; 5 - sqrt(5)^2</code></p>
+<p>The <code>all.equal</code> function will test if two values are “close enough”:</p>
+<p><code>&gt; all.equal(5, sqrt(5)^2)</code></p>
+<p><code>&gt; ?all.equal</code></p>
+<p>This is not bug of <strong><span class="sans-serif">R</span></strong>. It is a feature of computers using binary representation of floating point numbers and storing them with finite precision. This is common enough to make the <strong><span class="sans-serif">R</span></strong> FAQ (7.31): <code>https://cran.r-project.org/doc/FAQ/R-FAQ.html</code>. To quote from “The Elements of Programming Style” by Kernighan and Plauger: “10.0 times 0.1 is hardly ever 1.0.”</p>
 </section>
+<section id="vectors-and-sequences" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="vectors-and-sequences"><span class="header-section-number">2.3</span> Vectors and Sequences</h2>
+<p><strong><span class="sans-serif">R</span></strong> is a ‘vectorized’ language. Many functions operate on an entire vector of numbers as easily as on a single number. This feature allows the user to think in terms of manipulating entire data variables rather than one data element at a time. For example (once we have learned about storing objects), we can write <code>mean(Height)</code> or <code>hist(Height)</code> to analyze a variable, rather than working with the individual data values.</p>
+<p>Thus it is important to be able to create and manipulate vectors. Numbers can be combined into a vector with the function ‘c’, which stands for <em>combine</em>.</p>
+<p><code>&gt; c(3, 9, 2)</code></p>
+<p>The following commands produce exactly the same output, namely a vector with the integers 1 to 10. In <strong><span class="sans-serif">R</span></strong>, there are often many ways of doing the same thing.</p>
+<p><code>&gt; c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)</code></p>
+<p><code>&gt; 1:10</code></p>
+<p><code>&gt; seq(1, 10, 1)</code></p>
+<p><code>&gt; seq_len(10)</code></p>
+<p><code>&gt; ?seq</code></p>
+<p>You can specify a sequence’s increment or length using the <em>by</em> and <em>length</em> arguments.</p>
+<p><code>&gt; seq(0, 200, by=4)</code></p>
+<p><code>&gt; seq(0, 200, length=13)</code></p>
+<p><code>&gt; rep(3, 12)</code></p>
+<p>In <strong><span class="sans-serif">R</span></strong>, functions can be nested. In the following examples, the inner function, <code>c</code>, is used to create a vector and the outer function uses that vector as an argument.</p>
+<p><code>&gt; rep(c(3,9,2), times=4)</code></p>
+<p><code>&gt; rep(c(3,9,2), each=4)</code></p>
+<p><code>&gt; rep(c(3,9,2), length=12)</code></p>
+<p><code>&gt; rep(c(3,9,2), times=c(2,9,1))</code></p>
 </section>
-<section id="acknowledgments" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>These notes have evolved over the years thanks to many CSCAR statisticians, including Josh Errickson, Giselle Kolenic, Brady West, Heidi Reichert, and Lingling Zhang.</p>
-<p>This material was created for use in workshops and short courses presented by faculty and staff from the Consulting for Statistics, Computing &amp; Analytics Research (CSCAR) at the University of Michigan. No part of this material may be used for other purposes, copied, changed, or sold.</p>
+<section id="matrices-and-arrays" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="matrices-and-arrays"><span class="header-section-number">2.4</span> Matrices and Arrays</h2>
+<p>In <strong><span class="sans-serif">R</span></strong>, a matrix or an array is just a vector with a dimension <em>attribute</em>. The <code>matrix</code> command can rearrange a vector into a matrix.</p>
+<p><code>&gt; matrix(1:12, nrow=3)</code></p>
+<p>What happens if we don’t specify the number of rows using the argument <code>nrow</code>?</p>
+<p><code>&gt; matrix(1:12)</code></p>
+<p>The result is still a matrix, but the default is to put each element in a separate row. What happens if we specify an inappropriate number of rows?</p>
+<p><code>&gt; matrix(1:12, nrow=5)</code></p>
+<p>When the number of rows and the number of elements are not coherent, <strong><span class="sans-serif">R</span></strong> issues a warning.</p>
+<p>A vector has 1 dimension; a matrix has 2 dimensions; an array can have any number of dimensions. These have 3 dimensions:</p>
+<p><code>&gt; array(1:12, dim=c(2,2,3))</code></p>
+<p><code>&gt; array(1:12, dim=c(2,3,2))</code></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -808,10 +909,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./01_the_r_environment.html" class="pagination-link  aria-label=" &lt;span="" **[r]{.sans-serif}**="" *environment*&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_the_r_environment.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03_using_scripts.html" class="pagination-link" aria-label="<span class='chapter-number'>3</span>&nbsp; <span class='chapter-title'>Using Scripts</span>">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Using Scripts</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R</title>
+<title>Introduction to R - 7&nbsp; Chi-Square tests</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_the_r_environment.html" rel="next">
+<link href="./08_linear_models.html" rel="next">
+<link href="./06_student_t-tests.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -82,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07_chi-square_tests.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -112,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -154,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_chi-square_tests.html" class="sidebar-item-text sidebar-link">
+  <a href="./07_chi-square_tests.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
   </div>
 </li>
@@ -198,15 +228,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
-  <ul class="collapse">
-  <li><a href="#creation-of-this-document" id="toc-creation-of-this-document" class="nav-link" data-scroll-target="#creation-of-this-document">Creation of this document</a></li>
-  <li><a href="#contact-information" id="toc-contact-information" class="nav-link" data-scroll-target="#contact-information">Contact information</a>
-  <ul class="collapse">
-  <li><a href="#cscar" id="toc-cscar" class="nav-link" data-scroll-target="#cscar">CSCAR</a></li>
-  </ul></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
-  </ul></li>
+  <li><a href="#goodness-of-fit" id="toc-goodness-of-fit" class="nav-link active" data-scroll-target="#goodness-of-fit"><span class="header-section-number">7.1</span> Goodness of Fit</a></li>
+  <li><a href="#chi-square-test-of-independence" id="toc-chi-square-test-of-independence" class="nav-link" data-scroll-target="#chi-square-test-of-independence"><span class="header-section-number">7.2</span> Chi-Square Test of Independence</a></li>
+  <li><a href="#fishers-exact-test" id="toc-fishers-exact-test" class="nav-link" data-scroll-target="#fishers-exact-test"><span class="header-section-number">7.3</span> Fisher’s Exact Test</a></li>
   </ul>
 </nav>
     </div>
@@ -215,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to R</h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></h1>
 </div>
 
 
@@ -232,46 +256,67 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Last modified: 2024-02-09</p>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>These notes are split into four primary sections:</p>
-<ul>
-<li><a href="01-the-basics-of-stata.html">Chapter 1: The Basics of Stata</a> - Interacting with Stata.</li>
-<li><a href="02-working-with-data-sets.html">Chapter 2: Working with Data Sets</a> - Importing, opening, and saving data sets.</li>
-<li><a href="03-data-management.html">Chapter 3: Data Management</a> - The basics of maintaining and exploring a data set.</li>
-<li><a href="04-data-manipulation.html">Chapter 4: Data Manipulation</a> - Creating and modifying variables and other ways of manipulating your data.</li>
-</ul>
-<p>These sections will generally be presented in sequence. The discussion will alternate between theory and practice. The format will alternate between lecture and exercises. Please ask questions as soon as they arise in your mind. Please provide feedback or voice concerns.</p>
-<p>There are two additional sections:</p>
-<ul>
-<li><a href="05-programming.html">Chapter 5: Programming &amp; Advanced Topics</a> - Topics for users who wish to move beyond the basics.</li>
-<li><a href="06-appendix.html">Appendix</a> - Houses the exercise solutions.</li>
-</ul>
-<section id="creation-of-this-document" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="creation-of-this-document">Creation of this document</h2>
-<p>These notes are published using <a href="https://quarto.org">Quarto</a>. The Stata code is first rendered using a Stata <a href="https://www.stata.com/manuals/rptdynamicdocumentsintro.pdf">dynamic document</a>. The source code for these notes can be found at <a href="https://github.com/CSCAR/workshop-stata-intro" class="uri">https://github.com/CSCAR/workshop-stata-intro</a> for the curious.</p>
-<p>All images should link to full-size versions to see detail if needed.</p>
-<p>Dark mode can be toggled on via the switch in the top left corner. Images are color-reversed in dark mode to avoid brightness; mouse over them (or click on mobile) to display originals.</p>
+<p>Pearson’s chi-square test is used to make two types of comparisons for categorical variables. A <em>goodness of fit test</em> determines whether a particular hypothesized distribution is reasonable for a categorical variable. A <em>test of independence</em> assesses whether two categorical variables are independent of each other.</p>
+<section id="goodness-of-fit" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="goodness-of-fit"><span class="header-section-number">7.1</span> Goodness of Fit</h2>
+<p>Suppose a company wants to determine if employees are equally likely to call in sick on any day of the week. That is, test the hypothesis <span class="math display">\[H_0: p_1 = p_2 = p_3 = p_4 = p_5\]</span> where <span class="math inline">\(p_1\)</span> represents the probability that a random call-in sick occurs on Monday, etc. The employer collects data and obtains the following table</p>
+<div class="center">
+<table class="table">
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Mon</td>
+<td style="text-align: right;">Tue</td>
+<td style="text-align: right;">Wed</td>
+<td style="text-align: right;">Thu</td>
+<td style="text-align: right;">Fri</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">26</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If <span class="math inline">\(H_0\)</span> is true, the expected value in cell <span class="math inline">\(i\)</span> is <span class="math inline">\(E_i = np_i\)</span>, where <span class="math inline">\(n = 34 + 18 + 19 + 12 + 26 = 109\)</span> and <span class="math inline">\(p_i = 0.2\)</span>. The differences between the observed and expected values are combined into the <span class="math inline">\(\chi^2\)</span> statistic. <span class="math display">\[\chi^2 = \sum_i\frac{(O_i - E_i)^2}{E_i}\]</span> If the null hypothesis is true, the <span class="math inline">\(\chi^2\)</span> statistic approximately follows a <span class="math inline">\(\chi^2(k-1)\)</span> distribution, where <span class="math inline">\(k\)</span> is the number of groups (5). This approximation is poor if the expected value in any cell is small.</p>
+<p>We first need to get the data into <strong><span class="sans-serif">R</span></strong>.</p>
+<p><code>&gt; days = c(34, 18, 19, 12, 26)</code></p>
+<p><code>&gt; names(days) = c("Mon", "Tue", "Wed", "Thu", "Fri")</code></p>
+<p><code>&gt; days</code></p>
+<p>Many chi-square tests are performed using the <code>chisq.test</code> function.</p>
+<p><code>&gt; chisq.test(days)</code></p>
+<p><strong><span class="sans-serif">R</span></strong> returns the <span class="math inline">\(\chi^2\)</span> test statistic, the degrees of freedom, and the p-value. Notice that we didn’t specify that we were testing the hypothesis that were testing the hypothesis of <em>equal</em> probabilities. By default, <code>chisq.test</code> assumes a test of equal probabilities unless the user specifies otherwise. If, for some reason, we wanted to test the hypothesis that <span class="math inline">\(p_1 = 0.35\)</span>, <span class="math inline">\(p_2 = 0.1\)</span>, <span class="math inline">\(p_3 = 0.1\)</span>, <span class="math inline">\(p_4 = 0.1\)</span>, <span class="math inline">\(p_5 = 0.35\)</span>, we can do so by passing the probabilities to <code>chisq.test</code> in this way.</p>
+<p><code>&gt; chisq.test(days, p=c(0.35, 0.1, 0.1, 0.1, 0.35))</code></p>
+<p>So far, the output for the chi-square tests have been limited. What if we wanted to obtain expected values or cell residuals? We unleash more of <strong><span class="sans-serif">R</span></strong>’s capabilities by storing the value of the test as an object.</p>
+<p><code>&gt; cs.test = chisq.test(days)</code></p>
+<p><code>&gt; names(cs.test)</code></p>
+<p><code>&gt; cs.test$expected</code></p>
+<p><code>&gt; cs.test$statistic</code></p>
+<p><code>&gt; cs.test$residuals</code></p>
 </section>
-<section id="contact-information" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="contact-information">Contact information</h2>
-<section id="cscar" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="cscar">CSCAR</h3>
-<p><a href="http://cscar.research.umich.edu/" class="uri">http://cscar.research.umich.edu/</a></p>
-<p>CSCAR is available for free consultations with PhD statisticians (email deskpeople@umich.edu to request a consultation).</p>
-<p>CSCAR also has GSRAs available for more immediate help. Walk-ins to our office in Rackham are welcomed Monday-Friday 9am to 5pm (Closed Tuesdays 12-1pm). Alternatively, on our website, you can self-schedule into an hour consultation with the graduate students, which can be either remote or in-person (these are usually available same-day or next-day).</p>
-<p>CSCAR operates a email for help with statistical questions, feel free to send concise questions to stats-consulting@umich.edu.</p>
-<p>The current contact for questions about the notes: Josh Errickson (jerrick@umich.edu).</p>
+<section id="chi-square-test-of-independence" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="chi-square-test-of-independence"><span class="header-section-number">7.2</span> Chi-Square Test of Independence</h2>
+<p>A Chi-Square Test of Independence tests for a relationship between two categorical variables. We will use the “UCBAdmissions data set” to illustrate.</p>
+<p><code>&gt; data()</code></p>
+<p><code>&gt; UCBAdmissions</code></p>
+<p><code>&gt; class(UCBAdmissions)</code></p>
+<p><code>&gt; dim(UCBAdmissions)</code></p>
+<p>Let’s select the second 2 by 2 table to perform a chi-square test of independence.</p>
+<p><code>&gt; dat = UCBAdmissions[,,2]</code></p>
+<p><code>&gt; dat</code></p>
+<p>When we pass a vector of values to <code>chisq.test</code>, a test of homogeneity is performed by default. When we pass a table or matrix, a test of independence is performed.</p>
+<p><code>&gt; chisq.test(dat)</code></p>
+<p>The default in <strong><span class="sans-serif">R</span></strong> is to use Yates’ continuity correction for 2x2 tables. You can opt not to use it.</p>
+<p><code>&gt; chisq.test(dat, correct=FALSE)</code></p>
 </section>
-</section>
-<section id="acknowledgments" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>These notes have evolved over the years thanks to many CSCAR statisticians, including Josh Errickson, Giselle Kolenic, Brady West, Heidi Reichert, and Lingling Zhang.</p>
-<p>This material was created for use in workshops and short courses presented by faculty and staff from the Consulting for Statistics, Computing &amp; Analytics Research (CSCAR) at the University of Michigan. No part of this material may be used for other purposes, copied, changed, or sold.</p>
+<section id="fishers-exact-test" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="fishers-exact-test"><span class="header-section-number">7.3</span> Fisher’s Exact Test</h2>
+<p>Pearson Chi-Square tests rely on an approximation that becomes poor as cell sizes get small. With smaller samples, Fisher’s Exact Test might be a good alternative. However, there are many flavors of Fisher’s test. <strong><span class="sans-serif">R</span></strong> has implemented many of them, including one in the base package.</p>
+<p><code>&gt; fisher.test(dat)</code></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -808,10 +853,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./06_student_t-tests.html" class="pagination-link  aria-label=" &lt;span="" t-tests&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Student t-tests</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_the_r_environment.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./08_linear_models.html" class="pagination-link" aria-label="<span class='chapter-number'>8</span>&nbsp; <span class='chapter-title'>Linear Models</span>">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Linear Models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

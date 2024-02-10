@@ -1,0 +1,111 @@
+# Chi-Square tests
+
+Pearson's chi-square test is used to make two types of comparisons for
+categorical variables. A *goodness of fit test* determines whether a
+particular hypothesized distribution is reasonable for a categorical
+variable. A *test of independence* assesses whether two categorical
+variables are independent of each other.
+
+## Goodness of Fit
+
+Suppose a company wants to determine if employees are equally likely to
+call in sick on any day of the week. That is, test the hypothesis
+$$H_0: p_1 = p_2 = p_3 = p_4 = p_5$$ where $p_1$ represents the
+probability that a random call-in sick occurs on Monday, etc. The
+employer collects data and obtains the following table
+
+::: center
+  ----- ----- ----- ----- -----
+    Mon   Tue   Wed   Thu   Fri
+     34    18    19    12    26
+  ----- ----- ----- ----- -----
+:::
+
+If $H_0$ is true, the expected value in cell $i$ is $E_i = np_i$, where
+$n = 34 + 18 + 19 + 12 + 26 = 109$ and $p_i = 0.2$. The differences
+between the observed and expected values are combined into the $\chi^2$
+statistic. $$\chi^2 = \sum_i\frac{(O_i - E_i)^2}{E_i}$$ If the null
+hypothesis is true, the $\chi^2$ statistic approximately follows a
+$\chi^2(k-1)$ distribution, where $k$ is the number of groups (5). This
+approximation is poor if the expected value in any cell is small.
+
+We first need to get the data into **[R]{.sans-serif}**.
+
+`> days = c(34, 18, 19, 12, 26)`
+
+`> names(days) = c("Mon", "Tue", "Wed", "Thu", "Fri")`
+
+`> days`
+
+Many chi-square tests are performed using the `chisq.test` function.
+
+`> chisq.test(days)`
+
+**[R]{.sans-serif}** returns the $\chi^2$ test statistic, the degrees of
+freedom, and the p-value. Notice that we didn't specify that we were
+testing the hypothesis that were testing the hypothesis of *equal*
+probabilities. By default, `chisq.test` assumes a test of equal
+probabilities unless the user specifies otherwise. If, for some reason,
+we wanted to test the hypothesis that $p_1 = 0.35$, $p_2 = 0.1$,
+$p_3 = 0.1$, $p_4 = 0.1$, $p_5 = 0.35$, we can do so by passing the
+probabilities to `chisq.test` in this way.
+
+`> chisq.test(days, p=c(0.35, 0.1, 0.1, 0.1, 0.35))`
+
+So far, the output for the chi-square tests have been limited. What if
+we wanted to obtain expected values or cell residuals? We unleash more
+of **[R]{.sans-serif}**'s capabilities by storing the value of the test
+as an object.
+
+`> cs.test = chisq.test(days)`
+
+`> names(cs.test)`
+
+`> cs.test$expected`
+
+`> cs.test$statistic`
+
+`> cs.test$residuals`
+
+## Chi-Square Test of Independence
+
+A Chi-Square Test of Independence tests for a relationship between two
+categorical variables. We will use the "UCBAdmissions data set" to
+illustrate.
+
+`> data()`
+
+`> UCBAdmissions`
+
+`> class(UCBAdmissions)`
+
+`> dim(UCBAdmissions)`
+
+Let's select the second 2 by 2 table to perform a chi-square test of
+independence.
+
+`> dat = UCBAdmissions[,,2]`
+
+`> dat`
+
+When we pass a vector of values to `chisq.test`, a test of homogeneity
+is performed by default. When we pass a table or matrix, a test of
+independence is performed.
+
+`> chisq.test(dat)`
+
+The default in **[R]{.sans-serif}** is to use Yates' continuity
+correction for 2x2 tables. You can opt not to use it.
+
+`> chisq.test(dat, correct=FALSE)`
+
+## Fisher's Exact Test
+
+Pearson Chi-Square tests rely on an approximation that becomes poor as
+cell sizes get small. With smaller samples, Fisher's Exact Test might be
+a good alternative. However, there are many flavors of Fisher's test.
+**[R]{.sans-serif}** has implemented many of them, including one in the
+base package.
+
+`> fisher.test(dat)`
+

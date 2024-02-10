@@ -1,0 +1,333 @@
+# Objects
+
+## Assignment
+
+An *object* is an entity that contains information and can be
+manipulated by commands. **[R]{.sans-serif}** has two main commands for
+assigning an object: '$<$- ' and '='.
+
+`> x <- 5`
+
+`> x = 5`
+
+We will use '=' throughout this document. However, many
+**[R]{.sans-serif}** users prefer '`<-`', because '=' is used for other
+things, too. A third method is very rarely used:
+
+`> 5 -> x`
+
+Each of the previous commands assigns the number `5` to the object `x`.
+Notice that **[R]{.sans-serif}** produces no output when the above
+commands are run. In order to see what **[R]{.sans-serif}** has done,
+type:
+
+`> ls()`
+
+and/or look at the environment window in the upper right corner. Now
+type
+
+`> x`
+
+When you submit a command to **[R]{.sans-serif}**, one of three things
+can happen.
+
+1.  You see a result: e.g.,
+
+    `> x`
+
+    **[R]{.sans-serif}** prints the value of the expression.
+
+2.  You see nothing except another command prompt: e.g.,
+
+    `> y = log(x)`
+
+    For an assignment, **[R]{.sans-serif}** stores the value of `log(x)`
+    in the object `y`, but produces no output.
+
+3.  You see an error message: e.g.,
+
+    `> y = lg(x)`
+
+    Look at error messages -- they can be informative!
+
+## Manipulating Objects
+
+We can perform mathematical operations on objects such as `x`.
+
+`> x + 2`
+
+Notice that x has not changed:
+
+`> x`
+
+We can change the value of x:
+
+`> x = x + 2`
+
+`> x`
+
+*Cautionary Tip*: It is very important to use caution when writing over
+a variable as above. If you need to use `x` later on, be sure you are
+using the correct value!
+
+Start from scratch and perform operations on two objects.
+
+`> x = 5`
+
+`> y = 2`
+
+`> x - y`
+
+If two objects are assigned to have the same value, they can be changed
+to differ. (Assigned by value not by assigned by reference, for those of
+you who know what that means.)
+
+`> a = 3`
+
+`> b = a  # Note: Assignment`
+
+`> b == a # Note: Test of Equality`
+
+`> a = a + 1`
+
+`> a`
+
+The value of `b` didn't change.
+
+`> b`
+
+Assign a vector of numbers to the object `x`
+
+`> x = c(3, 5, 9, 10)`
+
+`> x`
+
+Get a list of the objects in the workspace.
+
+`> ls()`
+
+Remove an object.
+
+`> rm(x)`
+
+## Indexing Objects
+
+Situations frequently arise when you want to access select portions of a
+database. In this section, we discuss how to extract elements of vectors
+and matrices.
+
+### Indexing Vectors
+
+`> x = c(13,21,99,10,0,-6)`
+
+Suppose that we only need the first element of the vector `x`. To
+extract the first element, we type the name of the entire vector,
+followed by the index we want to extract enclosed in brackets.
+
+`> x[1]`
+
+We can save the extracted part to a new object
+
+`> z = x[1]`
+
+`> z`
+
+We often will want to extract more than one element of a vector. Each of
+the following two lines of code extracts the first three elements of the
+vector `x`.
+
+`> x[c(1,2,3)]`
+
+`> x[1:3]`
+
+What happens if we try to extract the first three elements in the
+following way?
+
+`> x[1,2,3]`
+
+Elements can be extracted in any order and elements can be extracted any
+number of times. All of the following are legitimate methods of
+extracting multiple elements from a vector.
+
+`> x[c(2,4,5)]`
+
+`> x[c(4,5,1)]`
+
+`> x[c(5,1,5,2,1,1,1,5)]`
+
+The following code extracts all elements of x *except* the second.
+
+`> x[-2]`
+
+What will this do?
+
+`> x[-c(2,4)]`
+
+### Indexing Matrices
+
+To extract an element from a matrix, you may specify two values: the row
+value and the column value. The row and column are separated by a
+column.
+
+`> M1 = matrix(1:12, nrow=3, byrow=TRUE)` \# (this is obj5 from before,
+so M1 = obj5 works too)
+
+`> M1`
+
+Pick out the number from the second row and third column.
+
+`> M1[2,3]`
+
+You can simultaneously select multiple rows and multiple columns.
+
+`> M1[2,c(1,3)]`
+
+`> M1[c(2,3),c(1,2)]`
+
+If nothing is specified in the row position (before the comma), then
+every row is kept. Similarly, every column is kept if nothing is
+specified in the column position.
+
+`> M1[,c(2,3)]`
+
+`> M1[c(1,2),]`
+
+If nothing is specified in either position, the entire matrix is
+returned.
+
+## Index Assignment
+
+In addition to extracting certain indices, it is also possible to
+*assign* new values to certain elements of a vector or matrix.
+
+The following two lines of code change an element of the vector `x` and
+the matrix `M1`.
+
+`> x[3] = 5`
+
+`> M1[2,3] = 6`
+
+## Aside: Missing Index?
+
+If an index is missing, it might be any index. This is rarely what you
+want: Avoid missing values in your index.
+
+`> x[NA]`
+
+## Object Classes
+
+So far we seem to have been working exclusively with numeric objects.
+**[R]{.sans-serif}** can store objects of many different types. Suppose
+you are working with a data set that includes both quantitative and
+categorical variables. **[R]{.sans-serif}** can store these as different
+classes. Let's begin by looking at two basic classes, `numeric` and
+`character`.
+
+`> x = 12`
+
+`> class(x)`
+
+`> y = c(3,5,2)`
+
+`> class(y)`
+
+**[R]{.sans-serif}** stores both the number `12` and the vector
+`c(3,5,2)` as an object of the class *numeric*. Strings are stored as
+*characters*.
+
+`> x = "Hi"`
+
+`> class(x)`
+
+`> y = c("sample", "string")`
+
+`> class(y)`
+
+Elements of vectors and matrices must be of the same class.
+
+`> mix = c("aa", -2)`
+
+`> mix`
+
+`> class(mix)`
+
+`> mix[2]`
+
+`> class(mix[2])`
+
+When working with data, this will create problems if a column
+representing a quantitative variable contains character text. The
+numeric is *promoted* to character.
+
+## How to Mix Variables of Different Classes
+
+Matrices are not well-suited for storing data sets. Data sets frequently
+contain different types of variables (quantitative, qualitative).
+Matrices force all elements to be of the same class. A `data.frame` is
+particularly adept at handling data of different classes.
+
+`> num = c(2,9,6,5)`
+
+`> char = LETTERS[c(24,24:26)]`
+
+`> dat = data.frame(num, char, stringsAsFactors=FALSE)`
+
+`> dat`
+
+`> class(dat)`
+
+Though data analysts will rarely spend their time investigating a data
+set as small this one, exploring data sets such as these can be helpful
+in learning **[R]{.sans-serif}**'s capabilities. In the following code,
+we investigate the names and dimensions of the data set `dat`; we also
+investigate the properties of the columns of `dat`.
+
+`> names(dat)`
+
+`> dim(dat)`
+
+`> nrow(dat)`
+
+`> ncol(dat)`
+
+`> class(dat[,1])`
+
+`> class(dat[,2])`
+
+**[R]{.sans-serif}** stores the first column as *numeric* and the second
+column as a *character*. `summary` gives a numerical summary of numeric
+variables and little useful information for character variables.
+
+`> summary(dat)`
+
+It is likely that you want to store a categorical variable as a *factor*
+rather than a character vector. The default behavior of data.frame to do
+the conversion.
+
+`> dat = data.frame(num, fac=char)`
+
+Now **[R]{.sans-serif}** stores the first column as *numeric* and the
+second column as a *factor*. `summary` gives a numerical summary of
+numeric variables and a table for categorical variables.
+
+`> class(dat[,2])`
+
+`> summary(dat)`
+
+Keeping track of column numbers can be tedious. It is often more
+convenient and cleaner to index by the column name. Name indexing uses
+the dollar sign (`$`) or double square braces (`[[]]`).
+
+`> dat$num # Or dat[["num"]]`
+
+`> dat$fac # Or dat[["fac"]]`
+
+Factors can be created explicitly (not just as a side effect of the
+`data.frame` function)
+
+`> fac = factor(char)`
+
+The `levels` function returns the levels of a factor.
+
+`> levels(fac)`
+

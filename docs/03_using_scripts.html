@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R</title>
+<title>Introduction to R - 3&nbsp; Using Scripts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_the_r_environment.html" rel="next">
+<link href="./04_objects.html" rel="next">
+<link href="./02_getting_started_with_r.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_using_scripts.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Using Scripts</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -112,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -130,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_using_scripts.html" class="sidebar-item-text sidebar-link">
+  <a href="./03_using_scripts.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Using Scripts</span></span></a>
   </div>
 </li>
@@ -198,15 +199,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
-  <ul class="collapse">
-  <li><a href="#creation-of-this-document" id="toc-creation-of-this-document" class="nav-link" data-scroll-target="#creation-of-this-document">Creation of this document</a></li>
-  <li><a href="#contact-information" id="toc-contact-information" class="nav-link" data-scroll-target="#contact-information">Contact information</a>
-  <ul class="collapse">
-  <li><a href="#cscar" id="toc-cscar" class="nav-link" data-scroll-target="#cscar">CSCAR</a></li>
-  </ul></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
-  </ul></li>
+  <li><a href="#scripts-in-r-gui" id="toc-scripts-in-r-gui" class="nav-link active" data-scroll-target="#scripts-in-r-gui"><span class="header-section-number">3.1</span> Scripts in <strong><span class="sans-serif">R</span></strong> GUI</a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"><span class="header-section-number">3.2</span> Comments</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio"><span class="header-section-number">3.3</span> <strong><span class="sans-serif">R</span></strong>Studio</a></li>
+  <li><a href="#sample-script" id="toc-sample-script" class="nav-link" data-scroll-target="#sample-script"><span class="header-section-number">3.4</span> Sample Script</a></li>
   </ul>
 </nav>
     </div>
@@ -215,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to R</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Using Scripts</span></h1>
 </div>
 
 
@@ -232,46 +228,75 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Last modified: 2024-02-09</p>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>These notes are split into four primary sections:</p>
+<p>Until now, we have submitted each command to <strong><span class="sans-serif">R</span></strong> by typing directly at the command prompt. In almost all situations, it is <strong>much</strong> better to type code in a separate file called a script file. There are many advantages of using script files.</p>
 <ul>
-<li><a href="01-the-basics-of-stata.html">Chapter 1: The Basics of Stata</a> - Interacting with Stata.</li>
-<li><a href="02-working-with-data-sets.html">Chapter 2: Working with Data Sets</a> - Importing, opening, and saving data sets.</li>
-<li><a href="03-data-management.html">Chapter 3: Data Management</a> - The basics of maintaining and exploring a data set.</li>
-<li><a href="04-data-manipulation.html">Chapter 4: Data Manipulation</a> - Creating and modifying variables and other ways of manipulating your data.</li>
+<li><p>Repeatability</p></li>
+<li><p>Editing</p></li>
+<li><p>Submitting many commands at once</p></li>
 </ul>
-<p>These sections will generally be presented in sequence. The discussion will alternate between theory and practice. The format will alternate between lecture and exercises. Please ask questions as soon as they arise in your mind. Please provide feedback or voice concerns.</p>
-<p>There are two additional sections:</p>
+<section id="scripts-in-r-gui" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="scripts-in-r-gui"><span class="header-section-number">3.1</span> Scripts in <strong><span class="sans-serif">R</span></strong> GUI</h2>
+<p>To open an <strong><span class="sans-serif">R</span></strong> script, go to File <code>-&gt;</code> New Script. You can type your commands in the resulting windows. It is useful to save your script files with a .R extension. Then the operating system recognizes this as an <strong><span class="sans-serif">R</span></strong> file.</p>
+<p>After opening a new script, type</p>
+<p><code>&gt; history()</code></p>
+<p>A new window will open with the last 25 commands you have used. You can get a longer history with, say,</p>
+<p><code>&gt; history(100)</code></p>
+<p>Select all your commands and copy-paste them to the new script. Save the file with a .R extension.</p>
+<p>There are several ways of submitting commands from the <strong><span class="sans-serif">R</span></strong> script window.</p>
 <ul>
-<li><a href="05-programming.html">Chapter 5: Programming &amp; Advanced Topics</a> - Topics for users who wish to move beyond the basics.</li>
-<li><a href="06-appendix.html">Appendix</a> - Houses the exercise solutions.</li>
+<li><p>Copy and Paste from the script window to the interpreter window</p></li>
+<li><p>Control-r</p></li>
+<li><p>The <code>source</code> command. If your file is saved as <em>myfile.R</em>, you can run all the commands in the file by typing the following line at the command prompt.</p>
+<p><code>&gt; source("myfile.R")</code></p>
+<p>In order for <strong><span class="sans-serif">R</span></strong> to read your script, you must use the full path or be in the correct working directory. To change the current working directory, go to File <code>-&gt;</code> Change Dir, then browse to the appropriate folder.</p>
+<p>To see the files in the current working directory, type:</p>
+<p><code>&gt; dir()</code></p>
+<p>Another possibility is to find the file using</p>
+<p><code>&gt; source(file.choose())</code></p>
+<p>but this does not change the working directory.</p></li>
 </ul>
-<section id="creation-of-this-document" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="creation-of-this-document">Creation of this document</h2>
-<p>These notes are published using <a href="https://quarto.org">Quarto</a>. The Stata code is first rendered using a Stata <a href="https://www.stata.com/manuals/rptdynamicdocumentsintro.pdf">dynamic document</a>. The source code for these notes can be found at <a href="https://github.com/CSCAR/workshop-stata-intro" class="uri">https://github.com/CSCAR/workshop-stata-intro</a> for the curious.</p>
-<p>All images should link to full-size versions to see detail if needed.</p>
-<p>Dark mode can be toggled on via the switch in the top left corner. Images are color-reversed in dark mode to avoid brightness; mouse over them (or click on mobile) to display originals.</p>
 </section>
-<section id="contact-information" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="contact-information">Contact information</h2>
-<section id="cscar" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="cscar">CSCAR</h3>
-<p><a href="http://cscar.research.umich.edu/" class="uri">http://cscar.research.umich.edu/</a></p>
-<p>CSCAR is available for free consultations with PhD statisticians (email deskpeople@umich.edu to request a consultation).</p>
-<p>CSCAR also has GSRAs available for more immediate help. Walk-ins to our office in Rackham are welcomed Monday-Friday 9am to 5pm (Closed Tuesdays 12-1pm). Alternatively, on our website, you can self-schedule into an hour consultation with the graduate students, which can be either remote or in-person (these are usually available same-day or next-day).</p>
-<p>CSCAR operates a email for help with statistical questions, feel free to send concise questions to stats-consulting@umich.edu.</p>
-<p>The current contact for questions about the notes: Josh Errickson (jerrick@umich.edu).</p>
+<section id="comments" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="comments"><span class="header-section-number">3.2</span> Comments</h2>
+<p>Documentation and formatting are essential to writing effective <strong><span class="sans-serif">R</span></strong> code. If you come back to a project after a few months (days? hours?), you want to know what the code is doing without retracing every single step. Comments in <strong><span class="sans-serif">R</span></strong> can be inserted with the <code>#</code> symbol. <strong><span class="sans-serif">R</span></strong> will not process the rest of the line after the <code>#</code>.</p>
+<p><code>&gt; 5 &lt; 6</code></p>
+<p><code>&gt; 5 # &lt; 6</code></p>
+<p>The following is an example of a commented <strong><span class="sans-serif">R</span></strong> script. Some of the functions we have used before; others will be explained later. Let’s open it in <strong><span class="sans-serif">R</span></strong>Studio and see what it does.</p>
 </section>
+<section id="rstudio" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">3.3</span> <strong><span class="sans-serif">R</span></strong>Studio</h2>
+<p><strong><span class="sans-serif">R</span></strong>Studio is an interface to <strong><span class="sans-serif">R</span></strong>. It organizes the user’s screen into windows that display programs (scripts), objects, graphics, and the <strong><span class="sans-serif">R</span></strong> interpreter. Launch <strong><span class="sans-serif">R</span></strong>Studio from the start menu. Click on the folder in the upper left corner and browse to the folder containing the script “sample script.R”. The following should open in the upper left window.</p>
 </section>
-<section id="acknowledgments" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>These notes have evolved over the years thanks to many CSCAR statisticians, including Josh Errickson, Giselle Kolenic, Brady West, Heidi Reichert, and Lingling Zhang.</p>
-<p>This material was created for use in workshops and short courses presented by faculty and staff from the Consulting for Statistics, Computing &amp; Analytics Research (CSCAR) at the University of Michigan. No part of this material may be used for other purposes, copied, changed, or sold.</p>
+<section id="sample-script" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sample-script"><span class="header-section-number">3.4</span> Sample Script</h2>
+<p># sample script.R</p>
+<p># Chris Andrews</p>
+<p># Created 2015 04 01</p>
+<p># Last Modified 2019 02 03</p>
+<p># This script analyzes the Life Cycle Savings data.</p>
+<p># See help(LifeCycleSavings) for more details.</p>
+<p>#</p>
+<p># Shorten the name and make local copy</p>
+<p>Life = LifeCycleSavings</p>
+<p># Examine Structure</p>
+<p>head(Life)</p>
+<p>dim(Life)</p>
+<p>str(Life)</p>
+<p># Descriptives</p>
+<p>summary(Life)</p>
+<p># Pairwise associations</p>
+<p>cor(Life)</p>
+<p>pairs(Life)</p>
+<p># Fit a multiple regression model</p>
+<p>mr.mod = lm(sr &nbsp; pop15 + pop75 + dpi + ddpi, data=Life)</p>
+<p>summary(mr.mod)</p>
+<p>anova(mr.mod)</p>
+<p># Plot the fit</p>
+<p>par(mfrow=c(2,2), las=1, mar=c(4.5,4.5,2,1))</p>
+<p>plot(mr.mod)</p>
+<p>Use “Ctrl-Enter” to submit each line of the script. Take note of what happens as each line is submitted to the interpreter.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -808,10 +833,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./02_getting_started_with_r.html" class="pagination-link  aria-label=" &lt;span="" started="" with="" **[r]{.sans-serif}**&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with <strong><span class="sans-serif">R</span></strong></span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_the_r_environment.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04_objects.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>Objects</span>">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Objects</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

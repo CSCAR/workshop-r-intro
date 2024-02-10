@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R</title>
+<title>Introduction to R - 4&nbsp; Objects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_the_r_environment.html" rel="next">
+<link href="./05_data_for_analysis.html" rel="next">
+<link href="./03_using_scripts.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -82,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_objects.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Objects</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -112,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -136,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_objects.html" class="sidebar-item-text sidebar-link">
+  <a href="./04_objects.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Objects</span></span></a>
   </div>
 </li>
@@ -198,15 +228,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link active" data-scroll-target="#assignment"><span class="header-section-number">4.1</span> Assignment</a></li>
+  <li><a href="#manipulating-objects" id="toc-manipulating-objects" class="nav-link" data-scroll-target="#manipulating-objects"><span class="header-section-number">4.2</span> Manipulating Objects</a></li>
+  <li><a href="#indexing-objects" id="toc-indexing-objects" class="nav-link" data-scroll-target="#indexing-objects"><span class="header-section-number">4.3</span> Indexing Objects</a>
   <ul class="collapse">
-  <li><a href="#creation-of-this-document" id="toc-creation-of-this-document" class="nav-link" data-scroll-target="#creation-of-this-document">Creation of this document</a></li>
-  <li><a href="#contact-information" id="toc-contact-information" class="nav-link" data-scroll-target="#contact-information">Contact information</a>
-  <ul class="collapse">
-  <li><a href="#cscar" id="toc-cscar" class="nav-link" data-scroll-target="#cscar">CSCAR</a></li>
+  <li><a href="#indexing-vectors" id="toc-indexing-vectors" class="nav-link" data-scroll-target="#indexing-vectors"><span class="header-section-number">4.3.1</span> Indexing Vectors</a></li>
+  <li><a href="#indexing-matrices" id="toc-indexing-matrices" class="nav-link" data-scroll-target="#indexing-matrices"><span class="header-section-number">4.3.2</span> Indexing Matrices</a></li>
   </ul></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
-  </ul></li>
+  <li><a href="#index-assignment" id="toc-index-assignment" class="nav-link" data-scroll-target="#index-assignment"><span class="header-section-number">4.4</span> Index Assignment</a></li>
+  <li><a href="#aside-missing-index" id="toc-aside-missing-index" class="nav-link" data-scroll-target="#aside-missing-index"><span class="header-section-number">4.5</span> Aside: Missing Index?</a></li>
+  <li><a href="#object-classes" id="toc-object-classes" class="nav-link" data-scroll-target="#object-classes"><span class="header-section-number">4.6</span> Object Classes</a></li>
+  <li><a href="#how-to-mix-variables-of-different-classes" id="toc-how-to-mix-variables-of-different-classes" class="nav-link" data-scroll-target="#how-to-mix-variables-of-different-classes"><span class="header-section-number">4.7</span> How to Mix Variables of Different Classes</a></li>
   </ul>
 </nav>
     </div>
@@ -215,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to R</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Objects</span></h1>
 </div>
 
 
@@ -232,46 +264,164 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Last modified: 2024-02-09</p>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>These notes are split into four primary sections:</p>
-<ul>
-<li><a href="01-the-basics-of-stata.html">Chapter 1: The Basics of Stata</a> - Interacting with Stata.</li>
-<li><a href="02-working-with-data-sets.html">Chapter 2: Working with Data Sets</a> - Importing, opening, and saving data sets.</li>
-<li><a href="03-data-management.html">Chapter 3: Data Management</a> - The basics of maintaining and exploring a data set.</li>
-<li><a href="04-data-manipulation.html">Chapter 4: Data Manipulation</a> - Creating and modifying variables and other ways of manipulating your data.</li>
-</ul>
-<p>These sections will generally be presented in sequence. The discussion will alternate between theory and practice. The format will alternate between lecture and exercises. Please ask questions as soon as they arise in your mind. Please provide feedback or voice concerns.</p>
-<p>There are two additional sections:</p>
-<ul>
-<li><a href="05-programming.html">Chapter 5: Programming &amp; Advanced Topics</a> - Topics for users who wish to move beyond the basics.</li>
-<li><a href="06-appendix.html">Appendix</a> - Houses the exercise solutions.</li>
-</ul>
-<section id="creation-of-this-document" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="creation-of-this-document">Creation of this document</h2>
-<p>These notes are published using <a href="https://quarto.org">Quarto</a>. The Stata code is first rendered using a Stata <a href="https://www.stata.com/manuals/rptdynamicdocumentsintro.pdf">dynamic document</a>. The source code for these notes can be found at <a href="https://github.com/CSCAR/workshop-stata-intro" class="uri">https://github.com/CSCAR/workshop-stata-intro</a> for the curious.</p>
-<p>All images should link to full-size versions to see detail if needed.</p>
-<p>Dark mode can be toggled on via the switch in the top left corner. Images are color-reversed in dark mode to avoid brightness; mouse over them (or click on mobile) to display originals.</p>
+<section id="assignment" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="assignment"><span class="header-section-number">4.1</span> Assignment</h2>
+<p>An <em>object</em> is an entity that contains information and can be manipulated by commands. <strong><span class="sans-serif">R</span></strong> has two main commands for assigning an object: ‘<span class="math inline">\(&lt;\)</span>-’ and ‘=’.</p>
+<p><code>&gt; x &lt;- 5</code></p>
+<p><code>&gt; x = 5</code></p>
+<p>We will use ‘=’ throughout this document. However, many <strong><span class="sans-serif">R</span></strong> users prefer ‘<code>&lt;-</code>’, because ‘=’ is used for other things, too. A third method is very rarely used:</p>
+<p><code>&gt; 5 -&gt; x</code></p>
+<p>Each of the previous commands assigns the number <code>5</code> to the object <code>x</code>. Notice that <strong><span class="sans-serif">R</span></strong> produces no output when the above commands are run. In order to see what <strong><span class="sans-serif">R</span></strong> has done, type:</p>
+<p><code>&gt; ls()</code></p>
+<p>and/or look at the environment window in the upper right corner. Now type</p>
+<p><code>&gt; x</code></p>
+<p>When you submit a command to <strong><span class="sans-serif">R</span></strong>, one of three things can happen.</p>
+<ol type="1">
+<li><p>You see a result: e.g.,</p>
+<p><code>&gt; x</code></p>
+<p><strong><span class="sans-serif">R</span></strong> prints the value of the expression.</p></li>
+<li><p>You see nothing except another command prompt: e.g.,</p>
+<p><code>&gt; y = log(x)</code></p>
+<p>For an assignment, <strong><span class="sans-serif">R</span></strong> stores the value of <code>log(x)</code> in the object <code>y</code>, but produces no output.</p></li>
+<li><p>You see an error message: e.g.,</p>
+<p><code>&gt; y = lg(x)</code></p>
+<p>Look at error messages – they can be informative!</p></li>
+</ol>
 </section>
-<section id="contact-information" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="contact-information">Contact information</h2>
-<section id="cscar" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="cscar">CSCAR</h3>
-<p><a href="http://cscar.research.umich.edu/" class="uri">http://cscar.research.umich.edu/</a></p>
-<p>CSCAR is available for free consultations with PhD statisticians (email deskpeople@umich.edu to request a consultation).</p>
-<p>CSCAR also has GSRAs available for more immediate help. Walk-ins to our office in Rackham are welcomed Monday-Friday 9am to 5pm (Closed Tuesdays 12-1pm). Alternatively, on our website, you can self-schedule into an hour consultation with the graduate students, which can be either remote or in-person (these are usually available same-day or next-day).</p>
-<p>CSCAR operates a email for help with statistical questions, feel free to send concise questions to stats-consulting@umich.edu.</p>
-<p>The current contact for questions about the notes: Josh Errickson (jerrick@umich.edu).</p>
+<section id="manipulating-objects" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="manipulating-objects"><span class="header-section-number">4.2</span> Manipulating Objects</h2>
+<p>We can perform mathematical operations on objects such as <code>x</code>.</p>
+<p><code>&gt; x + 2</code></p>
+<p>Notice that x has not changed:</p>
+<p><code>&gt; x</code></p>
+<p>We can change the value of x:</p>
+<p><code>&gt; x = x + 2</code></p>
+<p><code>&gt; x</code></p>
+<p><em>Cautionary Tip</em>: It is very important to use caution when writing over a variable as above. If you need to use <code>x</code> later on, be sure you are using the correct value!</p>
+<p>Start from scratch and perform operations on two objects.</p>
+<p><code>&gt; x = 5</code></p>
+<p><code>&gt; y = 2</code></p>
+<p><code>&gt; x - y</code></p>
+<p>If two objects are assigned to have the same value, they can be changed to differ. (Assigned by value not by assigned by reference, for those of you who know what that means.)</p>
+<p><code>&gt; a = 3</code></p>
+<p><code>&gt; b = a &nbsp;# Note: Assignment</code></p>
+<p><code>&gt; b == a # Note: Test of Equality</code></p>
+<p><code>&gt; a = a + 1</code></p>
+<p><code>&gt; a</code></p>
+<p>The value of <code>b</code> didn’t change.</p>
+<p><code>&gt; b</code></p>
+<p>Assign a vector of numbers to the object <code>x</code></p>
+<p><code>&gt; x = c(3, 5, 9, 10)</code></p>
+<p><code>&gt; x</code></p>
+<p>Get a list of the objects in the workspace.</p>
+<p><code>&gt; ls()</code></p>
+<p>Remove an object.</p>
+<p><code>&gt; rm(x)</code></p>
+</section>
+<section id="indexing-objects" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="indexing-objects"><span class="header-section-number">4.3</span> Indexing Objects</h2>
+<p>Situations frequently arise when you want to access select portions of a database. In this section, we discuss how to extract elements of vectors and matrices.</p>
+<section id="indexing-vectors" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="indexing-vectors"><span class="header-section-number">4.3.1</span> Indexing Vectors</h3>
+<p><code>&gt; x = c(13,21,99,10,0,-6)</code></p>
+<p>Suppose that we only need the first element of the vector <code>x</code>. To extract the first element, we type the name of the entire vector, followed by the index we want to extract enclosed in brackets.</p>
+<p><code>&gt; x[1]</code></p>
+<p>We can save the extracted part to a new object</p>
+<p><code>&gt; z = x[1]</code></p>
+<p><code>&gt; z</code></p>
+<p>We often will want to extract more than one element of a vector. Each of the following two lines of code extracts the first three elements of the vector <code>x</code>.</p>
+<p><code>&gt; x[c(1,2,3)]</code></p>
+<p><code>&gt; x[1:3]</code></p>
+<p>What happens if we try to extract the first three elements in the following way?</p>
+<p><code>&gt; x[1,2,3]</code></p>
+<p>Elements can be extracted in any order and elements can be extracted any number of times. All of the following are legitimate methods of extracting multiple elements from a vector.</p>
+<p><code>&gt; x[c(2,4,5)]</code></p>
+<p><code>&gt; x[c(4,5,1)]</code></p>
+<p><code>&gt; x[c(5,1,5,2,1,1,1,5)]</code></p>
+<p>The following code extracts all elements of x <em>except</em> the second.</p>
+<p><code>&gt; x[-2]</code></p>
+<p>What will this do?</p>
+<p><code>&gt; x[-c(2,4)]</code></p>
+</section>
+<section id="indexing-matrices" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="indexing-matrices"><span class="header-section-number">4.3.2</span> Indexing Matrices</h3>
+<p>To extract an element from a matrix, you may specify two values: the row value and the column value. The row and column are separated by a column.</p>
+<p><code>&gt; M1 = matrix(1:12, nrow=3, byrow=TRUE)</code> # (this is obj5 from before, so M1 = obj5 works too)</p>
+<p><code>&gt; M1</code></p>
+<p>Pick out the number from the second row and third column.</p>
+<p><code>&gt; M1[2,3]</code></p>
+<p>You can simultaneously select multiple rows and multiple columns.</p>
+<p><code>&gt; M1[2,c(1,3)]</code></p>
+<p><code>&gt; M1[c(2,3),c(1,2)]</code></p>
+<p>If nothing is specified in the row position (before the comma), then every row is kept. Similarly, every column is kept if nothing is specified in the column position.</p>
+<p><code>&gt; M1[,c(2,3)]</code></p>
+<p><code>&gt; M1[c(1,2),]</code></p>
+<p>If nothing is specified in either position, the entire matrix is returned.</p>
 </section>
 </section>
-<section id="acknowledgments" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>These notes have evolved over the years thanks to many CSCAR statisticians, including Josh Errickson, Giselle Kolenic, Brady West, Heidi Reichert, and Lingling Zhang.</p>
-<p>This material was created for use in workshops and short courses presented by faculty and staff from the Consulting for Statistics, Computing &amp; Analytics Research (CSCAR) at the University of Michigan. No part of this material may be used for other purposes, copied, changed, or sold.</p>
+<section id="index-assignment" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="index-assignment"><span class="header-section-number">4.4</span> Index Assignment</h2>
+<p>In addition to extracting certain indices, it is also possible to <em>assign</em> new values to certain elements of a vector or matrix.</p>
+<p>The following two lines of code change an element of the vector <code>x</code> and the matrix <code>M1</code>.</p>
+<p><code>&gt; x[3] = 5</code></p>
+<p><code>&gt; M1[2,3] = 6</code></p>
+</section>
+<section id="aside-missing-index" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="aside-missing-index"><span class="header-section-number">4.5</span> Aside: Missing Index?</h2>
+<p>If an index is missing, it might be any index. This is rarely what you want: Avoid missing values in your index.</p>
+<p><code>&gt; x[NA]</code></p>
+</section>
+<section id="object-classes" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="object-classes"><span class="header-section-number">4.6</span> Object Classes</h2>
+<p>So far we seem to have been working exclusively with numeric objects. <strong><span class="sans-serif">R</span></strong> can store objects of many different types. Suppose you are working with a data set that includes both quantitative and categorical variables. <strong><span class="sans-serif">R</span></strong> can store these as different classes. Let’s begin by looking at two basic classes, <code>numeric</code> and <code>character</code>.</p>
+<p><code>&gt; x = 12</code></p>
+<p><code>&gt; class(x)</code></p>
+<p><code>&gt; y = c(3,5,2)</code></p>
+<p><code>&gt; class(y)</code></p>
+<p><strong><span class="sans-serif">R</span></strong> stores both the number <code>12</code> and the vector <code>c(3,5,2)</code> as an object of the class <em>numeric</em>. Strings are stored as <em>characters</em>.</p>
+<p><code>&gt; x = "Hi"</code></p>
+<p><code>&gt; class(x)</code></p>
+<p><code>&gt; y = c("sample", "string")</code></p>
+<p><code>&gt; class(y)</code></p>
+<p>Elements of vectors and matrices must be of the same class.</p>
+<p><code>&gt; mix = c("aa", -2)</code></p>
+<p><code>&gt; mix</code></p>
+<p><code>&gt; class(mix)</code></p>
+<p><code>&gt; mix[2]</code></p>
+<p><code>&gt; class(mix[2])</code></p>
+<p>When working with data, this will create problems if a column representing a quantitative variable contains character text. The numeric is <em>promoted</em> to character.</p>
+</section>
+<section id="how-to-mix-variables-of-different-classes" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="how-to-mix-variables-of-different-classes"><span class="header-section-number">4.7</span> How to Mix Variables of Different Classes</h2>
+<p>Matrices are not well-suited for storing data sets. Data sets frequently contain different types of variables (quantitative, qualitative). Matrices force all elements to be of the same class. A <code>data.frame</code> is particularly adept at handling data of different classes.</p>
+<p><code>&gt; num = c(2,9,6,5)</code></p>
+<p><code>&gt; char = LETTERS[c(24,24:26)]</code></p>
+<p><code>&gt; dat = data.frame(num, char, stringsAsFactors=FALSE)</code></p>
+<p><code>&gt; dat</code></p>
+<p><code>&gt; class(dat)</code></p>
+<p>Though data analysts will rarely spend their time investigating a data set as small this one, exploring data sets such as these can be helpful in learning <strong><span class="sans-serif">R</span></strong>’s capabilities. In the following code, we investigate the names and dimensions of the data set <code>dat</code>; we also investigate the properties of the columns of <code>dat</code>.</p>
+<p><code>&gt; names(dat)</code></p>
+<p><code>&gt; dim(dat)</code></p>
+<p><code>&gt; nrow(dat)</code></p>
+<p><code>&gt; ncol(dat)</code></p>
+<p><code>&gt; class(dat[,1])</code></p>
+<p><code>&gt; class(dat[,2])</code></p>
+<p><strong><span class="sans-serif">R</span></strong> stores the first column as <em>numeric</em> and the second column as a <em>character</em>. <code>summary</code> gives a numerical summary of numeric variables and little useful information for character variables.</p>
+<p><code>&gt; summary(dat)</code></p>
+<p>It is likely that you want to store a categorical variable as a <em>factor</em> rather than a character vector. The default behavior of data.frame to do the conversion.</p>
+<p><code>&gt; dat = data.frame(num, fac=char)</code></p>
+<p>Now <strong><span class="sans-serif">R</span></strong> stores the first column as <em>numeric</em> and the second column as a <em>factor</em>. <code>summary</code> gives a numerical summary of numeric variables and a table for categorical variables.</p>
+<p><code>&gt; class(dat[,2])</code></p>
+<p><code>&gt; summary(dat)</code></p>
+<p>Keeping track of column numbers can be tedious. It is often more convenient and cleaner to index by the column name. Name indexing uses the dollar sign (<code>$</code>) or double square braces (<code>[[]]</code>).</p>
+<p><code>&gt; dat$num # Or dat[["num"]]</code></p>
+<p><code>&gt; dat$fac # Or dat[["fac"]]</code></p>
+<p>Factors can be created explicitly (not just as a side effect of the <code>data.frame</code> function)</p>
+<p><code>&gt; fac = factor(char)</code></p>
+<p>The <code>levels</code> function returns the levels of a factor.</p>
+<p><code>&gt; levels(fac)</code></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -808,10 +958,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./03_using_scripts.html" class="pagination-link  aria-label=" &lt;span="" scripts&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Using Scripts</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_the_r_environment.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05_data_for_analysis.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Data for Analysis</span>">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

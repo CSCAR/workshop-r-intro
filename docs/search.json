@@ -40,8 +40,8 @@
     ]
   },
   {
-    "objectID": "notes.html",
-    "href": "notes.html",
+    "objectID": "01_the_r_environment.html",
+    "href": "01_the_r_environment.html",
     "title": "1  The R Environment",
     "section": "",
     "text": "1.1 Why Are There So Many UseRs?\nThese are some of the likely reasons you are here today.",
@@ -50,8 +50,8 @@
     ]
   },
   {
-    "objectID": "notes.html#why-are-there-so-many-users",
-    "href": "notes.html#why-are-there-so-many-users",
+    "objectID": "01_the_r_environment.html#why-are-there-so-many-users",
+    "href": "01_the_r_environment.html#why-are-there-so-many-users",
     "title": "1  The R Environment",
     "section": "",
     "text": "1.1.1 Statistical Tools\nThe R environment contains many powerful tools for statistical analysis including\n\nLinear and Generalized Linear Models\nSurvival Analysis\nRandom and Mixed Effects Models\nClassification and Clustering\nSample Size and Power Calculations\nMultivariable analysis (FA, PCA, SEM, …)\n\nIn this workshop will see and use sample code for many of these analyses.\n\n\n1.1.2 Graphics\nMany researchers use R specifically for its excellent graphing capabilities. Graphics in R are easy to implement and modify. Once you are comfortable with R, you will have several powerful graphics packages at your fingertips. “Base graphics” has been supplemented by “grid graphics” and the “grammar of graphics.”\n\n\n1.1.3 Extensibility\nDespite the extensive built-in statistical techniques, the most powerful feature of R is the ability for users to extend R’s base capabilities. R is a full-fledged programming language that allows users to write their own functions. Users can contribute their own “packages” that build on R’s base capabilities. Users have contributed over 13,700 packages to CRAN (Comprehensive R Archive Network) as of March 2019.\n\n\n1.1.4 Cost ($0)\nR is open source: the source code behind the software is free for all to examine and extend. R grows by leaps and bounds as people from all fields develop new functions for use within R’s computing environment. This is part of what makes R so useful. Many complex statistical routines that not yet available in other statistical software systems have been programmed in R, and these routines are freely available for use by anyone.\n\n\n1.1.5 Operating Systems and GUIs\nR runs on Windows, MacOS, and a variety of Unix platforms. In Windows, there are at least four GUIs: the standard R GUI, RStudio, Tinn-R, and R Commander. We will be using the standard R GUI some and RStudio (www.rstudio.com) more. It organizes the user’s screen into panes that display programs/scripts, objects, graphics, and the R console. R Commander (www.rcommander.com), developed by John Fox at McMaster University, is a front-end for interacting with R through menus. This package can be useful to R beginners. It provides helpful tools for getting started and then displays the underlying R code for each analysis to help the user learn the programming language. Tinn-R (sourceforge.net/projects/tinn-r/) is another enhanced editor from Jose Claudio Faria.\n\n\n1.1.6 Reproducible Research\nR has several methods for integrating code, output, and interpretation into a single document. This allows consumers to confirm the original analysis and to investigate other approaches.",
@@ -60,8 +60,8 @@
     ]
   },
   {
-    "objectID": "notes.html#why-isnt-everyone-a-user",
-    "href": "notes.html#why-isnt-everyone-a-user",
+    "objectID": "01_the_r_environment.html#why-isnt-everyone-a-user",
+    "href": "01_the_r_environment.html#why-isnt-everyone-a-user",
     "title": "1  The R Environment",
     "section": "1.2 Why Isn’t Everyone a UseR?",
     "text": "1.2 Why Isn’t Everyone a UseR?\n\n1.2.1 One and Only\nMany users of statistics learn only one package: the one taught in their first introductory statistics course. Historically this has rarely been R, but there are signs this is changing.\n\n\n1.2.2 Steep Learning Curve\nIt can take time to get comfortable and productive with R. A user often interacts with R through typed commands, rather than via a point-and-click menu system. For users with minimal background writing code, it can take some time to get the hang of using R. Furthermore, while the help system is comprehensive for the base packages, it’s quality ranges for community-written packages. Don’t get frustrated! You don’t have to be an expert programmer to learn R. The benefits (flexibility, extensibility, speed) are worth spending some time up front.",
@@ -70,8 +70,8 @@
     ]
   },
   {
-    "objectID": "notes.html#suggestions-for-learning-r",
-    "href": "notes.html#suggestions-for-learning-r",
+    "objectID": "01_the_r_environment.html#suggestions-for-learning-r",
+    "href": "01_the_r_environment.html#suggestions-for-learning-r",
     "title": "1  The R Environment",
     "section": "1.3 Suggestions for Learning R",
     "text": "1.3 Suggestions for Learning R\n\nLearn interactively! Reading can help only so much. Most people learn R best by typing commands themselves.\nAsk questions of current R users, e.g., your instructor.\nLook at (and retype) lots of sample code. Experiment with modifications of the code. You won’t break R. You’ll see many examples in this workshop but there is much more online.\nDon’t worry about getting errors. Experienced R users make errors all the time. Base R has excellent error messages that are good learning opportunities themselves.\n\nwww.r-project.org: The R Home page, the central webpage for the R project. Here you will find links for downloading R, downloading additional packages for R, and almost everything else that you would like to know about the software or the people behind it.\ncran.r-project.org/web/views/: Task views summarize the most important packages involved in a subject field or analysis type.\njournal.r-project.org: The R Journal\nstats.stackexchange.com: Cross-Validated\nwww.r-bloggers.com\nstats.idre.ucla.edu/r/: Institute for Digital Research and Education at UCLA\nsocialsciences.mcmaster.ca/jfox/: John Fox’s home page\nsas-and-r.blogspot.com/: Examples of code to perform same task in each language",
@@ -80,8 +80,8 @@
     ]
   },
   {
-    "objectID": "notes.html#how-to-obtain-r",
-    "href": "notes.html#how-to-obtain-r",
+    "objectID": "01_the_r_environment.html#how-to-obtain-r",
+    "href": "01_the_r_environment.html#how-to-obtain-r",
     "title": "1  The R Environment",
     "section": "1.4 How To Obtain R",
     "text": "1.4 How To Obtain R\nR is already installed on the lab workstations. The following information is useful if you need to install R on another machine.\nAt the R Project Web Page (www.r-project.org) the most important link is at the left hand side of the screen, under the “Download” heading. Click on the CRAN link (Comprehensive R Archive Network), and, after you choose one of the U.S. mirrors, you will be taken to the page that you will use to download everything R-related.\nOnce you find the CRAN web page, take the following steps to obtain R:\n\nClick on “Download R for XXX” that best describes your operating system (Linux, OS X, Windows).\nWhen using Windows, click on the “base” subdirectory. This will allow you to download the base R packages.\nClick the “Download R 3.X.X for Windows” link. R is updated quite frequently. At the time of this printing, version 3.5.2 is available. Save the .exe file somewhere on your computer.\nDouble-click on the .exe file once it has been downloaded. A wizard will appear that will guide you through the setup of the R software on your machine.\nOnce you are finished, you should have an R icon on your desktop that gives you a shortcut to the R system. Double-click on this icon, and you are ready to go!\n\n\n1.4.1 How to Obtain RStudio\nRStudio is already installed on the lab workstations. The following information is useful if you need to install RStudio on another machine.\nVisit (www.rstudio.com) and download the free desktop version of RStudio.\n\n\n1.4.2 Contributed Packages\nWhat exactly are “additional contributed packages”? R is an open source software environment, so users are free to explore the code behind the software and to write their own new code. Statisticians, researchers, and other users have written additional packages for R that perform complex analyses (and simple ones!). In order to use these packages and the functions within them, you first need to download them. Base R comprises many packages, but odds are that you will discover an uncommon analysis technique in your research that requires you to install an additional package that is not included by default.\nThese additional packages are usually found CRAN. However, there are other repositories as well (e.g., bioconductor, github).",
@@ -90,373 +90,423 @@
     ]
   },
   {
-    "objectID": "notes.html#using-r-as-a-calculator",
-    "href": "notes.html#using-r-as-a-calculator",
-    "title": "1  The R Environment",
-    "section": "2.1 Using R as a Calculator",
+    "objectID": "02_getting_started_with_r.html",
+    "href": "02_getting_started_with_r.html",
+    "title": "2  Getting Started with R",
+    "section": "",
     "text": "2.1 Using R as a Calculator\nR can perform basic arithmetic operations. Type the following expressions at the command prompt in the R console window.\n&gt; 5+3\n&gt; 5-3\n&gt; 5/3\n&gt; 5*3\n&gt; 5^3\n&gt; 4 + 2 * 3\n&gt; (4 + 2) * 3\nIf you have missing input (represented in R by NA), the output will likely be missing:\n&gt; (4 + NA) * 3\nIf you try something mathematically shoddy, you will likely be told:\n&gt; 0 / 0\n&gt; 1 / 0\n&gt; -1 / 0\nR has many built-in mathematical functions.\n&gt; log(100)\n&gt; sqrt(9)\n&gt; sqrt(-9)\n&gt; sqrt(-9 + 0i)\nThis is your first indication that an R function may behave differently depending on the type of input.\n&gt; sqrt(NA)\n&gt; exp(1)\nAn argument is a parameter that is passed to a function. The sqrt and exp functions only take a single argument. Many functions, including log, take more than one argument. Arguments are separated by commas.\n&gt; round(5.123, 2)\nIf not all arguments are provided, R may use a default value.\n&gt; round(5.123)\nSome other basic functions:\n&gt; ceiling(5.123)\n&gt; floor(5.123)\nThe “Remainder” and Integer Division operations:\n&gt; 17 %% 5\n&gt; 17 %/% 5\nReview of logarithms If \\(a^y = x\\), then \\(\\log_a(x) = y\\). For example, \\(10^2 = 100\\) and \\(\\log_{10}(100) = 2\\). Three common choices of the base are \\(10\\), \\(2\\), and \\(e\\). What is the default choice in R?\n&gt; log(10)\n&gt; log(2)\n&gt; log(exp(1))\nSuppose you are working with a dataset and you wish to apply the \\(\\log_{10}\\) transformation. How can we instruct R to take logarithms base 10? R’s help pages are good sources of information for questions such as these. Two ways to view a function’s help page are ‘?’ and ‘help’. A more generic approach might be searching “take log in r” with your favorite search engine.\n&gt; ?log\n&gt; help(log)\nThe log function can take two arguments including the base argument. Arguments can be specified in several ways.\nThe argument name can be stated explicitly:\n&gt; log(x=25, base=5)\nThe argument name can be abbreviated as long as the abbreviation is unique:\n&gt; log(x=25, b=5)\nNot all arguments need to be named:\n&gt; log(25, b=5)\n&gt; log(b=5, 25)\nWe don’t have to use the argument names at all, in which case the arguments are matched by the order listed. Compare\n&gt; log(25, 5)\n&gt; log(5, 25)\nR may return an error if you incorrectly name a function argument.\n&gt; log(25, be=5)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Started with **[R]{.sans-serif}**</span>"
     ]
   },
   {
-    "objectID": "notes.html#making-comparisons-logical-operators",
-    "href": "notes.html#making-comparisons-logical-operators",
-    "title": "1  The R Environment",
+    "objectID": "02_getting_started_with_r.html#making-comparisons-logical-operators",
+    "href": "02_getting_started_with_r.html#making-comparisons-logical-operators",
+    "title": "2  Getting Started with R",
     "section": "2.2 Making Comparisons: Logical Operators",
     "text": "2.2 Making Comparisons: Logical Operators\nR has logical operators that will return “TRUE” or “FALSE” (or possibly “NA” if you have missing values).\n&gt; 5 == 6\n&gt; 5 != 6\n&gt; 5 &lt; 6\n&gt; 5 &gt; 6\n&gt; 5 &lt;= 6\n&gt; 5 &lt;= NA\n&gt; 5 &lt;= Inf\n&gt; !TRUE\n&gt; (1 + 2) == 3\nR has “and” and “or” operators (there are others):\n&gt; (5 &lt; 6) & (7 == 8)\n&gt; (5 &lt; 6) | (7 == 8)\n&gt; (5 &lt; 6) | NA\nBe careful of comparisons and floating point arithmetic:\n&gt; (.1 + .2) == .3\n&gt; 5 == sqrt(5)^2\n&gt; 5 - sqrt(5)^2\nThe all.equal function will test if two values are “close enough”:\n&gt; all.equal(5, sqrt(5)^2)\n&gt; ?all.equal\nThis is not bug of R. It is a feature of computers using binary representation of floating point numbers and storing them with finite precision. This is common enough to make the R FAQ (7.31): https://cran.r-project.org/doc/FAQ/R-FAQ.html. To quote from “The Elements of Programming Style” by Kernighan and Plauger: “10.0 times 0.1 is hardly ever 1.0.”",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Started with **[R]{.sans-serif}**</span>"
     ]
   },
   {
-    "objectID": "notes.html#vectors-and-sequences",
-    "href": "notes.html#vectors-and-sequences",
-    "title": "1  The R Environment",
+    "objectID": "02_getting_started_with_r.html#vectors-and-sequences",
+    "href": "02_getting_started_with_r.html#vectors-and-sequences",
+    "title": "2  Getting Started with R",
     "section": "2.3 Vectors and Sequences",
     "text": "2.3 Vectors and Sequences\nR is a ‘vectorized’ language. Many functions operate on an entire vector of numbers as easily as on a single number. This feature allows the user to think in terms of manipulating entire data variables rather than one data element at a time. For example (once we have learned about storing objects), we can write mean(Height) or hist(Height) to analyze a variable, rather than working with the individual data values.\nThus it is important to be able to create and manipulate vectors. Numbers can be combined into a vector with the function ‘c’, which stands for combine.\n&gt; c(3, 9, 2)\nThe following commands produce exactly the same output, namely a vector with the integers 1 to 10. In R, there are often many ways of doing the same thing.\n&gt; c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n&gt; 1:10\n&gt; seq(1, 10, 1)\n&gt; seq_len(10)\n&gt; ?seq\nYou can specify a sequence’s increment or length using the by and length arguments.\n&gt; seq(0, 200, by=4)\n&gt; seq(0, 200, length=13)\n&gt; rep(3, 12)\nIn R, functions can be nested. In the following examples, the inner function, c, is used to create a vector and the outer function uses that vector as an argument.\n&gt; rep(c(3,9,2), times=4)\n&gt; rep(c(3,9,2), each=4)\n&gt; rep(c(3,9,2), length=12)\n&gt; rep(c(3,9,2), times=c(2,9,1))",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Started with **[R]{.sans-serif}**</span>"
     ]
   },
   {
-    "objectID": "notes.html#matrices-and-arrays",
-    "href": "notes.html#matrices-and-arrays",
-    "title": "1  The R Environment",
+    "objectID": "02_getting_started_with_r.html#matrices-and-arrays",
+    "href": "02_getting_started_with_r.html#matrices-and-arrays",
+    "title": "2  Getting Started with R",
     "section": "2.4 Matrices and Arrays",
     "text": "2.4 Matrices and Arrays\nIn R, a matrix or an array is just a vector with a dimension attribute. The matrix command can rearrange a vector into a matrix.\n&gt; matrix(1:12, nrow=3)\nWhat happens if we don’t specify the number of rows using the argument nrow?\n&gt; matrix(1:12)\nThe result is still a matrix, but the default is to put each element in a separate row. What happens if we specify an inappropriate number of rows?\n&gt; matrix(1:12, nrow=5)\nWhen the number of rows and the number of elements are not coherent, R issues a warning.\nA vector has 1 dimension; a matrix has 2 dimensions; an array can have any number of dimensions. These have 3 dimensions:\n&gt; array(1:12, dim=c(2,2,3))\n&gt; array(1:12, dim=c(2,3,2))",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Started with **[R]{.sans-serif}**</span>"
     ]
   },
   {
-    "objectID": "notes.html#scripts-in-r-gui",
-    "href": "notes.html#scripts-in-r-gui",
-    "title": "1  The R Environment",
-    "section": "3.1 Scripts in R GUI",
-    "text": "3.1 Scripts in R GUI\nTo open an R script, go to File -&gt; New Script. You can type your commands in the resulting windows. It is useful to save your script files with a .R extension. Then the operating system recognizes this as an R file.\nAfter opening a new script, type\n&gt; history()\nA new window will open with the last 25 commands you have used. You can get a longer history with, say,\n&gt; history(100)\nSelect all your commands and copy-paste them to the new script. Save the file with a .R extension.\nThere are several ways of submitting commands from the R script window.\n\nCopy and Paste from the script window to the interpreter window\nControl-r\nThe source command. If your file is saved as myfile.R, you can run all the commands in the file by typing the following line at the command prompt.\n&gt; source(\"myfile.R\")\nIn order for R to read your script, you must use the full path or be in the correct working directory. To change the current working directory, go to File -&gt; Change Dir, then browse to the appropriate folder.\nTo see the files in the current working directory, type:\n&gt; dir()\nAnother possibility is to find the file using\n&gt; source(file.choose())\nbut this does not change the working directory.",
+    "objectID": "03_using_scripts.html",
+    "href": "03_using_scripts.html",
+    "title": "3  Using Scripts",
+    "section": "",
+    "text": "3.1 Scripts in R GUI\nTo open an R script, go to File -&gt; New Script. You can type your commands in the resulting windows. It is useful to save your script files with a .R extension. Then the operating system recognizes this as an R file.\nAfter opening a new script, type\n&gt; history()\nA new window will open with the last 25 commands you have used. You can get a longer history with, say,\n&gt; history(100)\nSelect all your commands and copy-paste them to the new script. Save the file with a .R extension.\nThere are several ways of submitting commands from the R script window.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Using Scripts</span>"
     ]
   },
   {
-    "objectID": "notes.html#comments",
-    "href": "notes.html#comments",
-    "title": "1  The R Environment",
+    "objectID": "03_using_scripts.html#scripts-in-r-gui",
+    "href": "03_using_scripts.html#scripts-in-r-gui",
+    "title": "3  Using Scripts",
+    "section": "",
+    "text": "Copy and Paste from the script window to the interpreter window\nControl-r\nThe source command. If your file is saved as myfile.R, you can run all the commands in the file by typing the following line at the command prompt.\n&gt; source(\"myfile.R\")\nIn order for R to read your script, you must use the full path or be in the correct working directory. To change the current working directory, go to File -&gt; Change Dir, then browse to the appropriate folder.\nTo see the files in the current working directory, type:\n&gt; dir()\nAnother possibility is to find the file using\n&gt; source(file.choose())\nbut this does not change the working directory.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Using Scripts</span>"
+    ]
+  },
+  {
+    "objectID": "03_using_scripts.html#comments",
+    "href": "03_using_scripts.html#comments",
+    "title": "3  Using Scripts",
     "section": "3.2 Comments",
     "text": "3.2 Comments\nDocumentation and formatting are essential to writing effective R code. If you come back to a project after a few months (days? hours?), you want to know what the code is doing without retracing every single step. Comments in R can be inserted with the # symbol. R will not process the rest of the line after the #.\n&gt; 5 &lt; 6\n&gt; 5 # &lt; 6\nThe following is an example of a commented R script. Some of the functions we have used before; others will be explained later. Let’s open it in RStudio and see what it does.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Using Scripts</span>"
     ]
   },
   {
-    "objectID": "notes.html#rstudio",
-    "href": "notes.html#rstudio",
-    "title": "1  The R Environment",
+    "objectID": "03_using_scripts.html#rstudio",
+    "href": "03_using_scripts.html#rstudio",
+    "title": "3  Using Scripts",
     "section": "3.3 RStudio",
     "text": "3.3 RStudio\nRStudio is an interface to R. It organizes the user’s screen into windows that display programs (scripts), objects, graphics, and the R interpreter. Launch RStudio from the start menu. Click on the folder in the upper left corner and browse to the folder containing the script “sample script.R”. The following should open in the upper left window.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Using Scripts</span>"
     ]
   },
   {
-    "objectID": "notes.html#sample-script",
-    "href": "notes.html#sample-script",
-    "title": "1  The R Environment",
+    "objectID": "03_using_scripts.html#sample-script",
+    "href": "03_using_scripts.html#sample-script",
+    "title": "3  Using Scripts",
     "section": "3.4 Sample Script",
     "text": "3.4 Sample Script\n# sample script.R\n# Chris Andrews\n# Created 2015 04 01\n# Last Modified 2019 02 03\n# This script analyzes the Life Cycle Savings data.\n# See help(LifeCycleSavings) for more details.\n#\n# Shorten the name and make local copy\nLife = LifeCycleSavings\n# Examine Structure\nhead(Life)\ndim(Life)\nstr(Life)\n# Descriptives\nsummary(Life)\n# Pairwise associations\ncor(Life)\npairs(Life)\n# Fit a multiple regression model\nmr.mod = lm(sr   pop15 + pop75 + dpi + ddpi, data=Life)\nsummary(mr.mod)\nanova(mr.mod)\n# Plot the fit\npar(mfrow=c(2,2), las=1, mar=c(4.5,4.5,2,1))\nplot(mr.mod)\nUse “Ctrl-Enter” to submit each line of the script. Take note of what happens as each line is submitted to the interpreter.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Using Scripts</span>"
     ]
   },
   {
-    "objectID": "notes.html#assignment",
-    "href": "notes.html#assignment",
-    "title": "1  The R Environment",
-    "section": "4.1 Assignment",
-    "text": "4.1 Assignment\nAn object is an entity that contains information and can be manipulated by commands. R has two main commands for assigning an object: ‘\\(&lt;\\)-’ and ‘=’.\n&gt; x &lt;- 5\n&gt; x = 5\nWe will use ‘=’ throughout this document. However, many R users prefer ‘&lt;-’, because ‘=’ is used for other things, too. A third method is very rarely used:\n&gt; 5 -&gt; x\nEach of the previous commands assigns the number 5 to the object x. Notice that R produces no output when the above commands are run. In order to see what R has done, type:\n&gt; ls()\nand/or look at the environment window in the upper right corner. Now type\n&gt; x\nWhen you submit a command to R, one of three things can happen.\n\nYou see a result: e.g.,\n&gt; x\nR prints the value of the expression.\nYou see nothing except another command prompt: e.g.,\n&gt; y = log(x)\nFor an assignment, R stores the value of log(x) in the object y, but produces no output.\nYou see an error message: e.g.,\n&gt; y = lg(x)\nLook at error messages – they can be informative!",
+    "objectID": "04_objects.html",
+    "href": "04_objects.html",
+    "title": "4  Objects",
+    "section": "",
+    "text": "4.1 Assignment\nAn object is an entity that contains information and can be manipulated by commands. R has two main commands for assigning an object: ‘\\(&lt;\\)-’ and ‘=’.\n&gt; x &lt;- 5\n&gt; x = 5\nWe will use ‘=’ throughout this document. However, many R users prefer ‘&lt;-’, because ‘=’ is used for other things, too. A third method is very rarely used:\n&gt; 5 -&gt; x\nEach of the previous commands assigns the number 5 to the object x. Notice that R produces no output when the above commands are run. In order to see what R has done, type:\n&gt; ls()\nand/or look at the environment window in the upper right corner. Now type\n&gt; x\nWhen you submit a command to R, one of three things can happen.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Objects</span>"
     ]
   },
   {
-    "objectID": "notes.html#manipulating-objects",
-    "href": "notes.html#manipulating-objects",
-    "title": "1  The R Environment",
+    "objectID": "04_objects.html#assignment",
+    "href": "04_objects.html#assignment",
+    "title": "4  Objects",
+    "section": "",
+    "text": "You see a result: e.g.,\n&gt; x\nR prints the value of the expression.\nYou see nothing except another command prompt: e.g.,\n&gt; y = log(x)\nFor an assignment, R stores the value of log(x) in the object y, but produces no output.\nYou see an error message: e.g.,\n&gt; y = lg(x)\nLook at error messages – they can be informative!",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Objects</span>"
+    ]
+  },
+  {
+    "objectID": "04_objects.html#manipulating-objects",
+    "href": "04_objects.html#manipulating-objects",
+    "title": "4  Objects",
     "section": "4.2 Manipulating Objects",
     "text": "4.2 Manipulating Objects\nWe can perform mathematical operations on objects such as x.\n&gt; x + 2\nNotice that x has not changed:\n&gt; x\nWe can change the value of x:\n&gt; x = x + 2\n&gt; x\nCautionary Tip: It is very important to use caution when writing over a variable as above. If you need to use x later on, be sure you are using the correct value!\nStart from scratch and perform operations on two objects.\n&gt; x = 5\n&gt; y = 2\n&gt; x - y\nIf two objects are assigned to have the same value, they can be changed to differ. (Assigned by value not by assigned by reference, for those of you who know what that means.)\n&gt; a = 3\n&gt; b = a  # Note: Assignment\n&gt; b == a # Note: Test of Equality\n&gt; a = a + 1\n&gt; a\nThe value of b didn’t change.\n&gt; b\nAssign a vector of numbers to the object x\n&gt; x = c(3, 5, 9, 10)\n&gt; x\nGet a list of the objects in the workspace.\n&gt; ls()\nRemove an object.\n&gt; rm(x)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Objects</span>"
     ]
   },
   {
-    "objectID": "notes.html#indexing-objects",
-    "href": "notes.html#indexing-objects",
-    "title": "1  The R Environment",
+    "objectID": "04_objects.html#indexing-objects",
+    "href": "04_objects.html#indexing-objects",
+    "title": "4  Objects",
     "section": "4.3 Indexing Objects",
     "text": "4.3 Indexing Objects\nSituations frequently arise when you want to access select portions of a database. In this section, we discuss how to extract elements of vectors and matrices.\n\n4.3.1 Indexing Vectors\n&gt; x = c(13,21,99,10,0,-6)\nSuppose that we only need the first element of the vector x. To extract the first element, we type the name of the entire vector, followed by the index we want to extract enclosed in brackets.\n&gt; x[1]\nWe can save the extracted part to a new object\n&gt; z = x[1]\n&gt; z\nWe often will want to extract more than one element of a vector. Each of the following two lines of code extracts the first three elements of the vector x.\n&gt; x[c(1,2,3)]\n&gt; x[1:3]\nWhat happens if we try to extract the first three elements in the following way?\n&gt; x[1,2,3]\nElements can be extracted in any order and elements can be extracted any number of times. All of the following are legitimate methods of extracting multiple elements from a vector.\n&gt; x[c(2,4,5)]\n&gt; x[c(4,5,1)]\n&gt; x[c(5,1,5,2,1,1,1,5)]\nThe following code extracts all elements of x except the second.\n&gt; x[-2]\nWhat will this do?\n&gt; x[-c(2,4)]\n\n\n4.3.2 Indexing Matrices\nTo extract an element from a matrix, you may specify two values: the row value and the column value. The row and column are separated by a column.\n&gt; M1 = matrix(1:12, nrow=3, byrow=TRUE) # (this is obj5 from before, so M1 = obj5 works too)\n&gt; M1\nPick out the number from the second row and third column.\n&gt; M1[2,3]\nYou can simultaneously select multiple rows and multiple columns.\n&gt; M1[2,c(1,3)]\n&gt; M1[c(2,3),c(1,2)]\nIf nothing is specified in the row position (before the comma), then every row is kept. Similarly, every column is kept if nothing is specified in the column position.\n&gt; M1[,c(2,3)]\n&gt; M1[c(1,2),]\nIf nothing is specified in either position, the entire matrix is returned.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Objects</span>"
     ]
   },
   {
-    "objectID": "notes.html#index-assignment",
-    "href": "notes.html#index-assignment",
-    "title": "1  The R Environment",
+    "objectID": "04_objects.html#index-assignment",
+    "href": "04_objects.html#index-assignment",
+    "title": "4  Objects",
     "section": "4.4 Index Assignment",
     "text": "4.4 Index Assignment\nIn addition to extracting certain indices, it is also possible to assign new values to certain elements of a vector or matrix.\nThe following two lines of code change an element of the vector x and the matrix M1.\n&gt; x[3] = 5\n&gt; M1[2,3] = 6",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Objects</span>"
     ]
   },
   {
-    "objectID": "notes.html#aside-missing-index",
-    "href": "notes.html#aside-missing-index",
-    "title": "1  The R Environment",
+    "objectID": "04_objects.html#aside-missing-index",
+    "href": "04_objects.html#aside-missing-index",
+    "title": "4  Objects",
     "section": "4.5 Aside: Missing Index?",
     "text": "4.5 Aside: Missing Index?\nIf an index is missing, it might be any index. This is rarely what you want: Avoid missing values in your index.\n&gt; x[NA]",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Objects</span>"
     ]
   },
   {
-    "objectID": "notes.html#object-classes",
-    "href": "notes.html#object-classes",
-    "title": "1  The R Environment",
+    "objectID": "04_objects.html#object-classes",
+    "href": "04_objects.html#object-classes",
+    "title": "4  Objects",
     "section": "4.6 Object Classes",
     "text": "4.6 Object Classes\nSo far we seem to have been working exclusively with numeric objects. R can store objects of many different types. Suppose you are working with a data set that includes both quantitative and categorical variables. R can store these as different classes. Let’s begin by looking at two basic classes, numeric and character.\n&gt; x = 12\n&gt; class(x)\n&gt; y = c(3,5,2)\n&gt; class(y)\nR stores both the number 12 and the vector c(3,5,2) as an object of the class numeric. Strings are stored as characters.\n&gt; x = \"Hi\"\n&gt; class(x)\n&gt; y = c(\"sample\", \"string\")\n&gt; class(y)\nElements of vectors and matrices must be of the same class.\n&gt; mix = c(\"aa\", -2)\n&gt; mix\n&gt; class(mix)\n&gt; mix[2]\n&gt; class(mix[2])\nWhen working with data, this will create problems if a column representing a quantitative variable contains character text. The numeric is promoted to character.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Objects</span>"
     ]
   },
   {
-    "objectID": "notes.html#how-to-mix-variables-of-different-classes",
-    "href": "notes.html#how-to-mix-variables-of-different-classes",
-    "title": "1  The R Environment",
+    "objectID": "04_objects.html#how-to-mix-variables-of-different-classes",
+    "href": "04_objects.html#how-to-mix-variables-of-different-classes",
+    "title": "4  Objects",
     "section": "4.7 How to Mix Variables of Different Classes",
     "text": "4.7 How to Mix Variables of Different Classes\nMatrices are not well-suited for storing data sets. Data sets frequently contain different types of variables (quantitative, qualitative). Matrices force all elements to be of the same class. A data.frame is particularly adept at handling data of different classes.\n&gt; num = c(2,9,6,5)\n&gt; char = LETTERS[c(24,24:26)]\n&gt; dat = data.frame(num, char, stringsAsFactors=FALSE)\n&gt; dat\n&gt; class(dat)\nThough data analysts will rarely spend their time investigating a data set as small this one, exploring data sets such as these can be helpful in learning R’s capabilities. In the following code, we investigate the names and dimensions of the data set dat; we also investigate the properties of the columns of dat.\n&gt; names(dat)\n&gt; dim(dat)\n&gt; nrow(dat)\n&gt; ncol(dat)\n&gt; class(dat[,1])\n&gt; class(dat[,2])\nR stores the first column as numeric and the second column as a character. summary gives a numerical summary of numeric variables and little useful information for character variables.\n&gt; summary(dat)\nIt is likely that you want to store a categorical variable as a factor rather than a character vector. The default behavior of data.frame to do the conversion.\n&gt; dat = data.frame(num, fac=char)\nNow R stores the first column as numeric and the second column as a factor. summary gives a numerical summary of numeric variables and a table for categorical variables.\n&gt; class(dat[,2])\n&gt; summary(dat)\nKeeping track of column numbers can be tedious. It is often more convenient and cleaner to index by the column name. Name indexing uses the dollar sign ($) or double square braces ([[]]).\n&gt; dat$num # Or dat[[\"num\"]]\n&gt; dat$fac # Or dat[[\"fac\"]]\nFactors can be created explicitly (not just as a side effect of the data.frame function)\n&gt; fac = factor(char)\nThe levels function returns the levels of a factor.\n&gt; levels(fac)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Objects</span>"
     ]
   },
   {
-    "objectID": "notes.html#creating-data-random-numbers",
-    "href": "notes.html#creating-data-random-numbers",
-    "title": "1  The R Environment",
-    "section": "5.1 Creating Data: Random numbers",
-    "text": "5.1 Creating Data: Random numbers\nR has excellent number generating capabilities. This makes R a good programming environment for simulation studies. The rnorm function randomly draws from a univariate normal distribution. (The ‘r’ stands for random.)\n&gt; rnorm(3)\n&gt; rnorm(3, mean=10, sd=0.5)\n&gt; x = rnorm(100, mean=10, sd=2)\n&gt; hist(x, col=\"blue\", main=\"100 Random Numbers from a Normal Distribution\")\nSee help(rnorm) for more details. You can generate from many distributions using functions such as rnorm, rt, rf, rbinom, runif, rexp, and rgamma.\n\n5.1.1 Functions about Probability Distributions\nR is also a source of exact probability tables and therefore eliminates the need to flip to the back of a statistics textbook to calculate probabilities under curves or critical values. For example, you can calculate the 95% critical value of a t distribution with 34 degrees of freedom with the following command:\n&gt; qt(0.975, df=34)\nWe can find the critical value of a standard normal distribution using qnorm. (The ‘q’ stands for quantile function.)\n&gt; qnorm(0.975)\nWe can also find cumulative probabilities needed for p-values. (The ‘p’ stands for probability function.)\n&gt; pnorm(-1.96)",
+    "objectID": "05_data_for_analysis.html",
+    "href": "05_data_for_analysis.html",
+    "title": "5  Data for Analysis",
+    "section": "",
+    "text": "5.1 Creating Data: Random numbers\nR has excellent number generating capabilities. This makes R a good programming environment for simulation studies. The rnorm function randomly draws from a univariate normal distribution. (The ‘r’ stands for random.)\n&gt; rnorm(3)\n&gt; rnorm(3, mean=10, sd=0.5)\n&gt; x = rnorm(100, mean=10, sd=2)\n&gt; hist(x, col=\"blue\", main=\"100 Random Numbers from a Normal Distribution\")\nSee help(rnorm) for more details. You can generate from many distributions using functions such as rnorm, rt, rf, rbinom, runif, rexp, and rgamma.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data for Analysis</span>"
     ]
   },
   {
-    "objectID": "notes.html#reading-data-from-files",
-    "href": "notes.html#reading-data-from-files",
-    "title": "1  The R Environment",
+    "objectID": "05_data_for_analysis.html#creating-data-random-numbers",
+    "href": "05_data_for_analysis.html#creating-data-random-numbers",
+    "title": "5  Data for Analysis",
+    "section": "",
+    "text": "5.1.1 Functions about Probability Distributions\nR is also a source of exact probability tables and therefore eliminates the need to flip to the back of a statistics textbook to calculate probabilities under curves or critical values. For example, you can calculate the 95% critical value of a t distribution with 34 degrees of freedom with the following command:\n&gt; qt(0.975, df=34)\nWe can find the critical value of a standard normal distribution using qnorm. (The ‘q’ stands for quantile function.)\n&gt; qnorm(0.975)\nWe can also find cumulative probabilities needed for p-values. (The ‘p’ stands for probability function.)\n&gt; pnorm(-1.96)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data for Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05_data_for_analysis.html#reading-data-from-files",
+    "href": "05_data_for_analysis.html#reading-data-from-files",
+    "title": "5  Data for Analysis",
     "section": "5.2 Reading data from files",
     "text": "5.2 Reading data from files\nResearchers often analyze data that are stored in spread-sheet or text formats. The most common function to import data is read.table. Before looking at an example of how read.table is used, let’s consider common issues that arise when reading data into any program.\n\nWhat is the file name?\nWhat is the file type?\nWhere is the file located?\nDoes the file include variable names?\nHow are fields separated (e.g., tab, comma, white-space)?\nHow are missing values stored?\n\nThe read.table function is used in R for importing text data into data set objects. This function requires that you have a valid data table in a text format (where rows are observations, and columns are variables) with every cell containing a data point. If there are any blanks, the function may not work properly. Missing values by default should be coded as NA before attempting to import text data. Columns should be separated by white space.\nThe read.table function has arguments that allow the user to control data importation features.\n&gt; help(read.table)\nThe four most important arguments to the read.table function are file, header, sep, and na.strings. Let’s practice by importing the samp2.dat text file. Be sure to first change the working directory to the folder that contains samp2.dat. In RStudio you can either use the Session &gt; Set Working Directory menu option or use the setwd() function.\n&gt; gro = read.table(\"groceries.txt\")\n&gt; head(gro)\n&gt; str(gro)\nBy passing only the file argument to read.table, we have left all other arguments at their default values. Notice that R reads the variable names to be the first row of data rather than the column names. R has stored the columns of gro as a factor.\n&gt; gro = read.table(\"groceries.txt\", header=TRUE)\n&gt; head(gro)\n&gt; str(gro)\n&gt; tail(gro)\n&gt; summary(gro)\n&gt; dim(gro)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data for Analysis</span>"
     ]
   },
   {
-    "objectID": "notes.html#importing-from-excel",
-    "href": "notes.html#importing-from-excel",
-    "title": "1  The R Environment",
+    "objectID": "05_data_for_analysis.html#importing-from-excel",
+    "href": "05_data_for_analysis.html#importing-from-excel",
+    "title": "5  Data for Analysis",
     "section": "5.3 Importing from Excel",
     "text": "5.3 Importing from Excel\n“How do I import my data into R from Excel?” is a common question.\nMy answer is often: “Don’t!”\nExcel spreadsheets contain attributes and formatting that often cause difficulty when transferring files between applications. In particular, dates, or text that looks like dates, are troublesome. Zip codes and MRNs lose their leading zeros. The easiest thing to do is to first export the data into either a tab-delimited (.dat, .tsv) or comma separated values (.csv) file. After the file is in a more portable format, then use read.table or read.csv into R.\nWe use the samp2.csv file for practice.\n&gt; dat2 = read.csv(\"samp2.csv\", na.strings=c(NA, 88, 999))\n&gt; dat2\nread.csv simply invokes read.table with a different set of default arguments. Notice that the default for read.csv is to include a header.\n&gt; help(read.csv)\n\n5.3.1 Straight from Excel\nHowever it is possible to skip the .csv step using one of several R packages. Option 1: Use the Import Dataset button above the environment window in RStudio (obviously this only applies if using RStudio). Option 2: Use the read_excel function in the readxl package (actually, Option 1 uses Option 2). Option 3: use package xlsx. Option 4: ...\nThese approaches may result in slightly different data formats. This is not a problem, just be certain to investigate your data after loading.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data for Analysis</span>"
     ]
   },
   {
-    "objectID": "notes.html#data-from-other-formats",
-    "href": "notes.html#data-from-other-formats",
-    "title": "1  The R Environment",
+    "objectID": "05_data_for_analysis.html#data-from-other-formats",
+    "href": "05_data_for_analysis.html#data-from-other-formats",
+    "title": "5  Data for Analysis",
     "section": "5.4 Data from other Formats",
     "text": "5.4 Data from other Formats\nR can read directly from other formats with varying levels of success. Functions exist for fixed width formats, .sas7bdat, SAS xport, SPSS, Stata, DBF, ...",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data for Analysis</span>"
     ]
   },
   {
-    "objectID": "notes.html#exporting-data",
-    "href": "notes.html#exporting-data",
-    "title": "1  The R Environment",
+    "objectID": "05_data_for_analysis.html#exporting-data",
+    "href": "05_data_for_analysis.html#exporting-data",
+    "title": "5  Data for Analysis",
     "section": "5.5 Exporting Data",
     "text": "5.5 Exporting Data\nR has facilities for exporting data. Suppose you make changes to a data set within R and you want to save those changes permanently in a .csv or .xls file. The write.csv command exports an R object to a text file. All you have to do is give write.csv two arguments: 1) the R object to be exported, and 2) the name of the file.\nFor example, write.csv(M, \"newfile.csv\") will export the R object M to a newly created file newfile.csv. We will modify dat2 to include an id variable, and we write the updated data object to a csv file.\n&gt; dat2$id = 1:nrow(dat2)\n&gt; dat2\n&gt; write.csv(dat2, \"newfile.csv\")\nR can also write to text files using write.table.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data for Analysis</span>"
     ]
   },
   {
-    "objectID": "notes.html#missing-values-in-data-files",
-    "href": "notes.html#missing-values-in-data-files",
-    "title": "1  The R Environment",
+    "objectID": "05_data_for_analysis.html#missing-values-in-data-files",
+    "href": "05_data_for_analysis.html#missing-values-in-data-files",
+    "title": "5  Data for Analysis",
     "section": "5.6 Missing Values in Data files",
     "text": "5.6 Missing Values in Data files\nData files can represent missing data in many ways. Often Excel files have blank cells. Text files may use a special value such as 999 to represent missingness. SAS uses a period. Different codes may specify different reasons for the missingness such as non-response or an unreasonable value.\nThere are several ways to convert these conventions to NA in R so they will (more likely) be treated properly in analyses. (There are entire statistics courses on “properly” dealing with missing data.)\nSuppose that the \\(88\\) and \\(999\\) are codes indicating missing values. We want R to interpret these values as missing rather than numeric. We can change these values to NA after reading in the data. First we identify them and then replace them by NA.\n&gt; dat = read.csv(\"samp2.csv\")\n&gt; dat\n&gt; dat$z == 88 | dat$z == 999\n&gt; dat$z[dat$z == 88 | dat$z == 999]\n&gt; dat$z[dat$z == 88 | dat$z == 999] = NA\n&gt; dat\n\n5.6.1 The which function\nWhile we are on the subject of missing data (NA) and logical values (TRUE, FALSE), I want to mention the which function. It statement takes a logical statement (or a series of logical statements, some which may be missing) as an argument. It returns the indices for which the logical statement is TRUE.\n&gt; a = c(6, 9, 10, 2, 999, NA)\n&gt; is.na(a)\n&gt; which(is.na(a))\n&gt; which(!is.na(a))\n&gt; a == 999\n&gt; a[a == 999]\n&gt; which(a == 999)\n&gt; a[which(a == 999)]\n&gt; a[which(a == 999)] = NA\n&gt; a\n&gt; is.na(a)\nThe which command is a very powerful tool for data management. Consider the following three scenarios:\n\nYou have a data set and wish to perform an analysis on only males.\nAll missing values have been coded as 99, 888, or 999.\nA scatterplot reveals several outliers, and you need to identify the cases corresponding to the outliers.\n\nIn each scenario, which can be used to select the appropriate subset of the data.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data for Analysis</span>"
     ]
   },
   {
-    "objectID": "notes.html#one-sample-t-test",
-    "href": "notes.html#one-sample-t-test",
-    "title": "1  The R Environment",
-    "section": "6.1 One-sample t-test",
+    "objectID": "06_student_t-tests.html",
+    "href": "06_student_t-tests.html",
+    "title": "6  Student t-tests",
+    "section": "",
     "text": "6.1 One-sample t-test\nClean up the workspace and import height.csv into R.\n&gt; rm(list=ls()) # removes all objects\n&gt; dat = read.csv(\"height.csv\", header=TRUE)\n&gt; head(dat)\nLet’s start with a one-sample t-test. Test the hypothesis that the population mean height for men is 70 inches (\\(H_0:\\mu_{men} = 70\\))\nFirst we need to get the subset where gender \\(==\\) male.\n&gt; dat$gender == \"male\"\n&gt; men.ht = dat$height[dat$gender == \"male\"]\nBefore doing any formal analyses, it is always a good idea to summarize the data both numerically and visually.\n&gt; summary(men.ht)\n&gt; boxplot(men.ht)\n&gt; hist(men.ht, main=\"My First Histogram in R!\")\nThe t.test function will perform a one sample t-test for the height of men. Suppose we wish to test the hypothesis \\(H_0: \\mu_{men} = 70\\) versus the alternative \\(H_a: \\mu_{men} \\neq 70\\). We must give the t.test function 1) the vector of male height values, and 2) the value of the mean under the null hypothesis. The default alternative is two-sided.\n&gt; t.test(men.ht, mu=70)\nWhat if you want to calculate a 90% confidence interval?\n&gt; help(t.test)\nThe conf.level argument will be used to change the confidence level.\n&gt; t.test(men.ht, mu=70, conf.level= 0.90)\n&gt; t.out = t.test(men.ht, mu=70, conf.level= 0.90)\n&gt; names(t.out)\n&gt; t.out$conf.int",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Student t-tests</span>"
     ]
   },
   {
-    "objectID": "notes.html#independent-samples-t-tests",
-    "href": "notes.html#independent-samples-t-tests",
-    "title": "1  The R Environment",
+    "objectID": "06_student_t-tests.html#independent-samples-t-tests",
+    "href": "06_student_t-tests.html#independent-samples-t-tests",
+    "title": "6  Student t-tests",
     "section": "6.2 Independent Samples t-tests",
     "text": "6.2 Independent Samples t-tests\nNow suppose we wish to test whether there is a difference between the population mean heights for men and women (\\(H_0: \\mu_m = \\mu_w\\)). Before running the t-test, let’s make side-by-side boxplots to visually compare the heights of men and women.\n&gt; boxplot(men.ht, women.ht)\n\n6.2.1 The formula operator (\\(\\sim\\))\nIt is possible to avoid creating separate vectors for two groups that you would like to compare. This is done with the formula operator and many R functions can accept a formula as the first argument. The second argument must then nearly always be the data.frame where the formula should be evaluated.\n&gt; boxplot(height\\(\\sim\\)gender, data=dat)\nIf you don’t include the data argument, you’ll likely get an error message:\n&gt; boxplot(height\\(\\sim\\)gender) # error: data not found?\nThe variables in the dat data.frame can be made available temporarily by wrapping the command inside a call to with:\n&gt; with(dat, boxplot(height\\(\\sim\\)gender))\nIf you need access to the variables in a data.frame for an extended session and you aren’t going to change the variables in the data.frame, you can use the attach(dat) function to access height and gender directly. However, using attach is discouraged by some analysts. It puts a second copy of the data.frame on the “search path” and can make updating your data tricky. Remember to detach when you are done.\n&gt; height\n&gt; attach(dat)\n&gt; height\n&gt; detach(dat)\n&gt; height\nNow perform the independent samples t-test.\n&gt; t.test(height\\(\\sim\\)gender, data=dat)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Student t-tests</span>"
     ]
   },
   {
-    "objectID": "notes.html#goodness-of-fit",
-    "href": "notes.html#goodness-of-fit",
-    "title": "1  The R Environment",
-    "section": "7.1 Goodness of Fit",
-    "text": "7.1 Goodness of Fit\nSuppose a company wants to determine if employees are equally likely to call in sick on any day of the week. That is, test the hypothesis \\[H_0: p_1 = p_2 = p_3 = p_4 = p_5\\] where \\(p_1\\) represents the probability that a random call-in sick occurs on Monday, etc. The employer collects data and obtains the following table\n\n\n\n\nMon\nTue\nWed\nThu\nFri\n\n\n34\n18\n19\n12\n26\n\n\n\n\nIf \\(H_0\\) is true, the expected value in cell \\(i\\) is \\(E_i = np_i\\), where \\(n = 34 + 18 + 19 + 12 + 26 = 109\\) and \\(p_i = 0.2\\). The differences between the observed and expected values are combined into the \\(\\chi^2\\) statistic. \\[\\chi^2 = \\sum_i\\frac{(O_i - E_i)^2}{E_i}\\] If the null hypothesis is true, the \\(\\chi^2\\) statistic approximately follows a \\(\\chi^2(k-1)\\) distribution, where \\(k\\) is the number of groups (5). This approximation is poor if the expected value in any cell is small.\nWe first need to get the data into R.\n&gt; days = c(34, 18, 19, 12, 26)\n&gt; names(days) = c(\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\")\n&gt; days\nMany chi-square tests are performed using the chisq.test function.\n&gt; chisq.test(days)\nR returns the \\(\\chi^2\\) test statistic, the degrees of freedom, and the p-value. Notice that we didn’t specify that we were testing the hypothesis that were testing the hypothesis of equal probabilities. By default, chisq.test assumes a test of equal probabilities unless the user specifies otherwise. If, for some reason, we wanted to test the hypothesis that \\(p_1 = 0.35\\), \\(p_2 = 0.1\\), \\(p_3 = 0.1\\), \\(p_4 = 0.1\\), \\(p_5 = 0.35\\), we can do so by passing the probabilities to chisq.test in this way.\n&gt; chisq.test(days, p=c(0.35, 0.1, 0.1, 0.1, 0.35))\nSo far, the output for the chi-square tests have been limited. What if we wanted to obtain expected values or cell residuals? We unleash more of R’s capabilities by storing the value of the test as an object.\n&gt; cs.test = chisq.test(days)\n&gt; names(cs.test)\n&gt; cs.test$expected\n&gt; cs.test$statistic\n&gt; cs.test$residuals",
+    "objectID": "07_chi-square_tests.html",
+    "href": "07_chi-square_tests.html",
+    "title": "7  Chi-Square tests",
+    "section": "",
+    "text": "7.1 Goodness of Fit\nSuppose a company wants to determine if employees are equally likely to call in sick on any day of the week. That is, test the hypothesis \\[H_0: p_1 = p_2 = p_3 = p_4 = p_5\\] where \\(p_1\\) represents the probability that a random call-in sick occurs on Monday, etc. The employer collects data and obtains the following table\nIf \\(H_0\\) is true, the expected value in cell \\(i\\) is \\(E_i = np_i\\), where \\(n = 34 + 18 + 19 + 12 + 26 = 109\\) and \\(p_i = 0.2\\). The differences between the observed and expected values are combined into the \\(\\chi^2\\) statistic. \\[\\chi^2 = \\sum_i\\frac{(O_i - E_i)^2}{E_i}\\] If the null hypothesis is true, the \\(\\chi^2\\) statistic approximately follows a \\(\\chi^2(k-1)\\) distribution, where \\(k\\) is the number of groups (5). This approximation is poor if the expected value in any cell is small.\nWe first need to get the data into R.\n&gt; days = c(34, 18, 19, 12, 26)\n&gt; names(days) = c(\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\")\n&gt; days\nMany chi-square tests are performed using the chisq.test function.\n&gt; chisq.test(days)\nR returns the \\(\\chi^2\\) test statistic, the degrees of freedom, and the p-value. Notice that we didn’t specify that we were testing the hypothesis that were testing the hypothesis of equal probabilities. By default, chisq.test assumes a test of equal probabilities unless the user specifies otherwise. If, for some reason, we wanted to test the hypothesis that \\(p_1 = 0.35\\), \\(p_2 = 0.1\\), \\(p_3 = 0.1\\), \\(p_4 = 0.1\\), \\(p_5 = 0.35\\), we can do so by passing the probabilities to chisq.test in this way.\n&gt; chisq.test(days, p=c(0.35, 0.1, 0.1, 0.1, 0.35))\nSo far, the output for the chi-square tests have been limited. What if we wanted to obtain expected values or cell residuals? We unleash more of R’s capabilities by storing the value of the test as an object.\n&gt; cs.test = chisq.test(days)\n&gt; names(cs.test)\n&gt; cs.test$expected\n&gt; cs.test$statistic\n&gt; cs.test$residuals",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chi-Square tests</span>"
     ]
   },
   {
-    "objectID": "notes.html#chi-square-test-of-independence",
-    "href": "notes.html#chi-square-test-of-independence",
-    "title": "1  The R Environment",
+    "objectID": "07_chi-square_tests.html#goodness-of-fit",
+    "href": "07_chi-square_tests.html#goodness-of-fit",
+    "title": "7  Chi-Square tests",
+    "section": "",
+    "text": "Mon\nTue\nWed\nThu\nFri\n\n\n34\n18\n19\n12\n26",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chi-Square tests</span>"
+    ]
+  },
+  {
+    "objectID": "07_chi-square_tests.html#chi-square-test-of-independence",
+    "href": "07_chi-square_tests.html#chi-square-test-of-independence",
+    "title": "7  Chi-Square tests",
     "section": "7.2 Chi-Square Test of Independence",
     "text": "7.2 Chi-Square Test of Independence\nA Chi-Square Test of Independence tests for a relationship between two categorical variables. We will use the “UCBAdmissions data set” to illustrate.\n&gt; data()\n&gt; UCBAdmissions\n&gt; class(UCBAdmissions)\n&gt; dim(UCBAdmissions)\nLet’s select the second 2 by 2 table to perform a chi-square test of independence.\n&gt; dat = UCBAdmissions[,,2]\n&gt; dat\nWhen we pass a vector of values to chisq.test, a test of homogeneity is performed by default. When we pass a table or matrix, a test of independence is performed.\n&gt; chisq.test(dat)\nThe default in R is to use Yates’ continuity correction for 2x2 tables. You can opt not to use it.\n&gt; chisq.test(dat, correct=FALSE)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chi-Square tests</span>"
     ]
   },
   {
-    "objectID": "notes.html#fishers-exact-test",
-    "href": "notes.html#fishers-exact-test",
-    "title": "1  The R Environment",
+    "objectID": "07_chi-square_tests.html#fishers-exact-test",
+    "href": "07_chi-square_tests.html#fishers-exact-test",
+    "title": "7  Chi-Square tests",
     "section": "7.3 Fisher’s Exact Test",
     "text": "7.3 Fisher’s Exact Test\nPearson Chi-Square tests rely on an approximation that becomes poor as cell sizes get small. With smaller samples, Fisher’s Exact Test might be a good alternative. However, there are many flavors of Fisher’s test. R has implemented many of them, including one in the base package.\n&gt; fisher.test(dat)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chi-Square tests</span>"
     ]
   },
   {
-    "objectID": "notes.html#simple-linear-regression-using-the-lm-function",
-    "href": "notes.html#simple-linear-regression-using-the-lm-function",
-    "title": "1  The R Environment",
+    "objectID": "08_linear_models.html",
+    "href": "08_linear_models.html",
+    "title": "8  Linear Models",
+    "section": "",
+    "text": "8.0.1 Another example of data entry\nThe linmod.csv data set contains the following measurements on 255 individuals.\nWe begin by reading in the data.\n&gt; dat = read.csv(\"linmod.csv\", header=TRUE)\nBefore beginning any modeling, it’s important to investigate the data to make sure it is there as you expect. If we just type dat at the command line, R prints the entire data set. This is not the most efficient way to explore the data. Here we explore several different ways of exploring the data set in a more concise manner.\nThe dim function returns the dimensions of the data set; the head and tail functions enables us to see the first and last rows of the data set.\n&gt; class(dat)\n&gt; names(dat)\n&gt; dim(dat)\n&gt; head(dat)\n&gt; head(dat, 15)\n&gt; tail(dat)\nThe summary function is a powerful method for summarizing variables in the data set.\n&gt; summary(dat)\nThe output includes a numeric summary for the variables sbp and dbp. The bp column is read as character (and converted to a factor) because it contains the character “/”. Instead of a numeric summary for bp, summary returns a table of values for the factor levels.\nWe would expect age to be a continuous variable, but R returns a table summary for age rather than a numeric summary. This indicates that age is being read as a factor, and we should check for strings in the age column. In the smoke column, we see that one person has the value \\(888\\) and two the value \\(999\\).\nAnother powerful function for investigating the structure of a data set is the str command.\n&gt; str(dat)\nThe output lists age as a factor which confirms our suspicion that age is being read as a character variable. For factors, we can investigate the factor levels with the levels command.\n&gt; levels(dat$age)\nSomeone has recorded “Not Reported\" in the age column for one person. With a data set as small as ours, we could type dat and scroll down to find out which person had a”Not Reported\" for age. With large data sets this is difficult. The which statement is another option.\n&gt; which(dat$age == \"Not Reported\")\n&gt; dat[which(dat$age == \"Not Reported\"), ]\nNow let’s investigate the smoke variable.\n&gt; levels(dat$smoke)\n&gt; which(dat$smoke == \"888\")\n&gt; which(dat$smoke == \"999\")\nFixing the Data Suppose that 888 and 999 and “Not Reported” all indicate missing values. Let’s update the age and smoke variables by putting NA to represent missingness.\n&gt; dat$age[189] = NA\n&gt; dat$smoke[c(83,80,91)] = NA\n&gt; summary(dat$smoke)\n&gt; dat$smoke = factor(dat$smoke)\n&gt; summary(dat$smoke)\nCommon Data Management Problem!\nWe still need to change age to a numeric variable. Just using as.numeric won’t work on factors.\n&gt; as.numeric(dat$age)\nInstead, we must first change it to character and then numeric.\n&gt; as.numeric(as.character(dat$age))\n&gt; dat$age = as.numeric(as.character(dat$age))",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Linear Models</span>"
+    ]
+  },
+  {
+    "objectID": "08_linear_models.html#simple-linear-regression-using-the-lm-function",
+    "href": "08_linear_models.html#simple-linear-regression-using-the-lm-function",
+    "title": "8  Linear Models",
     "section": "8.1 Simple Linear Regression using the lm function",
     "text": "8.1 Simple Linear Regression using the lm function\nIn a simple linear regression, we propose the model: \\[Y = \\beta_0 + \\beta_1 X + \\epsilon,\\] where \\(Y\\) is the dependent variable, \\(X\\) is the sole independent variable, and \\(\\epsilon\\) represents a random component. One of the goals in a simple linear regression is to find the estimates, \\(\\hat{\\beta_0}\\) and \\(\\hat{\\beta_1}\\), that fit the data best.\nThe R function used to fit regression models is the lm function. Let’s begin by doing a simple linear regression of systolic blood pressure on diastolic blood pressure.\n&gt; lm(sbp\\(\\sim\\)dbp, data=dat)\nAt first glance, R returns the estimated regression parameters \\(\\hat{\\beta_0}\\) and \\(\\hat{\\beta_1}\\) but very little else. What about the model \\(r^2\\)? How do we find the residuals? What about confidence intervals, influential points, or the other diagnostics one should consider when performing a regression analysis?\nBy storing the fitted model as an object, we are able to unleash all the power in the lm function. Let’s try again, but this time, store the linear model as an object.\n&gt; mymod = lm(sbp\\(\\sim\\)dbp, data=dat)\nThe variable mymod now stores the information from the regression of sbp on dbp. mymod is a linear model object. Just as we earlier saw examples of numeric objects (x = 5) and character objects (y = \"Hi\"), we now have the object mymod which is a linear model object. Let’s verify that mymod is a linear model object.\n&gt; class(mymod)\nNow that we have the “lm\" object stored in mymod, let’s do some more investigation.\n&gt; summary(mymod)\nThe summary function returns the following\n\nA 5-number summary of the residuals\nA table of regression coefficients, standard errors, t-statistics, and p-values for testing the hypotheses that \\(\\beta_i = 0\\)\nAn estimate of the error standard deviation\nUnadjusted and adjusted model \\(r^2\\)\nAn overall F-test of no model effect\n\nWe can use the names function to see everything that is stored in mymod.\n&gt; names(mymod)\nWe can extract any single attribute using $.\n&gt; mymod$coefficients\n&gt; mymod$fitted.values\nR has many “extractor” functions:\n&gt; coef(mymod)\n&gt; fitted(mymod)\nR also has powerful graphing tools for checking model assumptions. For a simple linear regression, we need to check for\n\nThe nature of the relationship between \\(Y\\) and \\(X\\) (linear?)\nThe error distribution\nInfluential points\n\nUsing the plot function, we can cycle through diagnostic graphs to test each of the above assumptions.\n&gt; plot(residuals(mymod), predict(mymod), main=\"Residual Plot\")\nConfidence intervals for the regression coefficients provide much more information than p-values. Confidence intervals for \\(\\beta_0\\) and \\(\\beta_1\\) can be generated using the confint function.\n&gt; confint(mymod)\n&gt; confint(mymod, level=.90)\nWe can also examine the ANOVA table associated with the regression model.\n&gt; anova(mymod)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Linear Models</span>"
     ]
   },
   {
-    "objectID": "notes.html#analysis-of-variance",
-    "href": "notes.html#analysis-of-variance",
-    "title": "1  The R Environment",
+    "objectID": "08_linear_models.html#analysis-of-variance",
+    "href": "08_linear_models.html#analysis-of-variance",
+    "title": "8  Linear Models",
     "section": "8.2 Analysis of Variance",
     "text": "8.2 Analysis of Variance\nSuppose one wishes to do a 2-way ANOVA model, where diastolic blood pressure is the response with gender and smoking status the two factors. As always, it is important to begin by investigating the relationships graphically.\n&gt; boxplot(dbp\\(\\sim\\)smoke, data=dat)\n&gt; boxplot(dbp\\(\\sim\\)gen, data=dat)\n&gt; with(dat, interaction.plot(smoke, gen, dbp))\nSince an ANOVA model is simply a linear model where the only predictors are dummy variables representing group membership, ANOVA models can be fit using the lm function.\n&gt; lm.mod = lm(dbp\\(\\sim\\)gen + smoke, data=dat)\n&gt; summary(lm.mod)\nMany researchers prefer output organized in a different ANOVA table. We can also use the aov function to fit an ANOVA model.\n&gt; aov.mod = aov(dbp\\(\\sim\\)gen + smoke, data=dat)\n&gt; summary(aov.mod)\nlm.mod and aov.mod represent the same fit but the summary function reports them differently. summary is an example of a generic function. Different versions are used for different classes. Remember that we used summary earlier to describe numeric vectors, factors, and data.frames. Let’s investigate the class of the two models.\n&gt; class(lm.mod)\n&gt; class(aov.mod)\nThe following commands give the mean of the dependent variable and each factor level:\n&gt; model.tables(aov.mod)\n&gt; ?model.tables\nWe can use Tukey’s HSD procedure to test the pairwise differences, adjusting for multiple testing:\n&gt; TukeyHSD(aov.mod)\n&gt; ?TukeyHSD",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Linear Models</span>"
     ]
   },
   {
-    "objectID": "notes.html#multiple-linear-regression",
-    "href": "notes.html#multiple-linear-regression",
-    "title": "1  The R Environment",
+    "objectID": "08_linear_models.html#multiple-linear-regression",
+    "href": "08_linear_models.html#multiple-linear-regression",
+    "title": "8  Linear Models",
     "section": "8.3 Multiple Linear Regression",
     "text": "8.3 Multiple Linear Regression\nA multiple linear regression assumes the following relationship: \\[Y = \\beta_0 + \\beta_1X_1 + \\beta_2X_2 + ... + \\beta_pX_p + \\epsilon\\] In this notation, \\(Y\\) represents the response variable of interest, and the \\(X_j\\) correspond to predictor variables. When fitting a linear regression model, one aim to estimate the \\(\\beta\\) parameters. The fitted model is sometimes used to predict future responses.\nWe will use the built-in LifeCycleSavings data set (which we saw in passing earlier) to illustrate fitting a multiple linear regression. We will use the popular car (Companion to Applied Regression) package for some regression diagnostics.\n&gt; data()\nLet’s first begin by learning about the data set.\n&gt; help(LifeCycleSavings)\nShorten the name.\n&gt; Life=LifeCycleSavings\nNow let’s make a boxplot of each of the five variables. For comparison, it would be helpful to view all of the plots on the same output. The par and mfrow commands are useful for this. The par function allows you to set graphical parameters, and mfrow allows you to specify an array of plots.\nThe following commands set up a two by two grid of plots.\n&gt; par(mfrow=c(2,2))\nWe can add boxplots one at a time.\n&gt; boxplot(Life$sr, main=\"sr\")\n&gt; boxplot(Life$pop15, main=\"pop15\")\n&gt; boxplot(Life$pop75, main=\"pop75\")\n&gt; boxplot(Life$dpi, main=\"dpi\")\nAfter exploring the marginal relationships of each of the variables, it is a good idea to investigate the bivariate relationships. We do this both numerically and graphically.\n&gt; cor(Life)\n&gt; pairs(Life, panel=panel.smooth)\nNow fit a multiple regression model using the lm function.\n&gt; mr.mod = lm(sr\\(\\sim\\)pop15 + pop75 + dpi + ddpi, data=Life)\n&gt; summary(mr.mod)\n&gt; confint(mr.mod)\nWe saw that there was a large negative correlation between pop75 and pop15. One diagnostic for multicolinearity is the variance inflation factor (VIF). Let’s investigate the variance inflation factors. It has been implemented in the car package. To access the function we must load the package:\n&gt; library(car)\n&gt; ?vif\n&gt; vif(mr.mod)\nHow does the model change if we leave out one of the variables? We fit a different model removing pop75.\n&gt; mr.mod2 = lm(sr\\(\\sim\\)pop15 + dpi + ddpi, data=Life)\nWe now perform an F test for nested models.\n&gt; anova(mr.mod, mr.mod2, test=\"F\")",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Linear Models</span>"
     ]
   },
   {
-    "objectID": "notes.html#string-manipulation",
-    "href": "notes.html#string-manipulation",
-    "title": "1  The R Environment",
-    "section": "9.1 String Manipulation",
+    "objectID": "09_lists.html",
+    "href": "09_lists.html",
+    "title": "9  Lists",
+    "section": "",
     "text": "9.1 String Manipulation\nIn the third column of dat, systolic and diastolic pressure were placed together separated by a “/”. Ideally, data would never be stored in such a manner. For easy data processing, systolic and diastolic blood pressure should be stored in separate columns. Although in our data sets we did have separate columns, suppose for the sake of example that we only had the one column in which blood pressure was entered as \\(120/82\\). It could be time consuming to convert these to separate variables by hand in Excel.\nFortunately, R has excellent string manipulation facilities. In this example, we will use the strsplit function to extract diastolic and systolic blood pressures. strsplit has two arguments that we will use. The first argument is the character string we wish to split. The second argument is the character that we will split on. Let’s start with the bp value in the first row.\n&gt; b = dat$bp[1]\n&gt; b\nNow let’s try to split b into two separate values.\n&gt; strsplit(b, split=\"/\")\nThis didn’t work. When a problem like this arises, be sure to look at the error messages! In this example, R complains that we have a “non-character\" argument. Let’s investigate.\n&gt; class(b)\nSure enough, b is a factor since it was obtained by indexing a factor in the data set. We must first change b to a character.\n&gt; b = as.character(b)\n&gt; class(b)\nNow we are ready!\n&gt; strsplit(b, split=\"/\")\nThis seems to work, but in order to use the separated values, we must first store the split string as an object.\n&gt; sep = strsplit(b, split=\"/\")\n&gt; sep\n&gt; class(sep)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Lists</span>"
     ]
   },
   {
-    "objectID": "notes.html#lists-1",
-    "href": "notes.html#lists-1",
-    "title": "1  The R Environment",
+    "objectID": "09_lists.html#lists",
+    "href": "09_lists.html#lists",
+    "title": "9  Lists",
     "section": "9.2 Lists",
     "text": "9.2 Lists\nThe object sep is a list, a class of objects that we have not yet encountered explicitly (however, data.frames are lists). Lists can simultaneously store many objects of various classes. Recall from earlier that elements of a vector were forced to be of the same class (e.g., character). Lists are much more flexible and can contain characters, vectors, matrices, data.frames, and even other lists. Let’s take a detour from our original problem of separating blood pressures in order to investigate lists.\nCreate a list containing a single number, a character, and a vector of number.\n&gt; L = list(5, \"Hi\", c(3,8,7))\n&gt; L\nThe syntax for indexing lists is different than that for vectors or matrices. If we type L[1], we obtain the sub-list containing 5 instead of just the number 5.\n&gt; L[1]\n&gt; class(L[1])\nInstead, we must use double-brackets to extract the number 5 rather than the sublist containing the number 5.\n&gt; L[[1]]\n&gt; class(L[[1]])\nThe following extracts the 8 from the third element of the list.\n&gt; L[[3]][2]\nNow that we have a basic understanding of lists. Let’s return to our problem of separating diastolic and systolic blood pressure.\n&gt; sep\n&gt; s = sep[[1]][1]\n&gt; d = sep[[1]][2]\n&gt; s\n&gt; d\n&gt; s = as.numeric(s)\n&gt; d = as.numeric(d)\n&gt; s\n&gt; d\nIt worked! Now we need to do this for every person. One way this can be accomplished is with a for loop or *apply. We will revisit this after covering programming. You can try the following but more is needed.\n&gt; strsplit(as.character(dat$bp), split=\"/\")",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Lists</span>"
     ]
   },
   {
-    "objectID": "notes.html#logistic-regression",
-    "href": "notes.html#logistic-regression",
-    "title": "1  The R Environment",
-    "section": "10.1 Logistic Regression",
-    "text": "10.1 Logistic Regression\nLogistic regression is a specific type of GLM used to model a binary outcome. If we label a success “1” and a failure “0”, the odds of success are defined as \\(P(Y=1)/P(Y=0)\\). Logistic regression models the log odds of success as a linear combination of the predictors. \\[{\\rm log}\\left(\\frac{P(Y=1|X)}{P(Y=0|X)}\\right) =  \\beta_0 + \\beta_1X_1 + ... + \\beta_pX_p\\]\nIn logistic regression, \\(\\beta_i\\) is the effect of \\(X_i\\) on the log odds of success (\\(Y=1\\)).\nFor an example, we use the “Mroz\" data in the car library. Let’s first review the”Mroz” data set.\n&gt; library(car)\n&gt; help(Mroz)\nThe syntax for glm is nearly the same as the syntax for lm. One important additional argument is family, which specifies what type of GLM will be fit. Logistic regression models a binary response, so we use the binomial family.\n&gt; mroz.mod = glm(lfp\\(\\sim\\)I(k5==0) + age + wc + hc + lwg + inc, data=Mroz,\n+   family=binomial)\n&gt; summary(mroz.mod)\nThe fitted object mroz.mod is of a new type of class.\n&gt; class(mroz.mod)\nWe can extract the estimated coefficients using coef.\n&gt; coef(mroz.mod)\nWhen reporting the effects of a logistic regression analysis, it is common to include the effect on the odds of success. Since \\(\\beta_i\\) is the effect of \\(X_i\\) on the log odds of success, \\(e^{\\beta_i}\\) is the effect of \\(X_i\\) on the odds of success1. We can estimate the effects of the predictors on the odds by exponentiating the coefficients.\n&gt; exp(coef(mroz.mod))\nWe can also obtain confidence intervals for both the log odds and odds effects.\n&gt; confint(mroz.mod)\n&gt; exp(confint(mroz.mod))",
+    "objectID": "10_generalized_linear_models.html",
+    "href": "10_generalized_linear_models.html",
+    "title": "10  Generalized Linear Models (GLM)",
+    "section": "",
+    "text": "10.1 Logistic Regression\nLogistic regression is a specific type of GLM used to model a binary outcome. If we label a success “1” and a failure “0”, the odds of success are defined as \\(P(Y=1)/P(Y=0)\\). Logistic regression models the log odds of success as a linear combination of the predictors. \\[{\\rm log}\\left(\\frac{P(Y=1|X)}{P(Y=0|X)}\\right) =  \\beta_0 + \\beta_1X_1 + ... + \\beta_pX_p\\]\nIn logistic regression, \\(\\beta_i\\) is the effect of \\(X_i\\) on the log odds of success (\\(Y=1\\)).\nFor an example, we use the “Mroz\" data in the car library. Let’s first review the”Mroz” data set.\n&gt; library(car)\n&gt; help(Mroz)\nThe syntax for glm is nearly the same as the syntax for lm. One important additional argument is family, which specifies what type of GLM will be fit. Logistic regression models a binary response, so we use the binomial family.\n&gt; mroz.mod = glm(lfp\\(\\sim\\)I(k5==0) + age + wc + hc + lwg + inc, data=Mroz,\n+   family=binomial)\n&gt; summary(mroz.mod)\nThe fitted object mroz.mod is of a new type of class.\n&gt; class(mroz.mod)\nWe can extract the estimated coefficients using coef.\n&gt; coef(mroz.mod)\nWhen reporting the effects of a logistic regression analysis, it is common to include the effect on the odds of success. Since \\(\\beta_i\\) is the effect of \\(X_i\\) on the log odds of success, \\(e^{\\beta_i}\\) is the effect of \\(X_i\\) on the odds of success[^1]. We can estimate the effects of the predictors on the odds by exponentiating the coefficients.\n&gt; exp(coef(mroz.mod))\nWe can also obtain confidence intervals for both the log odds and odds effects.\n&gt; confint(mroz.mod)\n&gt; exp(confint(mroz.mod))",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Generalized Linear Models (GLM)</span>"
     ]
   },
   {
-    "objectID": "notes.html#branching",
-    "href": "notes.html#branching",
-    "title": "1  The R Environment",
-    "section": "12.1 Branching",
+    "objectID": "11_creating_functions.html",
+    "href": "11_creating_functions.html",
+    "title": "11  Creating Functions",
+    "section": "",
+    "text": "Another very nice feature of R is the ability to easily write your own programs and functions. We will begin by creating a new function called add.machine that will simply sum two numbers:\nadd.machine\\(=\\)function(num1, num2){\nresult\\(=\\)num1\\(+\\)num2\nreturn(result)\n}\nThe following are important components of the code above:\n\nadd.machine is the name of the newly created object\nfunction declares that add.machine will be a function\nnum1 and num2 are the arguments that add.machine will take as input\nThe body of the function is enclosed in curly braces\nreturn (is optional) but specifies the output that is returned from the function\n\nLet’s test out the newly created function\n&gt; add.machine\n&gt; add.machine(3,5)\nWhat happens if we don’t specify valid arguments?\n&gt; add.machine(3)\n&gt; add.machine(3, \"Hi\")",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Creating Functions</span>"
+    ]
+  },
+  {
+    "objectID": "12_programming.html",
+    "href": "12_programming.html",
+    "title": "12  Programming",
+    "section": "",
     "text": "12.1 Branching\nTo begin with, let’s look at an example of how if-then statements work in R. Try submitting this command at the prompt to see how it works:\n&gt; if (1&gt;0) print(\"I Like Binary\")\nNote that R prints “I Like Binary\" because the condition in the if statement is true. The print function is very useful for programming purposes, in that it prints simple strings in the R Console. No explicitly labeled then statement is needed after an if statement; you simply type what you would like R to do if the if condition is true. In general, if you want to do more than one thing if the if condition is true, you use this bracketed structure:\nif (logical condition) {\ndo this\nand this\nand this\n}\nThe statements in the brackets usually refer to function calls and object assignments, and simply need to be on separate lines (no punctuation necessary!). If necessary, you can use an “else” option:\n&gt; if (x&gt;5) print(\"x is big\") else print(\"x is small\")",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Programming</span>"
     ]
   },
   {
-    "objectID": "notes.html#looping",
-    "href": "notes.html#looping",
-    "title": "1  The R Environment",
+    "objectID": "12_programming.html#looping",
+    "href": "12_programming.html#looping",
+    "title": "12  Programming",
     "section": "12.2 Looping",
     "text": "12.2 Looping\nNow let’s take a look at how a “for” loop works in R. Try submitting the following syntax at the command prompt:\n&gt; for (i in 1:5) print(i)\nR prints 1, 2, 3, 4, and 5. For loops work like if conditions, and if you want R to do more than one thing in a for loop, use brackets around the commands:\nfor(i in a:b) {\ndo this\nand this\nand this\n}\nwhile and repeat loops in R work in a manner very similar to other programming languages. One or more commands are executed repeatedly while a condition remains true. Typically a counter object is initialized for controlling the loop, and then incremented within the while loop while certain commands are executed for each repetition. The loop ends when the while condition is false.\nt = 0\nwhile(t &lt; 7) {\nprint(t)\nt = t+1\n}",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Programming</span>"
     ]
   },
   {
-    "objectID": "notes.html#blood-pressure-example-revisited",
-    "href": "notes.html#blood-pressure-example-revisited",
-    "title": "1  The R Environment",
+    "objectID": "12_programming.html#blood-pressure-example-revisited",
+    "href": "12_programming.html#blood-pressure-example-revisited",
+    "title": "12  Programming",
     "section": "12.3 Blood Pressure Example Revisited",
     "text": "12.3 Blood Pressure Example Revisited\nEarlier we dealt with a data set where diastolic and systolic blood pressure had been read into a single column separated. We learned how to extract the two blood pressures using the strsplit function. Now that we have discussed creating functions and programming, we will separate the two measurements for the entire data set. We begin by clearing up the workspace.\n&gt; ls()\n&gt; rm(list=ls())\n&gt; dat = read.csv(\"linmod.csv\", header=TRUE, na.strings=c(\"NA\", 888, 999, \"Not Reported\"))\nExtract a blood pressure for practice.\n&gt; b = dat$bp[1]\nRecall that the following commands successfully extracted the separated measurements.\n&gt; ## Change to character.\n&gt; b = as.character(b)\n&gt; sep = strsplit(b, split=\"/\")\n&gt; ## Extract systolic blood pressure.\n&gt; s = sep[[1]][1]\n&gt; ## Extract diastolic blood pressure.\n&gt; d = sep[[1]][2]\n&gt; ## Convert to numeric.\n&gt; s = as.numeric(s)\n&gt; d = as.numeric(d)\nNow we enclose the following commands in a function. We will name this function extract.bp.\n&gt; extract.bp = function(x) {\n&gt; x = as.character(x)\n&gt; sep = strsplit(x, split=\"/\")\n&gt; s = as.numeric(sep[[1]][1])\n&gt; d = as.numeric(sep[[1]][2])\n&gt; return(c(s,d))\n&gt; }\nType extract.bp at the command line to verify the creation of the function was successful.\n&gt; extract.bp\nNow let’s experiment to see if our function works.\n&gt; b\n&gt; extract.bp(b)\nThe following code uses a loop to extract the blood pressures for each variable in the data set.\n&gt; ## Number of rows in the data set.\n&gt; n = dim(dat)[1]\n&gt; ## Set up empty numeric vectors to store two blood pressures.\n&gt; systolic = numeric(n)\n&gt; diastolic = numeric(n)\n&gt; ## Loop over the rows and extract.\n&gt; for (j in 1:n){\n&gt; out = extract.bp(dat$bp[j])\n&gt; systolic[j] = out[1]\n&gt; diastolic[j] = out[2]\n&gt; }\n&gt; systolic\n&gt; diastolic",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Programming</span>"
     ]
   },
   {
-    "objectID": "notes.html#the-apply-function",
-    "href": "notes.html#the-apply-function",
-    "title": "1  The R Environment",
+    "objectID": "12_programming.html#the-apply-function",
+    "href": "12_programming.html#the-apply-function",
+    "title": "12  Programming",
     "section": "12.4 The apply Function",
     "text": "12.4 The apply Function\nThe apply function performs a function on each row or column of a matrix. (There are other *apply functions for other situations.) First create a couple matrices to play with. In addition to the matrix function, rbind (or cbind) can be used to create matrices. For example,\n&gt; c1 = c(2, 9, 3)\n&gt; c2 = c(12, 1, 5)\n&gt; M2 = cbind(c1, c2)\n&gt; M2\n&gt; apply(M2, 2, mean)\nIn the example above, apply took three arguments:\n\nThe first argument, “M2” is the matrix\nThe second argument, “2”, is an index indicating the function is applied separately for each column, a value of “1” would apply the function on each row\nThe last argument is the function that is applied\n\nIf you were to just type mean(M2), the mean would be computed over the entire matrix.\n&gt; mean(M2)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
-    ]
-  },
-  {
-    "objectID": "notes.html#footnotes",
-    "href": "notes.html#footnotes",
-    "title": "1  The R Environment",
-    "section": "",
-    "text": "\\(\\beta_i\\) is an additive effect, and \\(e^{\\beta_i}\\) is a multiplicative effect. For example, if \\(\\beta_i = 0.38\\), we would estimate that the log odds of success increases by 0.38 for every unit increase in \\(X_i\\). If \\(e^{\\beta_i} = 1.46\\), we would estimate that the odds of success increases by 46 percent for every unit increase in \\(X_i\\).↩︎",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Programming</span>"
     ]
   }
 ]

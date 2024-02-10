@@ -1,0 +1,417 @@
+# Linear Models
+
+In a Linear Model, the expected value (mean) of a response variable,
+$Y$, is modeled as a linear combination of one or more predictors. The
+usual formulation of a linear model is as follows.
+$$E[Y] = \beta_0 + \beta_1X_1 + ... + \beta_pX_p$$ We can also write
+down a version of the model that includes a random component.
+$$Y = \beta_0 + \beta_1X_1 + ... + \beta_pX_p + \epsilon$$
+
+**Examples of Linear Models**
+
+-   Simple Linear Regression -- only one predictor
+
+-   ANOVA -- the predictors are dummy variables representing group
+    membership
+
+-   Multiple Linear Regression -- the predictors can be any combination
+    of binary, nominal, ordinal, and continuous
+
+Even an independent samples t-test is an example of a linear model. In
+this case, there is only one predictor, $X$, which is a dummy variable
+representing the group.
+
+### Another example of data entry
+
+The *linmod.csv* data set contains the following measurements on 255
+individuals.
+
+-   Systolic Blood Pressure
+
+-   Diastolic Blood Pressure
+
+-   Combined Blood Pressure
+
+-   Age
+
+-   Gender
+
+-   Smoking Status
+
+We begin by reading in the data.
+
+`> dat = read.csv("linmod.csv", header=TRUE)`
+
+Before beginning any modeling, it's important to investigate the data to
+make sure it is there as you expect. If we just type `dat` at the
+command line, **[R]{.sans-serif}** prints the entire data set. This is
+not the most efficient way to explore the data. Here we explore several
+different ways of exploring the data set in a more concise manner.
+
+The `dim` function returns the dimensions of the data set; the `head`
+and `tail` functions enables us to see the first and last rows of the
+data set.
+
+`> class(dat)`
+
+`> names(dat)`
+
+`> dim(dat)`
+
+`> head(dat)`
+
+`> head(dat, 15)`
+
+`> tail(dat)`
+
+The `summary` function is a powerful method for summarizing variables in
+the data set.
+
+`> summary(dat)`
+
+The output includes a numeric summary for the variables *sbp* and *dbp*.
+The *bp* column is read as *character* (and converted to a factor)
+because it contains the character "/". Instead of a numeric summary for
+*bp*, `summary` returns a table of values for the factor levels.
+
+We would expect *age* to be a continuous variable, but
+**[R]{.sans-serif}** returns a table summary for *age* rather than a
+numeric summary. This indicates that *age* is being read as a factor,
+and we should check for strings in the age column. In the *smoke*
+column, we see that one person has the value $888$ and two the value
+$999$.
+
+Another powerful function for investigating the structure of a data set
+is the `str` command.
+
+`> str(dat)`
+
+The output lists *age* as a *factor* which confirms our suspicion that
+*age* is being read as a character variable. For factors, we can
+investigate the factor levels with the `levels` command.
+
+`> levels(dat$age)`
+
+Someone has recorded "Not Reported\" in the age column for one person.
+With a data set as small as ours, we could type `dat` and scroll down to
+find out which person had a "Not Reported\" for age. With large data
+sets this is difficult. The `which` statement is another option.
+
+`> which(dat$age == "Not Reported")`
+
+`> dat[which(dat$age == "Not Reported"), ]`
+
+Now let's investigate the *smoke* variable.
+
+`> levels(dat$smoke)`
+
+`> which(dat$smoke == "888")`
+
+`> which(dat$smoke == "999")`
+
+**Fixing the Data** Suppose that 888 and 999 and "Not Reported" all
+indicate missing values. Let's update the *age* and *smoke* variables by
+putting NA to represent missingness.
+
+`> dat$age[189] = NA`
+
+`> dat$smoke[c(83,80,91)] = NA`
+
+`> summary(dat$smoke)`
+
+`> dat$smoke = factor(dat$smoke)`
+
+`> summary(dat$smoke)`
+
+**Common Data Management Problem!**
+
+We still need to change *age* to a numeric variable. Just using
+`as.numeric` won't work on *factors*.
+
+`> as.numeric(dat$age)`
+
+Instead, we must first change it to character and then numeric.
+
+`> as.numeric(as.character(dat$age))`
+
+`> dat$age = as.numeric(as.character(dat$age))`
+
+### Solution
+
+Another alternative is to read the data set using the `na.strings`
+argument.
+
+`> dat = read.csv("linmod.csv", na.strings=c("NA","Not Reported","888","999"))`
+
+**Graphical Descriptions of Blood Pressure** Let's start by examining
+the marginal distribution of Systolic Blood Pressure.
+
+`> hist(dat$sbp, main="Histogram of Systolic Blood Pressure", xlab="Systolic BP")`
+
+`> boxplot(dat$sbp, main="Boxplot of SBP", ylab="SBP")`
+
+Now use the `plot` function to create a scatterplot of Systolic Blood
+Pressure versus Diastolic Blood Pressure. Suppose we want Diastolic
+Blood Pressure on the horizontal axis and Systolic Blood Pressure on the
+vertical axis. The horizontal axis is the first argument and the
+vertical axis is the second argument.
+
+`> plot(sbp `$\sim$` dbp, data=dat)`
+
+`plot` has many arguments which will allow us to modify the graph. Let's
+take a look at a few of them.
+
+`> plot(sbp `$\sim$` dbp, data=dat, col="green")`
+
+`> plot(sbp `$\sim$` dbp, data=dat, pch=2, col="green")`
+
+`> plot(sbp `$\sim$` dbp, data=dat, pch=2, xlab="Diastolic",`
+
+`+ ylab="Systolic", main="Blood Pressure", col="green")`
+
+**Numerical Descriptions of Blood Pressure** Using the `sd`, `cov`, and
+`cor` functions, we can investigate the marginal and joint variation of
+Diastolic and Systolic Blood Pressure.
+
+`> summary(dat$dbp)`
+
+`> summary(dat$sbp)`
+
+`> sd(dat$dbp)`
+
+`> sd(dat$sbp)`
+
+`> cov(dat$dbp, dat$sbp)`
+
+`> cor(dat$dbp, dat$sbp)`
+
+## Simple Linear Regression using the `lm` function
+
+In a simple linear regression, we propose the model:
+$$Y = \beta_0 + \beta_1 X + \epsilon,$$ where $Y$ is the dependent
+variable, $X$ is the sole independent variable, and $\epsilon$
+represents a random component. One of the goals in a simple linear
+regression is to find the estimates, $\hat{\beta_0}$ and
+$\hat{\beta_1}$, that fit the data best.
+
+The **[R]{.sans-serif}** function used to fit regression models is the
+`lm` function. Let's begin by doing a simple linear regression of
+systolic blood pressure on diastolic blood pressure.
+
+`> lm(sbp `$\sim$` dbp, data=dat)`
+
+At first glance, **[R]{.sans-serif}** returns the estimated regression
+parameters $\hat{\beta_0}$ and $\hat{\beta_1}$ but very little else.
+What about the model $r^2$? How do we find the residuals? What about
+confidence intervals, influential points, or the other diagnostics one
+should consider when performing a regression analysis?
+
+By storing the fitted model as an object, we are able to unleash all the
+power in the `lm` function. Let's try again, but this time, store the
+linear model as an object.
+
+`> mymod = lm(sbp `$\sim$` dbp, data=dat)`
+
+The variable `mymod` now stores the information from the regression of
+`sbp` on `dbp`. `mymod` is a linear model object. Just as we earlier saw
+examples of numeric objects (`x = 5`) and character objects
+(`y = "Hi"`), we now have the object `mymod` which is a linear model
+object. Let's verify that `mymod` is a linear model object.
+
+`> class(mymod)`
+
+Now that we have the "lm\" object stored in `mymod`, let's do some more
+investigation.
+
+`> summary(mymod)`
+
+The `summary` function returns the following
+
+-   A 5-number summary of the residuals
+
+-   A table of regression coefficients, standard errors, t-statistics,
+    and p-values for testing the hypotheses that $\beta_i = 0$
+
+-   An estimate of the error standard deviation
+
+-   Unadjusted and adjusted model $r^2$
+
+-   An overall F-test of no model effect
+
+We can use the names function to see everything that is stored in
+`mymod`.
+
+`> names(mymod)`
+
+We can extract any single attribute using \$.
+
+`> mymod$coefficients`
+
+`> mymod$fitted.values`
+
+**[R]{.sans-serif}** has many "extractor" functions:
+
+`> coef(mymod)`
+
+`> fitted(mymod)`
+
+**[R]{.sans-serif}** also has powerful graphing tools for checking model
+assumptions. For a simple linear regression, we need to check for
+
+-   The nature of the relationship between $Y$ and $X$ (linear?)
+
+-   The error distribution
+
+-   Influential points
+
+Using the `plot` function, we can cycle through diagnostic graphs to
+test each of the above assumptions.
+
+`> plot(residuals(mymod), predict(mymod), main="Residual Plot")`
+
+Confidence intervals for the regression coefficients provide much more
+information than p-values. Confidence intervals for $\beta_0$ and
+$\beta_1$ can be generated using the `confint` function.
+
+`> confint(mymod)`
+
+`> confint(mymod, level=.90)`
+
+We can also examine the ANOVA table associated with the regression
+model.
+
+`> anova(mymod)`
+
+## Analysis of Variance
+
+Suppose one wishes to do a 2-way ANOVA model, where diastolic blood
+pressure is the response with gender and smoking status the two factors.
+As always, it is important to begin by investigating the relationships
+graphically.
+
+`> boxplot(dbp `$\sim$` smoke, data=dat)`
+
+`> boxplot(dbp `$\sim$` gen, data=dat)`
+
+`> with(dat, interaction.plot(smoke, gen, dbp))`
+
+Since an ANOVA model is simply a linear model where the only predictors
+are dummy variables representing group membership, ANOVA models can be
+fit using the `lm` function.
+
+`> lm.mod = lm(dbp `$\sim$` gen + smoke, data=dat)`
+
+`> summary(lm.mod)`
+
+Many researchers prefer output organized in a different ANOVA table. We
+can also use the `aov` function to fit an ANOVA model.
+
+`> aov.mod = aov(dbp `$\sim$` gen + smoke, data=dat)`
+
+`> summary(aov.mod)`
+
+`lm.mod` and `aov.mod` represent the same fit but the `summary` function
+reports them differently. `summary` is an example of a generic function.
+Different versions are used for different classes. Remember that we used
+`summary` earlier to describe numeric vectors, factors, and data.frames.
+Let's investigate the class of the two models.
+
+`> class(lm.mod)`
+
+`> class(aov.mod)`
+
+The following commands give the mean of the dependent variable and each
+factor level:
+
+`> model.tables(aov.mod)`
+
+`> ?model.tables`
+
+We can use Tukey's HSD procedure to test the pairwise differences,
+adjusting for multiple testing:
+
+`> TukeyHSD(aov.mod)`
+
+`> ?TukeyHSD`
+
+## Multiple Linear Regression
+
+A multiple linear regression assumes the following relationship:
+$$Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_pX_p + \epsilon$$
+In this notation, $Y$ represents the response variable of interest, and
+the $X_j$ correspond to predictor variables. When fitting a linear
+regression model, one aim to estimate the $\beta$ parameters. The fitted
+model is sometimes used to predict future responses.
+
+We will use the built-in LifeCycleSavings data set (which we saw in
+passing earlier) to illustrate fitting a multiple linear regression. We
+will use the popular `car` (Companion to Applied Regression) package for
+some regression diagnostics.
+
+`> data()`
+
+Let's first begin by learning about the data set.
+
+`> help(LifeCycleSavings)`
+
+Shorten the name.
+
+`> Life=LifeCycleSavings`
+
+Now let's make a boxplot of each of the five variables. For comparison,
+it would be helpful to view all of the plots on the same output. The
+`par` and `mfrow` commands are useful for this. The `par` function
+allows you to set graphical parameters, and `mfrow` allows you to
+specify an array of plots.
+
+The following commands set up a two by two grid of plots.
+
+`> par(mfrow=c(2,2))`
+
+We can add boxplots one at a time.
+
+`> boxplot(Life$sr, main="sr")`
+
+`> boxplot(Life$pop15, main="pop15")`
+
+`> boxplot(Life$pop75, main="pop75")`
+
+`> boxplot(Life$dpi, main="dpi")`
+
+After exploring the marginal relationships of each of the variables, it
+is a good idea to investigate the bivariate relationships. We do this
+both numerically and graphically.
+
+`> cor(Life)`
+
+`> pairs(Life, panel=panel.smooth)`
+
+Now fit a multiple regression model using the `lm` function.
+
+`> mr.mod = lm(sr `$\sim$` pop15 + pop75 + dpi + ddpi, data=Life)`
+
+`> summary(mr.mod)`
+
+`> confint(mr.mod)`
+
+We saw that there was a large negative correlation between pop75 and
+pop15. One diagnostic for multicolinearity is the variance inflation
+factor (VIF). Let's investigate the variance inflation factors. It has
+been implemented in the `car` package. To access the function we must
+load the package:
+
+`> library(car)`
+
+`> ?vif`
+
+`> vif(mr.mod)`
+
+How does the model change if we leave out one of the variables? We fit a
+different model removing pop75.
+
+`> mr.mod2 = lm(sr `$\sim$` pop15 + dpi + ddpi, data=Life)`
+
+We now perform an F test for nested models.
+
+`> anova(mr.mod, mr.mod2, test="F")`
+

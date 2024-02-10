@@ -1,0 +1,205 @@
+# Programming
+
+Programming in **[R]{.sans-serif}** is basically the same as programming
+in any other language; the core program is controlled by a series of
+if-then statements, loops, print statements, calls to other programs,
+and return statements. The only differences are minor syntax conventions
+that just take practice.
+
+## Branching
+
+To begin with, let's look at an example of how if-then statements work
+in **[R]{.sans-serif}**. Try submitting this command at the prompt to
+see how it works:
+
+`> if (1>0) print("I Like Binary")`
+
+Note that **[R]{.sans-serif}** prints "I Like Binary\" because the
+condition in the *if* statement is true. The `print` function is very
+useful for programming purposes, in that it prints simple strings in the
+**[R]{.sans-serif}** Console. No explicitly labeled *then* statement is
+needed after an *if* statement; you simply type what you would like
+**[R]{.sans-serif}** to do if the *if* condition is true. In general, if
+you want to do more than one thing if the *if* condition is true, you
+use this bracketed structure:
+
+`if (logical condition) {`\
+`do this`\
+`and this`\
+`and this`\
+`}`
+
+The statements in the brackets usually refer to function calls and
+object assignments, and simply need to be on separate lines (no
+punctuation necessary!). If necessary, you can use an "else" option:
+
+`> if (x>5) print("x is big") else print("x is small")`
+
+## Looping
+
+Now let's take a look at how a "for" loop works in **[R]{.sans-serif}**.
+Try submitting the following syntax at the command prompt:
+
+`> for (i in 1:5) print(i)`
+
+**[R]{.sans-serif}** prints 1, 2, 3, 4, and 5. *For* loops work like
+*if* conditions, and if you want **[R]{.sans-serif}** to do more than
+one thing in a *for* loop, use brackets around the commands:
+
+`for(i in a:b) {`\
+`do this`\
+`and this`\
+`and this`\
+`}`
+
+`while` and `repeat` loops in **[R]{.sans-serif}** work in a manner very
+similar to other programming languages. One or more commands are
+executed repeatedly while a condition remains true. Typically a counter
+object is initialized for controlling the loop, and then incremented
+within the while loop while certain commands are executed for each
+repetition. The loop ends when the while condition is false.
+
+`t = 0`\
+`while(t < 7) {`\
+`print(t)`\
+`t = t+1`\
+`}`
+
+## Blood Pressure Example Revisited
+
+Earlier we dealt with a data set where diastolic and systolic blood
+pressure had been read into a single column separated. We learned how to
+extract the two blood pressures using the `strsplit` function. Now that
+we have discussed creating functions and programming, we will separate
+the two measurements for the entire data set. We begin by clearing up
+the workspace.
+
+`> ls()`
+
+`> rm(list=ls())`
+
+`> dat = read.csv("linmod.csv", header=TRUE, na.strings=c("NA", 888, 999, "Not Reported"))`
+
+Extract a blood pressure for practice.
+
+`> b = dat$bp[1]`
+
+Recall that the following commands successfully extracted the separated
+measurements.
+
+`> ## Change to character.`
+
+`> b = as.character(b)`
+
+`> sep = strsplit(b, split="/")`
+
+`> ## Extract systolic blood pressure.`
+
+`> s = sep[[1]][1]`
+
+`> ## Extract diastolic blood pressure.`
+
+`> d = sep[[1]][2]`
+
+`> ## Convert to numeric.`
+
+`> s = as.numeric(s)`
+
+`> d = as.numeric(d)`
+
+Now we enclose the following commands in a function. We will name this
+function `extract.bp`.
+
+`> extract.bp = function(x) {`
+
+`> x = as.character(x)`
+
+`> sep = strsplit(x, split="/")`
+
+`> s = as.numeric(sep[[1]][1])`
+
+`> d = as.numeric(sep[[1]][2])`
+
+`> return(c(s,d))`
+
+`> } `
+
+Type `extract.bp` at the command line to verify the creation of the
+function was successful.
+
+`> extract.bp`
+
+Now let's experiment to see if our function works.
+
+`> b`
+
+`> extract.bp(b)`
+
+The following code uses a loop to extract the blood pressures for each
+variable in the data set.
+
+`> ## Number of rows in the data set.`
+
+`> n = dim(dat)[1]`
+
+`> ## Set up empty numeric vectors to store two blood pressures.`
+
+`> systolic = numeric(n)`
+
+`> diastolic = numeric(n)`
+
+`> ## Loop over the rows and extract.`
+
+`> for (j in 1:n){`
+
+`> out = extract.bp(dat$bp[j])`
+
+`> systolic[j] = out[1]`
+
+`> diastolic[j] = out[2]`
+
+`> } `
+
+`> systolic`
+
+`> diastolic`
+
+## The `apply` Function
+
+The `apply` function performs a function on each row or column of a
+matrix. (There are other \*apply functions for other situations.) First
+create a couple matrices to play with. In addition to the `matrix`
+function, `rbind` (or `cbind`) can be used to create matrices. For
+example,
+
+`> c1 = c(2, 9, 3)`
+
+`> c2 = c(12, 1, 5)`
+
+`> M2 = cbind(c1, c2)`
+
+`> M2`
+
+`> apply(M2, 2, mean)`
+
+In the example above, `apply` took three arguments:
+
+1.  The first argument, "M2" is the matrix
+
+2.  The second argument, "2", is an index indicating the function is
+    applied separately for each column, a value of "1" would apply the
+    function on each row
+
+3.  The last argument is the function that is applied
+
+If you were to just type `mean(M2)`, the mean would be computed over the
+entire matrix.
+
+`> mean(M2)`
+
+[^1]: $\beta_i$ is an additive effect, and $e^{\beta_i}$ is a
+    multiplicative effect. For example, if $\beta_i = 0.38$, we would
+    estimate that the log odds of success increases by 0.38 for every
+    unit increase in $X_i$. If $e^{\beta_i} = 1.46$, we would estimate
+    that the odds of success increases by 46 *percent* for every unit
+    increase in $X_i$.

@@ -8,7 +8,18 @@ book:
     title: "Introduction to R"
   chapters:
     - index.qmd
-    - notes.qmd
+    - 01_the_r_environment.qmd
+    - 02_getting_started_with_r.qmd
+    - 03_using_scripts.qmd
+    - 04_objects.qmd
+    - 05_data_for_analysis.qmd
+    - 06_student_t-tests.qmd
+    - 07_chi-square_tests.qmd
+    - 08_linear_models.qmd
+    - 09_lists.qmd
+    - 10_generalized_linear_models.qmd
+    - 11_creating_functions.qmd
+    - 12_programming.qmd
 
 format:
   html:

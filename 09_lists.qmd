@@ -1,0 +1,119 @@
+# Lists
+
+## String Manipulation
+
+In the third column of *dat*, systolic and diastolic pressure were
+placed together separated by a "/". Ideally, data would never be stored
+in such a manner. For easy data processing, systolic and diastolic blood
+pressure should be stored in separate columns. Although in our data sets
+we did have separate columns, suppose for the sake of example that we
+only had the one column in which blood pressure was entered as $120/82$.
+It could be time consuming to convert these to separate variables by
+hand in Excel.
+
+Fortunately, **[R]{.sans-serif}** has excellent string manipulation
+facilities. In this example, we will use the `strsplit` function to
+extract diastolic and systolic blood pressures. `strsplit` has two
+arguments that we will use. The first argument is the character string
+we wish to split. The second argument is the character that we will
+split on. Let's start with the *bp* value in the first row.
+
+`> b = dat$bp[1]`
+
+`> b`
+
+Now let's try to split `b` into two separate values.
+
+`> strsplit(b, split="/")`
+
+This didn't work. When a problem like this arises, be sure to look at
+the error messages! In this example, **[R]{.sans-serif}** complains that
+we have a "non-character\" argument. Let's investigate.
+
+`> class(b)`
+
+Sure enough, b is a factor since it was obtained by indexing a factor in
+the data set. We must first change b to a character.
+
+`> b = as.character(b)`
+
+`> class(b)`
+
+Now we are ready!
+
+`> strsplit(b, split="/")`
+
+This seems to work, but in order to use the separated values, we must
+first store the split string as an object.
+
+`> sep = strsplit(b, split="/")`
+
+`> sep`
+
+`> class(sep)`
+
+## Lists
+
+The object `sep` is a list, a class of objects that we have not yet
+encountered explicitly (however, data.frames are lists). Lists can
+simultaneously store many objects of various classes. Recall from
+earlier that elements of a vector were forced to be of the same class
+(e.g., character). Lists are much more flexible and can contain
+characters, vectors, matrices, data.frames, and even other lists. Let's
+take a detour from our original problem of separating blood pressures in
+order to investigate lists.
+
+Create a list containing a single number, a character, and a vector of
+number.
+
+`> L = list(5, "Hi", c(3,8,7))`
+
+`> L`
+
+The syntax for indexing lists is different than that for vectors or
+matrices. If we type `L[1]`, we obtain the sub-list containing 5 instead
+of just the number 5.
+
+`> L[1]`
+
+`> class(L[1])`
+
+Instead, we must use double-brackets to extract the number 5 rather than
+the sublist containing the number 5.
+
+`> L[[1]]`
+
+`> class(L[[1]])`
+
+The following extracts the 8 from the third element of the list.
+
+`> L[[3]][2]`
+
+Now that we have a basic understanding of lists. Let's return to our
+problem of separating diastolic and systolic blood pressure.
+
+`> sep`
+
+`> s = sep[[1]][1]`
+
+`> d = sep[[1]][2]`
+
+`> s`
+
+`> d`
+
+`> s = as.numeric(s)`
+
+`> d = as.numeric(d)`
+
+`> s`
+
+`> d`
+
+It worked! Now we need to do this for every person. One way this can be
+accomplished is with a `for` loop or `*apply`. We will revisit this
+after covering programming. You can try the following but more is
+needed.
+
+`> strsplit(as.character(dat$bp), split="/")`
+

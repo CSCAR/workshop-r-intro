@@ -1,0 +1,68 @@
+# Generalized Linear Models (GLM)
+
+In practice, GLMs are often used when the response variable is not
+continuous. Several examples of GLMs include
+
+-   Logistic Regression (Y is binary)
+
+-   Multinomial Logistic Regression (Y is nominal)
+
+-   Poisson Regression (Y is a count)
+
+-   Negative Binomial Regression (Y is a count with over-dispersion)
+
+**[R]{.sans-serif}** uses the function `glm` to fit GLMs. We will use
+logistic regression to illustrate `glm`.
+
+## Logistic Regression
+
+Logistic regression is a specific type of GLM used to model a binary
+outcome. If we label a success "1" and a failure "0", the *odds* of
+success are defined as $P(Y=1)/P(Y=0)$. Logistic regression models the
+log odds of success as a linear combination of the predictors.
+$${\rm log}\left(\frac{P(Y=1|X)}{P(Y=0|X)}\right) =  \beta_0 + \beta_1X_1 + ... + \beta_pX_p$$
+
+In logistic regression, $\beta_i$ is the effect of $X_i$ on the log odds
+of success ($Y=1$).
+
+For an example, we use the "Mroz\" data in the *car* library. Let's
+first review the "Mroz" data set.
+
+`> library(car)`
+
+`> help(Mroz)`
+
+The syntax for `glm` is nearly the same as the syntax for `lm`. One
+important additional argument is *family*, which specifies what type of
+GLM will be fit. Logistic regression models a binary response, so we use
+the binomial family.
+
+`> mroz.mod = glm(lfp `$\sim$` I(k5==0) + age + wc + hc + lwg + inc, data=Mroz,`
+
+`+   family=binomial)`
+
+`> summary(mroz.mod)`
+
+The fitted object `mroz.mod` is of a new type of class.
+
+`> class(mroz.mod)`
+
+We can extract the estimated coefficients using `coef`.
+
+`> coef(mroz.mod)`
+
+When reporting the effects of a logistic regression analysis, it is
+common to include the effect on the *odds* of success. Since $\beta_i$
+is the effect of $X_i$ on the log odds of success, $e^{\beta_i}$ is the
+effect of $X_i$ on the odds of success[^1]. We can estimate the effects
+of the predictors on the odds by exponentiating the coefficients.
+
+`> exp(coef(mroz.mod))`
+
+We can also obtain confidence intervals for both the log odds and odds
+effects.
+
+`> confint(mroz.mod)`
+
+`> exp(confint(mroz.mod))`
+

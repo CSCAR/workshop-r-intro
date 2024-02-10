@@ -4,5 +4,41 @@
   },
   "notes.qmd": {
     "notes.html": "7e040db6"
+  },
+  "01_the_r_environment.qmd": {
+    "01_the_r_environment.html": "beb1d708"
+  },
+  "02_getting_started_with_r.qmd": {
+    "02_getting_started_with_r.html": "0572613b"
+  },
+  "03_using_scripts.qmd": {
+    "03_using_scripts.html": "4f418c34"
+  },
+  "04_objects.qmd": {
+    "04_objects.html": "862833d8"
+  },
+  "05_data_for_analysis.qmd": {
+    "05_data_for_analysis.html": "a8720c27"
+  },
+  "06_student_t-tests.qmd": {
+    "06_student_t-tests.html": "190e99d9"
+  },
+  "07_chi-square_tests.qmd": {
+    "07_chi-square_tests.html": "bc3345d3"
+  },
+  "08_linear_models.qmd": {
+    "08_linear_models.html": "c90f2dd0"
+  },
+  "09_lists.qmd": {
+    "09_lists.html": "106b616c"
+  },
+  "10_generalized_linear_models.qmd": {
+    "10_generalized_linear_models.html": "99f004e0"
+  },
+  "11_creating_functions.qmd": {
+    "11_creating_functions.html": "35c7d756"
+  },
+  "12_programming.qmd": {
+    "12_programming.html": "ffc1e92e"
   }
 }

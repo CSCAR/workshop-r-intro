@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R</title>
+<title>Introduction to R - 6&nbsp; Student t-tests</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_the_r_environment.html" rel="next">
+<link href="./07_chi-square_tests.html" rel="next">
+<link href="./05_data_for_analysis.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -82,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_student_t-tests.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Student t-tests</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -112,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -148,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_student_t-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="./06_student_t-tests.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
   </div>
 </li>
@@ -198,14 +228,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
+  <li><a href="#one-sample-t-test" id="toc-one-sample-t-test" class="nav-link active" data-scroll-target="#one-sample-t-test"><span class="header-section-number">6.1</span> One-sample t-test</a></li>
+  <li><a href="#independent-samples-t-tests" id="toc-independent-samples-t-tests" class="nav-link" data-scroll-target="#independent-samples-t-tests"><span class="header-section-number">6.2</span> Independent Samples t-tests</a>
   <ul class="collapse">
-  <li><a href="#creation-of-this-document" id="toc-creation-of-this-document" class="nav-link" data-scroll-target="#creation-of-this-document">Creation of this document</a></li>
-  <li><a href="#contact-information" id="toc-contact-information" class="nav-link" data-scroll-target="#contact-information">Contact information</a>
-  <ul class="collapse">
-  <li><a href="#cscar" id="toc-cscar" class="nav-link" data-scroll-target="#cscar">CSCAR</a></li>
-  </ul></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  <li><a href="#the-formula-operator-sim" id="toc-the-formula-operator-sim" class="nav-link" data-scroll-target="#the-formula-operator-sim"><span class="header-section-number">6.2.1</span> The formula operator (<span class="math inline">\(\sim\)</span>)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -215,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to R</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Student t-tests</span></h1>
 </div>
 
 
@@ -232,43 +258,57 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Last modified: 2024-02-09</p>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>These notes are split into four primary sections:</p>
+<p>A t-test is a statistical hypothesis test in which the test statistic follows a t-distribution. Three common applications of the t-test are:</p>
 <ul>
-<li><a href="01-the-basics-of-stata.html">Chapter 1: The Basics of Stata</a> - Interacting with Stata.</li>
-<li><a href="02-working-with-data-sets.html">Chapter 2: Working with Data Sets</a> - Importing, opening, and saving data sets.</li>
-<li><a href="03-data-management.html">Chapter 3: Data Management</a> - The basics of maintaining and exploring a data set.</li>
-<li><a href="04-data-manipulation.html">Chapter 4: Data Manipulation</a> - Creating and modifying variables and other ways of manipulating your data.</li>
+<li><p>A one-sample t-test of whether the mean of a normally distributed population is a particular value (<span class="math inline">\(H_0: \mu = 70\)</span>)</p></li>
+<li><p>An independent samples t-test to determine whether the means of two normally distributed populations are equal (<span class="math inline">\(H_0: \mu_1 = \mu_2\)</span>)</p></li>
+<li><p>A paired samples t-test to determine whether the means of two normally distributed populations are equal (<span class="math inline">\(H_0: \mu_1 = \mu_2\)</span>)</p></li>
 </ul>
-<p>These sections will generally be presented in sequence. The discussion will alternate between theory and practice. The format will alternate between lecture and exercises. Please ask questions as soon as they arise in your mind. Please provide feedback or voice concerns.</p>
-<p>There are two additional sections:</p>
-<ul>
-<li><a href="05-programming.html">Chapter 5: Programming &amp; Advanced Topics</a> - Topics for users who wish to move beyond the basics.</li>
-<li><a href="06-appendix.html">Appendix</a> - Houses the exercise solutions.</li>
-</ul>
-<section id="creation-of-this-document" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="creation-of-this-document">Creation of this document</h2>
-<p>These notes are published using <a href="https://quarto.org">Quarto</a>. The Stata code is first rendered using a Stata <a href="https://www.stata.com/manuals/rptdynamicdocumentsintro.pdf">dynamic document</a>. The source code for these notes can be found at <a href="https://github.com/CSCAR/workshop-stata-intro" class="uri">https://github.com/CSCAR/workshop-stata-intro</a> for the curious.</p>
-<p>All images should link to full-size versions to see detail if needed.</p>
-<p>Dark mode can be toggled on via the switch in the top left corner. Images are color-reversed in dark mode to avoid brightness; mouse over them (or click on mobile) to display originals.</p>
+<p>Another t-test arises when testing whether a regression parameter equals 0 (<span class="math inline">\(H_0: \beta_1 = 0\)</span>).</p>
+<section id="one-sample-t-test" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="one-sample-t-test"><span class="header-section-number">6.1</span> One-sample t-test</h2>
+<p>Clean up the workspace and import <code>height.csv</code> into <strong><span class="sans-serif">R</span></strong>.</p>
+<p><code>&gt; rm(list=ls()) # removes all objects</code></p>
+<p><code>&gt; dat = read.csv("height.csv", header=TRUE)</code></p>
+<p><code>&gt; head(dat)</code></p>
+<p>Let’s start with a one-sample t-test. Test the hypothesis that the population mean height for men is 70 inches (<span class="math inline">\(H_0:\mu_{men} = 70\)</span>)</p>
+<p>First we need to get the subset where gender <span class="math inline">\(==\)</span> male.</p>
+<p><code>&gt; dat$gender == "male"</code></p>
+<p><code>&gt; men.ht = dat$height[dat$gender == "male"]</code></p>
+<p>Before doing any formal analyses, it is always a good idea to summarize the data both numerically and visually.</p>
+<p><code>&gt; summary(men.ht)</code></p>
+<p><code>&gt; boxplot(men.ht)</code></p>
+<p><code>&gt; hist(men.ht, main="My First Histogram in R!")</code></p>
+<p>The <code>t.test</code> function will perform a one sample t-test for the height of men. Suppose we wish to test the hypothesis <span class="math inline">\(H_0: \mu_{men} = 70\)</span> versus the alternative <span class="math inline">\(H_a: \mu_{men} \neq 70\)</span>. We must give the <code>t.test</code> function 1) the vector of male height values, and 2) the value of the mean under the null hypothesis. The default alternative is two-sided.</p>
+<p><code>&gt; t.test(men.ht, mu=70)</code></p>
+<p>What if you want to calculate a 90% confidence interval?</p>
+<p><code>&gt; help(t.test)</code></p>
+<p>The <em>conf.level</em> argument will be used to change the confidence level.</p>
+<p><code>&gt; t.test(men.ht, mu=70, conf.level= 0.90)</code></p>
+<p><code>&gt; t.out = t.test(men.ht, mu=70, conf.level= 0.90)</code></p>
+<p><code>&gt; names(t.out)</code></p>
+<p><code>&gt; t.out$conf.int</code></p>
 </section>
-<section id="contact-information" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="contact-information">Contact information</h2>
-<section id="cscar" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="cscar">CSCAR</h3>
-<p><a href="http://cscar.research.umich.edu/" class="uri">http://cscar.research.umich.edu/</a></p>
-<p>CSCAR is available for free consultations with PhD statisticians (email deskpeople@umich.edu to request a consultation).</p>
-<p>CSCAR also has GSRAs available for more immediate help. Walk-ins to our office in Rackham are welcomed Monday-Friday 9am to 5pm (Closed Tuesdays 12-1pm). Alternatively, on our website, you can self-schedule into an hour consultation with the graduate students, which can be either remote or in-person (these are usually available same-day or next-day).</p>
-<p>CSCAR operates a email for help with statistical questions, feel free to send concise questions to stats-consulting@umich.edu.</p>
-<p>The current contact for questions about the notes: Josh Errickson (jerrick@umich.edu).</p>
-</section>
-</section>
-<section id="acknowledgments" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>These notes have evolved over the years thanks to many CSCAR statisticians, including Josh Errickson, Giselle Kolenic, Brady West, Heidi Reichert, and Lingling Zhang.</p>
-<p>This material was created for use in workshops and short courses presented by faculty and staff from the Consulting for Statistics, Computing &amp; Analytics Research (CSCAR) at the University of Michigan. No part of this material may be used for other purposes, copied, changed, or sold.</p>
+<section id="independent-samples-t-tests" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="independent-samples-t-tests"><span class="header-section-number">6.2</span> Independent Samples t-tests</h2>
+<p>Now suppose we wish to test whether there is a difference between the population mean heights for men and women (<span class="math inline">\(H_0: \mu_m = \mu_w\)</span>). Before running the t-test, let’s make side-by-side boxplots to visually compare the heights of men and women.</p>
+<p><code>&gt; boxplot(men.ht, women.ht)</code></p>
+<section id="the-formula-operator-sim" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="the-formula-operator-sim"><span class="header-section-number">6.2.1</span> The formula operator (<span class="math inline">\(\sim\)</span>)</h3>
+<p>It is possible to avoid creating separate vectors for two groups that you would like to compare. This is done with the formula operator and many R functions can accept a formula as the first argument. The second argument must then nearly always be the data.frame where the formula should be evaluated.</p>
+<p><code>&gt; boxplot(height</code><span class="math inline">\(\sim\)</span><code>gender, data=dat)</code></p>
+<p>If you don’t include the data argument, you’ll likely get an error message:</p>
+<p><code>&gt; boxplot(height</code><span class="math inline">\(\sim\)</span><code>gender)</code> # error: data not found?</p>
+<p>The variables in the <code>dat</code> data.frame can be made available temporarily by wrapping the command inside a call to <code>with</code>:</p>
+<p><code>&gt; with(dat, boxplot(height</code><span class="math inline">\(\sim\)</span><code>gender))</code></p>
+<p>If you need access to the variables in a data.frame for an extended session and you aren’t going to change the variables in the data.frame, you can use the <code>attach(dat)</code> function to access height and gender directly. However, using <code>attach</code> is discouraged by some analysts. It puts a second copy of the data.frame on the “search path” and can make updating your data tricky. <strong>Remember to <code>detach</code> when you are done.</strong></p>
+<p><code>&gt; height</code></p>
+<p><code>&gt; attach(dat)</code></p>
+<p><code>&gt; height</code></p>
+<p><code>&gt; detach(dat)</code></p>
+<p><code>&gt; height</code></p>
+<p>Now perform the independent samples t-test.</p>
+<p><code>&gt; t.test(height</code><span class="math inline">\(\sim\)</span><code>gender, data=dat)</code></p>
 
 
 </section>
@@ -808,10 +848,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./05_data_for_analysis.html" class="pagination-link  aria-label=" &lt;span="" for="" analysis&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_the_r_environment.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07_chi-square_tests.html" class="pagination-link" aria-label="<span class='chapter-number'>7</span>&nbsp; <span class='chapter-title'>Chi-Square tests</span>">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

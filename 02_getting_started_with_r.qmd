@@ -1,0 +1,265 @@
+# Getting Started with **[R]{.sans-serif}**
+
+Launch **[R]{.sans-serif}** from the Start Menu or the desktop icon.
+(We'll shift to **[R]{.sans-serif}**Studio after we have some
+familiarity with using **[R]{.sans-serif}** interactively.)
+
+## Using **[R]{.sans-serif}** as a Calculator
+
+**[R]{.sans-serif}** can perform basic arithmetic operations. Type the
+following expressions at the command prompt in the **[R]{.sans-serif}**
+console window.
+
+`> 5+3`
+
+`> 5-3`
+
+`> 5/3`
+
+`> 5*3`
+
+`> 5^3`
+
+`> 4 + 2 * 3`
+
+`> (4 + 2) * 3`
+
+If you have missing input (represented in **[R]{.sans-serif}** by NA),
+the output will likely be missing:
+
+`> (4 + NA) * 3`
+
+If you try something mathematically shoddy, you will likely be told:
+
+`> 0 / 0`
+
+`> 1 / 0`
+
+`> -1 / 0`
+
+**[R]{.sans-serif}** has many built-in mathematical functions.
+
+`> log(100)`
+
+`> sqrt(9)`
+
+`> sqrt(-9)`
+
+`> sqrt(-9 + 0i)`
+
+This is your first indication that an **[R]{.sans-serif}** function may
+behave differently depending on the *type* of input.
+
+`> sqrt(NA)`
+
+`> exp(1)`
+
+An *argument* is a parameter that is passed to a function. The `sqrt`
+and `exp` functions only take a single argument. Many functions,
+including `log`, take more than one argument. Arguments are separated by
+commas.
+
+`> round(5.123, 2)`
+
+If not all arguments are provided, **[R]{.sans-serif}** may use a
+default value.
+
+`> round(5.123)`
+
+Some other basic functions:
+
+`> ceiling(5.123)`
+
+`> floor(5.123)`
+
+The "Remainder" and Integer Division operations:
+
+`> 17 %% 5`
+
+`> 17 %/% 5`
+
+**Review of logarithms** If $a^y = x$, then $\log_a(x) = y$. For
+example, $10^2 = 100$ and $\log_{10}(100) = 2$. Three common choices of
+the base are $10$, $2$, and $e$. What is the default choice in
+**[R]{.sans-serif}**?
+
+`> log(10)`
+
+`> log(2)`
+
+`> log(exp(1))`
+
+Suppose you are working with a dataset and you wish to apply the
+$\log_{10}$ transformation. How can we instruct **[R]{.sans-serif}** to
+take logarithms base 10? **[R]{.sans-serif}**'s help pages are good
+sources of information for questions such as these. Two ways to view a
+function's help page are '?' and 'help'. A more generic approach might
+be searching "take log in r" with your favorite search engine.
+
+`> ?log`
+
+`> help(log)`
+
+The `log` function can take two arguments including the *base* argument.
+Arguments can be specified in several ways.
+
+The argument name can be stated explicitly:
+
+`> log(x=25, base=5)`
+
+The argument name can be abbreviated as long as the abbreviation is
+unique:
+
+`> log(x=25, b=5)`
+
+Not all arguments need to be named:
+
+`> log(25, b=5)`
+
+`> log(b=5, 25)`
+
+We don't have to use the argument names at all, in which case the
+arguments are matched by the order listed. Compare
+
+`> log(25, 5)`
+
+`> log(5, 25)`
+
+**[R]{.sans-serif}** may return an error if you incorrectly name a
+function argument.
+
+`> log(25, be=5)`
+
+## Making Comparisons: Logical Operators
+
+**[R]{.sans-serif}** has logical operators that will return "TRUE" or
+"FALSE" (or possibly "NA" if you have missing values).
+
+`> 5 == 6`
+
+`> 5 != 6`
+
+`> 5 < 6`
+
+`> 5 > 6`
+
+`> 5 <= 6`
+
+`> 5 <= NA`
+
+`> 5 <= Inf`
+
+`> !TRUE`
+
+`> (1 + 2) == 3`
+
+**[R]{.sans-serif}** has "and" and "or" operators (there are others):
+
+`> (5 < 6) & (7 == 8)`
+
+`> (5 < 6) | (7 == 8)`
+
+`> (5 < 6) | NA`
+
+**Be careful of comparisons and floating point arithmetic**:
+
+`> (.1 + .2) == .3`
+
+`> 5 == sqrt(5)^2`
+
+`> 5 - sqrt(5)^2`
+
+The `all.equal` function will test if two values are "close enough":
+
+`> all.equal(5, sqrt(5)^2)`
+
+`> ?all.equal`
+
+This is not bug of **[R]{.sans-serif}**. It is a feature of computers
+using binary representation of floating point numbers and storing them
+with finite precision. This is common enough to make the
+**[R]{.sans-serif}** FAQ (7.31):
+`https://cran.r-project.org/doc/FAQ/R-FAQ.html`. To quote from "The
+Elements of Programming Style" by Kernighan and Plauger: "10.0 times 0.1
+is hardly ever 1.0."
+
+## Vectors and Sequences
+
+**[R]{.sans-serif}** is a 'vectorized' language. Many functions operate
+on an entire vector of numbers as easily as on a single number. This
+feature allows the user to think in terms of manipulating entire data
+variables rather than one data element at a time. For example (once we
+have learned about storing objects), we can write `mean(Height)` or
+`hist(Height)` to analyze a variable, rather than working with the
+individual data values.
+
+Thus it is important to be able to create and manipulate vectors.
+Numbers can be combined into a vector with the function 'c', which
+stands for *combine*.
+
+`> c(3, 9, 2)`
+
+The following commands produce exactly the same output, namely a vector
+with the integers 1 to 10. In **[R]{.sans-serif}**, there are often many
+ways of doing the same thing.
+
+`> c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)`
+
+`> 1:10`
+
+`> seq(1, 10, 1)`
+
+`> seq_len(10)`
+
+`> ?seq`
+
+You can specify a sequence's increment or length using the *by* and
+*length* arguments.
+
+`> seq(0, 200, by=4)`
+
+`> seq(0, 200, length=13)`
+
+`> rep(3, 12)`
+
+In **[R]{.sans-serif}**, functions can be nested. In the following
+examples, the inner function, `c`, is used to create a vector and the
+outer function uses that vector as an argument.
+
+`> rep(c(3,9,2), times=4)`
+
+`> rep(c(3,9,2), each=4)`
+
+`> rep(c(3,9,2), length=12)`
+
+`> rep(c(3,9,2), times=c(2,9,1))`
+
+## Matrices and Arrays
+
+In **[R]{.sans-serif}**, a matrix or an array is just a vector with a
+dimension *attribute*. The `matrix` command can rearrange a vector into
+a matrix.
+
+`> matrix(1:12, nrow=3)`
+
+What happens if we don't specify the number of rows using the argument
+`nrow`?
+
+`> matrix(1:12)`
+
+The result is still a matrix, but the default is to put each element in
+a separate row. What happens if we specify an inappropriate number of
+rows?
+
+`> matrix(1:12, nrow=5)`
+
+When the number of rows and the number of elements are not coherent,
+**[R]{.sans-serif}** issues a warning.
+
+A vector has 1 dimension; a matrix has 2 dimensions; an array can have
+any number of dimensions. These have 3 dimensions:
+
+`> array(1:12, dim=c(2,2,3))`
+
+`> array(1:12, dim=c(2,3,2))`
+

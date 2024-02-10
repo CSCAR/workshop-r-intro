@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R</title>
+<title>Introduction to R - 12&nbsp; Programming</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_the_r_environment.html" rel="next">
+<link href="./11_creating_functions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12_programming.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Programming</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -184,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_programming.html" class="sidebar-item-text sidebar-link">
+  <a href="./12_programming.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
   </div>
 </li>
@@ -198,15 +198,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
-  <ul class="collapse">
-  <li><a href="#creation-of-this-document" id="toc-creation-of-this-document" class="nav-link" data-scroll-target="#creation-of-this-document">Creation of this document</a></li>
-  <li><a href="#contact-information" id="toc-contact-information" class="nav-link" data-scroll-target="#contact-information">Contact information</a>
-  <ul class="collapse">
-  <li><a href="#cscar" id="toc-cscar" class="nav-link" data-scroll-target="#cscar">CSCAR</a></li>
-  </ul></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
-  </ul></li>
+  <li><a href="#branching" id="toc-branching" class="nav-link active" data-scroll-target="#branching"><span class="header-section-number">12.1</span> Branching</a></li>
+  <li><a href="#looping" id="toc-looping" class="nav-link" data-scroll-target="#looping"><span class="header-section-number">12.2</span> Looping</a></li>
+  <li><a href="#blood-pressure-example-revisited" id="toc-blood-pressure-example-revisited" class="nav-link" data-scroll-target="#blood-pressure-example-revisited"><span class="header-section-number">12.3</span> Blood Pressure Example Revisited</a></li>
+  <li><a href="#the-apply-function" id="toc-the-apply-function" class="nav-link" data-scroll-target="#the-apply-function"><span class="header-section-number">12.4</span> The <code>apply</code> Function</a></li>
   </ul>
 </nav>
     </div>
@@ -215,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to R</h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Programming</span></h1>
 </div>
 
 
@@ -232,46 +227,102 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Last modified: 2024-02-09</p>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>These notes are split into four primary sections:</p>
-<ul>
-<li><a href="01-the-basics-of-stata.html">Chapter 1: The Basics of Stata</a> - Interacting with Stata.</li>
-<li><a href="02-working-with-data-sets.html">Chapter 2: Working with Data Sets</a> - Importing, opening, and saving data sets.</li>
-<li><a href="03-data-management.html">Chapter 3: Data Management</a> - The basics of maintaining and exploring a data set.</li>
-<li><a href="04-data-manipulation.html">Chapter 4: Data Manipulation</a> - Creating and modifying variables and other ways of manipulating your data.</li>
-</ul>
-<p>These sections will generally be presented in sequence. The discussion will alternate between theory and practice. The format will alternate between lecture and exercises. Please ask questions as soon as they arise in your mind. Please provide feedback or voice concerns.</p>
-<p>There are two additional sections:</p>
-<ul>
-<li><a href="05-programming.html">Chapter 5: Programming &amp; Advanced Topics</a> - Topics for users who wish to move beyond the basics.</li>
-<li><a href="06-appendix.html">Appendix</a> - Houses the exercise solutions.</li>
-</ul>
-<section id="creation-of-this-document" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="creation-of-this-document">Creation of this document</h2>
-<p>These notes are published using <a href="https://quarto.org">Quarto</a>. The Stata code is first rendered using a Stata <a href="https://www.stata.com/manuals/rptdynamicdocumentsintro.pdf">dynamic document</a>. The source code for these notes can be found at <a href="https://github.com/CSCAR/workshop-stata-intro" class="uri">https://github.com/CSCAR/workshop-stata-intro</a> for the curious.</p>
-<p>All images should link to full-size versions to see detail if needed.</p>
-<p>Dark mode can be toggled on via the switch in the top left corner. Images are color-reversed in dark mode to avoid brightness; mouse over them (or click on mobile) to display originals.</p>
+<p>Programming in <strong><span class="sans-serif">R</span></strong> is basically the same as programming in any other language; the core program is controlled by a series of if-then statements, loops, print statements, calls to other programs, and return statements. The only differences are minor syntax conventions that just take practice.</p>
+<section id="branching" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="branching"><span class="header-section-number">12.1</span> Branching</h2>
+<p>To begin with, let’s look at an example of how if-then statements work in <strong><span class="sans-serif">R</span></strong>. Try submitting this command at the prompt to see how it works:</p>
+<p><code>&gt; if (1&gt;0) print("I Like Binary")</code></p>
+<p>Note that <strong><span class="sans-serif">R</span></strong> prints “I Like Binary" because the condition in the <em>if</em> statement is true. The <code>print</code> function is very useful for programming purposes, in that it prints simple strings in the <strong><span class="sans-serif">R</span></strong> Console. No explicitly labeled <em>then</em> statement is needed after an <em>if</em> statement; you simply type what you would like <strong><span class="sans-serif">R</span></strong> to do if the <em>if</em> condition is true. In general, if you want to do more than one thing if the <em>if</em> condition is true, you use this bracketed structure:</p>
+<p><code>if (logical condition)&nbsp;{</code><br>
+<code>do this</code><br>
+<code>and this</code><br>
+<code>and this</code><br>
+<code>}</code></p>
+<p>The statements in the brackets usually refer to function calls and object assignments, and simply need to be on separate lines (no punctuation necessary!). If necessary, you can use an “else” option:</p>
+<p><code>&gt; if (x&gt;5) print("x is big") else print("x is small")</code></p>
 </section>
-<section id="contact-information" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="contact-information">Contact information</h2>
-<section id="cscar" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="cscar">CSCAR</h3>
-<p><a href="http://cscar.research.umich.edu/" class="uri">http://cscar.research.umich.edu/</a></p>
-<p>CSCAR is available for free consultations with PhD statisticians (email deskpeople@umich.edu to request a consultation).</p>
-<p>CSCAR also has GSRAs available for more immediate help. Walk-ins to our office in Rackham are welcomed Monday-Friday 9am to 5pm (Closed Tuesdays 12-1pm). Alternatively, on our website, you can self-schedule into an hour consultation with the graduate students, which can be either remote or in-person (these are usually available same-day or next-day).</p>
-<p>CSCAR operates a email for help with statistical questions, feel free to send concise questions to stats-consulting@umich.edu.</p>
-<p>The current contact for questions about the notes: Josh Errickson (jerrick@umich.edu).</p>
+<section id="looping" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="looping"><span class="header-section-number">12.2</span> Looping</h2>
+<p>Now let’s take a look at how a “for” loop works in <strong><span class="sans-serif">R</span></strong>. Try submitting the following syntax at the command prompt:</p>
+<p><code>&gt; for (i in 1:5) print(i)</code></p>
+<p><strong><span class="sans-serif">R</span></strong> prints 1, 2, 3, 4, and 5. <em>For</em> loops work like <em>if</em> conditions, and if you want <strong><span class="sans-serif">R</span></strong> to do more than one thing in a <em>for</em> loop, use brackets around the commands:</p>
+<p><code>for(i in a:b)&nbsp;{</code><br>
+<code>do this</code><br>
+<code>and this</code><br>
+<code>and this</code><br>
+<code>}</code></p>
+<p><code>while</code> and <code>repeat</code> loops in <strong><span class="sans-serif">R</span></strong> work in a manner very similar to other programming languages. One or more commands are executed repeatedly while a condition remains true. Typically a counter object is initialized for controlling the loop, and then incremented within the while loop while certain commands are executed for each repetition. The loop ends when the while condition is false.</p>
+<p><code>t = 0</code><br>
+<code>while(t &lt; 7)&nbsp;{</code><br>
+<code>print(t)</code><br>
+<code>t = t+1</code><br>
+<code>}</code></p>
 </section>
+<section id="blood-pressure-example-revisited" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="blood-pressure-example-revisited"><span class="header-section-number">12.3</span> Blood Pressure Example Revisited</h2>
+<p>Earlier we dealt with a data set where diastolic and systolic blood pressure had been read into a single column separated. We learned how to extract the two blood pressures using the <code>strsplit</code> function. Now that we have discussed creating functions and programming, we will separate the two measurements for the entire data set. We begin by clearing up the workspace.</p>
+<p><code>&gt; ls()</code></p>
+<p><code>&gt; rm(list=ls())</code></p>
+<p><code>&gt; dat = read.csv("linmod.csv", header=TRUE, na.strings=c("NA", 888, 999, "Not Reported"))</code></p>
+<p>Extract a blood pressure for practice.</p>
+<p><code>&gt; b = dat$bp[1]</code></p>
+<p>Recall that the following commands successfully extracted the separated measurements.</p>
+<p><code>&gt; ## Change to character.</code></p>
+<p><code>&gt; b = as.character(b)</code></p>
+<p><code>&gt; sep = strsplit(b, split="/")</code></p>
+<p><code>&gt; ## Extract systolic blood pressure.</code></p>
+<p><code>&gt; s = sep[[1]][1]</code></p>
+<p><code>&gt; ## Extract diastolic blood pressure.</code></p>
+<p><code>&gt; d = sep[[1]][2]</code></p>
+<p><code>&gt; ## Convert to numeric.</code></p>
+<p><code>&gt; s = as.numeric(s)</code></p>
+<p><code>&gt; d = as.numeric(d)</code></p>
+<p>Now we enclose the following commands in a function. We will name this function <code>extract.bp</code>.</p>
+<p><code>&gt; extract.bp = function(x) {</code></p>
+<p><code>&gt; x = as.character(x)</code></p>
+<p><code>&gt; sep = strsplit(x, split="/")</code></p>
+<p><code>&gt; s = as.numeric(sep[[1]][1])</code></p>
+<p><code>&gt; d = as.numeric(sep[[1]][2])</code></p>
+<p><code>&gt; return(c(s,d))</code></p>
+<p><code>&gt; }</code></p>
+<p>Type <code>extract.bp</code> at the command line to verify the creation of the function was successful.</p>
+<p><code>&gt; extract.bp</code></p>
+<p>Now let’s experiment to see if our function works.</p>
+<p><code>&gt; b</code></p>
+<p><code>&gt; extract.bp(b)</code></p>
+<p>The following code uses a loop to extract the blood pressures for each variable in the data set.</p>
+<p><code>&gt; ## Number of rows in the data set.</code></p>
+<p><code>&gt; n = dim(dat)[1]</code></p>
+<p><code>&gt; ## Set up empty numeric vectors to store two blood pressures.</code></p>
+<p><code>&gt; systolic = numeric(n)</code></p>
+<p><code>&gt; diastolic = numeric(n)</code></p>
+<p><code>&gt; ## Loop over the rows and extract.</code></p>
+<p><code>&gt; for (j in 1:n){</code></p>
+<p><code>&gt; out = extract.bp(dat$bp[j])</code></p>
+<p><code>&gt; systolic[j] = out[1]</code></p>
+<p><code>&gt; diastolic[j] = out[2]</code></p>
+<p><code>&gt; }</code></p>
+<p><code>&gt; systolic</code></p>
+<p><code>&gt; diastolic</code></p>
 </section>
-<section id="acknowledgments" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>These notes have evolved over the years thanks to many CSCAR statisticians, including Josh Errickson, Giselle Kolenic, Brady West, Heidi Reichert, and Lingling Zhang.</p>
-<p>This material was created for use in workshops and short courses presented by faculty and staff from the Consulting for Statistics, Computing &amp; Analytics Research (CSCAR) at the University of Michigan. No part of this material may be used for other purposes, copied, changed, or sold.</p>
+<section id="the-apply-function" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="the-apply-function"><span class="header-section-number">12.4</span> The <code>apply</code> Function</h2>
+<p>The <code>apply</code> function performs a function on each row or column of a matrix. (There are other *apply functions for other situations.) First create a couple matrices to play with. In addition to the <code>matrix</code> function, <code>rbind</code> (or <code>cbind</code>) can be used to create matrices. For example,</p>
+<p><code>&gt; c1 = c(2, 9, 3)</code></p>
+<p><code>&gt; c2 = c(12, 1, 5)</code></p>
+<p><code>&gt; M2 = cbind(c1, c2)</code></p>
+<p><code>&gt; M2</code></p>
+<p><code>&gt; apply(M2, 2, mean)</code></p>
+<p>In the example above, <code>apply</code> took three arguments:</p>
+<ol type="1">
+<li><p>The first argument, “M2” is the matrix</p></li>
+<li><p>The second argument, “2”, is an index indicating the function is applied separately for each column, a value of “1” would apply the function on each row</p></li>
+<li><p>The last argument is the function that is applied</p></li>
+</ol>
+<p>If you were to just type <code>mean(M2)</code>, the mean would be computed over the entire matrix.</p>
+<p><code>&gt; mean(M2)</code></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -808,11 +859,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./11_creating_functions.html" class="pagination-link  aria-label=" &lt;span="" functions&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Creating Functions</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_the_r_environment.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

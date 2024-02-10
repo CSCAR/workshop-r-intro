@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R</title>
+<title>Introduction to R - 1&nbsp; The R Environment</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_the_r_environment.html" rel="next">
+<link href="./02_getting_started_with_r.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_the_r_environment.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -112,13 +113,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_the_r_environment.html" class="sidebar-item-text sidebar-link">
+  <a href="./01_the_r_environment.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span></a>
   </div>
 </li>
@@ -198,14 +199,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
+  <li><a href="#why-are-there-so-many-users" id="toc-why-are-there-so-many-users" class="nav-link active" data-scroll-target="#why-are-there-so-many-users"><span class="header-section-number">1.1</span> Why Are There So Many Use<strong><span class="sans-serif">R</span></strong>s?</a>
   <ul class="collapse">
-  <li><a href="#creation-of-this-document" id="toc-creation-of-this-document" class="nav-link" data-scroll-target="#creation-of-this-document">Creation of this document</a></li>
-  <li><a href="#contact-information" id="toc-contact-information" class="nav-link" data-scroll-target="#contact-information">Contact information</a>
-  <ul class="collapse">
-  <li><a href="#cscar" id="toc-cscar" class="nav-link" data-scroll-target="#cscar">CSCAR</a></li>
+  <li><a href="#statistical-tools" id="toc-statistical-tools" class="nav-link" data-scroll-target="#statistical-tools"><span class="header-section-number">1.1.1</span> Statistical Tools</a></li>
+  <li><a href="#graphics" id="toc-graphics" class="nav-link" data-scroll-target="#graphics"><span class="header-section-number">1.1.2</span> Graphics</a></li>
+  <li><a href="#extensibility" id="toc-extensibility" class="nav-link" data-scroll-target="#extensibility"><span class="header-section-number">1.1.3</span> Extensibility</a></li>
+  <li><a href="#cost-0" id="toc-cost-0" class="nav-link" data-scroll-target="#cost-0"><span class="header-section-number">1.1.4</span> Cost ($0)</a></li>
+  <li><a href="#operating-systems-and-guis" id="toc-operating-systems-and-guis" class="nav-link" data-scroll-target="#operating-systems-and-guis"><span class="header-section-number">1.1.5</span> Operating Systems and GUIs</a></li>
+  <li><a href="#reproducible-research" id="toc-reproducible-research" class="nav-link" data-scroll-target="#reproducible-research"><span class="header-section-number">1.1.6</span> Reproducible Research</a></li>
   </ul></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  <li><a href="#why-isnt-everyone-a-user" id="toc-why-isnt-everyone-a-user" class="nav-link" data-scroll-target="#why-isnt-everyone-a-user"><span class="header-section-number">1.2</span> Why Isn’t Everyone a Use<strong><span class="sans-serif">R</span></strong>?</a>
+  <ul class="collapse">
+  <li><a href="#one-and-only" id="toc-one-and-only" class="nav-link" data-scroll-target="#one-and-only"><span class="header-section-number">1.2.1</span> One and Only</a></li>
+  <li><a href="#steep-learning-curve" id="toc-steep-learning-curve" class="nav-link" data-scroll-target="#steep-learning-curve"><span class="header-section-number">1.2.2</span> Steep Learning Curve</a></li>
+  </ul></li>
+  <li><a href="#suggestions-for-learning-r" id="toc-suggestions-for-learning-r" class="nav-link" data-scroll-target="#suggestions-for-learning-r"><span class="header-section-number">1.3</span> Suggestions for Learning <strong><span class="sans-serif">R</span></strong></a></li>
+  <li><a href="#how-to-obtain-r" id="toc-how-to-obtain-r" class="nav-link" data-scroll-target="#how-to-obtain-r"><span class="header-section-number">1.4</span> How To Obtain <strong><span class="sans-serif">R</span></strong></a>
+  <ul class="collapse">
+  <li><a href="#how-to-obtain-rstudio" id="toc-how-to-obtain-rstudio" class="nav-link" data-scroll-target="#how-to-obtain-rstudio"><span class="header-section-number">1.4.1</span> How to Obtain RStudio</a></li>
+  <li><a href="#contributed-packages" id="toc-contributed-packages" class="nav-link" data-scroll-target="#contributed-packages"><span class="header-section-number">1.4.2</span> Contributed Packages</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -215,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to R</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></h1>
 </div>
 
 
@@ -232,43 +244,95 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Last modified: 2024-02-09</p>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>These notes are split into four primary sections:</p>
+<p><strong><span class="sans-serif">R</span></strong> has been described as “an environment for statistical modeling and graphics." The word <em>environment</em> instead of <em>package</em> is one of the main reasons <strong><span class="sans-serif">R</span></strong> is distinct from other statistical programs. A <em>package</em> gives a user a fixed set of tools. An <em>environment</em>, in addition to providing a fixed set of tools, allows users to customize those existing tools and to develop their own tools to suit their unique needs.</p>
+<section id="why-are-there-so-many-users" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="why-are-there-so-many-users"><span class="header-section-number">1.1</span> Why Are There So Many Use<strong><span class="sans-serif">R</span></strong>s?</h2>
+<p>These are some of the likely reasons you are here today.</p>
+<section id="statistical-tools" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="statistical-tools"><span class="header-section-number">1.1.1</span> Statistical Tools</h3>
+<p>The <strong><span class="sans-serif">R</span></strong> environment contains many powerful tools for statistical analysis including</p>
 <ul>
-<li><a href="01-the-basics-of-stata.html">Chapter 1: The Basics of Stata</a> - Interacting with Stata.</li>
-<li><a href="02-working-with-data-sets.html">Chapter 2: Working with Data Sets</a> - Importing, opening, and saving data sets.</li>
-<li><a href="03-data-management.html">Chapter 3: Data Management</a> - The basics of maintaining and exploring a data set.</li>
-<li><a href="04-data-manipulation.html">Chapter 4: Data Manipulation</a> - Creating and modifying variables and other ways of manipulating your data.</li>
+<li><p>Linear and Generalized Linear Models</p></li>
+<li><p>Survival Analysis</p></li>
+<li><p>Random and Mixed Effects Models</p></li>
+<li><p>Classification and Clustering</p></li>
+<li><p>Sample Size and Power Calculations</p></li>
+<li><p>Multivariable analysis (FA, PCA, SEM, …)</p></li>
 </ul>
-<p>These sections will generally be presented in sequence. The discussion will alternate between theory and practice. The format will alternate between lecture and exercises. Please ask questions as soon as they arise in your mind. Please provide feedback or voice concerns.</p>
-<p>There are two additional sections:</p>
+<p>In this workshop will see and use sample code for many of these analyses.</p>
+</section>
+<section id="graphics" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="graphics"><span class="header-section-number">1.1.2</span> Graphics</h3>
+<p>Many researchers use <strong><span class="sans-serif">R</span></strong> specifically for its excellent graphing capabilities. Graphics in <strong><span class="sans-serif">R</span></strong> are easy to implement and modify. Once you are comfortable with <strong><span class="sans-serif">R</span></strong>, you will have several powerful graphics packages at your fingertips. “Base graphics” has been supplemented by “grid graphics” and the “grammar of graphics.”</p>
+</section>
+<section id="extensibility" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="extensibility"><span class="header-section-number">1.1.3</span> Extensibility</h3>
+<p>Despite the extensive built-in statistical techniques, the most powerful feature of <strong><span class="sans-serif">R</span></strong> is the ability for users to extend <strong><span class="sans-serif">R</span></strong>’s base capabilities. <strong><span class="sans-serif">R</span></strong> is a full-fledged programming language that allows users to write their own functions. Users can contribute their own “packages” that build on <strong><span class="sans-serif">R</span></strong>’s base capabilities. Users have contributed over 13,700 packages to CRAN (Comprehensive <strong><span class="sans-serif">R</span></strong> Archive Network) as of March 2019.</p>
+</section>
+<section id="cost-0" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="cost-0"><span class="header-section-number">1.1.4</span> Cost ($0)</h3>
+<p><strong><span class="sans-serif">R</span></strong> is open source: the source code behind the software is free for all to examine and extend. <strong><span class="sans-serif">R</span></strong> grows by leaps and bounds as people from all fields develop new functions for use within <strong><span class="sans-serif">R</span></strong>’s computing environment. This is part of what makes <strong><span class="sans-serif">R</span></strong> so useful. Many complex statistical routines that not yet available in other statistical software systems have been programmed in <strong><span class="sans-serif">R</span></strong>, and these routines are freely available for use by anyone.</p>
+</section>
+<section id="operating-systems-and-guis" class="level3" data-number="1.1.5">
+<h3 data-number="1.1.5" class="anchored" data-anchor-id="operating-systems-and-guis"><span class="header-section-number">1.1.5</span> Operating Systems and GUIs</h3>
+<p><strong><span class="sans-serif">R</span></strong> runs on Windows, MacOS, and a variety of Unix platforms. In Windows, there are at least four GUIs: the standard <strong><span class="sans-serif">R</span></strong> GUI, <strong><span class="sans-serif">R</span></strong>Studio, Tinn-<strong><span class="sans-serif">R</span></strong>, and <strong><span class="sans-serif">R</span></strong> Commander. We will be using the standard <strong><span class="sans-serif">R</span></strong> GUI some and <strong><span class="sans-serif">R</span></strong>Studio (<code>www.rstudio.com</code>) more. It organizes the user’s screen into panes that display programs/scripts, objects, graphics, and the <strong><span class="sans-serif">R</span></strong> console. <strong><span class="sans-serif">R</span></strong> Commander (<code>www.rcommander.com</code>), developed by John Fox at McMaster University, is a front-end for interacting with <strong><span class="sans-serif">R</span></strong> through menus. This package can be useful to <strong><span class="sans-serif">R</span></strong> beginners. It provides helpful tools for getting started and then displays the underlying <strong><span class="sans-serif">R</span></strong> code for each analysis to help the user learn the programming language. Tinn-<strong><span class="sans-serif">R</span></strong> (<code>sourceforge.net/projects/tinn-r/</code>) is another enhanced editor from Jose Claudio Faria.</p>
+</section>
+<section id="reproducible-research" class="level3" data-number="1.1.6">
+<h3 data-number="1.1.6" class="anchored" data-anchor-id="reproducible-research"><span class="header-section-number">1.1.6</span> Reproducible Research</h3>
+<p><strong><span class="sans-serif">R</span></strong> has several methods for integrating code, output, and interpretation into a single document. This allows consumers to confirm the original analysis and to investigate other approaches.</p>
+</section>
+</section>
+<section id="why-isnt-everyone-a-user" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="why-isnt-everyone-a-user"><span class="header-section-number">1.2</span> Why Isn’t Everyone a Use<strong><span class="sans-serif">R</span></strong>?</h2>
+<section id="one-and-only" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="one-and-only"><span class="header-section-number">1.2.1</span> One and Only</h3>
+<p>Many users of statistics learn only one package: the one taught in their first introductory statistics course. Historically this has rarely been <strong><span class="sans-serif">R</span></strong>, but there are signs this is changing.</p>
+</section>
+<section id="steep-learning-curve" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="steep-learning-curve"><span class="header-section-number">1.2.2</span> Steep Learning Curve</h3>
+<p>It can take time to get comfortable and productive with <strong><span class="sans-serif">R</span></strong>. A user often interacts with <strong><span class="sans-serif">R</span></strong> through typed commands, rather than via a point-and-click menu system. For users with minimal background writing code, it can take some time to get the hang of using <strong><span class="sans-serif">R</span></strong>. Furthermore, while the help system is comprehensive for the base packages, it’s quality ranges for community-written packages. Don’t get frustrated! You don’t have to be an expert programmer to learn <strong><span class="sans-serif">R</span></strong>. The benefits (flexibility, extensibility, speed) are worth spending some time up front.</p>
+</section>
+</section>
+<section id="suggestions-for-learning-r" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="suggestions-for-learning-r"><span class="header-section-number">1.3</span> Suggestions for Learning <strong><span class="sans-serif">R</span></strong></h2>
 <ul>
-<li><a href="05-programming.html">Chapter 5: Programming &amp; Advanced Topics</a> - Topics for users who wish to move beyond the basics.</li>
-<li><a href="06-appendix.html">Appendix</a> - Houses the exercise solutions.</li>
+<li><p>Learn interactively! Reading can help only so much. Most people learn <strong><span class="sans-serif">R</span></strong> best by typing commands themselves.</p></li>
+<li><p>Ask questions of current <strong><span class="sans-serif">R</span></strong> users, e.g., your instructor.</p></li>
+<li><p>Look at (and retype) lots of sample code. Experiment with modifications of the code. You won’t break <strong><span class="sans-serif">R</span></strong>. You’ll see many examples in this workshop but there is much more online.</p></li>
+<li><p>Don’t worry about getting errors. Experienced <strong><span class="sans-serif">R</span></strong> users make errors all the time. Base <strong><span class="sans-serif">R</span></strong> has excellent error messages that are good learning opportunities themselves.</p>
+<ul>
+<li><p><code>www.r-project.org</code>: The <strong><span class="sans-serif">R</span></strong> Home page, the central webpage for the <strong><span class="sans-serif">R</span></strong> project. Here you will find links for downloading <strong><span class="sans-serif">R</span></strong>, downloading additional packages for <strong><span class="sans-serif">R</span></strong>, and almost everything else that you would like to know about the software or the people behind it.</p></li>
+<li><p><code>cran.r-project.org/web/views/</code>: Task views summarize the most important packages involved in a subject field or analysis type.</p></li>
+<li><p><code>journal.r-project.org</code>: The <strong><span class="sans-serif">R</span></strong> Journal</p></li>
+<li><p><code>stats.stackexchange.com</code>: Cross-Validated</p></li>
+<li><p><code>www.r-bloggers.com</code></p></li>
+<li><p><code>stats.idre.ucla.edu/r/</code>: Institute for Digital Research and Education at UCLA</p></li>
+<li><p><code>socialsciences.mcmaster.ca/jfox/</code>: John Fox’s home page</p></li>
+<li><p><code>sas-and-r.blogspot.com/</code>: Examples of code to perform same task in each language</p></li>
+</ul></li>
 </ul>
-<section id="creation-of-this-document" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="creation-of-this-document">Creation of this document</h2>
-<p>These notes are published using <a href="https://quarto.org">Quarto</a>. The Stata code is first rendered using a Stata <a href="https://www.stata.com/manuals/rptdynamicdocumentsintro.pdf">dynamic document</a>. The source code for these notes can be found at <a href="https://github.com/CSCAR/workshop-stata-intro" class="uri">https://github.com/CSCAR/workshop-stata-intro</a> for the curious.</p>
-<p>All images should link to full-size versions to see detail if needed.</p>
-<p>Dark mode can be toggled on via the switch in the top left corner. Images are color-reversed in dark mode to avoid brightness; mouse over them (or click on mobile) to display originals.</p>
 </section>
-<section id="contact-information" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="contact-information">Contact information</h2>
-<section id="cscar" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="cscar">CSCAR</h3>
-<p><a href="http://cscar.research.umich.edu/" class="uri">http://cscar.research.umich.edu/</a></p>
-<p>CSCAR is available for free consultations with PhD statisticians (email deskpeople@umich.edu to request a consultation).</p>
-<p>CSCAR also has GSRAs available for more immediate help. Walk-ins to our office in Rackham are welcomed Monday-Friday 9am to 5pm (Closed Tuesdays 12-1pm). Alternatively, on our website, you can self-schedule into an hour consultation with the graduate students, which can be either remote or in-person (these are usually available same-day or next-day).</p>
-<p>CSCAR operates a email for help with statistical questions, feel free to send concise questions to stats-consulting@umich.edu.</p>
-<p>The current contact for questions about the notes: Josh Errickson (jerrick@umich.edu).</p>
+<section id="how-to-obtain-r" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="how-to-obtain-r"><span class="header-section-number">1.4</span> How To Obtain <strong><span class="sans-serif">R</span></strong></h2>
+<p><strong><span class="sans-serif">R</span></strong> is already installed on the lab workstations. The following information is useful if you need to install <strong><span class="sans-serif">R</span></strong> on another machine.</p>
+<p>At the <strong><span class="sans-serif">R</span></strong> Project Web Page (<code>www.r-project.org</code>) the most important link is at the left hand side of the screen, under the “Download” heading. Click on the CRAN link (Comprehensive <strong><span class="sans-serif">R</span></strong> Archive Network), and, after you choose one of the U.S.&nbsp;mirrors, you will be taken to the page that you will use to download everything <strong><span class="sans-serif">R</span></strong>-related.</p>
+<p>Once you find the CRAN web page, take the following steps to obtain <strong><span class="sans-serif">R</span></strong>:</p>
+<ol type="1">
+<li><p>Click on “Download <strong><span class="sans-serif">R</span></strong> for XXX” that best describes your operating system (Linux, OS X, Windows).</p></li>
+<li><p>When using Windows, click on the “base” subdirectory. This will allow you to download the base <strong><span class="sans-serif">R</span></strong> packages.</p></li>
+<li><p>Click the “Download <strong><span class="sans-serif">R</span></strong> 3.X.X for Windows” link. <strong><span class="sans-serif">R</span></strong> is updated quite frequently. At the time of this printing, version 3.5.2 is available. Save the .exe file somewhere on your computer.</p></li>
+<li><p>Double-click on the .exe file once it has been downloaded. A wizard will appear that will guide you through the setup of the <strong><span class="sans-serif">R</span></strong> software on your machine.</p></li>
+<li><p>Once you are finished, you should have an <strong><span class="sans-serif">R</span></strong> icon on your desktop that gives you a shortcut to the <strong><span class="sans-serif">R</span></strong> system. Double-click on this icon, and you are ready to go!</p></li>
+</ol>
+<section id="how-to-obtain-rstudio" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="how-to-obtain-rstudio"><span class="header-section-number">1.4.1</span> How to Obtain RStudio</h3>
+<p><strong><span class="sans-serif">R</span></strong>Studio is already installed on the lab workstations. The following information is useful if you need to install <strong><span class="sans-serif">R</span></strong>Studio on another machine.</p>
+<p>Visit (<code>www.rstudio.com</code>) and download the free desktop version of <strong><span class="sans-serif">R</span></strong>Studio.</p>
 </section>
-</section>
-<section id="acknowledgments" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>These notes have evolved over the years thanks to many CSCAR statisticians, including Josh Errickson, Giselle Kolenic, Brady West, Heidi Reichert, and Lingling Zhang.</p>
-<p>This material was created for use in workshops and short courses presented by faculty and staff from the Consulting for Statistics, Computing &amp; Analytics Research (CSCAR) at the University of Michigan. No part of this material may be used for other purposes, copied, changed, or sold.</p>
+<section id="contributed-packages" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="contributed-packages"><span class="header-section-number">1.4.2</span> Contributed Packages</h3>
+<p>What exactly are “additional contributed packages”? <strong><span class="sans-serif">R</span></strong> is an open source software environment, so users are free to explore the code behind the software and to write their own new code. Statisticians, researchers, and other users have written additional packages for <strong><span class="sans-serif">R</span></strong> that perform complex analyses (and simple ones!). In order to use these packages and the functions within them, you first need to download them. Base <strong><span class="sans-serif">R</span></strong> comprises many packages, but odds are that you will discover an uncommon analysis technique in your research that requires you to install an additional package that is not included by default.</p>
+<p>These additional packages are usually found CRAN. However, there are other repositories as well (e.g., bioconductor, github).</p>
 
 
 </section>
@@ -808,10 +872,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link  aria-label=" preface"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_the_r_environment.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>The **[R]{.sans-serif}** *Environment*</span>">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02_getting_started_with_r.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Getting Started with **[R]{.sans-serif}**</span>">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with <strong><span class="sans-serif">R</span></strong></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

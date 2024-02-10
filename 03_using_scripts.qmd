@@ -1,0 +1,142 @@
+# Using Scripts
+
+Until now, we have submitted each command to **[R]{.sans-serif}** by
+typing directly at the command prompt. In almost all situations, it is
+**much** better to type code in a separate file called a script file.
+There are many advantages of using script files.
+
+-   Repeatability
+
+-   Editing
+
+-   Submitting many commands at once
+
+## Scripts in **[R]{.sans-serif}** GUI
+
+To open an **[R]{.sans-serif}** script, go to File `->` New Script. You
+can type your commands in the resulting windows. It is useful to save
+your script files with a .R extension. Then the operating system
+recognizes this as an **[R]{.sans-serif}** file.
+
+After opening a new script, type
+
+`> history()`
+
+A new window will open with the last 25 commands you have used. You can
+get a longer history with, say,
+
+`> history(100)`
+
+Select all your commands and copy-paste them to the new script. Save the
+file with a .R extension.
+
+There are several ways of submitting commands from the
+**[R]{.sans-serif}** script window.
+
+-   Copy and Paste from the script window to the interpreter window
+
+-   Control-r
+
+-   The `source` command. If your file is saved as *myfile.R*, you can
+    run all the commands in the file by typing the following line at the
+    command prompt.
+
+    `> source("myfile.R")`
+
+    In order for **[R]{.sans-serif}** to read your script, you must use
+    the full path or be in the correct working directory. To change the
+    current working directory, go to File `->` Change Dir, then browse
+    to the appropriate folder.
+
+    To see the files in the current working directory, type:
+
+    `> dir()`
+
+    Another possibility is to find the file using
+
+    `> source(file.choose())`
+
+    but this does not change the working directory.
+
+## Comments
+
+Documentation and formatting are essential to writing effective
+**[R]{.sans-serif}** code. If you come back to a project after a few
+months (days? hours?), you want to know what the code is doing without
+retracing every single step. Comments in **[R]{.sans-serif}** can be
+inserted with the `#` symbol. **[R]{.sans-serif}** will not process the
+rest of the line after the `#`.
+
+`> 5 < 6`
+
+`> 5 # < 6`
+
+The following is an example of a commented **[R]{.sans-serif}** script.
+Some of the functions we have used before; others will be explained
+later. Let's open it in **[R]{.sans-serif}**Studio and see what it does.
+
+## **[R]{.sans-serif}**Studio
+
+**[R]{.sans-serif}**Studio is an interface to **[R]{.sans-serif}**. It
+organizes the user's screen into windows that display programs
+(scripts), objects, graphics, and the **[R]{.sans-serif}** interpreter.
+Launch **[R]{.sans-serif}**Studio from the start menu. Click on the
+folder in the upper left corner and browse to the folder containing the
+script "sample script.R". The following should open in the upper left
+window.
+
+## Sample Script
+
+\# sample script.R
+
+\# Chris Andrews
+
+\# Created 2015 04 01
+
+\# Last Modified 2019 02 03
+
+\# This script analyzes the Life Cycle Savings data.
+
+\# See help(LifeCycleSavings) for more details.
+
+\#
+
+\# Shorten the name and make local copy
+
+Life = LifeCycleSavings
+
+\# Examine Structure
+
+head(Life)
+
+dim(Life)
+
+str(Life)
+
+\# Descriptives
+
+summary(Life)
+
+\# Pairwise associations
+
+cor(Life)
+
+pairs(Life)
+
+\# Fit a multiple regression model
+
+mr.mod = lm(sr   pop15 + pop75 + dpi + ddpi, data=Life)
+
+summary(mr.mod)
+
+anova(mr.mod)
+
+\# Plot the fit
+
+par(mfrow=c(2,2), las=1, mar=c(4.5,4.5,2,1))
+
+plot(mr.mod)
+
+Use "Ctrl-Enter" to submit each line of the script. Take note of what
+happens as each line is submitted to the interpreter.
+

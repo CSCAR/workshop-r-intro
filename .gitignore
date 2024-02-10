@@ -1,1 +1,7 @@
+.Rproj.user
+.Rhistory
+.RData
+rsconnect
+*.log
+.DS_Store
 /.quarto/

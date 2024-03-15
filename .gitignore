@@ -5,3 +5,4 @@ rsconnect
 *.log
 .DS_Store
 /.quarto/
+workshop-r-intro.Rproj

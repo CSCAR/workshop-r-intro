@@ -1,113 +1,115 @@
 # The **[R]{.sans-serif}** *Environment*
 
-**[R]{.sans-serif}** has been described as "an environment for statistical
-modeling and graphics.\" The word *environment* instead of *package* is one of
+**[R]{.sans-serif}** is an environment for statistical
+modeling and graphics. The word *environment* instead of *package* is one of
 the main reasons **[R]{.sans-serif}** is distinct from other statistical
-programs. A *package* gives a user a fixed set of tools. An *environment*, in
-addition to providing a fixed set of tools, allows users to customize those
-existing tools and to develop their own tools to suit their unique needs.
+programs. A *package* only gives us a fixed set of tools. An *environment*
+allows us to modify, combine and even create tools to suit our specific needs.
 
-## Why Are There So Many Use**[R]{.sans-serif}**s?
+## Why becoming a use**[R]{.sans-serif}**?
 
-These are some of the likely reasons you are here today.
+### Easy and cool graphics
 
-### Statistical Tools
+With **[R]{.sans-serif}**, you can make basic scatter plots or histograms with one or two lines of code (assuming your data has a nice format). And you can use
+the "grammar of graphics" to make incremental changes: add custom colors, change
+the size of the plot or its contents, or arrange several graphics in grids.
 
-The **[R]{.sans-serif}** environment contains many powerful tools for
-statistical analysis including
+### Abundant statistical tools
 
--   Linear and Generalized Linear Models
--   Survival Analysis
--   Random and Mixed Effects Models
--   Classification and Clustering
--   Sample Size and Power Calculations
--   Multivariable analysis (FA, PCA, SEM, ...)
+**[R]{.sans-serif}** offers many powerful tools to fit statistical models 
+(both bayesian and frequentist), including:
 
+- Linear and Generalized Linear Models
+- Survival analysis
+- Time series analysis
+- Random and Mixed Effects Models (aka hierarchical models, aka multilevel
+    models)
+- Classification and Clustering
+- Sample Size and Power Calculations
+- Multivariable analysis (FA, PCA, SEM, ...)
+
+<!--
 In this workshop will see and use sample code for many of these analyses.
+-->
 
-### Graphics
+### Constant expansion
 
-Many researchers use **[R]{.sans-serif}** specifically for its excellent
-graphing capabilities. Graphics in **[R]{.sans-serif}** are easy to implement
-and modify. Once you are comfortable with **[R]{.sans-serif}**, you will have
-several powerful graphics packages at your fingertips. "Base graphics" has been
-supplemented by "grid graphics" and the "grammar of graphics."
+New tools become available in R all the time. **[R]{.sans-serif}** is a
+full-fledged programming language that allows users to write their own
+functions. Also, all of **[R]{.sans-serif}**'s code is open source, which means
+that everyone can examine it and contribute to it. So, users constantly publish
+their own "packages" (ready-to-use tools), which expand **[R]{.sans-serif}**'s
+base capabilities.
 
-### Extensibility
+As of March 2019, users have contributed over 13,700 packages to Comprehensive **[R]{.sans-serif}** Archive Network (CRAN). Many of these packages
+are for complex statistical routines that are not (and may never be) available
+in other statistical software systems.
 
-Despite the extensive built-in statistical techniques, the most powerful feature
-of **[R]{.sans-serif}** is the ability for users to extend
-**[R]{.sans-serif}**'s base capabilities. **[R]{.sans-serif}** is a full-fledged
-programming language that allows users to write their own functions. Users can
-contribute their own "packages" that build on **[R]{.sans-serif}**'s base
-capabilities. Users have contributed over 13,700 packages to CRAN (Comprehensive
-**[R]{.sans-serif}** Archive Network) as of March 2019.
-
-### Cost (\$0)
-
-**[R]{.sans-serif}** is open source: the source code behind the software is free
-for all to examine and extend. **[R]{.sans-serif}** grows by leaps and bounds as
-people from all fields develop new functions for use within
-**[R]{.sans-serif}**'s computing environment. This is part of what makes
-**[R]{.sans-serif}** so useful. Many complex statistical routines that not yet
-available in other statistical software systems have been programmed in
-**[R]{.sans-serif}**, and these routines are freely available for use by anyone.
-
-### Operating Systems and GUIs
+### Flexible interfaces
 
 **[R]{.sans-serif}** runs on Windows, MacOS, and a variety of Unix platforms. In
-Windows, there are at least four GUIs: the standard **[R]{.sans-serif}** GUI,
-**[R]{.sans-serif}**Studio, Tinn-**[R]{.sans-serif}**, and **[R]{.sans-serif}**
-Commander. We will be using the standard **[R]{.sans-serif}** GUI some and
-**[R]{.sans-serif}**Studio (<https://www.posit.co>) more. It organizes the
-user's screen into panes that display programs/scripts, objects, graphics, and
-the **[R]{.sans-serif}** console. **[R]{.sans-serif}** Commander
-(<https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/>), developed by John Fox
-at McMaster University, is a front-end for interacting with **[R]{.sans-serif}**
-through menus. This package can be useful to **[R]{.sans-serif}** beginners. It
-provides helpful tools for getting started and then displays the underlying
+Windows, there are several ways to use **[R]{.sans-serif}**. The standard **[R]{.sans-serif}** graphical unit interface (GUI) allows you to point and click to do many basic tasks. Another GUI is [**[R]{.sans-serif}** Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by John Fox
+at McMaster University. **[R]{.sans-serif}** Commander displays the underlying
 **[R]{.sans-serif}** code for each analysis to help the user learn the
-programming language. Tinn-**[R]{.sans-serif}**
-(<http://sourceforge.net/projects/tinn-r/>) is another enhanced editor from Jose
+programming language. [Tinn-**[R]{.sans-serif}**](http://sourceforge.net/projects/tinn-r/) is another GUI from Jose
 Claudio Faria.
 
-### Reproducible Research
+These GUIs are friendly and easy to grasp if you're a beginner. But to use all of **[R]{.sans-serif}**'s capabilities you will need to do more than point and click.
 
-**[R]{.sans-serif}** has several methods for integrating code, output, and
-interpretation into a single document. This allows consumers to confirm the
+A more complete way of using **[R]{.sans-serif}** is through an integrated development environment (IDE), which, in short, helps you code. The most popular IDE for **[R]{.sans-serif}** is [**[R]{.sans-serif}**Studio](https://www.posit.com), which organizes the
+user's screen into panes that display scripts, objects, graphics, and
+the **[R]{.sans-serif}** console.
+
+In these notes, we will use the standard **[R]{.sans-serif}** GUI a little and
+**[R]{.sans-serif}**Studio a lot. The goal is for you to start using **[R]{.sans-serif}** to its full potential.
+
+<!--
+
+### Easier to make reproducible research
+
+**[R]{.sans-serif}**'s availability and accessibility mean that you can share your work with many. This allows consumers to confirm the
 original analysis and to investigate other approaches.
+
+-->
+
+
+### Price (\$0)
+
+**[R]{.sans-serif}** is free, as in "you don't have to give money to get 
+it".
 
 ## Why Isn't Everyone a Use**[R]{.sans-serif}**?
 
 ### One and Only
 
-Many users of statistics learn only one package: the one taught in their first
-introductory statistics course. Historically this has rarely been
-**[R]{.sans-serif}**, but there are signs this is changing.
+Many users of statistics only learn how to use one statistical software, often the one taught in their first statistics course. In the past, **[R]{.sans-serif}** was almost never this first language, but nowadays many schools are teaching how to use it.
 
-### Steep Learning Curve
+### Hard to learn
 
-It can take time to get comfortable and productive with **[R]{.sans-serif}**. A
-user often interacts with **[R]{.sans-serif}** through typed commands, rather
-than via a point-and-click menu system. For users with minimal background
-writing code, it can take some time to get the hang of using
-**[R]{.sans-serif}**. Furthermore, while the help system is comprehensive for
-the base packages, it's quality ranges for community-written packages. Don't get
-frustrated! You don't have to be an expert programmer to learn
-**[R]{.sans-serif}**. The benefits (flexibility, extensibility, speed) are worth
-spending some time up front.
+It can take time to get comfortable and productive with **[R]{.sans-serif}**,
+especially if you have little coding experience. Typing commands explicitly is
+more difficult than pointing and clicking. Also, each package has its own rules
+to learn. You can find a lot of good help for popular packages written by
+professional developers, but not so much for smaller packages written by other
+common users. Worst of all, some of the messages **[R]{.sans-serif}** displays
+if you make a mistake are uninformative, so figuring out what went wrong can be
+difficult. 
+
+But don't get frustrated! You don't have to be an expert programmer to use
+**[R]{.sans-serif}**. The benefits are worth spending some time up front.
 
 ## Suggestions for Learning **[R]{.sans-serif}**
 
--   Learn interactively! Reading can help only so much. Most people learn
+- Learn interactively! Reading can help only so much. Most people learn
     **[R]{.sans-serif}** best by typing commands themselves.
--   Ask questions of current **[R]{.sans-serif}** users, e.g., your instructor.
--   Look at (and retype) lots of sample code. Experiment with modifications of
-    the code. You won't break **[R]{.sans-serif}**. You'll see many examples in
-    this workshop but there is much more online.
--   Don't worry about getting errors. Experienced **[R]{.sans-serif}** users
-    make errors all the time. Base **[R]{.sans-serif}** has excellent error
-    messages that are good learning opportunities themselves.
+- Ask other **[R]{.sans-serif}** users for help.
+- Look at (and retype) lots of sample code. Experiment with modifications of
+  the code. You won't break **[R]{.sans-serif}**. You'll see many examples in
+  this workshop but there is much more online.
+- Don't worry about getting errors. Experienced **[R]{.sans-serif}** users
+  make errors all the time. Base **[R]{.sans-serif}** has excellent error
+  messages that are good learning opportunities themselves.
+- Some useful links are:
     -   <https://www.r-project.org>: The **[R]{.sans-serif}** Home page, the
         central webpage for the **[R]{.sans-serif}** project. Here you will find
         links for downloading **[R]{.sans-serif}**, downloading additional
@@ -124,13 +126,13 @@ spending some time up front.
     -   <https://sas-and-r.blogspot.com/>: Examples of code to perform same task
         in each language
 
-## How To Obtain **[R]{.sans-serif}**
+## How to get **[R]{.sans-serif}**
 
 **[R]{.sans-serif}** is already installed on the lab workstations. The following
 information is useful if you need to install **[R]{.sans-serif}** on another
 machine.
 
-At the **[R]{.sans-serif}** Project Web Page (<https://www.r-project.org>) the
+At the [**[R]{.sans-serif}** Project Web Page](https://www.r-project.org) the
 most important link is at the left hand side of the screen, under the "Download"
 heading. Click on the CRAN link (Comprehensive **[R]{.sans-serif}** Archive
 Network), and, after you choose one of the U.S. mirrors, you will be taken to
@@ -141,20 +143,20 @@ Once you find the CRAN web page, take the following steps to obtain
 
 1.  Click on "Download **[R]{.sans-serif}** for XXX" that best describes your
     operating system (Linux, OS X, Windows).
-2.  When using Windows, click on the "base" subdirectory. This will allow
+2.  When using Windows, click on the "base" subdirectory. This will allow
     you to download the base **[R]{.sans-serif}** packages.
-3.  Click the "Download **[R]{.sans-serif}** 3.X.X for Windows" link.
+3.  Click the "Download **[R]{.sans-serif}** 3.X.X for Windows" link.
     **[R]{.sans-serif}** is updated quite frequently. At the time of this
-    printing, version 3.5.2 is available. Save the .exe file somewhere on your
+    printing, version 4.3.3 is available. Save the `.exe` file somewhere on your
     computer.
-4.  Double-click on the .exe file once it has been downloaded. A wizard will
+4.  Double-click on the `.exe` file once it has been downloaded. A wizard will
     appear that will guide you through the setup of the **[R]{.sans-serif}**
     software on your machine.
 5.  Once you are finished, you should have an **[R]{.sans-serif}** icon on your
     desktop that gives you a shortcut to the **[R]{.sans-serif}** system.
     Double-click on this icon, and you are ready to go!
 
-### How to Obtain RStudio
+### How to get RStudio
 
 **[R]{.sans-serif}**Studio is already installed on the lab workstations. The
 following information is useful if you need to install

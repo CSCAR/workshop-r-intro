@@ -6,16 +6,19 @@ Last modified: `r Sys.Date()`
 
 # Preface {.unnumbered}
 
+## Who are this notes for? {.unnumbered}
+
+This notes are a intended for anyone that wants to use R but has little or no 
+experience using it, and little or no experience in programming.
+
 ## Creation of this document {.unnumbered}
 
 These notes are published using [Quarto](https://quarto.org). You can find the source code for these notes at <https://github.com/CSCAR/workshop-r-intro>.
 
-All images should link to full-size versions to see detail if needed.
-
 You can switch between light and dark modes using the switch in the top left 
 corner of the screen. Images are color-reversed in dark mode to reduce 
 brightness. Move your mouse over an image (or press it if you are on a
-mobile device) to show it in its original colors.
+mobile device) to show it in its original colors. All images link to full-size versions that can show more detail.
 
 ## Contact information {.unnumbered}
 
@@ -26,15 +29,18 @@ mobile device) to show it in its original colors.
 Consulting for Statistics, Computing and Analytics Research (CSCAR) is a unit of
 the Office of the Vice President of Research at the University of Michigan.
 CSCAR offers U-M researchers guidance and training in data collection, 
-management, and analysis; and in the use of technical software and advanced computing in research.
+management, and analysis; and in the use of technical software and advanced 
+computing in research.
 
 We offer free, one-hour consultations with graduate-level statisticians. To 
 request an appointment, you can send an email to
 <deskpeople@umich.edu>, or you can fill [this form](https://docs.google.com/forms/d/e/1FAIpQLSei-twcjFkoobUrVwSQTmSxdKKEc1Ub8w5LHmeIZUmTV1wmIg/viewform?pli=1).
 
-Graduate Student Research Assistants (GSRAs) are also available. You can walk-in for a consultation with one of our GSRAs Monday through Friday, between 9am and
-5pm (we close on Tuesdays between noon and 1pm). Or
-you can use [this link](https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUMyTFpCR1RXbmhYfGRlZmF1bHR8ZWNjNGJlMWZlYTA4ZWE5NzYzNmNkNzgyZjUyZDYxNDg) to self-schedule an appointment with a GSRA at your own convenience.
+Graduate Student Research Assistants (GSRAs) are also available. You can walk-in 
+for a consultation with one of our GSRAs Monday through Friday, between 9am and
+5pm (we close on Tuesdays between noon and 1pm). Or you can use 
+[this link](https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUMyTFpCR1RXbmhYfGRlZmF1bHR8ZWNjNGJlMWZlYTA4ZWE5NzYzNmNkNzgyZjUyZDYxNDg) to 
+self-schedule an appointment with a GSRA at your own convenience.
 
 All of our scheduled appointments can be either remote or in-person.
 
@@ -46,7 +52,8 @@ If you have any questions or comments about these notes, you can contact Abner H
 
 ## Acknowledgments {.unnumbered}
 
-These notes have evolved over the years thanks to Abner Heredia Bustos, Xiru Lyu, and Chris Andrews.
+These notes have evolved over the years thanks to Abner Heredia Bustos, Xiru Lyu,
+and Chris Andrews.
 
 This material was created for use in workshops and short courses presented by
 faculty and staff from the Consulting for Statistics, Computing & Analytics

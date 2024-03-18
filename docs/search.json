@@ -11,7 +11,7 @@
     "href": "index.html#creation-of-this-document",
     "title": "Introduction to R",
     "section": "Creation of this document",
-    "text": "Creation of this document\nThese notes are published using Quarto. You can find the source code for these notes at https://github.com/CSCAR/workshop-r-intro.\nAll images should link to full-size versions to see detail if needed.\nYou can switch between light and dark modes using the switch in the top left corner of the screen. Images are color-reversed in dark mode to reduce brightness. Move your mouse over an image (or press it if you are on a mobile device) to show it in its original colors."
+    "text": "Creation of this document\nThese notes are published using Quarto. You can find the source code for these notes at https://github.com/CSCAR/workshop-r-intro.\nYou can switch between light and dark modes using the switch in the top left corner of the screen. Images are color-reversed in dark mode to reduce brightness. Move your mouse over an image (or press it if you are on a mobile device) to show it in its original colors. All images link to full-size versions that can show more detail."
   },
   {
     "objectID": "index.html#contact-information",
@@ -505,5 +505,12 @@
     "title": "1  The R Environment",
     "section": "1.4 How to get R",
     "text": "1.4 How to get R\nR is already installed on the lab workstations. The following information is useful if you need to install R on another machine.\nAt the R Project Web Page the most important link is at the left hand side of the screen, under the “Download” heading. Click on the CRAN link (Comprehensive R Archive Network), and, after you choose one of the U.S. mirrors, you will be taken to the page that you will use to download everything R-related.\nOnce you find the CRAN web page, take the following steps to obtain R:\n\nClick on “Download R for XXX” that best describes your operating system (Linux, OS X, Windows).\nWhen using Windows, click on the “base” subdirectory. This will allow you to download the base R packages.\nClick the “Download R 3.X.X for Windows” link. R is updated quite frequently. At the time of this printing, version 4.3.3 is available. Save the .exe file somewhere on your computer.\nDouble-click on the .exe file once it has been downloaded. A wizard will appear that will guide you through the setup of the R software on your machine.\nOnce you are finished, you should have an R icon on your desktop that gives you a shortcut to the R system. Double-click on this icon, and you are ready to go!\n\n\n1.4.1 How to get RStudio\nRStudio is already installed on the lab workstations. The following information is useful if you need to install RStudio on another machine.\nVisit https://www.posit.co and download the free desktop version of RStudio.\n\n\n1.4.2 Contributed Packages\nWhat exactly are “additional contributed packages”? R is an open source software environment, so users are free to explore the code behind the software and to write their own new code. Statisticians, researchers, and other users have written additional packages for R that perform complex analyses (and simple ones!). In order to use these packages and the functions within them, you first need to download them. Base R comprises many packages, but odds are that you will discover an uncommon analysis technique in your research that requires you to install an additional package that is not included by default.\nThese additional packages are usually found CRAN. However, there are other repositories as well (e.g., bioconductor, github)."
+  },
+  {
+    "objectID": "index.html#who-are-this-notes-for",
+    "href": "index.html#who-are-this-notes-for",
+    "title": "Introduction to R",
+    "section": "Who are this notes for?",
+    "text": "Who are this notes for?\nThis notes are a intended for anyone that wants to use R but has little or no experience using it, and little or no experience in programming."
   }
 ]

@@ -6,7 +6,7 @@ The first screen you see in R should look like this:
 
 [![The first screen you see when you open RStudio](./images/rstudio_first_screen.jpg)](./images/rstudio_first_screen.jpg)
 
-Here, there are three main window panes The "Console" window is where you type the code to tell the computer to do stuff.
+Here, there are three main window panes. The "Console" window is where you type the code to tell the computer to do stuff.
 
 The "Environment-History-Connections" window has three tabs. "Environment" 
 shows the objects that you have saved during your session (I will explain this 
@@ -27,7 +27,7 @@ You can tell **[R]{.sans-serif}** to do stuff by typing *commands* in the line t
 1 + 1
 ```
 
-The `[1]` that appears next to the result informs you that the line begins with the first value in the result. This information is helpful when you run commands that produce multiple values. Try, this:
+The `[1]` that appears next to the result informs you that the line begins with the first value in the result. This information is helpful when you run commands that produce multiple values, like in this case:
 
 ```{r quick sequence of numbers}
 80:110
@@ -54,7 +54,6 @@ Error: unexpected input in "7 % 2"
 >
 ```
 
-
 ## Using **[R]{.sans-serif}** as a Calculator
 
 **[R]{.sans-serif}** can perform basic arithmetic operations. Type the
@@ -72,23 +71,131 @@ the **[R]{.sans-serif}** console window.
 (4 + 2) * 3
 ```
 
-If you try something mathematically shoddy, you will likely be told:
+If you try to do shoddy math, you will get a message (but not necessarily an error):
+```{r}
+#| error: true
+0/0
+1/0
+-1/0
+```
 
-`> 0 / 0`
+Let's do a quick exercise to practice. Think of an integer, double it, add six, divide it in half, subtract the number you started with, and then square it. If your code is correct, the answer should be nine. Try it yourself!
 
-`> 1 / 0`
+## Objects
 
-`> -1 / 0`
+To keep it simple, you can think of an object as a named piece of information. A single number, a word, a plot, and a set of instructions can all be objects if you name them. The name allows you to store the piece of information so that you can access it in the future.  
 
-**[R]{.sans-serif}** has many built-in mathematical functions.
+To create an object, you must first choose a name, then type an arrow `<-` (a "lower than" symbol `<` followed by a "minus" sign `-`), and then write the value that you want to save.
 
-`> log(100)`
+```{r create first object}
+my_object <- 42
+```
 
-`> sqrt(9)`
+Another way of creating the object is to use the "equal to" sign `=` instead of the arrow.
 
-`> sqrt(-9)`
+```{r create first object method 2}
+my_object = 42
+```
 
-`> sqrt(-9 + 0i)`
+In this context, both `<-` and `=` are acting as "assignment operators" because they assign the value `42` to the name `my_object`. In **[R]{.sans-serif}**, `=` has several uses, so if you want to avoid any possible confusion, I suggest you use `<-`. But as long as you are consistent, you can pick whichever symbol you like the most.
+
+Now the environment window shows that there is an object called `my_object`, which you can access at anytime by typing its name.
+
+```{r call my_object}
+my_object
+```
+
+And because `my_object` has a number as its value, you can do mathematical operations with it.
+
+```{r}
+my_object + 7
+my_object/11
+my_object**my_object
+```
+
+If you try to reuse a name, **[R]{.sans-serif}** will overwrite the previous object without notifying you in any way.
+
+```{r}
+a <- 2
+a
+a <- 711
+a
+```
+
+
+You can use almost any name you want, but there are a few rules:
+
++ Names can be a combination of letters, digits, period `.` and underscore `_`.
++ If a name starts with a period `.`, it can *not* be followed by a digit.
++ Names can *not* start with a number or an underscore `_`.
++ Names are case-sensitive (`age`, `Age` and `AGE` are three different variables)
++ Reserved words can *not* be used as variables (`TRUE`, `FALSE`, `NULL`, `if`, ...).
++ Names can *not* include white spaces.
+
+There are also a few suggestions that will save you many hours of frustration:
+
++ It's never a good idea to give your object the same name as a built-in function.
++ If you need to create objects with multiple words in their name then use either an underscore (`my_value`) or a dot (`my.value`) between words, or capitalize the different words (`MyValue`). I like to use an underscore format (called [snake case](https://en.wikipedia.org/wiki/Snake_case))
++ Use informative names. It is quick and easy to use names like `x` or `my_value`. But your code will be easier and faster to understand if you use names that illustrate what you want to do with the object. Your colleagues and your future self will really appreciate it.
+
+## Using functions
+
+**[R]{.sans-serif}** has many built-in functions for anything from basic math to advanced statistical models. For example, you can round a number, calculate the square root, the factorial, or the natural logarithm. To use a function, you must write the name of a function followed by the data you want it to use inside a pair of round brackets.
+
+```{r simple mathematical functions}
+round(2.1415)
+sqrt(9)
+factorial(7)
+log(100)
+```
+
+The information inside the round brackets is called an "argument". `sqrt()` and `factorial()` only need one argument to work (the number that you want to use). But other functions---like `round()` and `log()`---can take more arguments to modify their behavior. For example, in `round()`, the first argument corresponds to the number you want to round, and the second argument corresponds to the number of decimal places that you want to keep. The arguments are separated by commas.
+
+```{r rounding to different decimal places}
+round(2.1415, 0)
+round(2.1415, 2)
+```
+
+The order of the arguments is important. What happens if you try to run `round(2, 2.1415)`? Fortunately, arguments have names that you can use to specify which data to use in each case. So, you can write
+
+```{r naming arguments}
+round(x = 2.1415, digits = 3)
+```
+
+Even better, you can pass arguments in any order as long as you name them all
+
+```{r}
+round(digits = 3, x = 2.1415)
+```
+
+But if you use the wrong name in a function, you will probably get an error message
+
+```{r}
+#| error: true
+round(x = 2.1415, basket = 3)
+```
+
+A quick way to check what arguments you can use is to use another function called `args`, which takes the name of a function as its argument:
+
+```{r}
+args(round)
+```
+
+Here you can see that the `digits` argument is already set to zero. This means that **[R]{.sans-serif}** will use `0` as the argument unless you explicitly tell it otherwise. Arguments with default values are optional because you can choose to modify them or not.
+
+I encourage you to name all the arguments in the function, or at least the ones after the first argument. More complicated functions can take several arguments and it is hard to remember all of them. And inadvertently switching the order can produce wrong results without you knowing. Naming the arguments will prevent errors and will help you know what exactly the functions do when you use them.
+
+**Review of logarithms** If $a^y = x$, then $\log_a(x) = y$. For example, $10^2 = 100$ and $\log_{10}(100) = 2$. Three common choices of
+the base are $10$, $2$, and $e$. What is the default choice in
+**[R]{.sans-serif}**?
+
+`> log(10)`
+
+`> log(2)`
+
+`> log(exp(1))`
+
+One of the most important functions in **[R]{.sans-serif}** is the function `c()` (short for "combine").
 
 This is your first indication that an **[R]{.sans-serif}** function may
 behave differently depending on the *type* of input.
@@ -121,16 +228,7 @@ The "Remainder" and Integer Division operations:
 
 `> 17 %/% 5`
 
-**Review of logarithms** If $a^y = x$, then $\log_a(x) = y$. For
-example, $10^2 = 100$ and $\log_{10}(100) = 2$. Three common choices of
-the base are $10$, $2$, and $e$. What is the default choice in
-**[R]{.sans-serif}**?
 
-`> log(10)`
-
-`> log(2)`
-
-`> log(exp(1))`
 
 If try to use a missing value (represented in **[R]{.sans-serif}** by `NA`) in a computation, the output will likely be missing:
 

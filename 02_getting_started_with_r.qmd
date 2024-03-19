@@ -1,33 +1,76 @@
 # Getting Started with **[R]{.sans-serif}**
 
-Launch **[R]{.sans-serif}** from the Start Menu or the desktop icon.
-(We'll shift to **[R]{.sans-serif}**Studio after we have some
-familiarity with using **[R]{.sans-serif}** interactively.)
+## The RStudio interface
+
+The first screen you see in R should look like this:
+
+[![The first screen you see when you open RStudio](./images/rstudio_first_screen.jpg)](./images/rstudio_first_screen.jpg)
+
+Here, there are three main window panes The "Console" window is where you type the code to tell the computer to do stuff.
+
+The "Environment-History-Connections" window has three tabs. "Environment" 
+shows the objects that you have saved during your session (I will explain this 
+soon); "History" shows a record of all the code you asked the computer to run; and "Connections"—which we will not use here—shows you the connections you have to remote databases.
+
+The "Files-Plots-Packages" window has several tabs. "Files" shows you all the 
+files in your current working directory, which is the default location where R 
+will look for files you want to load and where it will put any files you save. 
+"Plots" will display the plots you make in R. "Packages" shows you the packages 
+installed in your computer and whether they are loaded in your current session. 
+"Help" allows you to search and read the documentation for packages and 
+functions. "Viewer" can display content that usually belongs to a web browser 
+(i.e., html files).
+
+You can tell **[R]{.sans-serif}** to do stuff by typing *commands* in the line that begins with `>` in the  console window. This line is called "command prompt". Let's begin with something simple:
+
+```{r simplest operation}
+1 + 1
+```
+
+The `[1]` that appears next to the result informs you that the line begins with the first value in the result. This information is helpful when you run commands that produce multiple values. Try, this:
+
+```{r quick sequence of numbers}
+80:110
+```
+
+If you type an incomplete command, R will assume that you are still writing and 
+will show a `+`. This `+` is *not* an arithmetical operator; it's a prompt for you to continue writing in the next line. The prompt will not go away unless you complete the command or you press the "Escape" key. For example:
+
+```{r}
+#| eval: false
+> 42 -
++
++
++ 1
+[1] 41
+```
+
+If R does not understand a command, it will display an error message.
+
+```{r}
+#| eval: false
+> 7 % 2
+Error: unexpected input in "7 % 2"
+>
+```
+
 
 ## Using **[R]{.sans-serif}** as a Calculator
 
 **[R]{.sans-serif}** can perform basic arithmetic operations. Type the
-following expressions at the command prompt in the **[R]{.sans-serif}**
-console window.
+following expressions at the command prompt (the line that begins with `>`) in
+the **[R]{.sans-serif}** console window.
 
-`> 5+3`
-
-`> 5-3`
-
-`> 5/3`
-
-`> 5*3`
-
-`> 5^3`
-
-`> 4 + 2 * 3`
-
-`> (4 + 2) * 3`
-
-If you have missing input (represented in **[R]{.sans-serif}** by NA),
-the output will likely be missing:
-
-`> (4 + NA) * 3`
+```{r simple arithmetic}
+5 + 3
+5 - 3
+5*3
+5/3
+5^3
+5**3
+4 + 2 * 3
+(4 + 2) * 3
+```
 
 If you try something mathematically shoddy, you will likely be told:
 
@@ -88,6 +131,10 @@ the base are $10$, $2$, and $e$. What is the default choice in
 `> log(2)`
 
 `> log(exp(1))`
+
+If try to use a missing value (represented in **[R]{.sans-serif}** by `NA`) in a computation, the output will likely be missing:
+
+`> (4 + NA) * 3`
 
 Suppose you are working with a dataset and you wish to apply the
 $\log_{10}$ transformation. How can we instruct **[R]{.sans-serif}** to

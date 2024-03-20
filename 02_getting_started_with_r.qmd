@@ -54,7 +54,7 @@ Error: unexpected input in "7 % 2"
 >
 ```
 
-## Using **[R]{.sans-serif}** as a Calculator
+## Using R as a Calculator
 
 **[R]{.sans-serif}** can perform basic arithmetic operations. Type the
 following expressions at the command prompt (the line that begins with `>`) in
@@ -79,13 +79,36 @@ If you try to do shoddy math, you will get a message (but not necessarily an err
 -1/0
 ```
 
+**Be careful of comparisons and floating point arithmetic**:
+
+```{r}
+(.1 + .2) == .3
+5 == sqrt(5)^2
+5 - sqrt(5)^2
+```
+
+<!--
+The `all.equal` function will test if two values are "close enough":
+
+`> all.equal(5, sqrt(5)^2)`
+
+`> ?all.equal`
+-->
+
+This is not **[R]{.sans-serif}**'s fault. All computers have a limited space to 
+store numbers and decimal positions. So, computers often use numbers with 
+"hidden" decimals even when it looks like they use round numbers. For example, 
+what we think of as `3` may actually be `3.000005`. This is common enough to 
+make the **[R]{.sans-serif}** [FAQ (7.31)](https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f). To quote from "The Elements of Programming Style", 
+by Kernighan and Plauger: "10.0 times 0.1 is hardly ever 1.0."
+
 Let's do a quick exercise to practice. Think of an integer, double it, add six, divide it in half, subtract the number you started with, and then square it. If your code is correct, the answer should be nine. Try it yourself!
+
+Being able to do all these computations is good and all, but what happens if we want to use a result later without redoing the computation? **[R]{.sans-serif}** can save numbers (and more) using something called "objects".
 
 ## Objects
 
-To keep it simple, you can think of an object as a named piece of information. A single number, a word, a plot, and a set of instructions can all be objects if you name them. The name allows you to store the piece of information so that you can access it in the future.  
-
-To create an object, you must first choose a name, then type an arrow `<-` (a "lower than" symbol `<` followed by a "minus" sign `-`), and then write the value that you want to save.
+In simple terms, an object is a named piece of information. A single number, a word, a plot, and a set of instructions can all be objects if you name them. The name allows you to access the piece of information whenever you want. To create an object, you must first choose a name, then type an arrow `<-` (a "lower than" symbol `<` followed by a "minus" sign `-`), and then write the value that you want to save.
 
 ```{r create first object}
 my_object <- 42
@@ -113,7 +136,7 @@ my_object/11
 my_object**my_object
 ```
 
-If you try to reuse a name, **[R]{.sans-serif}** will overwrite the previous object without notifying you in any way.
+Be careful with names. If you try to reuse a name, **[R]{.sans-serif}** will overwrite the previous object without notifying you in any way.
 
 ```{r}
 a <- 2
@@ -140,7 +163,7 @@ There are also a few suggestions that will save you many hours of frustration:
 
 ## Using functions
 
-**[R]{.sans-serif}** has many built-in functions for anything from basic math to advanced statistical models. For example, you can round a number, calculate the square root, the factorial, or the natural logarithm. To use a function, you must write the name of a function followed by the data you want it to use inside a pair of round brackets.
+**[R]{.sans-serif}** has many built-in functions for anything from basic math to advanced statistical models. Functions are also objects in **[R]{.sans-serif}**. But instead of storing a single number as we did before, functions store commands that you can apply to an input. For example, you can round a number, calculate the square root, the factorial, or the natural logarithm. To use a function, you must write the name of a function followed by the data you want it to use inside a pair of round brackets.
 
 ```{r simple mathematical functions}
 round(2.1415)
@@ -149,7 +172,7 @@ factorial(7)
 log(100)
 ```
 
-The information inside the round brackets is called an "argument". `sqrt()` and `factorial()` only need one argument to work (the number that you want to use). But other functions---like `round()` and `log()`---can take more arguments to modify their behavior. For example, in `round()`, the first argument corresponds to the number you want to round, and the second argument corresponds to the number of decimal places that you want to keep. The arguments are separated by commas.
+The information inside the round brackets is called an "argument". `sqrt()` and `factorial()` only use one argument (the number that you want to use). But other functions---like `round()` and `log()`---can take more arguments to modify their behavior. For example, in `round()`, the first argument corresponds to the number you want to round, and the second argument corresponds to the number of decimal places that you want to keep. The arguments are separated by commas.
 
 ```{r rounding to different decimal places}
 round(2.1415, 0)
@@ -181,9 +204,11 @@ A quick way to check what arguments you can use is to use another function calle
 args(round)
 ```
 
-Here you can see that the `digits` argument is already set to zero. This means that **[R]{.sans-serif}** will use `0` as the argument unless you explicitly tell it otherwise. Arguments with default values are optional because you can choose to modify them or not.
+The output shows that `round()` has two arguments: `x` (the number you want to round) and `digits`. It also shows that `digits` is already set to zero. This means that **[R]{.sans-serif}** will use `0` as the default value. Arguments with default values are optional because you can choose to modify them or not.
 
-I encourage you to name all the arguments in the function, or at least the ones after the first argument. More complicated functions can take several arguments and it is hard to remember all of them. And inadvertently switching the order can produce wrong results without you knowing. Naming the arguments will prevent errors and will help you know what exactly the functions do when you use them.
+I encourage you to name all the arguments in the function, or at least the ones after the first argument. It is hard to remember all the arguments that can go into more complicated functions. And it is even harder to remember the correct order. Accidentally switching the order of the arguments can produce wrong results without you knowing. Naming the arguments will prevent errors and clarify the function's behavior.
+
+So far we have been working with only a single number at the time. But **[R]{.sans-serif}** can also work with groups of numbers by using something called "vectors".
 
 **Review of logarithms** If $a^y = x$, then $\log_a(x) = y$. For example, $10^2 = 100$ and $\log_{10}(100) = 2$. Three common choices of
 the base are $10$, $2$, and $e$. What is the default choice in
@@ -306,27 +331,7 @@ function argument.
 
 `> (5 < 6) | NA`
 
-**Be careful of comparisons and floating point arithmetic**:
 
-`> (.1 + .2) == .3`
-
-`> 5 == sqrt(5)^2`
-
-`> 5 - sqrt(5)^2`
-
-The `all.equal` function will test if two values are "close enough":
-
-`> all.equal(5, sqrt(5)^2)`
-
-`> ?all.equal`
-
-This is not bug of **[R]{.sans-serif}**. It is a feature of computers
-using binary representation of floating point numbers and storing them
-with finite precision. This is common enough to make the
-**[R]{.sans-serif}** FAQ (7.31):
-`https://cran.r-project.org/doc/FAQ/R-FAQ.html`. To quote from "The
-Elements of Programming Style" by Kernighan and Plauger: "10.0 times 0.1
-is hardly ever 1.0."
 
 ## Vectors and Sequences
 

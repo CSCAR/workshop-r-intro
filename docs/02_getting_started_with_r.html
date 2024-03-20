@@ -229,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#the-rstudio-interface" id="toc-the-rstudio-interface" class="nav-link active" data-scroll-target="#the-rstudio-interface"><span class="header-section-number">2.1</span> The RStudio interface</a></li>
-  <li><a href="#using-r-as-a-calculator" id="toc-using-r-as-a-calculator" class="nav-link" data-scroll-target="#using-r-as-a-calculator"><span class="header-section-number">2.2</span> Using <strong><span class="sans-serif">R</span></strong> as a Calculator</a></li>
+  <li><a href="#using-r-as-a-calculator" id="toc-using-r-as-a-calculator" class="nav-link" data-scroll-target="#using-r-as-a-calculator"><span class="header-section-number">2.2</span> Using R as a Calculator</a></li>
   <li><a href="#objects" id="toc-objects" class="nav-link" data-scroll-target="#objects"><span class="header-section-number">2.3</span> Objects</a></li>
   <li><a href="#using-functions" id="toc-using-functions" class="nav-link" data-scroll-target="#using-functions"><span class="header-section-number">2.4</span> Using functions</a></li>
   <li><a href="#making-comparisons-logical-operators" id="toc-making-comparisons-logical-operators" class="nav-link" data-scroll-target="#making-comparisons-logical-operators"><span class="header-section-number">2.5</span> Making Comparisons: Logical Operators</a></li>
@@ -301,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="using-r-as-a-calculator" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="using-r-as-a-calculator"><span class="header-section-number">2.2</span> Using <strong><span class="sans-serif">R</span></strong> as a Calculator</h2>
+<h2 data-number="2.2" class="anchored" data-anchor-id="using-r-as-a-calculator"><span class="header-section-number">2.2</span> Using R as a Calculator</h2>
 <p><strong><span class="sans-serif">R</span></strong> can perform basic arithmetic operations. Type the following expressions at the command prompt (the line that begins with <code>&gt;</code>) in the <strong><span class="sans-serif">R</span></strong> console window.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -352,51 +352,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] -Inf</code></pre>
 </div>
 </div>
+<p><strong>Be careful of comparisons and floating point arithmetic</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>(.<span class="dv">1</span> <span class="sc">+</span> .<span class="dv">2</span>) <span class="sc">==</span> .<span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">==</span> <span class="fu">sqrt</span>(<span class="dv">5</span>)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">-</span> <span class="fu">sqrt</span>(<span class="dv">5</span>)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -8.881784e-16</code></pre>
+</div>
+</div>
+<!--
+The `all.equal` function will test if two values are "close enough":
+
+`> all.equal(5, sqrt(5)^2)`
+
+`> ?all.equal`
+-->
+<p>This is not <strong><span class="sans-serif">R</span></strong>’s fault. All computers have a limited space to store numbers and decimal positions. So, computers often use numbers with “hidden” decimals even when it looks like they use round numbers. For example, what we think of as <code>3</code> may actually be <code>3.000005</code>. This is common enough to make the <strong><span class="sans-serif">R</span></strong> <a href="https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f">FAQ (7.31)</a>. To quote from “The Elements of Programming Style”, by Kernighan and Plauger: “10.0 times 0.1 is hardly ever 1.0.”</p>
 <p>Let’s do a quick exercise to practice. Think of an integer, double it, add six, divide it in half, subtract the number you started with, and then square it. If your code is correct, the answer should be nine. Try it yourself!</p>
+<p>Being able to do all these computations is good and all, but what happens if we want to use a result later without redoing the computation? <strong><span class="sans-serif">R</span></strong> can save numbers (and more) using something called “objects”.</p>
 </section>
 <section id="objects" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="objects"><span class="header-section-number">2.3</span> Objects</h2>
-<p>To keep it simple, you can think of an object as a named piece of information. A single number, a word, a plot, and a set of instructions can all be objects if you name them. The name allows you to store the piece of information so that you can access it in the future.</p>
-<p>To create an object, you must first choose a name, then type an arrow <code>&lt;-</code> (a “lower than” symbol <code>&lt;</code> followed by a “minus” sign <code>-</code>), and then write the value that you want to save.</p>
+<p>In simple terms, an object is a named piece of information. A single number, a word, a plot, and a set of instructions can all be objects if you name them. The name allows you to access the piece of information whenever you want. To create an object, you must first choose a name, then type an arrow <code>&lt;-</code> (a “lower than” symbol <code>&lt;</code> followed by a “minus” sign <code>-</code>), and then write the value that you want to save.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="ot">&lt;-</span> <span class="dv">42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="ot">&lt;-</span> <span class="dv">42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Another way of creating the object is to use the “equal to” sign <code>=</code> instead of the arrow.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="ot">=</span> <span class="dv">42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="ot">=</span> <span class="dv">42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this context, both <code>&lt;-</code> and <code>=</code> are acting as “assignment operators” because they assign the value <code>42</code> to the name <code>my_object</code>. In <strong><span class="sans-serif">R</span></strong>, <code>=</code> has several uses, so if you want to avoid any possible confusion, I suggest you use <code>&lt;-</code>. But as long as you are consistent, you can pick whichever symbol you like the most.</p>
 <p>Now the environment window shows that there is an object called <code>my_object</code>, which you can access at anytime by typing its name.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>my_object</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>my_object</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 42</code></pre>
 </div>
 </div>
 <p>And because <code>my_object</code> has a number as its value, you can do mathematical operations with it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="sc">+</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="sc">+</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 49</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>my_object<span class="sc">/</span><span class="dv">11</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>my_object<span class="sc">/</span><span class="dv">11</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.818182</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>my_object<span class="sc">**</span>my_object</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>my_object<span class="sc">**</span>my_object</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.501309e+68</code></pre>
 </div>
 </div>
-<p>If you try to reuse a name, <strong><span class="sans-serif">R</span></strong> will overwrite the previous object without notifying you in any way.</p>
+<p>Be careful with names. If you try to reuse a name, <strong><span class="sans-serif">R</span></strong> will overwrite the previous object without notifying you in any way.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">711</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">711</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 711</code></pre>
 </div>
@@ -419,67 +442,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="using-functions" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="using-functions"><span class="header-section-number">2.4</span> Using functions</h2>
-<p><strong><span class="sans-serif">R</span></strong> has many built-in functions for anything from basic math to advanced statistical models. For example, you can round a number, calculate the square root, the factorial, or the natural logarithm. To use a function, you must write the name of a function followed by the data you want it to use inside a pair of round brackets.</p>
+<p><strong><span class="sans-serif">R</span></strong> has many built-in functions for anything from basic math to advanced statistical models. Functions are also objects in <strong><span class="sans-serif">R</span></strong>. But instead of storing a single number as we did before, functions store commands that you can apply to an input. For example, you can round a number, calculate the square root, the factorial, or the natural logarithm. To use a function, you must write the name of a function followed by the data you want it to use inside a pair of round brackets.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">2.1415</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">2.1415</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5040</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.60517</code></pre>
 </div>
 </div>
-<p>The information inside the round brackets is called an “argument”. <code>sqrt()</code> and <code>factorial()</code> only need one argument to work (the number that you want to use). But other functions—like <code>round()</code> and <code>log()</code>—can take more arguments to modify their behavior. For example, in <code>round()</code>, the first argument corresponds to the number you want to round, and the second argument corresponds to the number of decimal places that you want to keep. The arguments are separated by commas.</p>
+<p>The information inside the round brackets is called an “argument”. <code>sqrt()</code> and <code>factorial()</code> only use one argument (the number that you want to use). But other functions—like <code>round()</code> and <code>log()</code>—can take more arguments to modify their behavior. For example, in <code>round()</code>, the first argument corresponds to the number you want to round, and the second argument corresponds to the number of decimal places that you want to keep. The arguments are separated by commas.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">2.1415</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">2.1415</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">2.1415</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">2.1415</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.14</code></pre>
 </div>
 </div>
 <p>The order of the arguments is important. What happens if you try to run <code>round(2, 2.1415)</code>? Fortunately, arguments have names that you can use to specify which data to use in each case. So, you can write</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> <span class="fl">2.1415</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> <span class="fl">2.1415</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.142</code></pre>
 </div>
 </div>
 <p>Even better, you can pass arguments in any order as long as you name them all</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">3</span>, <span class="at">x =</span> <span class="fl">2.1415</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">3</span>, <span class="at">x =</span> <span class="fl">2.1415</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.142</code></pre>
 </div>
 </div>
 <p>But if you use the wrong name in a function, you will probably get an error message</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> <span class="fl">2.1415</span>, <span class="at">basket =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> <span class="fl">2.1415</span>, <span class="at">basket =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in round(x = 2.1415, basket = 3): unused argument (basket = 3)</code></pre>
 </div>
 </div>
 <p>A quick way to check what arguments you can use is to use another function called <code>args</code>, which takes the name of a function as its argument:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(round)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(round)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (x, digits = 0) 
 NULL</code></pre>
 </div>
 </div>
-<p>Here you can see that the <code>digits</code> argument is already set to zero. This means that <strong><span class="sans-serif">R</span></strong> will use <code>0</code> as the argument unless you explicitly tell it otherwise. Arguments with default values are optional because you can choose to modify them or not.</p>
-<p>I encourage you to name all the arguments in the function, or at least the ones after the first argument. More complicated functions can take several arguments and it is hard to remember all of them. And inadvertently switching the order can produce wrong results without you knowing. Naming the arguments will prevent errors and will help you know what exactly the functions do when you use them.</p>
+<p>The output shows that <code>round()</code> has two arguments: <code>x</code> (the number you want to round) and <code>digits</code>. It also shows that <code>digits</code> is already set to zero. This means that <strong><span class="sans-serif">R</span></strong> will use <code>0</code> as the default value. Arguments with default values are optional because you can choose to modify them or not.</p>
+<p>I encourage you to name all the arguments in the function, or at least the ones after the first argument. It is hard to remember all the arguments that can go into more complicated functions. And it is even harder to remember the correct order. Accidentally switching the order of the arguments can produce wrong results without you knowing. Naming the arguments will prevent errors and clarify the function’s behavior.</p>
+<p>So far we have been working with only a single number at the time. But <strong><span class="sans-serif">R</span></strong> can also work with groups of numbers by using something called “vectors”.</p>
 <p><strong>Review of logarithms</strong> If <span class="math inline">\(a^y = x\)</span>, then <span class="math inline">\(\log_a(x) = y\)</span>. For example, <span class="math inline">\(10^2 = 100\)</span> and <span class="math inline">\(\log_{10}(100) = 2\)</span>. Three common choices of the base are <span class="math inline">\(10\)</span>, <span class="math inline">\(2\)</span>, and <span class="math inline">\(e\)</span>. What is the default choice in <strong><span class="sans-serif">R</span></strong>?</p>
 <p><code>&gt; log(10)</code></p>
 <p><code>&gt; log(2)</code></p>
@@ -533,14 +557,6 @@ NULL</code></pre>
 <p><code>&gt; (5 &lt; 6) &amp; (7 == 8)</code></p>
 <p><code>&gt; (5 &lt; 6) | (7 == 8)</code></p>
 <p><code>&gt; (5 &lt; 6) | NA</code></p>
-<p><strong>Be careful of comparisons and floating point arithmetic</strong>:</p>
-<p><code>&gt; (.1 + .2) == .3</code></p>
-<p><code>&gt; 5 == sqrt(5)^2</code></p>
-<p><code>&gt; 5 - sqrt(5)^2</code></p>
-<p>The <code>all.equal</code> function will test if two values are “close enough”:</p>
-<p><code>&gt; all.equal(5, sqrt(5)^2)</code></p>
-<p><code>&gt; ?all.equal</code></p>
-<p>This is not bug of <strong><span class="sans-serif">R</span></strong>. It is a feature of computers using binary representation of floating point numbers and storing them with finite precision. This is common enough to make the <strong><span class="sans-serif">R</span></strong> FAQ (7.31): <code>https://cran.r-project.org/doc/FAQ/R-FAQ.html</code>. To quote from “The Elements of Programming Style” by Kernighan and Plauger: “10.0 times 0.1 is hardly ever 1.0.”</p>
 </section>
 <section id="vectors-and-sequences" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="vectors-and-sequences"><span class="header-section-number">2.6</span> Vectors and Sequences</h2>

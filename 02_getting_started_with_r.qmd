@@ -72,12 +72,34 @@ the **[R]{.sans-serif}** console window.
 ```
 
 If we try to do shoddy math, we will get a message (but not necessarily an error):
+
 ```{r}
 #| error: true
 0/0
 1/0
 -1/0
 ```
+
+**[R]{.sans-serif}** also has logical operators that will return "TRUE" or
+"FALSE".
+
+```{r}
+5 == 6
+5 != 6
+5 < 6
+5 > 6
+5 <= 6
+(1 + 2) == 3
+```
+
+
+**[R]{.sans-serif}** has "and" (`&`) and "or" (`|`) operators (there are others) to combine multiple logical statements:
+
+```{r}
+(5 < 6) & (7 == 8)
+(5 < 6) | (7 == 8)
+```
+
 
 **Be careful of comparisons and floating point arithmetic**:
 
@@ -136,17 +158,35 @@ my_object/11
 my_object**my_object
 ```
 
-Be careful with names. If we try to reuse a name, **[R]{.sans-serif}** will overwrite the previous object without notifying us in any way.
+We can also create objects based on other objects.
 
 ```{r}
-a <- 2
+a <- 10
+b <- a
 a
-a <- 711
-a
+b
 ```
 
+Be careful with names. If we try to reuse a name, **[R]{.sans-serif}** will overwrite the previous object without notifying us in any way.
 
-We can use almost any name you want, but there are a few rules:
+```{r overwriting object}
+c <- 2
+c
+c <- 711
+c
+```
+
+However, if an object was the copy of another object, overwriting the original object does not affect the copy:
+
+```{r}
+a <- 10
+b <- a
+b
+a <- 5
+b
+```
+
+We can use almost any name we want, but there are a few rules:
 
 + Names can be a combination of letters, digits, period `.` and underscore `_`.
 + If a name starts with a period `.`, it can *not* be followed by a digit.
@@ -212,7 +252,116 @@ So far we have been working with only a single number at the time. But **[R]{.sa
 
 ## Working with vectors of numbers
 
-In **[R]{.sans-serif}**, an ordered group of numbers is called a vector. To create a vector of numbers, 
+In **[R]{.sans-serif}**, an ordered group of numbers is called a vector. To create a vector of numbers, we need to use the function `c()` (short for "combine"). The arguments of `c()` are the numbers you want to use in the vector, in the order you want to use them.
+
+```{r first vector}
+my_vec <- c(5, 3, 7, 1, 1, 8)
+my_vec
+```
+
+**[R]{.sans-serif}** is a "vectorized" language, which means that it can often operate on an entire vector of numbers as easily as on a single number. All the logical and mathematical functions we used before work with vectors:
+
+```{r simple math with vectors}
+my_vec > 2
+my_vec <= 7
+my_vec + 7
+my_vec / 11
+sqrt(my_vec)
+factorial(my_vec)
+log(my_vec)
+my_vec*my_vec
+```
+
+In the last example, **[R]{.sans-serif}** did not follow the rules of linear algebra to multiply two vectors. Instead, **[R]{.sans-serif}** uses "element-wise execution", which means that **[R]{.sans-serif}** applies the same operation to each member of the vector. For example, `my_vec + 7` adds `7` to each number inside `my_vec`.
+
+When you use two vectors with the same number of elements for an operation, **[R]{.sans-serif}** will line up the vectors and perform a sequence of individual operations. For instance, in `my_vec*my_vec`, **[R]{.sans-serif}** multiplies the first element of vector 1 by the first element of vector 2, then the second element of vector 1 by the second element of vector 2, and so on, until all elements are multiplied. The result will be a new vector the same length as the first two.
+
+If you give R two vectors of unequal lengths, R will repeat the shorter vector until it is as long as the longer vector, and then do the math. 
+
+```{r recycling vectors 1}
+my_vec * c(1, 2)
+```
+
+If the length of the short vector does not divide evenly into the length of the long vector, R will do an "incomplete repeat" of the shorter vector and return a warning. 
+
+```{r recycling vectors 2}
+my_vec * c(1, 2, 3, 4)
+```
+
+Repeating the numbers of the vector is known as "vector recycling", and it helps R do element-wise operations.
+
+Element-wise operations allow us to manipulate entire data variables rather than 
+one element at a time. When you start working with data sets, element-wise 
+operations will ensure that values from one observation or case are only paired 
+with values from the same observation or case. Element-wise operations also make 
+it easier to write your own programs and functions in R.
+
+**[R]{.sans-serif}** can also do vector and matrix multiplications, but we have to explicitly ask for them. For example, to get the inner product, we need the operator `%*%`:
+
+```{r inner product}
+my_vec %*% my_vec
+```
+
+And to get the outer product, we need `%o%`:
+
+```{r outer product}
+my_vec %o% my_vec
+```
+
+If you are not familiar with matrix operations, don't worry. You won't need them in these notes.
+
+We can access specific elements of vectors using the square bracket `[ ]` notation. Write the name of the vector you want to extract from, followed by a the square brackets with an index of the element you wish to extract. This index can be a position or the result of a logical test.
+
+To extract elements based on their position we simply write the position inside the `[ ]`. Let's first recall the values of `my_vec` For example, 
+
+```{r recal my_vec}
+my_vec
+```
+
+To extract the 3rd value of `my_vec`, we use 
+
+```{r extract value from my_vec}
+my_vec[3]
+```
+
+We can store this value in another object
+
+```{r}
+value_3 = my_vec[3]
+```
+
+Note that in **[R]{.sans-serif}**, the positional index starts at 1, so to call the first element of a vector we need to use `[1]`. In almost all other programming languages (like Python and C++), the positional index starts at 0.
+
+We can extract multiple elements at the time by using a vector of indices inside the square brackets:
+
+```{r}
+my_vec[c(1, 3, 5)]
+```
+
+Or we can extract a range of values using the `:` notation. Remember that `:` helps us create a sequence of values. For example,
+
+```{r}
+3:6
+```
+
+So,
+
+```{r}
+my_vec[3:6]
+```
+
+Another convenient way to extract elements from a vector is to use a logical expression as an index. For example, to extract all elements greater than 4 from `my_vec`, we do
+
+```{r}
+my_vec[my_vec > 4]
+```
+
+How does this work? Remember that **[R]{.sans-serif}** uses element-wise operations even for logical statements. So, `my_vec > 4` asks if each item of `my_vec` meets the condition "greater than four" and returns the corresponding vector of `TRUE` and `FALSE`. Then, when we add this result to the square brackets, **[R]{.sans-serif}** examines each element of `my_vec` asking "should I extract this element?". If the answer is `TRUE`, the value is extracted; if it's `FALSE`, the value is ignored. Under the hood, `my_vec > 4` is equivalent to
+
+```{r}
+my_vec[c(TRUE, FALSE, TRUE, FALSE, FALSE, TRUE)]
+```
+
 
 **Review of logarithms** If $a^y = x$, then $\log_a(x) = y$. For example, $10^2 = 100$ and $\log_{10}(100) = 2$. Three common choices of
 the base are $10$, $2$, and $e$. What is the default choice in
@@ -304,48 +453,11 @@ function argument.
 
 `> log(25, be=5)`
 
-## Making Comparisons: Logical Operators
-
-**[R]{.sans-serif}** has logical operators that will return "TRUE" or
-"FALSE" (or possibly "NA" if you have missing values).
-
-`> 5 == 6`
-
-`> 5 != 6`
-
-`> 5 < 6`
-
-`> 5 > 6`
-
-`> 5 <= 6`
-
-`> 5 <= NA`
-
-`> 5 <= Inf`
-
-`> !TRUE`
-
-`> (1 + 2) == 3`
-
-**[R]{.sans-serif}** has "and" and "or" operators (there are others):
-
-`> (5 < 6) & (7 == 8)`
-
-`> (5 < 6) | (7 == 8)`
-
-`> (5 < 6) | NA`
-
-
+## Making Comparisons: 
 
 ## Vectors and Sequences
 
-**[R]{.sans-serif}** is a 'vectorized' language. Many functions operate
-on an entire vector of numbers as easily as on a single number. This
-feature allows the user to think in terms of manipulating entire data
-variables rather than one data element at a time. For example (once we
-have learned about storing objects), we can write `mean(Height)` or
-`hist(Height)` to analyze a variable, rather than working with the
-individual data values.
+
 
 Thus it is important to be able to create and manipulate vectors.
 Numbers can be combined into a vector with the function 'c', which

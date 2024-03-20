@@ -479,11 +479,11 @@ countries_ordered
 
 Ta-da!
 
-This vector manipulations can do more than dazzle your friends. Imagine you have a dataset with two columns of data and you want to sort each column. If you just use `sort()` on each column separately, the values of each column will become uncoupled from each other. By using the `order()` on one column, a vector of positional indices is created of the values of the column in ascending order. This vector can be used on the second column, as the index of elements which will return a vector of values based on the first column.
+These vector manipulations can do more than dazzle your friends. Imagine you have a dataset with two columns of data and you want to sort each column. If you just use `sort()` on each column separately, the values of each column will become uncoupled from each other. By using `order()` on one column, a vector of positional indices is created of the values of the column in ascending order. Then we can use this vector as the index of elements on the second column, which will return a vector of values based on the first column.
 
 ## Working with scripts
 
-Until now, the console satisfied all our coding needs. But if we wanted to reuse a command from before, we would have to rewrite it from scratch; or we could look through our command history (in the "Environment-History-Connections" window)---a tedious task. Besides, once we close this session in RStudio, all of our work will be gone, like tears in the rain. It would be much better if we wrote our code in a place where we can easily review and modify it.
+Until now, the console satisfied all our coding needs. But if we wanted to reuse a command from before, we would have to either rewrite it from scratch, or look through our command history (in the "Environment-History-Connections" window)---a tedious task. Besides, once we close this session in RStudio, all of our work will be gone, like tears in the rain. It would be much better if we wrote our code in a place where we can easily review and modify it.
 
 An **[R]{.sans-serif}** script is a plain text file that we can use to save our code. I think the best way to code in **[R]{.sans-serif}** is to use a script, and I strongly suggest you always use one. A script helps us edit, proofread and reuse our code. It also allows us to save our code so we can come back to it later, or share it with others. Also, it is cumbersome to write multi-line code in the console, but it is easy if we use a script.
 

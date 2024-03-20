@@ -448,7 +448,7 @@ my_vec <- sort(my_vec, decreasing = TRUE)
 my_vec
 ```
 
-Another option is to first use `sort()` and then reverse the sorted vector using `rev()`. 
+Another option is to first use `sort()` and then reverse the sorted vector using `rev()`.
 
 ```{r}
 my_vec <- rev(sort(my_vec))
@@ -481,5 +481,24 @@ Ta-da!
 
 This vector manipulations can do more than dazzle your friends. Imagine you have a dataset with two columns of data and you want to sort each column. If you just use `sort()` on each column separately, the values of each column will become uncoupled from each other. By using the `order()` on one column, a vector of positional indices is created of the values of the column in ascending order. This vector can be used on the second column, as the index of elements which will return a vector of values based on the first column.
 
+## Working with scripts
 
+Until now, the console satisfied all our coding needs. But if we wanted to reuse a command from before, we would have to rewrite it from scratch; or we could look through our command history (in the "Environment-History-Connections" window)---a tedious task. Besides, once we close this session in RStudio, all of our work will be gone, like tears in the rain. It would be much better if we wrote our code in a place where we can easily review and modify it.
 
+An **[R]{.sans-serif}** script is a plain text file that we can use to save our code. I think the best way to code in **[R]{.sans-serif}** is to use a script, and I strongly suggest you always use one. A script helps us edit, proofread and reuse our code. It also allows us to save our code so we can come back to it later, or share it with others. Also, it is cumbersome to write multi-line code in the console, but it is easy if we use a script.
+
+To open a script, click on `File > New File > R script` in the menu bar on the upper left-hand side of the screen.
+
+[![A screen with a new script](./images/new_script_screen.jpg)](./images/new_script_screen.jpg)
+
+We can run a line of code using the `Run` button. R will run whichever line of code your cursor is on. We can also run all of the code in the script by clicking the `Source` button that's next to `Run`. I find that clicking buttons is slow, so I use a keyboard shortcut for running a line of code: `Control + Return` in Windows and Linux; `Command + Return` in Mac.
+
+[![Buttons for running code](./images/run_code_buttons_edited.jpg)](./images/run_code_buttons_edited.jpg)
+
+## Writing your own functions
+
+Functions, as you may remember, are objects that store commands. They are helpful when we want to use instructions repeatedly with different inputs. 
+
+## Exercise
+
+Let's try to write a function using all of the basic features of **[R]{.sans-serif}** that you just learned. 

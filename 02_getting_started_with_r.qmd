@@ -2,39 +2,39 @@
 
 ## The RStudio interface
 
-The first screen you see in R should look like this:
+The first screen we see in R should look like this:
 
-[![The first screen you see when you open RStudio](./images/rstudio_first_screen.jpg)](./images/rstudio_first_screen.jpg)
+[![The first screen we see when we open RStudio](./images/rstudio_first_screen.jpg)](./images/rstudio_first_screen.jpg)
 
-Here, there are three main window panes. The "Console" window is where you type the code to tell the computer to do stuff.
+Here, there are three main window panes. The "Console" window is where we type the code to tell the computer to do stuff.
 
 The "Environment-History-Connections" window has three tabs. "Environment" 
-shows the objects that you have saved during your session (I will explain this 
-soon); "History" shows a record of all the code you asked the computer to run; and "Connections"—which we will not use here—shows you the connections you have to remote databases.
+shows the objects that we have saved during our session (I will explain this 
+soon); "History" shows a record of all the code we asked the computer to run; and "Connections"—which we will not use here—shows we the connections we have to remote databases.
 
-The "Files-Plots-Packages" window has several tabs. "Files" shows you all the 
-files in your current working directory, which is the default location where R 
-will look for files you want to load and where it will put any files you save. 
-"Plots" will display the plots you make in R. "Packages" shows you the packages 
-installed in your computer and whether they are loaded in your current session. 
-"Help" allows you to search and read the documentation for packages and 
+The "Files-Plots-Packages" window has several tabs. "Files" shows us all the 
+files in our current working directory, which is the default location where R 
+will look for files we want to load and where it will put any files we save. 
+"Plots" will display the plots we make in R. "Packages" shows us the packages 
+installed in our computer and whether they are loaded in our current session. 
+"Help" allows us to search and read the documentation for packages and 
 functions. "Viewer" can display content that usually belongs to a web browser 
 (i.e., html files).
 
-You can tell **[R]{.sans-serif}** to do stuff by typing *commands* in the line that begins with `>` in the  console window. This line is called "command prompt". Let's begin with something simple:
+We can tell **[R]{.sans-serif}** to do stuff by typing *commands* in the line that begins with `>` in the  console window. This line is called "command prompt". Let's begin with something simple:
 
 ```{r simplest operation}
 1 + 1
 ```
 
-The `[1]` that appears next to the result informs you that the line begins with the first value in the result. This information is helpful when you run commands that produce multiple values, like in this case:
+The `[1]` that appears next to the result informs us that the line begins with the first value in the result. This information is helpful when we run commands that produce multiple values, like in this case:
 
 ```{r quick sequence of numbers}
 80:110
 ```
 
-If you type an incomplete command, R will assume that you are still writing and 
-will show a `+`. This `+` is *not* an arithmetical operator; it's a prompt for you to continue writing in the next line. The prompt will not go away unless you complete the command or you press the "Escape" key. For example:
+If we type an incomplete command, R will assume that we are still writing and 
+will show a `+`. This `+` is *not* an arithmetical operator; it's a prompt for us to continue writing in the next line. The prompt will not go away unless we complete the command or we press the "Escape" key. For example:
 
 ```{r}
 #| eval: false
@@ -71,7 +71,7 @@ the **[R]{.sans-serif}** console window.
 (4 + 2) * 3
 ```
 
-If you try to do shoddy math, you will get a message (but not necessarily an error):
+If we try to do shoddy math, we will get a message (but not necessarily an error):
 ```{r}
 #| error: true
 0/0
@@ -108,7 +108,7 @@ Being able to do all these computations is good and all, but what happens if we 
 
 ## Objects
 
-In simple terms, an object is a named piece of information. A single number, a word, a plot, and a set of instructions can all be objects if you name them. The name allows you to access the piece of information whenever you want. To create an object, you must first choose a name, then type an arrow `<-` (a "lower than" symbol `<` followed by a "minus" sign `-`), and then write the value that you want to save.
+In simple terms, an object is a named piece of information. A single number, a word, a plot, and a set of instructions can all be objects if we name them. The name allows us to access the piece of information whenever we want. To create an object, we must first choose a name, then type an arrow `<-` (a "lower than" symbol `<` followed by a "minus" sign `-`), and then write the value that we want to save.
 
 ```{r create first object}
 my_object <- 42
@@ -122,13 +122,13 @@ my_object = 42
 
 In this context, both `<-` and `=` are acting as "assignment operators" because they assign the value `42` to the name `my_object`. In **[R]{.sans-serif}**, `=` has several uses, so if you want to avoid any possible confusion, I suggest you use `<-`. But as long as you are consistent, you can pick whichever symbol you like the most.
 
-Now the environment window shows that there is an object called `my_object`, which you can access at anytime by typing its name.
+Now the environment window shows that there is an object called `my_object`, which we can access at anytime by typing its name.
 
 ```{r call my_object}
 my_object
 ```
 
-And because `my_object` has a number as its value, you can do mathematical operations with it.
+And because `my_object` has a number as its value, we can do mathematical operations with it.
 
 ```{r}
 my_object + 7
@@ -136,7 +136,7 @@ my_object/11
 my_object**my_object
 ```
 
-Be careful with names. If you try to reuse a name, **[R]{.sans-serif}** will overwrite the previous object without notifying you in any way.
+Be careful with names. If we try to reuse a name, **[R]{.sans-serif}** will overwrite the previous object without notifying us in any way.
 
 ```{r}
 a <- 2
@@ -146,7 +146,7 @@ a
 ```
 
 
-You can use almost any name you want, but there are a few rules:
+We can use almost any name you want, but there are a few rules:
 
 + Names can be a combination of letters, digits, period `.` and underscore `_`.
 + If a name starts with a period `.`, it can *not* be followed by a digit.
@@ -163,7 +163,7 @@ There are also a few suggestions that will save you many hours of frustration:
 
 ## Using functions
 
-**[R]{.sans-serif}** has many built-in functions for anything from basic math to advanced statistical models. Functions are also objects in **[R]{.sans-serif}**. But instead of storing a single number as we did before, functions store commands that you can apply to an input. For example, you can round a number, calculate the square root, the factorial, or the natural logarithm. To use a function, you must write the name of a function followed by the data you want it to use inside a pair of round brackets.
+**[R]{.sans-serif}** has many built-in functions for anything from basic math to advanced statistical models. Functions are also objects in **[R]{.sans-serif}**. But instead of storing a single number as we did before, functions store commands that we can apply to an input. For example, we can round a number, calculate the square root, the factorial, or the natural logarithm. To use a function, we must write the name of a function followed by the data we want it to use inside a pair of round brackets.
 
 ```{r simple mathematical functions}
 round(2.1415)
@@ -172,43 +172,47 @@ factorial(7)
 log(100)
 ```
 
-The information inside the round brackets is called an "argument". `sqrt()` and `factorial()` only use one argument (the number that you want to use). But other functions---like `round()` and `log()`---can take more arguments to modify their behavior. For example, in `round()`, the first argument corresponds to the number you want to round, and the second argument corresponds to the number of decimal places that you want to keep. The arguments are separated by commas.
+The information inside the round brackets is called an "argument". `sqrt()` and `factorial()` only use one argument (the number that we want to use). But other functions---like `round()` and `log()`---can take more arguments to modify their behavior. For example, in `round()`, the first argument corresponds to the number we want to round, and the second argument corresponds to the number of decimal places that we want to keep. The arguments are separated by commas.
 
 ```{r rounding to different decimal places}
 round(2.1415, 0)
 round(2.1415, 2)
 ```
 
-The order of the arguments is important. What happens if you try to run `round(2, 2.1415)`? Fortunately, arguments have names that you can use to specify which data to use in each case. So, you can write
+The order of the arguments is important. What happens if we try to run `round(2, 2.1415)`? Fortunately, arguments have names that you can use to specify which data to use in each case. So, we can write
 
 ```{r naming arguments}
 round(x = 2.1415, digits = 3)
 ```
 
-Even better, you can pass arguments in any order as long as you name them all
+Even better, we can pass arguments in any order as long as we name them all
 
 ```{r}
 round(digits = 3, x = 2.1415)
 ```
 
-But if you use the wrong name in a function, you will probably get an error message
+But if we use the wrong name in a function, we will probably get an error message
 
 ```{r}
 #| error: true
 round(x = 2.1415, basket = 3)
 ```
 
-A quick way to check what arguments you can use is to use another function called `args`, which takes the name of a function as its argument:
+A quick way to check what arguments we can use is to use another function called `args`, which takes the name of a function as its argument:
 
 ```{r}
 args(round)
 ```
 
-The output shows that `round()` has two arguments: `x` (the number you want to round) and `digits`. It also shows that `digits` is already set to zero. This means that **[R]{.sans-serif}** will use `0` as the default value. Arguments with default values are optional because you can choose to modify them or not.
+The output shows that `round()` has two arguments: `x` (the number we want to round) and `digits`. It also shows that `digits` is already set to zero. This means that **[R]{.sans-serif}** will use `0` as the default value. Arguments with default values are optional because we can choose to modify them or not.
 
-I encourage you to name all the arguments in the function, or at least the ones after the first argument. It is hard to remember all the arguments that can go into more complicated functions. And it is even harder to remember the correct order. Accidentally switching the order of the arguments can produce wrong results without you knowing. Naming the arguments will prevent errors and clarify the function's behavior.
+I encourage we to name all the arguments in the function, or at least the ones after the first argument. It is hard to remember all the arguments that can go into more complicated functions. And it is even harder to remember the correct order. Accidentally switching the order of the arguments can produce wrong results without us knowing. Naming the arguments will prevent errors and clarify the function's behavior.
 
 So far we have been working with only a single number at the time. But **[R]{.sans-serif}** can also work with groups of numbers by using something called "vectors".
+
+## Working with vectors of numbers
+
+In **[R]{.sans-serif}**, an ordered group of numbers is called a vector. To create a vector of numbers, 
 
 **Review of logarithms** If $a^y = x$, then $\log_a(x) = y$. For example, $10^2 = 100$ and $\log_{10}(100) = 2$. Three common choices of
 the base are $10$, $2$, and $e$. What is the default choice in

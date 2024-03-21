@@ -202,8 +202,8 @@ We can use almost any name we want, but there are a few rules:
 There are also a few suggestions that will save you many hours of frustration:
 
 + It's never a good idea to give your object the same name as a built-in function.
-+ If you need to create objects with multiple words in their name then use either an underscore (`my_value`) or a dot (`my.value`) between words, or capitalize the different words (`MyValue`). I like to use an underscore format (called [snake case](https://en.wikipedia.org/wiki/Snake_case))
-+ Use informative names. It is quick and easy to use names like `x` or `my_value`. But your code will be easier and faster to understand if you use names that illustrate what you want to do with the object. Your colleagues and your future self will really appreciate it.
++ If you need to create objects with multiple words in their name, separate them with an underscore (`my_value`) or a dot (`my.value`), or capitalize the different words (`MyValue`). I like the underscore format (called [snake case](https://en.wikipedia.org/wiki/Snake_case) naming). You can use whichever one you want. Just be consistent.
++ Use informative names. It is quick and easy to use names like `x` or `my_value`. But your code will be easier and faster to understand if your objects have names that illustrate what you want to do with them. Your colleagues and your future self will really appreciate it.
 
 ## Using functions
 
@@ -666,7 +666,7 @@ You can give your functions as many arguments as you like. Just list their names
 
 ::: {.callout-note}
 ## Objects created in functions disappear
-All of the objects that we create inside the function will disappear after it finishes running. We can only save the output of the function by assigning it to an object.
+All of the objects that we create inside a function will disappear after it finishes running. We can only save the output of the function by assigning it to an object.
 :::
 
 

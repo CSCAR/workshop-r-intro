@@ -272,16 +272,68 @@ A shorter way of writing this is to use `?` before the name of the function.
 
 After you run the code, the help page is displayed in the "Help" tab in the "Files-Plots-Packages" pane (usually in the bottom right of **[R]{.sans-serif}**Studio).
 
-Help pages may seem arcane to the novice user, probably because they aim for shortness and use a lot of technical jargon. But this short jargon makes the explanations precise (most of them), so we can get the information we need without having to read the entire document. Also, all help pages are organized similarly, so we don't have to relearn how to navigate them. So, with a bit of practice, you will be able to find exactly what you need in mere seconds. 
+Help pages may seem arcane to the novice user, probably because they aim for shortness and use a lot of technical jargon. But this short jargon makes (most of) the explanations precise, so we can use the information we need without having to read the entire document. Also, all help pages are organized similarly, so we don't have to relearn how to navigate them. So, with a bit of practice, you will be able to find exactly what you need in mere seconds.
+
+The first line of the help document displays the name of the function and the package that contains the function. Other sections are:
+
++ **Description**: a short description of the function.
+
++ **Usage**: names the arguments associated with the function and possible default values.
+
++ **Arguments**: expounds each argument and what they do.
+
++ **Details**: a more detailed description of the function.
+
++ **Value**: if applicable, gives the type and structure of the object returned by the function or the operator.
+
++ **See Also**: leads to other help pages with similar or related content.
+
++ **Examples**: code examples on how to use the function. To see how they work, we just need to copy and paste them into the console. We can also access examples at any time by using the `example()` function (i.e. `example("round")`).
+
+The `help()` function is useful if we know the name of the function. But if all we remember is a key word in the name, we can search through **[R]{.sans-serif}**'s help system using `help.search()`
+
+```{r}
+#| eval: false
+help.search("round")
+```
+
+Or we can use the shortcut `??`
+
+```{r}
+#| eval: false
+??round
+```
+
+As before, the 'Help' tab in RStudio will display the results of the search. `help.search()` searches through the help documentation, code demonstrations, and package vignettes and displays the results as clickable links that we can follow.
+
+Another useful function is `apropos()`. This function can be used to list all functions containing a specified character string. For example, to find all functions with `sum` in their name.
+
+```{r}
+apropos("round")
+```
+
+If we find the function we need, we can look for its documentation.
+
+```{r}
+#| eval: false
+help("round.Date")
+```
+
+Another useful function is `RSiteSearch()`, which allows us to search for keywords and phrases in function help pages and vignettes for *all* CRAN packages, and in CRAN task views. So, we can access the [online search engine](https://www.r-project.org/search.html) directly from the Console and display the results in our web browser.
+
+```{r}
+#| eval: false
+RSiteSearch("regression")
+```
 
 :::callout-tip
-## How to learn to read help pages?
-Start by reading the help pages of functions that you can already understand. This will teach you how to understand the structure of the pages and will familiarize you with many technical terms. As you use **[R]{.sans-serif}** you will likely need other, more complicated functions, so reading more help pages will happen almost naturally.
+## How to get started with help pages?
+Start by reading the help pages of functions that you already understand. This will teach you how to understand the structure of the pages and will familiarize you with the jargon. As you use **[R]{.sans-serif}** you will likely need other, more complicated functions, so reading more help pages will happen almost naturally.
 
 Just keep in mind that help pages are about code, not about the underlying concepts. If you don't know what it means to round a number, reading the documentation for `round()` will not help you.
 :::
 
-So far we have been working with only a single number at the time. But **[R]{.sans-serif}** can also work with groups of numbers by using something called "vectors".
+Now that we know how to get help, we can move on to more advanced stuff. Previously we worked with one number at the time. But we can also work with groups of numbers by using something called "vectors".
 
 ## Working with vectors
 
@@ -306,7 +358,7 @@ Note that we must enclose words in quotation marks to let **[R]{.sans-serif}** k
 vector_of_words <- c(monday, lemon)
 ```
 
-Later on we will work more with vectors of words, but for now let's focus on numberical vectors.
+Later on we will work more with vectors of words, but for now let's focus on numerical vectors.
 
 ### Operations with numerical vectors
 

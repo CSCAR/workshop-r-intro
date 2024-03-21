@@ -252,6 +252,35 @@ The output shows that `round()` has two arguments: `x` (the number we want to ro
 
 I encourage you to name all the arguments in the function, or at least the ones after the first argument. It is hard to remember all the arguments that can go into more complicated functions. And it is even harder to remember the correct order. Accidentally switching unnamed arguments can produce wrong results without us knowing. Naming the arguments will prevent errors and clarify the function's behavior.
 
+The functions we have used are simple and intuitive to use. But sometimes we need to know more before we can use a function in our code. Where can we find explanations to help us?
+
+## Getting help
+
+To access R’s built-in help information on any function simply use the `help()` function. For example, to open the help page for `round()`, we do
+
+```{r help function}
+#| eval: false
+help("round")
+```
+
+A shorter way of writing this is to use `?` before the name of the function.
+
+```{r help shortcut}
+#| eval: false
+?round
+```
+
+After you run the code, the help page is displayed in the "Help" tab in the "Files-Plots-Packages" pane (usually in the bottom right of **[R]{.sans-serif}**Studio).
+
+Help pages may seem arcane to the novice user, probably because they aim for shortness and use a lot of technical jargon. But this short jargon makes the explanations precise (most of them), so we can get the information we need without having to read the entire document. Also, all help pages are organized similarly, so we don't have to relearn how to navigate them. So, with a bit of practice, you will be able to find exactly what you need in mere seconds. 
+
+:::callout-tip
+## How to learn to read help pages?
+Start by reading the help pages of functions that you can already understand. This will teach you how to understand the structure of the pages and will familiarize you with many technical terms. As you use **[R]{.sans-serif}** you will likely need other, more complicated functions, so reading more help pages will happen almost naturally.
+
+Just keep in mind that help pages are about code, not about the underlying concepts. If you don't know what it means to round a number, reading the documentation for `round()` will not help you.
+:::
+
 So far we have been working with only a single number at the time. But **[R]{.sans-serif}** can also work with groups of numbers by using something called "vectors".
 
 ## Working with vectors
@@ -401,7 +430,6 @@ head(my_vec, n = 3)
 tail(my_vec, n = 3)
 ```
 
-
 ### Replacing elements
 
 We can replace the elements of a vector by combining the square bracket notation with the assignment operator. For example, to replace the second element of `my_vec`, we do
@@ -504,7 +532,7 @@ We can run a line of code using the `Run` button. **[R]{.sans-serif}** will run 
 
 ## Writing our own functions
 
-Functions, as you may remember, are objects that store commands. They ease using instructions repeatedly with different inputs. The three basic parts of a function are name, code to implement, and arguments. To assemble these parts, we can use the `function()` function (yes, really) followed by a pair of curly brackets `{}`:
+Functions, as you may remember, are objects that store commands, which is helpful when we want to the same thing to different inputs. The three basic parts of a function are name, code to implement, and arguments. To assemble these parts, we can use the `function()` function (yes, really) followed by a pair of curly brackets `{}`:
 
 ```{r}
 my_function <- function() {}

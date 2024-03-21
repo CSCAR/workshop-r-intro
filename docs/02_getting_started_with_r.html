@@ -98,6 +98,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -238,7 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reordering-elements-of-vectors" id="toc-reordering-elements-of-vectors" class="nav-link" data-scroll-target="#reordering-elements-of-vectors"><span class="header-section-number">2.5.4</span> Reordering elements of vectors</a></li>
   </ul></li>
   <li><a href="#working-with-scripts" id="toc-working-with-scripts" class="nav-link" data-scroll-target="#working-with-scripts"><span class="header-section-number">2.6</span> Working with scripts</a></li>
-  <li><a href="#writing-your-own-functions" id="toc-writing-your-own-functions" class="nav-link" data-scroll-target="#writing-your-own-functions"><span class="header-section-number">2.7</span> Writing your own functions</a></li>
+  <li><a href="#writing-our-own-functions" id="toc-writing-our-own-functions" class="nav-link" data-scroll-target="#writing-our-own-functions"><span class="header-section-number">2.7</span> Writing our own functions</a></li>
   <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">2.8</span> Exercise</a></li>
   </ul>
 </nav>
@@ -342,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 18</code></pre>
 </div>
 </div>
-<p>If we try to do shoddy math, we will get a message (but not necessarily an error):</p>
+<p>If we try to do shoddy math, <strong><span class="sans-serif">R</span></strong> will inform us (but not necessarily with an error message):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -418,8 +420,20 @@ The `all.equal` function will test if two values are "close enough":
 `> ?all.equal`
 -->
 <p>This is not <strong><span class="sans-serif">R</span></strong>’s fault. All computers have a limited space to store numbers and decimal positions. So, computers often use numbers with “hidden” decimals even when it looks like they use round numbers. For example, what we think of as <code>3</code> may actually be <code>3.000005</code>. This is common enough to make the <strong><span class="sans-serif">R</span></strong> <a href="https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f">FAQ (7.31)</a>. To quote from “The Elements of Programming Style”, by Kernighan and Plauger: “10.0 times 0.1 is hardly ever 1.0.”</p>
-<p>Let’s do a quick exercise to practice. Think of an integer, double it, add six, divide it in half, subtract the number you started with, and then square it. If your code is correct, the answer should be nine. Try it yourself!</p>
-<p>Being able to do all these computations is good and all, but what happens if we want to use a result later without redoing the computation? <strong><span class="sans-serif">R</span></strong> can save numbers (and more) using something called “objects”.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think of an integer, double it, add six, divide it in half, subtract the number you started with, and then square it. If your code is correct, the answer should be nine.</p>
+</div>
+</div>
+<p>Being able to do these computations is good and all, but what happens if we want to use a result later without redoing the computation? <strong><span class="sans-serif">R</span></strong> can save numbers (and more) using something called “objects”.</p>
 </section>
 <section id="objects" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="objects"><span class="header-section-number">2.3</span> Objects</h2>
@@ -431,7 +445,7 @@ The `all.equal` function will test if two values are "close enough":
 <div class="cell">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="ot">=</span> <span class="dv">42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this context, both <code>&lt;-</code> and <code>=</code> are acting as “assignment operators” because they assign the value <code>42</code> to the name <code>my_object</code>. In <strong><span class="sans-serif">R</span></strong>, <code>=</code> has several uses, so if you want to avoid any possible confusion, I suggest you use <code>&lt;-</code>. But as long as you are consistent, you can pick whichever symbol you like the most.</p>
+<p>In this context, both <code>&lt;-</code> and <code>=</code> are acting as “assignment operators” because they assign the value <code>42</code> to the name <code>my_object</code>. In <strong><span class="sans-serif">R</span></strong>, <code>=</code> has several uses, so if you want to avoid confusion, I suggest you use <code>&lt;-</code>. But as long as you are consistent, you can pick whichever symbol you like the most.</p>
 <p>Now the environment window shows that there is an object called <code>my_object</code>, which we can access at anytime by typing its name.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>my_object</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -593,7 +607,7 @@ NULL</code></pre>
 <pre><code>[1] "monday" "lemon" </code></pre>
 </div>
 </div>
-<p>Note that we must enclose words in quotation marks to let <strong><span class="sans-serif">R</span></strong> know that we want to use “monday” and “lemon” as values instead of the names of objects. Look at what happens if we forget the quotation marks.</p>
+<p>Note that we must enclose words in quotation marks to let <strong><span class="sans-serif">R</span></strong> know that we want to use “monday” and “lemon” as values instead of the names of objects. Look at what happens if we forget the quotation marks:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>vector_of_words <span class="ot">&lt;-</span> <span class="fu">c</span>(monday, lemon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -725,7 +739,19 @@ shorter object length</code></pre>
 <pre><code>[1] 7 1 1 8</code></pre>
 </div>
 </div>
-<p>Note that in <strong><span class="sans-serif">R</span></strong>, the positional index starts at 1, so to call the first element of a vector we need to use <code>[1]</code>. In almost all other programming languages (like Python and C++), the positional index starts at 0.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In <strong><span class="sans-serif">R</span></strong>, the positional index starts at 1, so to call the first element of a vector we need to use <code>[1]</code>. In most other programming languages (like Python and C++), the positional index starts at 0.</p>
+</div>
+</div>
 <p>Another convenient way to extract elements from a vector is to use a logical expression as an index. For example, to extract all elements greater than 4 from <code>my_vec</code>, we do</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>my_vec[my_vec <span class="sc">&gt;</span> <span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -829,7 +855,7 @@ not a multiple of replacement length</code></pre>
 <div class="sourceCode cell-code" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>countries <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Japan"</span>, <span class="st">"Egypt"</span>, <span class="st">"Mexico"</span>, <span class="st">"Finland"</span>)</span>
 <span id="cb160-2"><a href="#cb160-2" aria-hidden="true" tabindex="-1"></a>temperatures_fahrenheit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">90</span>, <span class="dv">65</span>, <span class="sc">-</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>I want to order the vector of countries, going from coldest to hottest. The first step to reorder the countries is to use <code>order()</code> to create a new variable called “temperatures_ordered”.</p>
+<p>Imagine we want to order the vector of countries, going from coldest to hottest. The first step to reorder the countries is to use <code>order()</code> to create a new variable called “temperatures_ordered”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a>temperatures_ordered <span class="ot">&lt;-</span> <span class="fu">order</span>(temperatures_fahrenheit)</span>
 <span id="cb161-2"><a href="#cb161-2" aria-hidden="true" tabindex="-1"></a>temperatures_ordered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -847,12 +873,12 @@ not a multiple of replacement length</code></pre>
 </div>
 </div>
 <p>Ta-da!</p>
-<p>This vector manipulations can do more than dazzle your friends. Imagine you have a dataset with two columns of data and you want to sort each column. If you just use <code>sort()</code> on each column separately, the values of each column will become uncoupled from each other. By using the <code>order()</code> on one column, a vector of positional indices is created of the values of the column in ascending order. This vector can be used on the second column, as the index of elements which will return a vector of values based on the first column.</p>
+<p>These vector manipulations can do more than dazzle your friends. Imagine you have a dataset with two columns of data and you want to sort each column. If you just use <code>sort()</code> on each column separately, the values of each column will become uncoupled from each other. By using <code>order()</code> on one column, a vector of positional indices is created of the values of the column in ascending order. Then we can use this vector as the index of elements on the second column, which will return a vector of values based on the first column.</p>
 </section>
 </section>
 <section id="working-with-scripts" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="working-with-scripts"><span class="header-section-number">2.6</span> Working with scripts</h2>
-<p>Until now, the console satisfied all our coding needs. But if we wanted to reuse a command from before, we would have to rewrite it from scratch; or we could look through our command history (in the “Environment-History-Connections” window)—a tedious task. Besides, once we close this session in RStudio, all of our work will be gone, like tears in the rain. It would be much better if we wrote our code in a place where we can easily review and modify it.</p>
+<p>Until now, the console satisfied all our coding needs. But if we wanted to reuse a command from before, we would have to either rewrite it from scratch, or look through our command history (in the “Environment-History-Connections” window)—a tedious task. Besides, once we close this session in RStudio, all of our work will be gone, like tears in the rain. It would be much better if we wrote our code in a place where we can easily review and modify it.</p>
 <p>An <strong><span class="sans-serif">R</span></strong> script is a plain text file that we can use to save our code. I think the best way to code in <strong><span class="sans-serif">R</span></strong> is to use a script, and I strongly suggest you always use one. A script helps us edit, proofread and reuse our code. It also allows us to save our code so we can come back to it later, or share it with others. Also, it is cumbersome to write multi-line code in the console, but it is easy if we use a script.</p>
 <p>To open a script, click on <code>File &gt; New File &gt; R script</code> in the menu bar on the upper left-hand side of the screen.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -861,7 +887,7 @@ not a multiple of replacement length</code></pre>
 <figcaption class="figure-caption">A screen with a new script</figcaption>
 </figure>
 </div>
-<p>We can run a line of code using the <code>Run</code> button. R will run whichever line of code your cursor is on. We can also run all of the code in the script by clicking the <code>Source</code> button that’s next to <code>Run</code>. I find that clicking buttons is slow, so I use a keyboard shortcut for running a line of code: <code>Control + Return</code> in Windows and Linux; <code>Command + Return</code> in Mac.</p>
+<p>We can run a line of code using the <code>Run</code> button. <strong><span class="sans-serif">R</span></strong> will run whichever line of code your cursor is on. We can also run all of the code in the script by clicking the <code>Source</code> button that’s next to <code>Run</code>. I find that clicking buttons is slow, so I use a keyboard shortcut for running a line of code: <code>Control + Return</code> in Windows and Linux; <code>Command + Return</code> in Mac.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./images/run_code_buttons_edited.jpg"><img src="./images/run_code_buttons_edited.jpg" class="img-fluid figure-img"></a></p>
@@ -869,13 +895,109 @@ not a multiple of replacement length</code></pre>
 </figure>
 </div>
 </section>
-<section id="writing-your-own-functions" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="writing-your-own-functions"><span class="header-section-number">2.7</span> Writing your own functions</h2>
-<p>Functions, as you may remember, are objects that store commands. They are helpful when we want to use instructions repeatedly with different inputs.</p>
+<section id="writing-our-own-functions" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="writing-our-own-functions"><span class="header-section-number">2.7</span> Writing our own functions</h2>
+<p>Functions, as you may remember, are objects that store commands. They ease using instructions repeatedly with different inputs. The three basic parts of a function are name, code to implement, and arguments. To assemble these parts, we can use the <code>function()</code> function (yes, really) followed by a pair of curly brackets <code>{}</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a>my_function <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>function()</code> will run the code that we write inside the curly brackets. This code is called the body of the function.</p>
+<p>Let’s try something simple, like adding 1 + 1:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a>simple_function <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb166-2"><a href="#cb166-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb166-3"><a href="#cb166-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Indents make code more readable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that I indented the body of the function. This indentation doesn’t affect your function, but it makes it easier to read our code because it highlights the structure of nested code.</p>
+</div>
+</div>
+<p>To run our function, we have to write its name followed by round brackets, just like with any other function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">simple_function</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<p>Remember to write the round brackets even if they are empty. The round brackets make R <em>run</em> the code inside the function. If we don’t write these brackets, R will <em>show us</em> the code inside the function (try it!).</p>
+<p>Now let’s write a function that will convert Fahrenheit degrees to Celsius. Since we want to use this function with different temperatures, we need to include an argument that will tell <strong><span class="sans-serif">R</span></strong> which temperature to convert each time.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a>fahrenheit_to_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(temperature) {</span>
+<span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a>    (temperature <span class="sc">-</span> <span class="dv">32</span>) <span class="sc">/</span> <span class="fl">1.8</span></span>
+<span id="cb169-3"><a href="#cb169-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb169-4"><a href="#cb169-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fahrenheit_to_celsius</span>(<span class="dv">27</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -2.777778</code></pre>
+</div>
+</div>
+<p>Now let’s try something a bit more complicated: solving a quadratic equation. If we have an equation of the form <span class="math inline">\(ax^2 + bx + c = 0\)</span>, then the solutions are given by <span class="math inline">\(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</span>. We can write a function that will apply this formula for us.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a>solve_quadratic <span class="ot">=</span> <span class="cf">function</span>(a, b, c) {</span>
+<span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Quadratic equations can have two solutions</span></span>
+<span id="cb171-3"><a href="#cb171-3" aria-hidden="true" tabindex="-1"></a>    solution_1 <span class="ot">=</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">**</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> <span class="dv">2</span><span class="sc">*</span>a <span class="co"># First solution to equation</span></span>
+<span id="cb171-4"><a href="#cb171-4" aria-hidden="true" tabindex="-1"></a>    solution_2 <span class="ot">=</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">**</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> <span class="dv">2</span><span class="sc">*</span>a <span class="co"># Second solution to equation</span></span>
+<span id="cb171-5"><a href="#cb171-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Did you see the comments I added? <strong><span class="sans-serif">R</span></strong> will ignore everything that comes after a hashtag <code>#</code>. This <code>#</code> is known in <strong><span class="sans-serif">R</span></strong> as <em>commenting symbol</em> because it allows us to comment our code. This way we can explain confusing chunks of code, or warn about potential problems.</p>
+<p>Now all we need is to identify values of <span class="math inline">\(a, b,\)</span> and <span class="math inline">\(c\)</span> to pass as arguments.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">solve_quadratic</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">c =</span> <span class="sc">-</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Why didn’t our function show a result? When we run a function, <strong><span class="sans-serif">R</span></strong> runs the code in the body and returns the result of the last line of code. If this line doesn’t return a value, neither will our function. So, we have to write something to ensure that <code>solve_quadratic()</code> displays the solutions. Since we are using a script (right?) it is easy to go back to our function and just add one more line:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a>solve_quadratic <span class="ot">=</span> <span class="cf">function</span>(a, b, c) {</span>
+<span id="cb173-2"><a href="#cb173-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Quadratic equations can have two solutions</span></span>
+<span id="cb173-3"><a href="#cb173-3" aria-hidden="true" tabindex="-1"></a>    solution_1 <span class="ot">=</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">**</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> <span class="dv">2</span><span class="sc">*</span>a <span class="co"># First solution to equation</span></span>
+<span id="cb173-4"><a href="#cb173-4" aria-hidden="true" tabindex="-1"></a>    solution_2 <span class="ot">=</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">**</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> <span class="dv">2</span><span class="sc">*</span>a <span class="co"># Second solution to equation</span></span>
+<span id="cb173-5"><a href="#cb173-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(solution_1, solution_2) <span class="co"># Show vector of solutions</span></span>
+<span id="cb173-6"><a href="#cb173-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb173-7"><a href="#cb173-7" aria-hidden="true" tabindex="-1"></a><span class="fu">solve_quadratic</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">c =</span> <span class="sc">-</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2.302776 -1.302776</code></pre>
+</div>
+</div>
+<p>Now imagine that we want to multiply the solutions to our equation by an arbitrary value (maybe because we want to convert the units of <span class="math inline">\(x\)</span> to something else). And let’s pretend that, by default, we want to double the solutions. We can write another function that first calls <code>solve_quadratic()</code> and then multiplies the result by our arbitrary number.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a>multiply_solutions <span class="ot">=</span> <span class="cf">function</span>(a, b, c, <span class="at">multiplier =</span> <span class="dv">2</span>) {</span>
+<span id="cb175-2"><a href="#cb175-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">solve_quadratic</span>(a, b, c) <span class="sc">*</span> multiplier</span>
+<span id="cb175-3"><a href="#cb175-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb175-4"><a href="#cb175-4" aria-hidden="true" tabindex="-1"></a><span class="fu">multiply_solutions</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">c =</span> <span class="sc">-</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  4.605551 -2.605551</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">multiply_solutions</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">c =</span> <span class="sc">-</span><span class="dv">3</span>, <span class="at">multiplier =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  23.02776 -13.02776</code></pre>
+</div>
+</div>
+<p>You can give your functions as many arguments as you like. Just list their names, separated by commas, in the parentheses that follow function. When the function runs, <strong><span class="sans-serif">R</span></strong> will replace each argument name in the function body with the value that the user supplies for the argument. If the user does not supply a value, R will replace the argument name with the argument’s default value (if you defined one).</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Objects created in functions disappear
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All of the objects that we create inside the function will disappear after it finishes running. We can only save the output of the function by assigning it to an object.</p>
+</div>
+</div>
 </section>
 <section id="exercise" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="exercise"><span class="header-section-number">2.8</span> Exercise</h2>
-<p>Let’s try to write a function using all of the basic features of <strong><span class="sans-serif">R</span></strong> that you just learned.</p>
+<p>Let’s try to practice all of the basic features of <strong><span class="sans-serif">R</span></strong> that you just learned.</p>
+<p>Write a function that can convert temperatures and that lets us choose whether we want to do Fahrenheit to Celsius, or Celsius to Fahrenheit.</p>
 
 
 </section>

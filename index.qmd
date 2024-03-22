@@ -57,5 +57,4 @@ and Chris Andrews.
 
 This material was created for use in workshops and short courses presented by
 faculty and staff from the Consulting for Statistics, Computing & Analytics
-Research (CSCAR) unit at the University of Michigan. No part of this material 
-may be used for other purposes, copied, changed, or sold.
+Research (CSCAR) unit at the University of Michigan.

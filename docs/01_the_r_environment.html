@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_the_r_environment.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The **[R]{.sans-serif}** *Environment*</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_the_r_environment.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The R *Environment*</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -113,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_the_r_environment.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The R <em>Environment</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -174,13 +174,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-becoming-a-user" id="toc-why-becoming-a-user" class="nav-link active" data-scroll-target="#why-becoming-a-user"><span class="header-section-number">1.1</span> Why becoming a use<strong><span class="sans-serif">R</span></strong>?</a>
+  <li><a href="#why-becoming-a-user" id="toc-why-becoming-a-user" class="nav-link active" data-scroll-target="#why-becoming-a-user"><span class="header-section-number">1.1</span> Why becoming a useR?</a>
   <ul class="collapse">
-  <li><a href="#easy-and-cool-graphics" id="toc-easy-and-cool-graphics" class="nav-link" data-scroll-target="#easy-and-cool-graphics"><span class="header-section-number">1.1.1</span> Easy and cool graphics</a></li>
-  <li><a href="#abundant-statistical-tools" id="toc-abundant-statistical-tools" class="nav-link" data-scroll-target="#abundant-statistical-tools"><span class="header-section-number">1.1.2</span> Abundant statistical tools</a></li>
-  <li><a href="#constant-expansion" id="toc-constant-expansion" class="nav-link" data-scroll-target="#constant-expansion"><span class="header-section-number">1.1.3</span> Constant expansion</a></li>
-  <li><a href="#flexible-interfaces" id="toc-flexible-interfaces" class="nav-link" data-scroll-target="#flexible-interfaces"><span class="header-section-number">1.1.4</span> Flexible interfaces</a></li>
-  <li><a href="#price-0" id="toc-price-0" class="nav-link" data-scroll-target="#price-0"><span class="header-section-number">1.1.5</span> Price ($0)</a></li>
+  <li><a href="#price-0-and-availability" id="toc-price-0-and-availability" class="nav-link" data-scroll-target="#price-0-and-availability"><span class="header-section-number">1.1.1</span> Price ($0) and availability</a></li>
+  <li><a href="#easy-and-cool-graphics" id="toc-easy-and-cool-graphics" class="nav-link" data-scroll-target="#easy-and-cool-graphics"><span class="header-section-number">1.1.2</span> Easy and cool graphics</a></li>
+  <li><a href="#abundant-statistical-tools" id="toc-abundant-statistical-tools" class="nav-link" data-scroll-target="#abundant-statistical-tools"><span class="header-section-number">1.1.3</span> Abundant statistical tools</a></li>
+  <li><a href="#constant-expansion" id="toc-constant-expansion" class="nav-link" data-scroll-target="#constant-expansion"><span class="header-section-number">1.1.4</span> Constant expansion</a></li>
+  <li><a href="#flexible-interfaces" id="toc-flexible-interfaces" class="nav-link" data-scroll-target="#flexible-interfaces"><span class="header-section-number">1.1.5</span> Flexible interfaces</a></li>
   </ul></li>
   <li><a href="#why-isnt-everyone-a-user" id="toc-why-isnt-everyone-a-user" class="nav-link" data-scroll-target="#why-isnt-everyone-a-user"><span class="header-section-number">1.2</span> Why Isn’t Everyone a Use<strong><span class="sans-serif">R</span></strong>?</a>
   <ul class="collapse">
@@ -201,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The R <em>Environment</em></span></h1>
 </div>
 
 
@@ -216,15 +216,19 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><strong><span class="sans-serif">R</span></strong> is an environment for statistical modeling and graphics. The word <em>environment</em> instead of <em>package</em> is one of the main reasons <strong><span class="sans-serif">R</span></strong> is distinct from other statistical programs. A <em>package</em> only gives us a fixed set of tools. An <em>environment</em> allows us to modify, combine and even create tools to suit our specific needs.</p>
+<p><strong><span class="sans-serif">R</span></strong> is an environment for statistical modeling and graphics. That it is an <em>environment</em> instead of a <em>package</em> is one of the main reasons <strong><span class="sans-serif">R</span></strong> is distinct from other statistical programs. A package only gives us a fixed set of tools. An environment allows us to modify, combine and even create tools to suit our specific needs.</p>
 <section id="why-becoming-a-user" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="why-becoming-a-user"><span class="header-section-number">1.1</span> Why becoming a use<strong><span class="sans-serif">R</span></strong>?</h2>
-<section id="easy-and-cool-graphics" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="easy-and-cool-graphics"><span class="header-section-number">1.1.1</span> Easy and cool graphics</h3>
+<h2 data-number="1.1" class="anchored" data-anchor-id="why-becoming-a-user"><span class="header-section-number">1.1</span> Why becoming a useR?</h2>
+<section id="price-0-and-availability" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="price-0-and-availability"><span class="header-section-number">1.1.1</span> Price ($0) and availability</h3>
+<p><strong><span class="sans-serif">R</span></strong> is free—as in “no money required”—and it runs on Windows, MacOS, and several Unix platforms.</p>
+</section>
+<section id="easy-and-cool-graphics" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="easy-and-cool-graphics"><span class="header-section-number">1.1.2</span> Easy and cool graphics</h3>
 <p>With <strong><span class="sans-serif">R</span></strong>, you can make basic scatter plots or histograms with one or two lines of code (assuming your data has a nice format). And you can use the “grammar of graphics” to make incremental changes: add custom colors, change the size of the plot or its contents, or arrange several graphics in grids.</p>
 </section>
-<section id="abundant-statistical-tools" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="abundant-statistical-tools"><span class="header-section-number">1.1.2</span> Abundant statistical tools</h3>
+<section id="abundant-statistical-tools" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="abundant-statistical-tools"><span class="header-section-number">1.1.3</span> Abundant statistical tools</h3>
 <p><strong><span class="sans-serif">R</span></strong> offers many powerful tools to fit statistical models (both bayesian and frequentist), including:</p>
 <ul>
 <li>Linear and Generalized Linear Models</li>
@@ -239,17 +243,16 @@ ul.task-list li input[type="checkbox"] {
 In this workshop will see and use sample code for many of these analyses.
 -->
 </section>
-<section id="constant-expansion" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="constant-expansion"><span class="header-section-number">1.1.3</span> Constant expansion</h3>
-<p>New tools become available in R all the time. <strong><span class="sans-serif">R</span></strong> is a full-fledged programming language that allows users to write their own functions. Also, all of <strong><span class="sans-serif">R</span></strong>’s code is open source, which means that everyone can examine it and contribute to it. So, users constantly publish their own “packages” (ready-to-use tools), which expand <strong><span class="sans-serif">R</span></strong>’s base capabilities.</p>
-<p>As of March 2019, users have contributed over 13,700 packages to Comprehensive <strong><span class="sans-serif">R</span></strong> Archive Network (CRAN). Many of these packages are for complex statistical routines that are not (and may never be) available in other statistical software systems.</p>
+<section id="constant-expansion" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="constant-expansion"><span class="header-section-number">1.1.4</span> Constant expansion</h3>
+<p>New tools become available in R all the time. <strong><span class="sans-serif">R</span></strong> is a full-fledged programming language that allows users to write their own functions. Also, all of <strong><span class="sans-serif">R</span></strong>’s code is open source, which means that everyone can examine it and contribute to it. So, users constantly publish their own “packages” (ready-to-use tools), which expand <strong><span class="sans-serif">R</span></strong>’s base capabilities. As of March 2019, users have contributed over 13,700 packages to Comprehensive <strong><span class="sans-serif">R</span></strong> Archive Network (CRAN). Many of these packages perform complex statistical routines that are not (and may never be) available in other statistical software systems.</p>
 </section>
-<section id="flexible-interfaces" class="level3" data-number="1.1.4">
-<h3 data-number="1.1.4" class="anchored" data-anchor-id="flexible-interfaces"><span class="header-section-number">1.1.4</span> Flexible interfaces</h3>
-<p><strong><span class="sans-serif">R</span></strong> runs on Windows, MacOS, and a variety of Unix platforms. In Windows, there are several ways to use <strong><span class="sans-serif">R</span></strong>. The standard <strong><span class="sans-serif">R</span></strong> graphical unit interface (GUI) allows you to point and click to do many basic tasks. Another GUI is <a href="https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/"><strong><span class="sans-serif">R</span></strong> Commander</a>, developed by John Fox at McMaster University. <strong><span class="sans-serif">R</span></strong> Commander displays the underlying <strong><span class="sans-serif">R</span></strong> code for each analysis to help the user learn the programming language. <a href="http://sourceforge.net/projects/tinn-r/">Tinn-<strong><span class="sans-serif">R</span></strong></a> is another GUI from Jose Claudio Faria.</p>
+<section id="flexible-interfaces" class="level3" data-number="1.1.5">
+<h3 data-number="1.1.5" class="anchored" data-anchor-id="flexible-interfaces"><span class="header-section-number">1.1.5</span> Flexible interfaces</h3>
+<p>In Windows, there are several ways to use <strong><span class="sans-serif">R</span></strong>. The standard <strong><span class="sans-serif">R</span></strong> graphical unit interface (GUI) allows you to point and click to do many basic tasks. Another GUI is <a href="https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/"><strong><span class="sans-serif">R</span></strong> Commander</a>, developed by John Fox at McMaster University. <strong><span class="sans-serif">R</span></strong> Commander displays the underlying <strong><span class="sans-serif">R</span></strong> code for each analysis to help the user learn the programming language. <a href="http://sourceforge.net/projects/tinn-r/">Tinn-<strong><span class="sans-serif">R</span></strong></a> is another GUI from Jose Claudio Faria.</p>
 <p>These GUIs are friendly and easy to grasp if you’re a beginner. But to use all of <strong><span class="sans-serif">R</span></strong>’s capabilities you will need to do more than point and click.</p>
 <p>A more complete way of using <strong><span class="sans-serif">R</span></strong> is through an integrated development environment (IDE), which, in short, helps you code. The most popular IDE for <strong><span class="sans-serif">R</span></strong> is <a href="https://www.posit.com"><strong><span class="sans-serif">R</span></strong>Studio</a>, which organizes the user’s screen into panes that display scripts, objects, graphics, and the <strong><span class="sans-serif">R</span></strong> console.</p>
-<p>In these notes, we will use the standard <strong><span class="sans-serif">R</span></strong> GUI a little and <strong><span class="sans-serif">R</span></strong>Studio a lot. The goal is for you to start using <strong><span class="sans-serif">R</span></strong> to its full potential.</p>
+<p>In these notes, we will use <strong><span class="sans-serif">R</span></strong>Studio a lot. The goal is for you to start taking full advantage of <strong><span class="sans-serif">R</span></strong>’s capabilities.</p>
 <!--
 
 ### Easier to make reproducible research
@@ -258,10 +261,6 @@ In this workshop will see and use sample code for many of these analyses.
 original analysis and to investigate other approaches.
 
 -->
-</section>
-<section id="price-0" class="level3" data-number="1.1.5">
-<h3 data-number="1.1.5" class="anchored" data-anchor-id="price-0"><span class="header-section-number">1.1.5</span> Price ($0)</h3>
-<p><strong><span class="sans-serif">R</span></strong> is free, as in “you don’t have to give money to get it”.</p>
 </section>
 </section>
 <section id="why-isnt-everyone-a-user" class="level2" data-number="1.2">
@@ -282,7 +281,7 @@ original analysis and to investigate other approaches.
 <li>Learn interactively! Reading can help only so much. Most people learn <strong><span class="sans-serif">R</span></strong> best by typing commands themselves.</li>
 <li>Ask other <strong><span class="sans-serif">R</span></strong> users for help.</li>
 <li>Look at (and retype) lots of sample code. Experiment with modifications of the code. You won’t break <strong><span class="sans-serif">R</span></strong>. You’ll see many examples in this workshop but there is much more online.</li>
-<li>Don’t worry about getting errors. Experienced <strong><span class="sans-serif">R</span></strong> users make errors all the time. Base <strong><span class="sans-serif">R</span></strong> has excellent error messages that are good learning opportunities themselves.</li>
+<li>Don’t worry about getting errors. Experienced <strong><span class="sans-serif">R</span></strong> users make errors all the time. Besides, you can learn a lot from error messages.</li>
 <li>Some useful links are:
 <ul>
 <li><a href="https://www.r-project.org" class="uri">https://www.r-project.org</a>: The <strong><span class="sans-serif">R</span></strong> Home page, the central webpage for the <strong><span class="sans-serif">R</span></strong> project. Here you will find links for downloading <strong><span class="sans-serif">R</span></strong>, downloading additional packages for <strong><span class="sans-serif">R</span></strong>, and almost everything else that you would like to know about the software or the people behind it.</li>

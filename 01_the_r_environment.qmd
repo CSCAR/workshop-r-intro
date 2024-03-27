@@ -1,12 +1,16 @@
-# The **[R]{.sans-serif}** *Environment*
+# The R *Environment*
 
 **[R]{.sans-serif}** is an environment for statistical
-modeling and graphics. The word *environment* instead of *package* is one of
-the main reasons **[R]{.sans-serif}** is distinct from other statistical
-programs. A *package* only gives us a fixed set of tools. An *environment*
+modeling and graphics. That it is an *environment* instead of a *package* is one of the main reasons **[R]{.sans-serif}** is distinct from other statistical
+programs. A package only gives us a fixed set of tools. An environment
 allows us to modify, combine and even create tools to suit our specific needs.
 
-## Why becoming a use**[R]{.sans-serif}**?
+## Why becoming a useR?
+
+### Price (\$0) and availability
+
+**[R]{.sans-serif}** is free---as in "no money required"---and it runs on
+Windows, MacOS, and several Unix platforms.
 
 ### Easy and cool graphics
 
@@ -39,20 +43,21 @@ full-fledged programming language that allows users to write their own
 functions. Also, all of **[R]{.sans-serif}**'s code is open source, which means
 that everyone can examine it and contribute to it. So, users constantly publish
 their own "packages" (ready-to-use tools), which expand **[R]{.sans-serif}**'s
-base capabilities.
-
-As of March 2019, users have contributed over 13,700 packages to Comprehensive **[R]{.sans-serif}** Archive Network (CRAN). Many of these packages
-are for complex statistical routines that are not (and may never be) available
-in other statistical software systems.
+base capabilities. As of March 2019, users have contributed over 13,700 packages
+to Comprehensive **[R]{.sans-serif}** Archive Network (CRAN). Many of these
+packages perform complex statistical routines that are not (and may never be)
+available in other statistical software systems.
 
 ### Flexible interfaces
 
-**[R]{.sans-serif}** runs on Windows, MacOS, and a variety of Unix platforms. In
-Windows, there are several ways to use **[R]{.sans-serif}**. The standard **[R]{.sans-serif}** graphical unit interface (GUI) allows you to point and click to do many basic tasks. Another GUI is [**[R]{.sans-serif}** Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by John Fox
-at McMaster University. **[R]{.sans-serif}** Commander displays the underlying
-**[R]{.sans-serif}** code for each analysis to help the user learn the
-programming language. [Tinn-**[R]{.sans-serif}**](http://sourceforge.net/projects/tinn-r/) is another GUI from Jose
-Claudio Faria.
+In Windows, there are several ways to use **[R]{.sans-serif}**. The standard 
+**[R]{.sans-serif}** graphical unit interface (GUI) allows you to point and 
+click to do many basic tasks. Another GUI is [**[R]{.sans-serif}** 
+Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by 
+John Fox at McMaster University. **[R]{.sans-serif}** Commander displays the 
+underlying **[R]{.sans-serif}** code for each analysis to help the user learn
+the programming language. [Tinn-**[R]{.sans-serif}**](http://sourceforge.net/projects/tinn-r/) is another 
+GUI from Jose Claudio Faria.
 
 These GUIs are friendly and easy to grasp if you're a beginner. But to use all of **[R]{.sans-serif}**'s capabilities you will need to do more than point and click.
 
@@ -60,8 +65,7 @@ A more complete way of using **[R]{.sans-serif}** is through an integrated devel
 user's screen into panes that display scripts, objects, graphics, and
 the **[R]{.sans-serif}** console.
 
-In these notes, we will use the standard **[R]{.sans-serif}** GUI a little and
-**[R]{.sans-serif}**Studio a lot. The goal is for you to start using **[R]{.sans-serif}** to its full potential.
+In these notes, we will use **[R]{.sans-serif}**Studio a lot. The goal is for you to start taking full advantage of **[R]{.sans-serif}**'s capabilities.
 
 <!--
 
@@ -72,11 +76,6 @@ original analysis and to investigate other approaches.
 
 -->
 
-
-### Price (\$0)
-
-**[R]{.sans-serif}** is free, as in "you don't have to give money to get 
-it".
 
 ## Why Isn't Everyone a Use**[R]{.sans-serif}**?
 
@@ -107,8 +106,8 @@ But don't get frustrated! You don't have to be an expert programmer to use
   the code. You won't break **[R]{.sans-serif}**. You'll see many examples in
   this workshop but there is much more online.
 - Don't worry about getting errors. Experienced **[R]{.sans-serif}** users
-  make errors all the time. Base **[R]{.sans-serif}** has excellent error
-  messages that are good learning opportunities themselves.
+  make errors all the time. Besides, you can learn a lot from error
+  messages.
 - Some useful links are:
     -   <https://www.r-project.org>: The **[R]{.sans-serif}** Home page, the
         central webpage for the **[R]{.sans-serif}** project. Here you will find

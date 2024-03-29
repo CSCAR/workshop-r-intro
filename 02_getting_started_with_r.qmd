@@ -93,13 +93,18 @@ If we try to do shoddy math, **[R]{.sans-serif}** will inform us (but not necess
 ```
 
 
-**[R]{.sans-serif}** has "and" (`&`) and "or" (`|`) operators (there are others) to combine multiple logical statements:
+**[R]{.sans-serif}** has "and" (`&`) and "or" (`|`) operators to combine multiple logical statements:
 
 ```{r}
 (5 < 6) & (7 == 8)
 (5 < 6) | (7 == 8)
 ```
 
+::: {.callout-tip}
+## Practice
+
+Think of an integer, double it, add six, divide it in half, subtract the number you started with, and then square it. If your code is correct, the answer should be nine.
+:::
 
 **Be careful of comparisons and floating point arithmetic**:
 
@@ -124,11 +129,7 @@ what we think of as `3` may actually be `3.000005`. This is common enough to
 make the **[R]{.sans-serif}** [FAQ (7.31)](https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f). To quote from "The Elements of Programming Style", 
 by Kernighan and Plauger: "10.0 times 0.1 is hardly ever 1.0."
 
-::: {.callout-tip}
-## Practice
-
-Think of an integer, double it, add six, divide it in half, subtract the number you started with, and then square it. If your code is correct, the answer should be nine.
-:::
+Later on we will learn how to check if two numbers are "close enough" to each other.
 
 Being able to do these computations is good and all, but what happens if we want to use a result later without redoing the computation? **[R]{.sans-serif}** can save numbers (and more) using something called "objects".
 
@@ -146,15 +147,18 @@ Another way of creating the object is to use the "equal to" sign `=` instead of 
 my_object = 42
 ```
 
-In this context, both `<-` and `=` are acting as "assignment operators" because they assign the value `42` to the name `my_object`. In **[R]{.sans-serif}**, `=` has several uses, so if you want to avoid confusion, I suggest you use `<-`. But as long as you are consistent, you can pick whichever symbol you like the most.
+In this context, both `<-` and `=` are acting as "assignment operators" because they assign the value `42` to the name `my_object`. In **[R]{.sans-serif}**, `=` has several uses, so if you want to avoid confusion, I suggest you use `<-`. But you can pick whichever symbol you like the most as long as you are consistent.
 
 Now the environment window shows that there is an object called `my_object`, which we can access at anytime by typing its name.
+
+[![The environment pane with an object](./images/environment_with_object.jpg)](./images/environment_with_object.jpg)
+
 
 ```{r call my_object}
 my_object
 ```
 
-And because `my_object` has a number as its value, we can do mathematical operations with it.
+`my_object` has a number as its value, so we can do mathematical operations with it.
 
 ```{r}
 my_object + 7

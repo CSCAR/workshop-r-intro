@@ -684,4 +684,4 @@ All of the objects that we create inside a function will disappear after it fini
 
 Let's try to practice all of the basic features of **[R]{.sans-serif}** that you just learned.
 
-Write a function that can convert temperatures and that lets us choose whether we want to do Fahrenheit to Celsius, or Celsius to Fahrenheit.
+Write a function that can simulate the roll of a pair of dice (let's call them red and blue) an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die. Hint: to simulate rolling a die, you can use the function `sample()`. 

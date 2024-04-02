@@ -398,31 +398,13 @@ operations will ensure that values from one observation or case are only paired
 with values from the same observation or case. Element-wise operations also make
 it easier to write your own programs and functions in R.
 
-**[R]{.sans-serif}** can also do vector and matrix multiplications, but we have to explicitly ask for them. For example, to get the inner product, we need the operator `%*%`:
-
-```{r inner product}
-my_vec %*% my_vec
-```
-
-And to get the outer product, we need `%o%`:
-
-```{r outer product}
-my_vec %o% my_vec
-```
-
-If you are not familiar with matrix operations, don't worry. You won't need them in these notes.
+**[R]{.sans-serif}** can also do vector and matrix multiplications, but we have to explicitly ask for them. For example, to get the inner product, we need the operator `%*%`. And to get the outer product, we need `%o%`. If you are not familiar with matrix operations, don't worry. You won't need them in these notes.
 
 ### Extracting elements
 
-We can access specific elements of vectors using the square bracket `[ ]` notation. Write the name of the vector you want to extract from, followed by a the square brackets with an index of the element you wish to extract. This index can be a position or the result of a logical test.
+We can access specific elements of vectors using the square bracket `[ ]` notation. Write the name of the vector you want to extract from, followed by the square brackets with an index of the element you wish to extract. This index can be a position or the result of a logical test.
 
-To extract elements based on their position we simply write the position inside the `[ ]`. Let's first recall the values of `my_vec`.
-
-```{r recal my_vec}
-my_vec
-```
-
-To extract the 3rd value of `my_vec`, we use 
+To extract elements based on their position we simply write the position inside the `[ ]`. To extract the 3rd value of `my_vec`, we use
 
 ```{r extract value from my_vec}
 my_vec[3]

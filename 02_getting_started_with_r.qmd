@@ -74,7 +74,6 @@ If we try to do shoddy math, **[R]{.sans-serif}** will inform us (but not necess
 ```{r shoddy math}
 #| error: true
 0/0
-1/0
 -1/0
 ```
 
@@ -85,7 +84,6 @@ If we try to do shoddy math, **[R]{.sans-serif}** will inform us (but not necess
 5 == 6
 5 != 6
 5 < 6
-5 <= 6
 ```
 
 
@@ -143,12 +141,11 @@ In this context, both `<-` and `=` are acting as "assignment operators" because 
 
 Now the environment window shows that there is an object called `my_object`, which we can access at anytime by typing its name.
 
-[![The environment pane with an object](./images/environment_with_object.jpg)](./images/environment_with_object.jpg)
-
-
 ```{r call my_object}
 my_object
 ```
+
+[![The environment pane with an object](./images/environment_with_object.jpg)](./images/environment_with_object.jpg)
 
 `my_object` has a number as its value, so we can do mathematical operations with it.
 

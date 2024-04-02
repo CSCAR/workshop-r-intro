@@ -1,0 +1,17 @@
+# Data in R
+
+**[R]{.sans-serif}** can recognize, store, extract, and use different kinds of data. In the previous section we saw how to do all this with numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how **[R]{.sans-serif}** deals with these data structures, and how to use them to study and summarize data.
+
+## Data structures
+
+The first step is to know the different types of data that **[R]{.sans-serif}** can understand. And the simplest data structure is an atomic vector.
+
+### Atomic vectors
+
+An atomic vector is a simple vector of data. To create an atomic vector, we can group some numbers together using the combine function `c()`. In the last section we worked with the atomic vector of temperatures for countries: 
+
+```{r atomic vector}
+temperatures_fahrenheit <- c(50, 90, 65, -10)
+```
+
+Atomic vectors can have almost^[The maximum length (number of elements) of a vector is 2^31 - 1 ~ 2*10^9. See [here](https://en.wikipedia.org/wiki/Floppy_disk) for more information.] as many elements as you want---including zero! However, 

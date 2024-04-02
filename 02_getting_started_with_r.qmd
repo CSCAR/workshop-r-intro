@@ -65,15 +65,13 @@ the **[R]{.sans-serif}** console window.
 5 - 3
 5*3
 5/3
-5^3
-5**3
-4 + 2 * 3
-(4 + 2) * 3
 ```
+
+**[R]{.sans-serif}** can also do exponentiation with `^` or `**`; modulus, also known as remainder from division, with `%%`; and integer division with `%/%`.
 
 If we try to do shoddy math, **[R]{.sans-serif}** will inform us (but not necessarily with an error message):
 
-```{r}
+```{r shoddy math}
 #| error: true
 0/0
 1/0
@@ -83,19 +81,17 @@ If we try to do shoddy math, **[R]{.sans-serif}** will inform us (but not necess
 **[R]{.sans-serif}** also has logical operators that will return "TRUE" or
 "FALSE".
 
-```{r}
+```{r logical operators}
 5 == 6
 5 != 6
 5 < 6
-5 > 6
 5 <= 6
-(1 + 2) == 3
 ```
 
 
 **[R]{.sans-serif}** has "and" (`&`) and "or" (`|`) operators to combine multiple logical statements:
 
-```{r}
+```{r conjunction and disjunction}
 (5 < 6) & (7 == 8)
 (5 < 6) | (7 == 8)
 ```
@@ -108,10 +104,9 @@ Think of an integer, double it, add six, divide it in half, subtract the number 
 
 **Be careful of comparisons and floating point arithmetic**:
 
-```{r}
+```{r floating point arithmetic}
 (.1 + .2) == .3
-5 == sqrt(5)^2
-5 - sqrt(5)^2
+(.1 + .2) - .3
 ```
 
 <!--
@@ -125,11 +120,8 @@ The `all.equal` function will test if two values are "close enough":
 This is not **[R]{.sans-serif}**'s fault. All computers have a limited space to 
 store numbers and decimal positions. So, computers often use numbers with 
 "hidden" decimals even when it looks like they use round numbers. For example, 
-what we think of as `3` may actually be `3.000005`. This is common enough to 
-make the **[R]{.sans-serif}** [FAQ (7.31)](https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f). To quote from "The Elements of Programming Style", 
+what we think of as `3` may actually be `3.000005`. This is common enough to justify the **[R]{.sans-serif}** [FAQ (7.31)](https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f). To quote from "The Elements of Programming Style", 
 by Kernighan and Plauger: "10.0 times 0.1 is hardly ever 1.0."
-
-Later on we will learn how to check if two numbers are "close enough" to each other.
 
 Being able to do these computations is good and all, but what happens if we want to use a result later without redoing the computation? **[R]{.sans-serif}** can save numbers (and more) using something called "objects".
 
@@ -162,7 +154,6 @@ my_object
 
 ```{r}
 my_object + 7
-my_object/11
 my_object**my_object
 ```
 
@@ -214,6 +205,7 @@ There are also a few suggestions that will save you many hours of frustration:
 **[R]{.sans-serif}** has many built-in functions for anything from basic math to text manipulation to advanced statistical models. Functions are also objects in **[R]{.sans-serif}**. But instead of storing a single number as we did before, functions store commands that we can apply to an input. For example, we can round a number, calculate its square root, its factorial, or its natural logarithm. To use a function, we must write the name of a function followed by the data we want it to use inside a pair of round brackets.
 
 ```{r simple mathematical functions}
+#| results: hide
 round(2.1415)
 sqrt(9)
 factorial(7)
@@ -246,7 +238,7 @@ But if we use the wrong name in a function, we will probably get an error messag
 round(x = 2.1415, basket = 3)
 ```
 
-A quick way to check what arguments we can use is to use another function called `args`, which takes the name of a function as its argument:
+A quick way to check what arguments we can use is to use another function called `args()`, which takes the name of a function as its argument:
 
 ```{r}
 args(round)
@@ -255,6 +247,14 @@ args(round)
 The output shows that `round()` has two arguments: `x` (the number we want to round) and `digits`. It also shows that `digits` is already set to zero. This means that **[R]{.sans-serif}** will use `0` as the default value. Arguments with default values are optional because we can choose to modify them or not.
 
 I encourage you to name all the arguments in the function, or at least the ones after the first argument. It is hard to remember all the arguments that can go into more complicated functions. And it is even harder to remember the correct order. Accidentally switching unnamed arguments can produce wrong results without us knowing. Naming the arguments will prevent errors and clarify the function's behavior.
+
+We can also use functions inside other functions
+
+```{r nested function}
+sqrt(round(16.483, digits = 0))
+```
+
+R first runs the innermost function and then uses the result in the outermost function to get the final result.
 
 The functions we have used are simple and intuitive to use. But sometimes we need to know more before we can use a function in our code. Where can we find explanations to help us?
 
@@ -371,12 +371,8 @@ Later on we will work more with vectors of words, but for now let's focus on num
 **[R]{.sans-serif}** is a "vectorized" language, which means that it can often operate on an entire vector of numbers as easily as on a single number. All the logical and mathematical functions we used before work with vectors:
 
 ```{r simple math with vectors}
-my_vec > 2
-my_vec <= 7
-my_vec + 7
 my_vec / 11
-sqrt(my_vec)
-factorial(my_vec)
+my_vec <= 7
 log(my_vec)
 my_vec*my_vec
 ```
@@ -476,17 +472,7 @@ This works because **[R]{.sans-serif}** uses element-wise operations even for lo
 my_vec[c(TRUE, FALSE, TRUE, FALSE, FALSE, TRUE)]
 ```
 
-Two useful functions to extract values of a vector are `head()`, which extracts the first few values of a vector
-
-```{r}
-head(my_vec, n = 3)
-```
-
-and `tail()`, which gives us the last few values of a vector
-
-```{r}
-tail(my_vec, n = 3)
-```
+Two useful functions to extract values of a vector are `head()`, which extracts the first few values of a vector; and `tail()`, which gives us the last few values of a vector. Try them yourself!
 
 ### Replacing elements
 
@@ -512,11 +498,6 @@ my_vec
 ```
 
 What happens if you try to replace two values with a vector that has three (or more) values?
-
-```{r}
-my_vec[c(5, 6)] <- c(300, 400, 500)
-my_vec
-```
 
 Logical expressions help us replace values that meet specific conditions without having to find them ourselves.
 
@@ -547,7 +528,7 @@ Another option is to first use `sort()` and then reverse the sorted vector using
 my_vec <- rev(sort(my_vec))
 ```
 
-A more useful feature of vectors is that we can reorder their elements based on the values of other vectors. To show this, let's first create a vector of countries and another vector with (my guess of) their typical daily temperatures.
+A more useful feature of vectors is that we can reorder their elements based on the values of other vectors. To show this, let's first create a vector of countries and another vector with (my guess of) their typical daily temperatures in degrees Fahrenheit.
 
 ```{r}
 countries <- c("Japan", "Egypt", "Mexico", "Finland")

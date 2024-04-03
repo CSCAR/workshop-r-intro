@@ -82,6 +82,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-in-r" class="level1">
 <h1>Data in R</h1>
 <p><strong><span class="sans-serif">R</span></strong> can recognize, store, extract, and use different kinds of data. In the previous section we saw how to do all this with numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how <strong><span class="sans-serif">R</span></strong> deals with these data structures, and how to use them to study and summarize data.</p>
+<section id="data-types" class="level2">
+<h2 class="anchored" data-anchor-id="data-types">Data types</h2>
+<ul>
+<li><strong>Numeric, aka doubles</strong>: Regular numbers with a decimal value (which may be zero). The numbers can be positive or negative, large or small. In general, R will save any number that you type in R as a double.</li>
+<li><strong>Integers</strong>: Integer vectors store integers, numbers that can be written without a decimal component. Data scientists often don’t need integers because we can save them as doubles.</li>
+<li><strong>Logicals</strong>: Logical vectors store <code>TRUE</code> and <code>FALSE</code>, R’s form of Boolean data.</li>
+</ul>
+</section>
 <section id="data-structures" class="level2">
 <h2 class="anchored" data-anchor-id="data-structures">Data structures</h2>
 <p>The first step is to know the different types of data that <strong><span class="sans-serif">R</span></strong> can understand. And the simplest data structure is an atomic vector.</p>

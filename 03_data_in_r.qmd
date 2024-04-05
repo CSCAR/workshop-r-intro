@@ -73,13 +73,13 @@ length(quijote_characters)
 length(c())
 ```
 
-
-### Coercion
+::: {.callout-caution}
+#### Coercion
 
 Adding different data types to the same atomic vector does not produce an error. Instead, **R** automatically follows specific rules to *coerce* everything inside the vector to be of the same type. If a character string is present in an atomic vector, **R** will convert all other values to character strings. If a vector only contains logicals and numbers, R will convert the logicals to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`.
 
-Following this coercion rules helps preserve information. It is easy, for example, to recognize the original type of `"TRUE"` and `"3.14"`. Or to transform a vector of `1`s and `0`s back to `TRUE`s and `FALSE`s.
-
+Following these coercion rules helps preserve information. It is easy, for example, to recognize the original type of `"TRUE"` and `"3.14"`. Or to transform a vector of `1`s and `0`s back to `TRUE`s and `FALSE`s.
+:::
 
 ### Matrices
 
@@ -151,7 +151,7 @@ scores_mat %*% scores_mat # Matrix multiplication
 
 ### Arrays
 
-The array function creates an n-dimensional array. Using an n-dimensional array is like stacking groups of data like [matryoshka dolls](https://en.wikipedia.org/wiki/Matryoshka_doll). 1 dimension forms a column of data with multiple values; 2 dimensions form a sheet of paper with several columns of data; 3 dimensions form a book with several sheets; 4 dimensions form a box with several books; 5 dimensions form a box that contains other boxes, and so on.
+The `array()` function creates an n-dimensional array. Using an n-dimensional array is like stacking groups of data like [matryoshka dolls](https://en.wikipedia.org/wiki/Matryoshka_doll). 1 dimension forms a column of data with multiple values; 2 dimensions form a sheet of paper with several columns of data; 3 dimensions form a book with several sheets; 4 dimensions form a box with several books; 5 dimensions form a box that contains other boxes, and so on.
 
 To use `array()`, we need an atomic vector as the first argument, and a vector of dimension sizes `dim` as the second argument:
 
@@ -179,7 +179,7 @@ Vectors, matrices, and arrays need all of its values to be of the same type. Thi
 
 But sometimes we need to store different types of data in a single place---maybe because all of that data belongs to the same underlying concept. For example, we can describe a dog based on its height, weight, and age (numerical values), and on its color and breed (character strings). **R** has a way of keeping all of these diverse data in a single place.
 
-## Lists
+### Lists
 
 Lists can group **R** objects like vectors, arrays, and other lists in a set of one dimension. To create a list, use the function `list()` and separate each element in the list with a comma.
 
@@ -188,12 +188,13 @@ all_in_one_list <- list(c(3.1, 10), "El Zorro", list(character_mat))
 all_in_one_list
 ```
 
-The double-bracketed indices tell you which element of the list is being displayed. The single-bracket indexes tell you which subelement of an element is being displayed. For example, `3.1` is the first subelement of the first element in the list, and `"El Zorro"` is the first sub-element of the second element. This two-system notation helps us recognize which level of the stacking we are in, regardless of what is stacked inside the list.
+The double-bracketed indices tell you which *element* of the list is displayed. The single-bracket indexes tell you which *subelement* of an element is displayed. For example, `3.1` is the first subelement of the first element in the list, and `"El Zorro"` is the first sub-element of the second element. This two-system notation helps us recognize which level of the stacking we are in, regardless of what is stacked inside the list.
 
-There are two ways to access an element from a list, depending on what we want to do with the output. We can use single bracket notation `[ ]` to get a list with some of the elements of the original list.
+There are two ways to access an element from a list, depending on what we want to do with the output. We can use single bracket notation `[ ]` to get a new list with elements from the original list.
 ```{r extracting list elements as a new list}
 new_list <- all_in_one_list[1]
 new_list
+typeof(new_list)
 ```
 
 Or we can use double bracket notation `[[ ]]` to get only the contents of an element from the original list (we can not extract multiple elements this way).
@@ -224,7 +225,7 @@ countries_info$speak_spanish
 countries_info[["speak_spanish"]]
 ```
 
-## Data frames
+### Data frames
 
 Data frames are the most common storage structure for data analysis. We can think of them as a group of atomic vectors (columns), where different vectors can have different data types. Usually, each row of a data frame represents an individual observation and each column represents a different measurement or variable of that observation.
 

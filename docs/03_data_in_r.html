@@ -218,13 +218,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="header-section-number">3.2</span> Data structures</a>
   <ul class="collapse">
   <li><a href="#atomic-vectors" id="toc-atomic-vectors" class="nav-link" data-scroll-target="#atomic-vectors"><span class="header-section-number">3.2.1</span> Atomic vectors</a></li>
-  <li><a href="#coercion" id="toc-coercion" class="nav-link" data-scroll-target="#coercion"><span class="header-section-number">3.2.2</span> Coercion</a></li>
-  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="header-section-number">3.2.3</span> Matrices</a></li>
-  <li><a href="#arrays" id="toc-arrays" class="nav-link" data-scroll-target="#arrays"><span class="header-section-number">3.2.4</span> Arrays</a></li>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="header-section-number">3.2.2</span> Matrices</a></li>
+  <li><a href="#arrays" id="toc-arrays" class="nav-link" data-scroll-target="#arrays"><span class="header-section-number">3.2.3</span> Arrays</a></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"><span class="header-section-number">3.2.4</span> Lists</a></li>
+  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames"><span class="header-section-number">3.2.5</span> Data frames</a></li>
   </ul></li>
-  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"><span class="header-section-number">3.3</span> Lists</a></li>
-  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames"><span class="header-section-number">3.4</span> Data frames</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3.5</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3.3</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -340,14 +339,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
-</section>
-<section id="coercion" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="coercion"><span class="header-section-number">3.2.2</span> Coercion</h3>
+<div class="callout callout-style-simple callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Coercion
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Adding different data types to the same atomic vector does not produce an error. Instead, <strong>R</strong> automatically follows specific rules to <em>coerce</em> everything inside the vector to be of the same type. If a character string is present in an atomic vector, <strong>R</strong> will convert all other values to character strings. If a vector only contains logicals and numbers, R will convert the logicals to numbers; every <code>TRUE</code> becomes a <code>1</code>, and every <code>FALSE</code> becomes a <code>0</code>.</p>
-<p>Following this coercion rules helps preserve information. It is easy, for example, to recognize the original type of <code>"TRUE"</code> and <code>"3.14"</code>. Or to transform a vector of <code>1</code>s and <code>0</code>s back to <code>TRUE</code>s and <code>FALSE</code>s.</p>
+<p>Following these coercion rules helps preserve information. It is easy, for example, to recognize the original type of <code>"TRUE"</code> and <code>"3.14"</code>. Or to transform a vector of <code>1</code>s and <code>0</code>s back to <code>TRUE</code>s and <code>FALSE</code>s.</p>
+</div>
+</div>
 </section>
-<section id="matrices" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="matrices"><span class="header-section-number">3.2.3</span> Matrices</h3>
+<section id="matrices" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="matrices"><span class="header-section-number">3.2.2</span> Matrices</h3>
 <p>A matrix stores values in a two-dimensional box. To create a matrix, first give <code>matrix()</code> an atomic vector to reorganize into a matrix. Then, define the number of rows using the <code>nrow</code> argument, or the number of columns using the <code>ncol</code> argument. <code>matrix()</code> will reshape your vector into a matrix with the specified number of rows (or columns).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>scores_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">90</span>, <span class="dv">65</span>, <span class="sc">-</span><span class="dv">10</span>, <span class="dv">115</span>, <span class="sc">-</span><span class="dv">23</span>)</span>
@@ -454,9 +462,9 @@ Comstock        8      13        4</code></pre>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>scores_mat <span class="sc">%*%</span> scores_mat <span class="co"># Matrix multiplication</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="arrays" class="level3" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="arrays"><span class="header-section-number">3.2.4</span> Arrays</h3>
-<p>The array function creates an n-dimensional array. Using an n-dimensional array is like stacking groups of data like <a href="https://en.wikipedia.org/wiki/Matryoshka_doll">matryoshka dolls</a>. 1 dimension forms a column of data with multiple values; 2 dimensions form a sheet of paper with several columns of data; 3 dimensions form a book with several sheets; 4 dimensions form a box with several books; 5 dimensions form a box that contains other boxes, and so on.</p>
+<section id="arrays" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="arrays"><span class="header-section-number">3.2.3</span> Arrays</h3>
+<p>The <code>array()</code> function creates an n-dimensional array. Using an n-dimensional array is like stacking groups of data like <a href="https://en.wikipedia.org/wiki/Matryoshka_doll">matryoshka dolls</a>. 1 dimension forms a column of data with multiple values; 2 dimensions form a sheet of paper with several columns of data; 3 dimensions form a book with several sheets; 4 dimensions form a box with several books; 5 dimensions form a box that contains other boxes, and so on.</p>
 <p>To use <code>array()</code>, we need an atomic vector as the first argument, and a vector of dimension sizes <code>dim</code> as the second argument:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">array</span>(<span class="fu">c</span>(<span class="dv">25</span><span class="sc">:</span><span class="dv">28</span>, <span class="dv">35</span><span class="sc">:</span><span class="dv">38</span>, <span class="dv">45</span><span class="sc">:</span><span class="dv">48</span>), <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -504,9 +512,8 @@ Practice your inception
 <p>Vectors, matrices, and arrays need all of its values to be of the same type. This requirement seems rigid, but it allows the computer to store large sets of numbers in a simple and efficient way; and it accelerates computations because <strong>R</strong> knows that it can manipulate all values in the object the same way. Also, vectors make it easy for us to store values that are supposed to measure the same property. It would be hard to understand what a vector represented if it had values like <code>"salsa"</code> and <code>sqrt(77)</code>.</p>
 <p>But sometimes we need to store different types of data in a single place—maybe because all of that data belongs to the same underlying concept. For example, we can describe a dog based on its height, weight, and age (numerical values), and on its color and breed (character strings). <strong>R</strong> has a way of keeping all of these diverse data in a single place.</p>
 </section>
-</section>
-<section id="lists" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="lists"><span class="header-section-number">3.3</span> Lists</h2>
+<section id="lists" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="lists"><span class="header-section-number">3.2.4</span> Lists</h3>
 <p>Lists can group <strong>R</strong> objects like vectors, arrays, and other lists in a set of one dimension. To create a list, use the function <code>list()</code> and separate each element in the list with a comma.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>all_in_one_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="fl">3.1</span>, <span class="dv">10</span>), <span class="st">"El Zorro"</span>, <span class="fu">list</span>(character_mat))</span>
@@ -525,8 +532,8 @@ Practice your inception
 [2,] "Peach" "Yoshi"</code></pre>
 </div>
 </div>
-<p>The double-bracketed indices tell you which element of the list is being displayed. The single-bracket indexes tell you which subelement of an element is being displayed. For example, <code>3.1</code> is the first subelement of the first element in the list, and <code>"El Zorro"</code> is the first sub-element of the second element. This two-system notation helps us recognize which level of the stacking we are in, regardless of what is stacked inside the list.</p>
-<p>There are two ways to access an element from a list, depending on what we want to do with the output. We can use single bracket notation <code>[ ]</code> to get a list with some of the elements of the original list.</p>
+<p>The double-bracketed indices tell you which <em>element</em> of the list is displayed. The single-bracket indexes tell you which <em>subelement</em> of an element is displayed. For example, <code>3.1</code> is the first subelement of the first element in the list, and <code>"El Zorro"</code> is the first sub-element of the second element. This two-system notation helps us recognize which level of the stacking we are in, regardless of what is stacked inside the list.</p>
+<p>There are two ways to access an element from a list, depending on what we want to do with the output. We can use single bracket notation <code>[ ]</code> to get a new list with elements from the original list.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>new_list <span class="ot">&lt;-</span> all_in_one_list[<span class="dv">1</span>]</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>new_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -534,31 +541,35 @@ Practice your inception
 <pre><code>[[1]]
 [1]  3.1 10.0</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(new_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "list"</code></pre>
+</div>
 </div>
 <p>Or we can use double bracket notation <code>[[ ]]</code> to get only the contents of an element from the original list (we can not extract multiple elements this way).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>new_item <span class="ot">&lt;-</span> all_in_one_list[[<span class="dv">2</span>]]</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>new_item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>new_item <span class="ot">&lt;-</span> all_in_one_list[[<span class="dv">2</span>]]</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>new_item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "El Zorro"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(new_item)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(new_item)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
 <p>We can name the elements of a list when we first create it:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>countries_info <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">countries =</span> <span class="fu">c</span>(<span class="st">"Japan"</span>, <span class="st">"Egypt"</span>, <span class="st">"Mexico"</span>, <span class="st">"Finland"</span>),</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">temperatures_fahrenheit =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">90</span>, <span class="dv">65</span>, <span class="sc">-</span><span class="dv">10</span>),</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">speak_spanish =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>countries_info <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">countries =</span> <span class="fu">c</span>(<span class="st">"Japan"</span>, <span class="st">"Egypt"</span>, <span class="st">"Mexico"</span>, <span class="st">"Finland"</span>),</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">temperatures_fahrenheit =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">90</span>, <span class="dv">65</span>, <span class="sc">-</span><span class="dv">10</span>),</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">speak_spanish =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Or we can name them after the list is made using <code>names()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(all_in_one_list) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"mass"</span>, <span class="st">"hero"</span>, <span class="st">"game"</span>)</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>all_in_one_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(all_in_one_list) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"mass"</span>, <span class="st">"hero"</span>, <span class="st">"game"</span>)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>all_in_one_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$mass
 [1]  3.1 10.0
@@ -575,23 +586,24 @@ $game[[1]]
 </div>
 <p>With a named list, we can also use dollar sign notation <code>$</code> to extract elements. This notation produces the same result as using the double bracket notation <code>[[ ]]</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>countries_info<span class="sc">$</span>speak_spanish</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>countries_info<span class="sc">$</span>speak_spanish</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE FALSE  TRUE FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>countries_info[[<span class="st">"speak_spanish"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>countries_info[[<span class="st">"speak_spanish"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE FALSE  TRUE FALSE</code></pre>
 </div>
 </div>
 </section>
-<section id="data-frames" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">3.4</span> Data frames</h2>
+<section id="data-frames" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">3.2.5</span> Data frames</h3>
 <p>Data frames are the most common storage structure for data analysis. We can think of them as a group of atomic vectors (columns), where different vectors can have different data types. Usually, each row of a data frame represents an individual observation and each column represents a different measurement or variable of that observation.</p>
 <p>To us, a data frame resembles a matrix, but to <strong>R</strong> it is more like a list.</p>
 </section>
-<section id="references" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="references"><span class="header-section-number">3.5</span> References</h2>
+</section>
+<section id="references" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="references"><span class="header-section-number">3.3</span> References</h2>
 <p>Most of this section is based on <a href="https://rstudio-education.github.io/hopr/">“Hands-On Programming with R”</a>, by Garret Grolemund; and on <a href="https://intro2r.com/">“An Introduction to R”</a>, by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto &amp; David Lusseau.</p>
 
 

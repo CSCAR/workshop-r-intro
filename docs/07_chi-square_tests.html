@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - 5&nbsp; Chi-Square tests</title>
+<title>Introduction to R - 6&nbsp; Chi-Square tests</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07_chi-square_tests.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07_chi-square_tests.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_the_r_environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The R <em>Environment</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -126,44 +126,50 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./03_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data in R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./05_data_for_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_student_t-tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_chi-square_tests.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08_linear_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09_lists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10_generalized_linear_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
   </div>
 </li>
     </ul>
@@ -176,9 +182,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#goodness-of-fit" id="toc-goodness-of-fit" class="nav-link active" data-scroll-target="#goodness-of-fit"><span class="header-section-number">5.1</span> Goodness of Fit</a></li>
-  <li><a href="#chi-square-test-of-independence" id="toc-chi-square-test-of-independence" class="nav-link" data-scroll-target="#chi-square-test-of-independence"><span class="header-section-number">5.2</span> Chi-Square Test of Independence</a></li>
-  <li><a href="#fishers-exact-test" id="toc-fishers-exact-test" class="nav-link" data-scroll-target="#fishers-exact-test"><span class="header-section-number">5.3</span> Fisher’s Exact Test</a></li>
+  <li><a href="#goodness-of-fit" id="toc-goodness-of-fit" class="nav-link active" data-scroll-target="#goodness-of-fit"><span class="header-section-number">6.1</span> Goodness of Fit</a></li>
+  <li><a href="#chi-square-test-of-independence" id="toc-chi-square-test-of-independence" class="nav-link" data-scroll-target="#chi-square-test-of-independence"><span class="header-section-number">6.2</span> Chi-Square Test of Independence</a></li>
+  <li><a href="#fishers-exact-test" id="toc-fishers-exact-test" class="nav-link" data-scroll-target="#fishers-exact-test"><span class="header-section-number">6.3</span> Fisher’s Exact Test</a></li>
   </ul>
 </nav>
     </div>
@@ -187,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></h1>
 </div>
 
 
@@ -203,8 +209,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>Pearson’s chi-square test is used to make two types of comparisons for categorical variables. A <em>goodness of fit test</em> determines whether a particular hypothesized distribution is reasonable for a categorical variable. A <em>test of independence</em> assesses whether two categorical variables are independent of each other.</p>
-<section id="goodness-of-fit" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="goodness-of-fit"><span class="header-section-number">5.1</span> Goodness of Fit</h2>
+<section id="goodness-of-fit" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="goodness-of-fit"><span class="header-section-number">6.1</span> Goodness of Fit</h2>
 <p>Suppose a company wants to determine if employees are equally likely to call in sick on any day of the week. That is, test the hypothesis <span class="math display">\[H_0: p_1 = p_2 = p_3 = p_4 = p_5\]</span> where <span class="math inline">\(p_1\)</span> represents the probability that a random call-in sick occurs on Monday, etc. The employer collects data and obtains the following table</p>
 <div class="center">
 <table class="table">
@@ -242,8 +248,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; cs.test$statistic</code></p>
 <p><code>&gt; cs.test$residuals</code></p>
 </section>
-<section id="chi-square-test-of-independence" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="chi-square-test-of-independence"><span class="header-section-number">5.2</span> Chi-Square Test of Independence</h2>
+<section id="chi-square-test-of-independence" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="chi-square-test-of-independence"><span class="header-section-number">6.2</span> Chi-Square Test of Independence</h2>
 <p>A Chi-Square Test of Independence tests for a relationship between two categorical variables. We will use the “UCBAdmissions data set” to illustrate.</p>
 <p><code>&gt; data()</code></p>
 <p><code>&gt; UCBAdmissions</code></p>
@@ -257,8 +263,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The default in <strong><span class="sans-serif">R</span></strong> is to use Yates’ continuity correction for 2x2 tables. You can opt not to use it.</p>
 <p><code>&gt; chisq.test(dat, correct=FALSE)</code></p>
 </section>
-<section id="fishers-exact-test" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="fishers-exact-test"><span class="header-section-number">5.3</span> Fisher’s Exact Test</h2>
+<section id="fishers-exact-test" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="fishers-exact-test"><span class="header-section-number">6.3</span> Fisher’s Exact Test</h2>
 <p>Pearson Chi-Square tests rely on an approximation that becomes poor as cell sizes get small. With smaller samples, Fisher’s Exact Test might be a good alternative. However, there are many flavors of Fisher’s test. <strong><span class="sans-serif">R</span></strong> has implemented many of them, including one in the base package.</p>
 <p><code>&gt; fisher.test(dat)</code></p>
 
@@ -617,12 +623,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./06_student_t-tests.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Student t-tests</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Student t-tests</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./08_linear_models.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Models</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

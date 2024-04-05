@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - 3&nbsp; Data for Analysis</title>
+<title>Introduction to R - 4&nbsp; Data for Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./06_student_t-tests.html" rel="next">
-<link href="./02_getting_started_with_r.html" rel="prev">
+<link href="./03_data_in_r.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_data_for_analysis.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data for Analysis</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_data_for_analysis.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data for Analysis</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -126,44 +126,50 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./03_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data in R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./05_data_for_analysis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_student_t-tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_chi-square_tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08_linear_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09_lists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10_generalized_linear_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
   </div>
 </li>
     </ul>
@@ -176,20 +182,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#creating-data-random-numbers" id="toc-creating-data-random-numbers" class="nav-link active" data-scroll-target="#creating-data-random-numbers"><span class="header-section-number">3.1</span> Creating Data: Random numbers</a>
+  <li><a href="#creating-data-random-numbers" id="toc-creating-data-random-numbers" class="nav-link active" data-scroll-target="#creating-data-random-numbers"><span class="header-section-number">4.1</span> Creating Data: Random numbers</a>
   <ul class="collapse">
-  <li><a href="#functions-about-probability-distributions" id="toc-functions-about-probability-distributions" class="nav-link" data-scroll-target="#functions-about-probability-distributions"><span class="header-section-number">3.1.1</span> Functions about Probability Distributions</a></li>
+  <li><a href="#functions-about-probability-distributions" id="toc-functions-about-probability-distributions" class="nav-link" data-scroll-target="#functions-about-probability-distributions"><span class="header-section-number">4.1.1</span> Functions about Probability Distributions</a></li>
   </ul></li>
-  <li><a href="#reading-data-from-files" id="toc-reading-data-from-files" class="nav-link" data-scroll-target="#reading-data-from-files"><span class="header-section-number">3.2</span> Reading data from files</a></li>
-  <li><a href="#importing-from-excel" id="toc-importing-from-excel" class="nav-link" data-scroll-target="#importing-from-excel"><span class="header-section-number">3.3</span> Importing from Excel</a>
+  <li><a href="#reading-data-from-files" id="toc-reading-data-from-files" class="nav-link" data-scroll-target="#reading-data-from-files"><span class="header-section-number">4.2</span> Reading data from files</a></li>
+  <li><a href="#importing-from-excel" id="toc-importing-from-excel" class="nav-link" data-scroll-target="#importing-from-excel"><span class="header-section-number">4.3</span> Importing from Excel</a>
   <ul class="collapse">
-  <li><a href="#straight-from-excel" id="toc-straight-from-excel" class="nav-link" data-scroll-target="#straight-from-excel"><span class="header-section-number">3.3.1</span> Straight from Excel</a></li>
+  <li><a href="#straight-from-excel" id="toc-straight-from-excel" class="nav-link" data-scroll-target="#straight-from-excel"><span class="header-section-number">4.3.1</span> Straight from Excel</a></li>
   </ul></li>
-  <li><a href="#data-from-other-formats" id="toc-data-from-other-formats" class="nav-link" data-scroll-target="#data-from-other-formats"><span class="header-section-number">3.4</span> Data from other Formats</a></li>
-  <li><a href="#exporting-data" id="toc-exporting-data" class="nav-link" data-scroll-target="#exporting-data"><span class="header-section-number">3.5</span> Exporting Data</a></li>
-  <li><a href="#missing-values-in-data-files" id="toc-missing-values-in-data-files" class="nav-link" data-scroll-target="#missing-values-in-data-files"><span class="header-section-number">3.6</span> Missing Values in Data files</a>
+  <li><a href="#data-from-other-formats" id="toc-data-from-other-formats" class="nav-link" data-scroll-target="#data-from-other-formats"><span class="header-section-number">4.4</span> Data from other Formats</a></li>
+  <li><a href="#exporting-data" id="toc-exporting-data" class="nav-link" data-scroll-target="#exporting-data"><span class="header-section-number">4.5</span> Exporting Data</a></li>
+  <li><a href="#missing-values-in-data-files" id="toc-missing-values-in-data-files" class="nav-link" data-scroll-target="#missing-values-in-data-files"><span class="header-section-number">4.6</span> Missing Values in Data files</a>
   <ul class="collapse">
-  <li><a href="#the-which-function" id="toc-the-which-function" class="nav-link" data-scroll-target="#the-which-function"><span class="header-section-number">3.6.1</span> The <code>which</code> function</a></li>
+  <li><a href="#the-which-function" id="toc-the-which-function" class="nav-link" data-scroll-target="#the-which-function"><span class="header-section-number">4.6.1</span> The <code>which</code> function</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -199,7 +205,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data for Analysis</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data for Analysis</span></h1>
 </div>
 
 
@@ -214,16 +220,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="creating-data-random-numbers" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="creating-data-random-numbers"><span class="header-section-number">3.1</span> Creating Data: Random numbers</h2>
+<section id="creating-data-random-numbers" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="creating-data-random-numbers"><span class="header-section-number">4.1</span> Creating Data: Random numbers</h2>
 <p><strong><span class="sans-serif">R</span></strong> has excellent number generating capabilities. This makes <strong><span class="sans-serif">R</span></strong> a good programming environment for simulation studies. The <code>rnorm</code> function randomly draws from a univariate normal distribution. (The ‘r’ stands for random.)</p>
 <p><code>&gt; rnorm(3)</code></p>
 <p><code>&gt; rnorm(3, mean=10, sd=0.5)</code></p>
 <p><code>&gt; x = rnorm(100, mean=10, sd=2)</code></p>
 <p><code>&gt; hist(x, col="blue", main="100 Random Numbers from a Normal Distribution")</code></p>
 <p>See <code>help(rnorm)</code> for more details. You can generate from many distributions using functions such as <code>rnorm</code>, <code>rt</code>, <code>rf</code>, <code>rbinom</code>, <code>runif</code>, <code>rexp</code>, and <code>rgamma</code>.</p>
-<section id="functions-about-probability-distributions" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="functions-about-probability-distributions"><span class="header-section-number">3.1.1</span> Functions about Probability Distributions</h3>
+<section id="functions-about-probability-distributions" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="functions-about-probability-distributions"><span class="header-section-number">4.1.1</span> Functions about Probability Distributions</h3>
 <p><strong><span class="sans-serif">R</span></strong> is also a source of exact probability tables and therefore eliminates the need to flip to the back of a statistics textbook to calculate probabilities under curves or critical values. For example, you can calculate the 95% critical value of a t distribution with 34 degrees of freedom with the following command:</p>
 <p><code>&gt; qt(0.975, df=34)</code></p>
 <p>We can find the critical value of a standard normal distribution using <code>qnorm</code>. (The ‘q’ stands for quantile function.)</p>
@@ -232,8 +238,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; pnorm(-1.96)</code></p>
 </section>
 </section>
-<section id="reading-data-from-files" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="reading-data-from-files"><span class="header-section-number">3.2</span> Reading data from files</h2>
+<section id="reading-data-from-files" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="reading-data-from-files"><span class="header-section-number">4.2</span> Reading data from files</h2>
 <p>Researchers often analyze data that are stored in spread-sheet or text formats. The most common function to import data is <code>read.table</code>. Before looking at an example of how <code>read.table</code> is used, let’s consider common issues that arise when reading data into any program.</p>
 <ul>
 <li><p>What is the file name?</p></li>
@@ -258,8 +264,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; summary(gro)</code></p>
 <p><code>&gt; dim(gro)</code></p>
 </section>
-<section id="importing-from-excel" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="importing-from-excel"><span class="header-section-number">3.3</span> Importing from Excel</h2>
+<section id="importing-from-excel" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="importing-from-excel"><span class="header-section-number">4.3</span> Importing from Excel</h2>
 <p>“How do I import my data into <strong><span class="sans-serif">R</span></strong> from Excel?” is a common question.</p>
 <p>My answer is often: “Don’t!”</p>
 <p>Excel spreadsheets contain attributes and formatting that often cause difficulty when transferring files between applications. In particular, dates, or text that looks like dates, are troublesome. Zip codes and MRNs lose their leading zeros. The easiest thing to do is to first export the data into either a tab-delimited (.dat, .tsv) or comma separated values (.csv) file. After the file is in a more portable format, then use <code>read.table</code> or <code>read.csv</code> into <strong><span class="sans-serif">R</span></strong>.</p>
@@ -268,18 +274,18 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; dat2</code></p>
 <p><code>read.csv</code> simply invokes <code>read.table</code> with a different set of default arguments. Notice that the default for <code>read.csv</code> is to include a header.</p>
 <p><code>&gt; help(read.csv)</code></p>
-<section id="straight-from-excel" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="straight-from-excel"><span class="header-section-number">3.3.1</span> Straight from Excel</h3>
+<section id="straight-from-excel" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="straight-from-excel"><span class="header-section-number">4.3.1</span> Straight from Excel</h3>
 <p>However it is possible to skip the .csv step using one of several <strong><span class="sans-serif">R</span></strong> packages. Option 1: Use the Import Dataset button above the environment window in <strong><span class="sans-serif">R</span></strong>Studio (obviously this only applies if using <strong><span class="sans-serif">R</span></strong>Studio). Option 2: Use the <code>read_excel</code> function in the <code>readxl</code> package (actually, Option 1 uses Option 2). Option 3: use package <code>xlsx</code>. Option 4: ...</p>
 <p>These approaches may result in slightly different data formats. This is not a problem, just be certain to investigate your data after loading.</p>
 </section>
 </section>
-<section id="data-from-other-formats" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="data-from-other-formats"><span class="header-section-number">3.4</span> Data from other Formats</h2>
+<section id="data-from-other-formats" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="data-from-other-formats"><span class="header-section-number">4.4</span> Data from other Formats</h2>
 <p><strong><span class="sans-serif">R</span></strong> can read directly from other formats with varying levels of success. Functions exist for fixed width formats, .sas7bdat, SAS xport, SPSS, Stata, DBF, ...</p>
 </section>
-<section id="exporting-data" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="exporting-data"><span class="header-section-number">3.5</span> Exporting Data</h2>
+<section id="exporting-data" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="exporting-data"><span class="header-section-number">4.5</span> Exporting Data</h2>
 <p><strong><span class="sans-serif">R</span></strong> has facilities for exporting data. Suppose you make changes to a data set within <strong><span class="sans-serif">R</span></strong> and you want to save those changes permanently in a .csv or .xls file. The <code>write.csv</code> command exports an <strong><span class="sans-serif">R</span></strong> object to a text file. All you have to do is give <code>write.csv</code> two arguments: 1) the <strong><span class="sans-serif">R</span></strong> object to be exported, and 2) the name of the file.</p>
 <p>For example, <code>write.csv(M, "newfile.csv")</code> will export the <strong><span class="sans-serif">R</span></strong> object <code>M</code> to a newly created file <code>newfile.csv</code>. We will modify <code>dat2</code> to include an <code>id</code> variable, and we write the updated data object to a csv file.</p>
 <p><code>&gt; dat2$id = 1:nrow(dat2)</code></p>
@@ -287,8 +293,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; write.csv(dat2, "newfile.csv")</code></p>
 <p><strong><span class="sans-serif">R</span></strong> can also write to text files using <code>write.table</code>.</p>
 </section>
-<section id="missing-values-in-data-files" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="missing-values-in-data-files"><span class="header-section-number">3.6</span> Missing Values in Data files</h2>
+<section id="missing-values-in-data-files" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="missing-values-in-data-files"><span class="header-section-number">4.6</span> Missing Values in Data files</h2>
 <p>Data files can represent missing data in many ways. Often Excel files have blank cells. Text files may use a special value such as 999 to represent missingness. SAS uses a period. Different codes may specify different reasons for the missingness such as non-response or an unreasonable value.</p>
 <p>There are several ways to convert these conventions to NA in <strong><span class="sans-serif">R</span></strong> so they will (more likely) be treated properly in analyses. (There are entire statistics courses on “properly” dealing with missing data.)</p>
 <p>Suppose that the <span class="math inline">\(88\)</span> and <span class="math inline">\(999\)</span> are codes indicating missing values. We want <strong><span class="sans-serif">R</span></strong> to interpret these values as missing rather than numeric. We can change these values to NA after reading in the data. First we identify them and then replace them by NA.</p>
@@ -298,8 +304,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; dat$z[dat$z == 88 | dat$z == 999]</code></p>
 <p><code>&gt; dat$z[dat$z == 88 | dat$z == 999] = NA</code></p>
 <p><code>&gt; dat</code></p>
-<section id="the-which-function" class="level3" data-number="3.6.1">
-<h3 data-number="3.6.1" class="anchored" data-anchor-id="the-which-function"><span class="header-section-number">3.6.1</span> The <code>which</code> function</h3>
+<section id="the-which-function" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="the-which-function"><span class="header-section-number">4.6.1</span> The <code>which</code> function</h3>
 <p>While we are on the subject of missing data (NA) and logical values (TRUE, FALSE), I want to mention the <code>which</code> function. It statement takes a logical statement (or a series of logical statements, some which may be missing) as an argument. It returns the indices for which the logical statement is TRUE.</p>
 <p><code>&gt; a = c(6, 9, 10, 2, 999, NA)</code></p>
 <p><code>&gt; is.na(a)</code></p>
@@ -675,13 +681,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02_getting_started_with_r.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span>
+      <a href="./03_data_in_r.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data in R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./06_student_t-tests.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Student t-tests</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Student t-tests</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

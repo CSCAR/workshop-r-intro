@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - 7&nbsp; Lists</title>
+<title>Introduction to R - 8&nbsp; Lists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09_lists.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lists</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09_lists.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lists</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_the_r_environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The R <em>Environment</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -126,44 +126,50 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./03_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data in R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./05_data_for_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_student_t-tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_chi-square_tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08_linear_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09_lists.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10_generalized_linear_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
   </div>
 </li>
     </ul>
@@ -176,8 +182,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#string-manipulation" id="toc-string-manipulation" class="nav-link active" data-scroll-target="#string-manipulation"><span class="header-section-number">7.1</span> String Manipulation</a></li>
-  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"><span class="header-section-number">7.2</span> Lists</a></li>
+  <li><a href="#string-manipulation" id="toc-string-manipulation" class="nav-link active" data-scroll-target="#string-manipulation"><span class="header-section-number">8.1</span> String Manipulation</a></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"><span class="header-section-number">8.2</span> Lists</a></li>
   </ul>
 </nav>
     </div>
@@ -186,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lists</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lists</span></h1>
 </div>
 
 
@@ -201,8 +207,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="string-manipulation" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="string-manipulation"><span class="header-section-number">7.1</span> String Manipulation</h2>
+<section id="string-manipulation" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="string-manipulation"><span class="header-section-number">8.1</span> String Manipulation</h2>
 <p>In the third column of <em>dat</em>, systolic and diastolic pressure were placed together separated by a “/”. Ideally, data would never be stored in such a manner. For easy data processing, systolic and diastolic blood pressure should be stored in separate columns. Although in our data sets we did have separate columns, suppose for the sake of example that we only had the one column in which blood pressure was entered as <span class="math inline">\(120/82\)</span>. It could be time consuming to convert these to separate variables by hand in Excel.</p>
 <p>Fortunately, <strong><span class="sans-serif">R</span></strong> has excellent string manipulation facilities. In this example, we will use the <code>strsplit</code> function to extract diastolic and systolic blood pressures. <code>strsplit</code> has two arguments that we will use. The first argument is the character string we wish to split. The second argument is the character that we will split on. Let’s start with the <em>bp</em> value in the first row.</p>
 <p><code>&gt; b = dat$bp[1]</code></p>
@@ -221,8 +227,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; sep</code></p>
 <p><code>&gt; class(sep)</code></p>
 </section>
-<section id="lists" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="lists"><span class="header-section-number">7.2</span> Lists</h2>
+<section id="lists" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="lists"><span class="header-section-number">8.2</span> Lists</h2>
 <p>The object <code>sep</code> is a list, a class of objects that we have not yet encountered explicitly (however, data.frames are lists). Lists can simultaneously store many objects of various classes. Recall from earlier that elements of a vector were forced to be of the same class (e.g., character). Lists are much more flexible and can contain characters, vectors, matrices, data.frames, and even other lists. Let’s take a detour from our original problem of separating blood pressures in order to investigate lists.</p>
 <p>Create a list containing a single number, a character, and a vector of number.</p>
 <p><code>&gt; L = list(5, "Hi", c(3,8,7))</code></p>
@@ -603,12 +609,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./08_linear_models.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Models</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Models</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./10_generalized_linear_models.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

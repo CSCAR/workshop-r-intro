@@ -10,6 +10,7 @@ book:
     - index.qmd
     - 01_the_r_environment.qmd
     - 02_getting_started_with_r.qmd
+    - 03_data_in_r.qmd
     # - 03_using_scripts.qmd
     # - 04_objects.qmd
     - 05_data_for_analysis.qmd

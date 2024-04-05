@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - 6&nbsp; Linear Models</title>
+<title>Introduction to R - 7&nbsp; Linear Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08_linear_models.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Models</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08_linear_models.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Models</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_the_r_environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The <strong><span class="sans-serif">R</span></strong> <em>Environment</em></span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The R <em>Environment</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -126,44 +126,50 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./03_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data in R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./05_data_for_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_student_t-tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_chi-square_tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08_linear_models.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09_lists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10_generalized_linear_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
   </div>
 </li>
     </ul>
@@ -176,11 +182,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#another-example-of-data-entry" id="toc-another-example-of-data-entry" class="nav-link active" data-scroll-target="#another-example-of-data-entry"><span class="header-section-number">6.0.1</span> Another example of data entry</a></li>
-  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution"><span class="header-section-number">6.0.2</span> Solution</a></li>
-  <li><a href="#simple-linear-regression-using-the-lm-function" id="toc-simple-linear-regression-using-the-lm-function" class="nav-link" data-scroll-target="#simple-linear-regression-using-the-lm-function"><span class="header-section-number">6.1</span> Simple Linear Regression using the <code>lm</code> function</a></li>
-  <li><a href="#analysis-of-variance" id="toc-analysis-of-variance" class="nav-link" data-scroll-target="#analysis-of-variance"><span class="header-section-number">6.2</span> Analysis of Variance</a></li>
-  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression"><span class="header-section-number">6.3</span> Multiple Linear Regression</a></li>
+  <li><a href="#another-example-of-data-entry" id="toc-another-example-of-data-entry" class="nav-link active" data-scroll-target="#another-example-of-data-entry"><span class="header-section-number">7.0.1</span> Another example of data entry</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution"><span class="header-section-number">7.0.2</span> Solution</a></li>
+  <li><a href="#simple-linear-regression-using-the-lm-function" id="toc-simple-linear-regression-using-the-lm-function" class="nav-link" data-scroll-target="#simple-linear-regression-using-the-lm-function"><span class="header-section-number">7.1</span> Simple Linear Regression using the <code>lm</code> function</a></li>
+  <li><a href="#analysis-of-variance" id="toc-analysis-of-variance" class="nav-link" data-scroll-target="#analysis-of-variance"><span class="header-section-number">7.2</span> Analysis of Variance</a></li>
+  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression"><span class="header-section-number">7.3</span> Multiple Linear Regression</a></li>
   </ul>
 </nav>
     </div>
@@ -189,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Models</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Models</span></h1>
 </div>
 
 
@@ -212,8 +218,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Multiple Linear Regression – the predictors can be any combination of binary, nominal, ordinal, and continuous</p></li>
 </ul>
 <p>Even an independent samples t-test is an example of a linear model. In this case, there is only one predictor, <span class="math inline">\(X\)</span>, which is a dummy variable representing the group.</p>
-<section id="another-example-of-data-entry" class="level3" data-number="6.0.1">
-<h3 data-number="6.0.1" class="anchored" data-anchor-id="another-example-of-data-entry"><span class="header-section-number">6.0.1</span> Another example of data entry</h3>
+<section id="another-example-of-data-entry" class="level3" data-number="7.0.1">
+<h3 data-number="7.0.1" class="anchored" data-anchor-id="another-example-of-data-entry"><span class="header-section-number">7.0.1</span> Another example of data entry</h3>
 <p>The <em>linmod.csv</em> data set contains the following measurements on 255 individuals.</p>
 <ul>
 <li><p>Systolic Blood Pressure</p></li>
@@ -261,8 +267,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; as.numeric(as.character(dat$age))</code></p>
 <p><code>&gt; dat$age = as.numeric(as.character(dat$age))</code></p>
 </section>
-<section id="solution" class="level3" data-number="6.0.2">
-<h3 data-number="6.0.2" class="anchored" data-anchor-id="solution"><span class="header-section-number">6.0.2</span> Solution</h3>
+<section id="solution" class="level3" data-number="7.0.2">
+<h3 data-number="7.0.2" class="anchored" data-anchor-id="solution"><span class="header-section-number">7.0.2</span> Solution</h3>
 <p>Another alternative is to read the data set using the <code>na.strings</code> argument.</p>
 <p><code>&gt; dat = read.csv("linmod.csv", na.strings=c("NA","Not Reported","888","999"))</code></p>
 <p><strong>Graphical Descriptions of Blood Pressure</strong> Let’s start by examining the marginal distribution of Systolic Blood Pressure.</p>
@@ -283,8 +289,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; cov(dat$dbp, dat$sbp)</code></p>
 <p><code>&gt; cor(dat$dbp, dat$sbp)</code></p>
 </section>
-<section id="simple-linear-regression-using-the-lm-function" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="simple-linear-regression-using-the-lm-function"><span class="header-section-number">6.1</span> Simple Linear Regression using the <code>lm</code> function</h2>
+<section id="simple-linear-regression-using-the-lm-function" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="simple-linear-regression-using-the-lm-function"><span class="header-section-number">7.1</span> Simple Linear Regression using the <code>lm</code> function</h2>
 <p>In a simple linear regression, we propose the model: <span class="math display">\[Y = \beta_0 + \beta_1 X + \epsilon,\]</span> where <span class="math inline">\(Y\)</span> is the dependent variable, <span class="math inline">\(X\)</span> is the sole independent variable, and <span class="math inline">\(\epsilon\)</span> represents a random component. One of the goals in a simple linear regression is to find the estimates, <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span>, that fit the data best.</p>
 <p>The <strong><span class="sans-serif">R</span></strong> function used to fit regression models is the <code>lm</code> function. Let’s begin by doing a simple linear regression of systolic blood pressure on diastolic blood pressure.</p>
 <p><code>&gt; lm(sbp</code><span class="math inline">\(\sim\)</span><code>dbp, data=dat)</code></p>
@@ -325,8 +331,8 @@ ul.task-list li input[type="checkbox"] {
 <p>We can also examine the ANOVA table associated with the regression model.</p>
 <p><code>&gt; anova(mymod)</code></p>
 </section>
-<section id="analysis-of-variance" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="analysis-of-variance"><span class="header-section-number">6.2</span> Analysis of Variance</h2>
+<section id="analysis-of-variance" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="analysis-of-variance"><span class="header-section-number">7.2</span> Analysis of Variance</h2>
 <p>Suppose one wishes to do a 2-way ANOVA model, where diastolic blood pressure is the response with gender and smoking status the two factors. As always, it is important to begin by investigating the relationships graphically.</p>
 <p><code>&gt; boxplot(dbp</code><span class="math inline">\(\sim\)</span><code>smoke, data=dat)</code></p>
 <p><code>&gt; boxplot(dbp</code><span class="math inline">\(\sim\)</span><code>gen, data=dat)</code></p>
@@ -347,8 +353,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; TukeyHSD(aov.mod)</code></p>
 <p><code>&gt; ?TukeyHSD</code></p>
 </section>
-<section id="multiple-linear-regression" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="multiple-linear-regression"><span class="header-section-number">6.3</span> Multiple Linear Regression</h2>
+<section id="multiple-linear-regression" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="multiple-linear-regression"><span class="header-section-number">7.3</span> Multiple Linear Regression</h2>
 <p>A multiple linear regression assumes the following relationship: <span class="math display">\[Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_pX_p + \epsilon\]</span> In this notation, <span class="math inline">\(Y\)</span> represents the response variable of interest, and the <span class="math inline">\(X_j\)</span> correspond to predictor variables. When fitting a linear regression model, one aim to estimate the <span class="math inline">\(\beta\)</span> parameters. The fitted model is sometimes used to predict future responses.</p>
 <p>We will use the built-in LifeCycleSavings data set (which we saw in passing earlier) to illustrate fitting a multiple linear regression. We will use the popular <code>car</code> (Companion to Applied Regression) package for some regression diagnostics.</p>
 <p><code>&gt; data()</code></p>
@@ -735,12 +741,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./07_chi-square_tests.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./09_lists.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lists</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lists</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

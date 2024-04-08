@@ -250,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong><span class="sans-serif">R</span></strong> can recognize, store, extract, and manipulate different kinds of data. In the previous section we saw how to do all this with numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how <strong><span class="sans-serif">R</span></strong> handles different data types and structures, and how to use them to study and summarize data.</p>
 <section id="data-types" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">3.1</span> Data types</h2>
-<p>Data types are classifications of data. These classifications help <strong>R</strong> conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are different rules for storing and handling each of these types. And learning these rules will allow us to analyze data later with less effort and fewer mistakes.</p>
+<p>Data types are classifications of data that help <strong>R</strong> conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are different rules for storing and handling each of these types. And learning these rules will allow us to analyze data later with less effort and fewer mistakes.</p>
 <p>There are six types of data in <strong>R</strong>: doubles, integers, logicals, characters, complex, and raw. <strong>Doubles</strong> are regular numbers with a decimal value (which may be zero). In general, R will save any number that you type in R as a double.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_double <span class="ot">&lt;-</span> <span class="dv">5</span></span>
@@ -286,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><em>Anything</em> surrounded by quotes in R will be treated as a character string—regardless of what is between the quotes.</p>
-<p>It is easy to confuse <strong>R</strong> objects with character strings because both appear as pieces of text in R code. For example, <code>the_thing</code> is the name of an R object named “the_thing” that contains data; but <code>"the_thing"</code> is a character string that contains the character “the_thing”, i.e., it is itself a piece of data. If we forget to use the quotation marks when writing a name, <strong>R</strong> will look for an object that likely doesn’t exist, so we will most likely get an error.</p>
+<p>It is easy to confuse <strong>R</strong> objects with character strings because both appear as pieces of text in R code. For example, <code>the_thing</code> is the name of an R object named <em>the_thing</em> that contains data; but <code>"the_thing"</code> is a character string that contains the character <em>the_thing</em>, i.e., it is itself a piece of data. If we forget to use the quotation marks when writing a name, <strong>R</strong> will look for an object that likely doesn’t exist, so we will most likely get an error.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>noquotes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -367,7 +367,7 @@ Coercion
 [3,]    2   35    4</code></pre>
 </div>
 </div>
-<p>Like atomic vectors, matrices can have any data type, but only one data type (or <code>NA</code>):</p>
+<p>Like atomic vectors, matrices can have any data type, but only one (or <code>NA</code>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>character_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">c</span>(<span class="st">"Mario"</span>, <span class="st">"Peach"</span>, <span class="st">"Luigi"</span>, <span class="st">"Yoshi"</span>), </span>
@@ -392,7 +392,7 @@ Coercion
 [3,]    8   13    4</code></pre>
 </div>
 </div>
-<p>Notice the expressions with square brackets in the output above (e.g., <code>[,1]</code>). They are positional indices that signal the “coordinates” of the matrix. Two-dimensional object like matrices have two indices, one for each dimension. The first number always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation <code>[ ]</code> to extract values from matrices.</p>
+<p>When showing a matrix, <strong>R</strong> shows expressions with square brackets (e.g., <code>[,1]</code>). These are positional indices that denote the “coordinates” of the matrix. Two-dimensional objects like matrices have two indices, one for each dimension. The first number always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation <code>[ ]</code> to extract values from matrices.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>scores_mat[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dv">2</span>] <span class="co"># Rows 1 and 3 in column 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -522,7 +522,7 @@ Applied inception
 [2,] "Peach" "Yoshi"</code></pre>
 </div>
 </div>
-<p>The double-bracketed indices tell you which <em>element</em> of the list is displayed. The single-bracket indices tell you which <em>subelement</em> of an element is displayed. For example, <code>3.1</code> is the first subelement of the first element in the list, and <code>"El Zorro"</code> is the first sub-element of the second element. This double notation helps us recognize which level of the stacking we are in, regardless of what is stacked inside the list.</p>
+<p>The double-bracketed indices tell you which <em>element</em> of the list is displayed. The single-bracket indices tell you which <em>subelement</em> of an element is displayed. For example, <code>3.1</code> is the first subelement of the first element in the list, and <code>"El Zorro"</code> is the first subelement of the second element. This double notation helps us recognize which level of the stacking we are in, regardless of what we stack inside the list.</p>
 <p>There are two ways to access an element from a list, depending on what we want to do with the output. We can use single bracket notation <code>[ ]</code> to get a new list with elements from the original list:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>new_list <span class="ot">&lt;-</span> all_in_one_list[<span class="dv">1</span>]</span>
@@ -588,7 +588,8 @@ $game[[1]]
 </section>
 <section id="data-frames" class="level3" data-number="3.2.5">
 <h3 data-number="3.2.5" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">3.2.5</span> Data frames</h3>
-<p>Data frames are the most common storage structure for data analysis. We can think of them as a group of atomic vectors (columns), where different vectors can have different data types and must have the same length. Usually, each row of a data frame represents an individual observation and each column represents a different measurement or variable of that observation.</p>
+<p>Data frames are the most common storage structure for data analysis. We can think of them as a group of atomic vectors (columns). Usually, each row of a data frame represents an individual observation and each column represents a different measurement or variable of that observation.</p>
+<p>Different vectors can have different data types, but they must have the same length. If we use vectors of different lengths, <strong>R</strong> will recycle values of some vectors to ensure that the data frame has a square shape.</p>
 <p>We can create a data frame using the <code>data.frame()</code> function. Give <code>data.frame()</code> any number of vectors of equal length, each separated with a comma. Each vector should be set equal to a name that describes the vector. data.frame will turn each vector into a column of the new data frame:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>aliens_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
@@ -605,7 +606,6 @@ $game[[1]]
 4  Dlemex Future_Earth            2.5</code></pre>
 </div>
 </div>
-<p>If we try to use vectors of different lengths, <strong>R</strong> will recycle values of some vectors to ensure that the data frame has a square shape.</p>
 <p>We can use the function <code>dim()</code> to get the size of each dimension of the data frame, and the function <code>str()</code> to get a compact summary:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aliens_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -666,6 +666,7 @@ $game[[1]]
 <pre><code>[1]  5 NA</code></pre>
 </div>
 </div>
+<p>Creating data frames from scratch is cumbersome and prone to errors. In the next section, we will see how to import data from different sources into <strong>R</strong>, as well as basic ways to prepare it for analysis.</p>
 </section>
 </section>
 <section id="references" class="level2" data-number="3.3">

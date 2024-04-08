@@ -4,7 +4,7 @@
 
 ## Data types
 
-Data types are classifications of data. These classifications help **R** conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are different rules for storing and handling each of these types. And learning these rules will allow us to analyze data later with less effort and fewer mistakes.
+Data types are classifications of data that help **R** conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are different rules for storing and handling each of these types. And learning these rules will allow us to analyze data later with less effort and fewer mistakes.
 
 There are six types of data in **R**: doubles, integers, logicals, characters, complex, and raw. **Doubles** are regular numbers with a decimal value (which may be zero). In general, R will save any number that you type in R as a double.
 ```{r double value}
@@ -33,7 +33,7 @@ typeof(my_character)
 ```
 *Anything* surrounded by quotes in R will be treated as a character string---regardless of what is between the quotes.
 
-It is easy to confuse **R** objects with character strings because both appear as pieces of text in R code. For example, `the_thing` is the name of an R object named "the_thing" that contains data; but `"the_thing"` is a character string that contains the character "the_thing", i.e., it is itself a piece of data. If we forget to use the quotation marks when writing a name, **R** will look for an object that likely doesn't exist, so we will most likely get an error.
+It is easy to confuse **R** objects with character strings because both appear as pieces of text in R code. For example, `the_thing` is the name of an R object named *the_thing* that contains data; but `"the_thing"` is a character string that contains the character *the_thing*, i.e., it is itself a piece of data. If we forget to use the quotation marks when writing a name, **R** will look for an object that likely doesn't exist, so we will most likely get an error.
 ```{r}
 #| error: true
 noquotes
@@ -93,7 +93,7 @@ scores_mat <- matrix(data = scores_vec, ncol = 3)
 scores_mat
 ```
 
-Like atomic vectors, matrices can have any data type, but only one data type (or `NA`):
+Like atomic vectors, matrices can have any data type, but only one (or `NA`):
 ```{r}
 character_mat <- matrix(
     data = c("Mario", "Peach", "Luigi", "Yoshi"), 
@@ -110,7 +110,7 @@ scores_mat <- matrix(data = scores_vec, nrow = 3, byrow = TRUE)
 scores_mat
 ```
 
-Notice the expressions with square brackets in the output above (e.g., `[,1]`). They are positional indices that signal the "coordinates" of the matrix. Two-dimensional object like matrices have two indices, one for each dimension. The first number always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation `[ ]` to extract values from matrices.
+When showing a matrix, **R** shows expressions with square brackets (e.g., `[,1]`). These are positional indices that denote the "coordinates" of the matrix. Two-dimensional objects like matrices have two indices, one for each dimension. The first number always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation `[ ]` to extract values from matrices.
 ```{r extract value from matrix}
 scores_mat[c(1, 3), 2] # Rows 1 and 3 in column 2
 ```
@@ -187,7 +187,7 @@ all_in_one_list <- list(c(3.1, 10), "El Zorro", list(character_mat))
 all_in_one_list
 ```
 
-The double-bracketed indices tell you which *element* of the list is displayed. The single-bracket indices tell you which *subelement* of an element is displayed. For example, `3.1` is the first subelement of the first element in the list, and `"El Zorro"` is the first sub-element of the second element. This double notation helps us recognize which level of the stacking we are in, regardless of what is stacked inside the list.
+The double-bracketed indices tell you which *element* of the list is displayed. The single-bracket indices tell you which *subelement* of an element is displayed. For example, `3.1` is the first subelement of the first element in the list, and `"El Zorro"` is the first subelement of the second element. This double notation helps us recognize which level of the stacking we are in, regardless of what we stack inside the list.
 
 There are two ways to access an element from a list, depending on what we want to do with the output. We can use single bracket notation `[ ]` to get a new list with elements from the original list:
 ```{r extracting list elements as a new list}
@@ -226,7 +226,9 @@ countries_info[["speak_spanish"]]
 
 ### Data frames
 
-Data frames are the most common storage structure for data analysis. We can think of them as a group of atomic vectors (columns), where different vectors can have different data types and must have the same length. Usually, each row of a data frame represents an individual observation and each column represents a different measurement or variable of that observation.
+Data frames are the most common storage structure for data analysis. We can think of them as a group of atomic vectors (columns). Usually, each row of a data frame represents an individual observation and each column represents a different measurement or variable of that observation.
+
+Different vectors can have different data types, but they must have the same length. If we use vectors of different lengths, **R** will recycle values of some vectors to ensure that the data frame has a square shape. 
 
 We can create a data frame using the `data.frame()` function. Give `data.frame()` any number of vectors of equal length, each separated with a comma. Each vector should be set equal to a name that describes the vector. data.frame will turn each vector into a column of the new data frame:
 ```{r create data frame from scratch}
@@ -237,8 +239,6 @@ aliens_df <- data.frame(
 )
 aliens_df
 ```
-
-If we try to use vectors of different lengths, **R** will recycle values of some vectors to ensure that the data frame has a square shape.
 
 We can use the function `dim()` to get the size of each dimension of the data frame, and the function `str()` to get a compact summary:
 ```{r minimal summary of data frame}
@@ -272,6 +272,7 @@ Also, as with matrices, we can use a single bracket with two indices (note that 
 aliens_df[c(1,2), "number_of_arms"]
 ```
 
+Creating data frames from scratch is cumbersome and prone to errors. In the next section, we will see how to import data from different sources into **R**, as well as basic ways to prepare it for analysis.
 
 ## References
 

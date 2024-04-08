@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - 5&nbsp; Student t-tests</title>
+<title>Introduction to R - 6&nbsp; Student t-tests</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_student_t-tests.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Student t-tests</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_student_t-tests.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Student t-tests</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -132,44 +132,50 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./04_basic_data_processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Basic data processing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./05_data_for_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_student_t-tests.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_chi-square_tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08_linear_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09_lists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10_generalized_linear_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
   </div>
 </li>
     </ul>
@@ -182,10 +188,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#one-sample-t-test" id="toc-one-sample-t-test" class="nav-link active" data-scroll-target="#one-sample-t-test"><span class="header-section-number">5.1</span> One-sample t-test</a></li>
-  <li><a href="#independent-samples-t-tests" id="toc-independent-samples-t-tests" class="nav-link" data-scroll-target="#independent-samples-t-tests"><span class="header-section-number">5.2</span> Independent Samples t-tests</a>
+  <li><a href="#one-sample-t-test" id="toc-one-sample-t-test" class="nav-link active" data-scroll-target="#one-sample-t-test"><span class="header-section-number">6.1</span> One-sample t-test</a></li>
+  <li><a href="#independent-samples-t-tests" id="toc-independent-samples-t-tests" class="nav-link" data-scroll-target="#independent-samples-t-tests"><span class="header-section-number">6.2</span> Independent Samples t-tests</a>
   <ul class="collapse">
-  <li><a href="#the-formula-operator-sim" id="toc-the-formula-operator-sim" class="nav-link" data-scroll-target="#the-formula-operator-sim"><span class="header-section-number">5.2.1</span> The formula operator (<span class="math inline">\(\sim\)</span>)</a></li>
+  <li><a href="#the-formula-operator-sim" id="toc-the-formula-operator-sim" class="nav-link" data-scroll-target="#the-formula-operator-sim"><span class="header-section-number">6.2.1</span> The formula operator (<span class="math inline">\(\sim\)</span>)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -195,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Student t-tests</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Student t-tests</span></h1>
 </div>
 
 
@@ -217,8 +223,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>A paired samples t-test to determine whether the means of two normally distributed populations are equal (<span class="math inline">\(H_0: \mu_1 = \mu_2\)</span>)</p></li>
 </ul>
 <p>Another t-test arises when testing whether a regression parameter equals 0 (<span class="math inline">\(H_0: \beta_1 = 0\)</span>).</p>
-<section id="one-sample-t-test" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="one-sample-t-test"><span class="header-section-number">5.1</span> One-sample t-test</h2>
+<section id="one-sample-t-test" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="one-sample-t-test"><span class="header-section-number">6.1</span> One-sample t-test</h2>
 <p>Clean up the workspace and import <code>height.csv</code> into <strong><span class="sans-serif">R</span></strong>.</p>
 <p><code>&gt; rm(list=ls()) # removes all objects</code></p>
 <p><code>&gt; dat = read.csv("height.csv", header=TRUE)</code></p>
@@ -241,12 +247,12 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; names(t.out)</code></p>
 <p><code>&gt; t.out$conf.int</code></p>
 </section>
-<section id="independent-samples-t-tests" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="independent-samples-t-tests"><span class="header-section-number">5.2</span> Independent Samples t-tests</h2>
+<section id="independent-samples-t-tests" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="independent-samples-t-tests"><span class="header-section-number">6.2</span> Independent Samples t-tests</h2>
 <p>Now suppose we wish to test whether there is a difference between the population mean heights for men and women (<span class="math inline">\(H_0: \mu_m = \mu_w\)</span>). Before running the t-test, let’s make side-by-side boxplots to visually compare the heights of men and women.</p>
 <p><code>&gt; boxplot(men.ht, women.ht)</code></p>
-<section id="the-formula-operator-sim" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="the-formula-operator-sim"><span class="header-section-number">5.2.1</span> The formula operator (<span class="math inline">\(\sim\)</span>)</h3>
+<section id="the-formula-operator-sim" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="the-formula-operator-sim"><span class="header-section-number">6.2.1</span> The formula operator (<span class="math inline">\(\sim\)</span>)</h3>
 <p>It is possible to avoid creating separate vectors for two groups that you would like to compare. This is done with the formula operator and many R functions can accept a formula as the first argument. The second argument must then nearly always be the data.frame where the formula should be evaluated.</p>
 <p><code>&gt; boxplot(height</code><span class="math inline">\(\sim\)</span><code>gender, data=dat)</code></p>
 <p>If you don’t include the data argument, you’ll likely get an error message:</p>
@@ -618,12 +624,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./05_data_for_analysis.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./07_chi-square_tests.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

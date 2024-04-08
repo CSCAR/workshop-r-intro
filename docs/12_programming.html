@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - 10&nbsp; Programming</title>
+<title>Introduction to R - 11&nbsp; Programming</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12_programming.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Programming</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12_programming.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Programming</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -129,44 +129,50 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./04_basic_data_processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Basic data processing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./05_data_for_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data for Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_student_t-tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Student t-tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_chi-square_tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chi-Square tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08_linear_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Linear Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09_lists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10_generalized_linear_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_programming.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Programming</span></span></a>
   </div>
 </li>
     </ul>
@@ -179,10 +185,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#branching" id="toc-branching" class="nav-link active" data-scroll-target="#branching"><span class="header-section-number">10.1</span> Branching</a></li>
-  <li><a href="#looping" id="toc-looping" class="nav-link" data-scroll-target="#looping"><span class="header-section-number">10.2</span> Looping</a></li>
-  <li><a href="#blood-pressure-example-revisited" id="toc-blood-pressure-example-revisited" class="nav-link" data-scroll-target="#blood-pressure-example-revisited"><span class="header-section-number">10.3</span> Blood Pressure Example Revisited</a></li>
-  <li><a href="#the-apply-function" id="toc-the-apply-function" class="nav-link" data-scroll-target="#the-apply-function"><span class="header-section-number">10.4</span> The <code>apply</code> Function</a></li>
+  <li><a href="#branching" id="toc-branching" class="nav-link active" data-scroll-target="#branching"><span class="header-section-number">11.1</span> Branching</a></li>
+  <li><a href="#looping" id="toc-looping" class="nav-link" data-scroll-target="#looping"><span class="header-section-number">11.2</span> Looping</a></li>
+  <li><a href="#blood-pressure-example-revisited" id="toc-blood-pressure-example-revisited" class="nav-link" data-scroll-target="#blood-pressure-example-revisited"><span class="header-section-number">11.3</span> Blood Pressure Example Revisited</a></li>
+  <li><a href="#the-apply-function" id="toc-the-apply-function" class="nav-link" data-scroll-target="#the-apply-function"><span class="header-section-number">11.4</span> The <code>apply</code> Function</a></li>
   </ul>
 </nav>
     </div>
@@ -191,7 +197,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Programming</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Programming</span></h1>
 </div>
 
 
@@ -207,8 +213,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>Programming in <strong><span class="sans-serif">R</span></strong> is basically the same as programming in any other language; the core program is controlled by a series of if-then statements, loops, print statements, calls to other programs, and return statements. The only differences are minor syntax conventions that just take practice.</p>
-<section id="branching" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="branching"><span class="header-section-number">10.1</span> Branching</h2>
+<section id="branching" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="branching"><span class="header-section-number">11.1</span> Branching</h2>
 <p>To begin with, let’s look at an example of how if-then statements work in <strong><span class="sans-serif">R</span></strong>. Try submitting this command at the prompt to see how it works:</p>
 <p><code>&gt; if (1&gt;0) print("I Like Binary")</code></p>
 <p>Note that <strong><span class="sans-serif">R</span></strong> prints “I Like Binary" because the condition in the <em>if</em> statement is true. The <code>print</code> function is very useful for programming purposes, in that it prints simple strings in the <strong><span class="sans-serif">R</span></strong> Console. No explicitly labeled <em>then</em> statement is needed after an <em>if</em> statement; you simply type what you would like <strong><span class="sans-serif">R</span></strong> to do if the <em>if</em> condition is true. In general, if you want to do more than one thing if the <em>if</em> condition is true, you use this bracketed structure:</p>
@@ -220,8 +226,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The statements in the brackets usually refer to function calls and object assignments, and simply need to be on separate lines (no punctuation necessary!). If necessary, you can use an “else” option:</p>
 <p><code>&gt; if (x&gt;5) print("x is big") else print("x is small")</code></p>
 </section>
-<section id="looping" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="looping"><span class="header-section-number">10.2</span> Looping</h2>
+<section id="looping" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="looping"><span class="header-section-number">11.2</span> Looping</h2>
 <p>Now let’s take a look at how a “for” loop works in <strong><span class="sans-serif">R</span></strong>. Try submitting the following syntax at the command prompt:</p>
 <p><code>&gt; for (i in 1:5) print(i)</code></p>
 <p><strong><span class="sans-serif">R</span></strong> prints 1, 2, 3, 4, and 5. <em>For</em> loops work like <em>if</em> conditions, and if you want <strong><span class="sans-serif">R</span></strong> to do more than one thing in a <em>for</em> loop, use brackets around the commands:</p>
@@ -237,8 +243,8 @@ ul.task-list li input[type="checkbox"] {
 <code>t = t+1</code><br>
 <code>}</code></p>
 </section>
-<section id="blood-pressure-example-revisited" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="blood-pressure-example-revisited"><span class="header-section-number">10.3</span> Blood Pressure Example Revisited</h2>
+<section id="blood-pressure-example-revisited" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="blood-pressure-example-revisited"><span class="header-section-number">11.3</span> Blood Pressure Example Revisited</h2>
 <p>Earlier we dealt with a data set where diastolic and systolic blood pressure had been read into a single column separated. We learned how to extract the two blood pressures using the <code>strsplit</code> function. Now that we have discussed creating functions and programming, we will separate the two measurements for the entire data set. We begin by clearing up the workspace.</p>
 <p><code>&gt; ls()</code></p>
 <p><code>&gt; rm(list=ls())</code></p>
@@ -284,8 +290,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>&gt; systolic</code></p>
 <p><code>&gt; diastolic</code></p>
 </section>
-<section id="the-apply-function" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="the-apply-function"><span class="header-section-number">10.4</span> The <code>apply</code> Function</h2>
+<section id="the-apply-function" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="the-apply-function"><span class="header-section-number">11.4</span> The <code>apply</code> Function</h2>
 <p>The <code>apply</code> function performs a function on each row or column of a matrix. (There are other *apply functions for other situations.) First create a couple matrices to play with. In addition to the <code>matrix</code> function, <code>rbind</code> (or <code>cbind</code>) can be used to create matrices. For example,</p>
 <p><code>&gt; c1 = c(2, 9, 3)</code></p>
 <p><code>&gt; c2 = c(12, 1, 5)</code></p>
@@ -656,7 +662,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./10_generalized_linear_models.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generalized Linear Models (GLM)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

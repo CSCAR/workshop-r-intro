@@ -1,0 +1,40 @@
+# Basic data processing
+
+Now that we understand how **R** handles data, we can start working with pre-existing data files. These files need to be correctly formatted and in a file format that **R** can recognize. Don't worry, there are plenty of options.
+
+The first step when loading data in **R** is to locate our working directory. This is the default location where **R** will look for files we want to load and where it will put any files we save. Working directory will vary on different computers. To determine which directory **R** is using as your working directory, run:
+
+```{r get working directory}
+getwd()
+```
+
+You can place data files straight into the folder that is your working directory, or you can move your working directory to where your data files are. You can move your working directory to any folder on your computer with the function `setwd()`. Just give `setwd()` the [file path](https://www.codecademy.com/resources/docs/general/file-paths) to your new working directory. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. That way I can keep all of my data, scripts, graphs, and reports in the same place. For example:
+
+```{r}
+#| eval: false
+setwd("C:/Users/user_name/workshop_folder/learning_r/code")
+```
+
+You can also change your working directory by clicking on Session > Set Working Directory > Choose Directory in the **R**Studio menu bar. The Windows and Mac graphical user interfaces have similar options. If you start **R** from a UNIX command line (as on Linux machines), the working directory will be whichever directory you were in when you called R.
+
+`list.files()` will show you what files are in your working directory. If the file that you want to open is in your working directory, then you are ready to proceed.
+
+## Loading data
+
+Once we know where to find data files in our computer, we can start loading them into **R**. Note, however, that we need specific ways to open different file formats. 
+
+### Plain text files
+
+Plain-text files are simple and many programs can read them. This is why many organizations (e.g., the Census Bureau, the Social Security Administration, etc.) publish their data as plain-text files.
+
+#### read.table
+
+A plain-text file stores a table of data in a text document. Each row of the table is saved on its own line, and a simple symbol separates the cells within a row. This symbol is often a comma, but it can also be a tab, a pipe delimiter `|`, or any other character. Each file only uses one symbol to separate cells, which minimizes confusion.
+
+## Cleaning data
+
+## Data summaries and visualizations
+
+## References
+
+Most of this section is based on ["Hands-On Programming with R"](https://rstudio-education.github.io/hopr/), by Garret Grolemund; and on ["An Introduction to R"](https://intro2r.com/), by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto & David Lusseau.

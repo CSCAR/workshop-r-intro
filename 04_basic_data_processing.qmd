@@ -55,7 +55,7 @@ flower_df_chunk
 
 `read.table()` has other arguments that you can tweak. You can consult the function's help page to know more about it.
 
-### Shortcuts for read.table
+#### Shortcuts for read.table
 
 **R** has shortcut functions that call `read.table()` in the background with different default values for popular types of files:
 
@@ -65,7 +65,7 @@ flower_df_chunk
 + `read.csv2` reads .csv files with European decimal format.
 + `read.delim2` reads tab-delimited files with European decimal format.
 
-### read.fwf
+#### read.fwf
 
 There is a type of plain-text file called *fixed-width file* (.fwf). Instead of a symbol, a fixed-width file uses its layout to separate data cells. Each row is still in a single line, and each column begins at a specific number of characters from the left-hand side of the document. To correctly position its data, the file adds an arbitrary number of character spaces between data entries.
 
@@ -96,7 +96,7 @@ flowers_fwf_df <- read.fwf(
 flowers_fwf_df
 ```
 
-### HTML links
+#### HTML links
 
 `read.table` and its shortcuts allow us to load data files directly from a website. Instead of using the file's path or name, we can directly use a web address in the `file` argument of the function. Do make sure that you are using the web address that links directly to the file, not to a web page that has a link to the file.
 

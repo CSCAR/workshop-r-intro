@@ -223,9 +223,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#loading-data" id="toc-loading-data" class="nav-link active" data-scroll-target="#loading-data"><span class="header-section-number">4.1</span> Loading data</a>
   <ul class="collapse">
   <li><a href="#plain-text-files" id="toc-plain-text-files" class="nav-link" data-scroll-target="#plain-text-files"><span class="header-section-number">4.1.1</span> Plain text files</a></li>
-  <li><a href="#shortcuts-for-read.table" id="toc-shortcuts-for-read.table" class="nav-link" data-scroll-target="#shortcuts-for-read.table"><span class="header-section-number">4.1.2</span> Shortcuts for read.table</a></li>
-  <li><a href="#read.fwf" id="toc-read.fwf" class="nav-link" data-scroll-target="#read.fwf"><span class="header-section-number">4.1.3</span> read.fwf</a></li>
-  <li><a href="#html-links" id="toc-html-links" class="nav-link" data-scroll-target="#html-links"><span class="header-section-number">4.1.4</span> HTML links</a></li>
   </ul></li>
   <li><a href="#cleaning-data" id="toc-cleaning-data" class="nav-link" data-scroll-target="#cleaning-data"><span class="header-section-number">4.2</span> Cleaning data</a></li>
   <li><a href="#data-summaries-and-visualizations" id="toc-data-summaries-and-visualizations" class="nav-link" data-scroll-target="#data-summaries-and-visualizations"><span class="header-section-number">4.3</span> Data summaries and visualizations</a></li>
@@ -301,9 +298,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><code>read.table()</code> has other arguments that you can tweak. You can consult the function’s help page to know more about it.</p>
 </section>
-</section>
-<section id="shortcuts-for-read.table" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="shortcuts-for-read.table"><span class="header-section-number">4.1.2</span> Shortcuts for read.table</h3>
+<section id="shortcuts-for-read.table" class="level4" data-number="4.1.1.2">
+<h4 data-number="4.1.1.2" class="anchored" data-anchor-id="shortcuts-for-read.table"><span class="header-section-number">4.1.1.2</span> Shortcuts for read.table</h4>
 <p><strong>R</strong> has shortcut functions that call <code>read.table()</code> in the background with different default values for popular types of files:</p>
 <ul>
 <li><code>read.table</code> is the general purpose read function.</li>
@@ -313,8 +309,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>read.delim2</code> reads tab-delimited files with European decimal format.</li>
 </ul>
 </section>
-<section id="read.fwf" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="read.fwf"><span class="header-section-number">4.1.3</span> read.fwf</h3>
+<section id="read.fwf" class="level4" data-number="4.1.1.3">
+<h4 data-number="4.1.1.3" class="anchored" data-anchor-id="read.fwf"><span class="header-section-number">4.1.1.3</span> read.fwf</h4>
 <p>There is a type of plain-text file called <em>fixed-width file</em> (.fwf). Instead of a symbol, a fixed-width file uses its layout to separate data cells. Each row is still in a single line, and each column begins at a specific number of characters from the left-hand side of the document. To correctly position its data, the file adds an arbitrary number of character spaces between data entries.</p>
 <p>If our flowers data came in a fixed-width file, the first few lines would look like this:</p>
 <div class="cell">
@@ -329,8 +325,10 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 <p>Fixed-width files may be visually intuitive, but they are difficult to work with. Perhaps because of this, <strong>R</strong> has a function for reading fixed-width files, but not for saving them.</p>
 <p>You can read fixed-width files into R with the function <code>read.fwf()</code>. This function adds another argument to the ones from <code>read.table()</code>: <code>widths</code>, which should be a vector of numbers. Each ith entry of the <code>widths</code> vector should state the width (in characters) of the ith column of the data set.</p>
 </section>
-<section id="html-links" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="html-links"><span class="header-section-number">4.1.4</span> HTML links</h3>
+<section id="html-links" class="level4" data-number="4.1.1.4">
+<h4 data-number="4.1.1.4" class="anchored" data-anchor-id="html-links"><span class="header-section-number">4.1.1.4</span> HTML links</h4>
+<p><code>read.table</code> and its shortcuts allow us to load data files directly from a website. Instead of using the file’s path or name, we can directly use a web address in the <code>file</code> argument of the function. Do make sure that you are using the web address that links directly to the file, not to a web page that has a link to the file.</p>
+</section>
 </section>
 </section>
 <section id="cleaning-data" class="level2" data-number="4.2">

@@ -223,6 +223,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#loading-data" id="toc-loading-data" class="nav-link active" data-scroll-target="#loading-data"><span class="header-section-number">4.1</span> Loading data</a>
   <ul class="collapse">
   <li><a href="#plain-text-files" id="toc-plain-text-files" class="nav-link" data-scroll-target="#plain-text-files"><span class="header-section-number">4.1.1</span> Plain text files</a></li>
+  <li><a href="#shortcuts-for-read.table" id="toc-shortcuts-for-read.table" class="nav-link" data-scroll-target="#shortcuts-for-read.table"><span class="header-section-number">4.1.2</span> Shortcuts for read.table</a></li>
+  <li><a href="#read.fwf" id="toc-read.fwf" class="nav-link" data-scroll-target="#read.fwf"><span class="header-section-number">4.1.3</span> read.fwf</a></li>
+  <li><a href="#html-links" id="toc-html-links" class="nav-link" data-scroll-target="#html-links"><span class="header-section-number">4.1.4</span> HTML links</a></li>
   </ul></li>
   <li><a href="#cleaning-data" id="toc-cleaning-data" class="nav-link" data-scroll-target="#cleaning-data"><span class="header-section-number">4.2</span> Cleaning data</a></li>
   <li><a href="#data-summaries-and-visualizations" id="toc-data-summaries-and-visualizations" class="nav-link" data-scroll-target="#data-summaries-and-visualizations"><span class="header-section-number">4.3</span> Data summaries and visualizations</a></li>
@@ -258,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "C:/Users/abnerhb/Documents/workshops/workshop-r-intro"</code></pre>
 </div>
 </div>
-<p>You can place data files straight into the folder that is your working directory, or you can move your working directory to where your data files are. You can move your working directory to any folder on your computer with the function <code>setwd()</code>. Just give <code>setwd()</code> the <a href="https://www.codecademy.com/resources/docs/general/file-paths">file path</a> to your new working directory. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. That way I can keep all of my data, scripts, graphs, and reports in the same place. For example:</p>
+<p>You can move your working directory to any folder on your computer with the function <code>setwd()</code>. Just give <code>setwd()</code> the <a href="https://www.codecademy.com/resources/docs/general/file-paths">file path</a> to your new working directory. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. This way, all related data, scripts, graphs, and reports are in the same place. For example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/user_name/workshop_folder/learning_r/code"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -270,23 +273,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="plain-text-files" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="plain-text-files"><span class="header-section-number">4.1.1</span> Plain text files</h3>
 <p>Plain-text files are simple and many programs can read them. This is why many organizations (e.g., the Census Bureau, the Social Security Administration, etc.) publish their data as plain-text files.</p>
+<p>A plain-text file stores a table of data in a text document. Each row of the table is saved on its own line, and a simple symbol separates the cells within a row. This symbol is often a comma, but it can also be a tab, a pipe delimiter <code>|</code>, or any other character. Each file only uses one symbol to separate cells, which minimizes confusion.</p>
+<p>We will work with data from <a href="https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower.csv">this</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> plain text file. Use <code>Ctrl+Shift+s</code> to download the file. Then save it in your working directory with the name “flower”.</p>
 <section id="read.table" class="level4" data-number="4.1.1.1">
 <h4 data-number="4.1.1.1" class="anchored" data-anchor-id="read.table"><span class="header-section-number">4.1.1.1</span> read.table</h4>
-<p>A plain-text file stores a table of data in a text document. Each row of the table is saved on its own line, and a simple symbol separates the cells within a row. This symbol is often a comma, but it can also be a tab, a pipe delimiter <code>|</code>, or any other character. Each file only uses one symbol to separate cells, which minimizes confusion.</p>
+<p><code>read.table()</code> can load plain-text files. The first argument of <code>read.table()</code> is the name of your file (if it is in your working directory), or the file path to your file (if it is not in your working directory).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>flower_df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data_files/flower.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In the code above, I added two more arguments, <code>header</code> and <code>sep</code>. <code>header</code> tells <strong>R</strong> whether the first line of the file contains variable names instead of values. <code>sep</code> tells <strong>R</strong> the symbol that the file uses to separate the cells.</p>
+<p>Sometimes a plain-text file starts with text that is not part of the data set. Or, maybe we want to read only part of a data set. Argument <code>skip</code> tells R to skip a specific number of lines before it starts reading in values from the file. Argument <code>nrow</code> tells <strong>R</strong> to stop reading in values after it has read in a certain number of lines. Keep in mind that the header row doesn’t count towards the total rows allowed by <code>nrow</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>flower_df_chunk <span class="ot">&lt;-</span> <span class="fu">read.table</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"data_files/flower.csv"</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">","</span>, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">skip =</span> <span class="dv">0</span>, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">nrow =</span> <span class="dv">3</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>flower_df_chunk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  treat nitrogen block height weight leafarea shootarea flowers
+1   tip   medium     1    7.5   7.62     11.7      31.9       1
+2   tip   medium     1   10.7  12.14     14.1      46.0      10
+3   tip   medium     1   11.2  12.76      7.1      66.7      10</code></pre>
+</div>
+</div>
+<p><code>read.table()</code> has other arguments that you can tweak. You can consult the function’s help page to know more about it.</p>
 </section>
+</section>
+<section id="shortcuts-for-read.table" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="shortcuts-for-read.table"><span class="header-section-number">4.1.2</span> Shortcuts for read.table</h3>
+<p><strong>R</strong> has shortcut functions that call <code>read.table()</code> in the background with different default values for popular types of files:</p>
+<ul>
+<li><code>read.table</code> is the general purpose read function.</li>
+<li><code>read.csv</code> reads comma-separated values (.csv) files.</li>
+<li><code>read.delim</code> reads tab-delimited files.</li>
+<li><code>read.csv2</code> reads .csv files with European decimal format.</li>
+<li><code>read.delim2</code> reads tab-delimited files with European decimal format.</li>
+</ul>
+</section>
+<section id="read.fwf" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="read.fwf"><span class="header-section-number">4.1.3</span> read.fwf</h3>
+<p>There is a type of plain-text file called <em>fixed-width file</em> (.fwf). Instead of a symbol, a fixed-width file uses its layout to separate data cells. Each row is still in a single line, and each column begins at a specific number of characters from the left-hand side of the document. To correctly position its data, the file adds an arbitrary number of character spaces between data entries.</p>
+<p>If our flowers data came in a fixed-width file, the first few lines would look like this:</p>
+<div class="cell">
+<pre class="flowers cell-code"><code>treat  nitrogen block  height  weight  leafarea  shootarea  flowers
+tip    medium   1      7.5     7.62    11.7      31.9       1
+tip    medium   1      10.7    12.14   14.1      46.0       10
+tip    medium   1      11.2    12.76   7.1       66.7       10
+tip    medium   1      10.4    8.78    11.9      20.3       1
+tip    medium   1      10.4    13.58   14.5      26.9       4
+tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
+</div>
+<p>Fixed-width files may be visually intuitive, but they are difficult to work with. Perhaps because of this, <strong>R</strong> has a function for reading fixed-width files, but not for saving them.</p>
+<p>You can read fixed-width files into R with the function <code>read.fwf()</code>. This function adds another argument to the ones from <code>read.table()</code>: <code>widths</code>, which should be a vector of numbers. Each ith entry of the <code>widths</code> vector should state the width (in characters) of the ith column of the data set.</p>
+</section>
+<section id="html-links" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="html-links"><span class="header-section-number">4.1.4</span> HTML links</h3>
 </section>
 </section>
 <section id="cleaning-data" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="cleaning-data"><span class="header-section-number">4.2</span> Cleaning data</h2>
+<p>First we want to make sure that the column names follow the rules we saw in section 1. This will facilitate working with different columns later.</p>
+<p>Now we want to ensure that every column has the right format. Let’s check the types of the columns in our current data set <strong>R</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># str(flowers_df_clean)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Columns INSERT NAMES HERE are of type character, which is not wrong, but it will be easier to handle them if we convert them to factors.</p>
+<p>Next, let’s substitute the “missing” values with</p>
+<p>Notice that column INSERT NAME HERE is of type character, but it has numbers there. In this case, the reason is that one value in INSERT NAME HERE has quotation marks, so <strong>R</strong> coerces the entire column to be of type character. We can fix this by doing:</p>
 </section>
 <section id="data-summaries-and-visualizations" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="data-summaries-and-visualizations"><span class="header-section-number">4.3</span> Data summaries and visualizations</h2>
+<p>Now that our data is clean, we can get more complete summaries to understand what is going on. Function <code>summary()</code> recognizes the type of each column and displays an intuitively appropriate summary:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(flower_df_clean)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="references" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="references"><span class="header-section-number">4.4</span> References</h2>
 <p>Most of this section is based on <a href="https://rstudio-education.github.io/hopr/">“Hands-On Programming with R”</a>, by Garret Grolemund; and on <a href="https://intro2r.com/">“An Introduction to R”</a>, by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto &amp; David Lusseau.</p>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>You can find the original file <a href="https://alexd106.github.io/intro2R/data.html">here</a> courtesy of Douglas et al.&nbsp;(see references).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

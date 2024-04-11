@@ -319,21 +319,21 @@
     "href": "04_basic_data_processing.html#loading-data",
     "title": "4  Basic data processing",
     "section": "4.1 Loading data",
-    "text": "4.1 Loading data\nOnce we know where to find data files in our computer, we can start loading them into R. Note, however, that we need specific ways to open different file formats.\n\n4.1.1 Plain text files\nPlain-text files are simple and many programs can read them. This is why many organizations (e.g., the Census Bureau, the Social Security Administration, etc.) publish their data as plain-text files.\n\n4.1.1.1 read.table\nA plain-text file stores a table of data in a text document. Each row of the table is saved on its own line, and a simple symbol separates the cells within a row. This symbol is often a comma, but it can also be a tab, a pipe delimiter |, or any other character. Each file only uses one symbol to separate cells, which minimizes confusion."
+    "text": "4.1 Loading data\nOnce we know where to find data files in our computer, we can start loading them into R. Note, however, that we need specific ways to open different file formats.\n\n4.1.1 Plain text files\nPlain-text files are simple and many programs can read them. This is why many organizations (e.g., the Census Bureau, the Social Security Administration, etc.) publish their data as plain-text files.\nA plain-text file stores a table of data in a text document. Each row of the table is saved on its own line, and a simple symbol separates the cells within a row. This symbol is often a comma, but it can also be a tab, a pipe delimiter |, or any other character. Each file only uses one symbol to separate cells, which minimizes confusion.\nWe will work with data from this1 plain text file. Use Ctrl+Shift+s to download the file. Then save it in your working directory with the name “flower”.\n\n4.1.1.1 read.table\nread.table() can load plain-text files. The first argument of read.table() is the name of your file (if it is in your working directory), or the file path to your file (if it is not in your working directory).\n\nflower_df &lt;- read.table(\"data_files/flower.csv\", header = TRUE, sep = \",\")\n\nIn the code above, I added two more arguments, header and sep. header tells R whether the first line of the file contains variable names instead of values. sep tells R the symbol that the file uses to separate the cells.\nSometimes a plain-text file starts with text that is not part of the data set. Or, maybe we want to read only part of a data set. Argument skip tells R to skip a specific number of lines before it starts reading in values from the file. Argument nrow tells R to stop reading in values after it has read in a certain number of lines. Keep in mind that the header row doesn’t count towards the total rows allowed by nrow.\n\nflower_df_chunk &lt;- read.table(\n    \"data_files/flower.csv\", \n    header = TRUE, \n    sep = \",\", \n    skip = 0, \n    nrow = 3\n)\nflower_df_chunk\n\n  treat nitrogen block height weight leafarea shootarea flowers\n1   tip   medium     1    7.5   7.62     11.7      31.9       1\n2   tip   medium     1   10.7  12.14     14.1      46.0      10\n3   tip   medium     1   11.2  12.76      7.1      66.7      10\n\n\nread.table() has other arguments that you can tweak. You can consult the function’s help page to know more about it.\n\n\n\n4.1.2 Shortcuts for read.table\nR has shortcut functions that call read.table() in the background with different default values for popular types of files:\n\nread.table is the general purpose read function.\nread.csv reads comma-separated values (.csv) files.\nread.delim reads tab-delimited files.\nread.csv2 reads .csv files with European decimal format.\nread.delim2 reads tab-delimited files with European decimal format.\n\n\n\n4.1.3 read.fwf\nThere is a type of plain-text file called fixed-width file (.fwf). Instead of a symbol, a fixed-width file uses its layout to separate data cells. Each row is still in a single line, and each column begins at a specific number of characters from the left-hand side of the document. To correctly position its data, the file adds an arbitrary number of character spaces between data entries.\nIf our flowers data came in a fixed-width file, the first few lines would look like this:\n\ntreat  nitrogen block  height  weight  leafarea  shootarea  flowers\ntip    medium   1      7.5     7.62    11.7      31.9       1\ntip    medium   1      10.7    12.14   14.1      46.0       10\ntip    medium   1      11.2    12.76   7.1       66.7       10\ntip    medium   1      10.4    8.78    11.9      20.3       1\ntip    medium   1      10.4    13.58   14.5      26.9       4\ntip    medium   1      9.8     10.08   12.2      72.7       9\n\nFixed-width files may be visually intuitive, but they are difficult to work with. Perhaps because of this, R has a function for reading fixed-width files, but not for saving them.\nYou can read fixed-width files into R with the function read.fwf(). This function adds another argument to the ones from read.table(): widths, which should be a vector of numbers. Each ith entry of the widths vector should state the width (in characters) of the ith column of the data set.\n\n\n4.1.4 HTML links"
   },
   {
     "objectID": "04_basic_data_processing.html#cleaning-data",
     "href": "04_basic_data_processing.html#cleaning-data",
     "title": "4  Basic data processing",
     "section": "4.2 Cleaning data",
-    "text": "4.2 Cleaning data"
+    "text": "4.2 Cleaning data\nFirst we want to make sure that the column names follow the rules we saw in section 1. This will facilitate working with different columns later.\nNow we want to ensure that every column has the right format. Let’s check the types of the columns in our current data set R.\n\n# str(flowers_df_clean)\n\nColumns INSERT NAMES HERE are of type character, which is not wrong, but it will be easier to handle them if we convert them to factors.\nNext, let’s substitute the “missing” values with\nNotice that column INSERT NAME HERE is of type character, but it has numbers there. In this case, the reason is that one value in INSERT NAME HERE has quotation marks, so R coerces the entire column to be of type character. We can fix this by doing:"
   },
   {
     "objectID": "04_basic_data_processing.html#data-summaries-and-visualizations",
     "href": "04_basic_data_processing.html#data-summaries-and-visualizations",
     "title": "4  Basic data processing",
     "section": "4.3 Data summaries and visualizations",
-    "text": "4.3 Data summaries and visualizations"
+    "text": "4.3 Data summaries and visualizations\nNow that our data is clean, we can get more complete summaries to understand what is going on. Function summary() recognizes the type of each column and displays an intuitively appropriate summary:\n\n# summary(flower_df_clean)"
   },
   {
     "objectID": "04_basic_data_processing.html#references",
@@ -341,5 +341,12 @@
     "title": "4  Basic data processing",
     "section": "4.4 References",
     "text": "4.4 References\nMost of this section is based on “Hands-On Programming with R”, by Garret Grolemund; and on “An Introduction to R”, by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto & David Lusseau."
+  },
+  {
+    "objectID": "04_basic_data_processing.html#footnotes",
+    "href": "04_basic_data_processing.html#footnotes",
+    "title": "4  Basic data processing",
+    "section": "",
+    "text": "You can find the original file here courtesy of Douglas et al. (see references).↩︎"
   }
 ]

@@ -236,7 +236,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#working-with-scripts" id="toc-working-with-scripts" class="nav-link" data-scroll-target="#working-with-scripts"><span class="header-section-number">2.7</span> Working with scripts</a></li>
   <li><a href="#writing-our-own-functions" id="toc-writing-our-own-functions" class="nav-link" data-scroll-target="#writing-our-own-functions"><span class="header-section-number">2.8</span> Writing our own functions</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">2.9</span> Exercise</a></li>
+  <li><a href="#acquiring-external-packages" id="toc-acquiring-external-packages" class="nav-link" data-scroll-target="#acquiring-external-packages"><span class="header-section-number">2.9</span> Acquiring external packages</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">2.10</span> Exercise</a></li>
   </ul>
 </nav>
     </div>
@@ -949,11 +950,30 @@ Objects created in functions disappear
 </div>
 </div>
 </section>
-<section id="exercise" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="exercise"><span class="header-section-number">2.9</span> Exercise</h2>
+<section id="acquiring-external-packages" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="acquiring-external-packages"><span class="header-section-number">2.9</span> Acquiring external packages</h2>
+<p>We don’t need to reinvent the wheel every time we need to do something that is not available in <strong>R</strong>’s default version. We can easily download packages from CRAN’s online repositories to get many useful functions.</p>
+<p>To install a package from CRAN, we can use the <code>install.packages()</code> function. For example, if we wanted to install the package <code>readxl</code> (for loading .xslx files), we would need:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The argument <code>dependencies</code> tells <strong>R</strong> whether it should also download other packages that <code>readxl</code> needs to work.</p>
+<p><strong>R</strong> may ask you to select a CRAN mirror, which simply put refers to the location of the servers you want to download from. Choose a mirror close to where you are.</p>
+<p>After installing a package, we need to load it into <strong>R</strong> before we can use its functions. To load the package <code>readxl</code>, we need to use the function <code>library()</code>, which will also load any other packages required to load <code>readxl</code> and may print additional information.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readxl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Every time we start a new <strong>R</strong> session we need to load the packages we need. If we try to run a function without loading its package first, we will get an error message saying that <strong>R</strong> could not find it.</p>
+<p>Writing all our <code>library()</code> statements at the top of our <strong>R</strong> scripts is almost always a good idea. This helps us know that we need to load the libraries at the start our sessions; and it helps others know quickly that they will need to have those libraries installed to be able to use our code.</p>
+<p>Sometimes only need one or two functions from a library. To avoid loading the entire library, we can access the specific function directly by specifying the package name followed by two colons and then the function name. For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"fake_data_file.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="exercise"><span class="header-section-number">2.10</span> Exercise</h2>
 <p>Let’s try to practice all of the basic features of <strong><span class="sans-serif">R</span></strong> that you just learned.</p>
 <p>Write a function that can simulate the roll of a pair of six-sided dice (let’s call them red and blue) an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die. Hint: to simulate rolling a die, you can use the function <code>sample()</code>.</p>
-<p>Bonus: modify your function so that the dice can have different numbers of faces.</p>
 
 
 </section>

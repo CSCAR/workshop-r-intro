@@ -639,11 +639,39 @@ multiply_solutions(a = 1, b = -1, c = -3, multiplier = 10)
 All of the objects that we create inside a function will disappear after it finishes running. We can only save the output of the function by assigning it to an object.
 :::
 
+## Acquiring external packages
+
+We don't need to reinvent the wheel every time we need to do something that is not available in **R**'s default version. We can easily download packages from CRAN's online repositories to get many useful functions.
+
+To install a package from CRAN, we can use the `install.packages()` function. For example, if we wanted to install the package `readxl` (for loading .xslx files), we would need:
+```{r installing readxl}
+#| eval: false
+install.packages("readxl", dependencies = TRUE)
+```
+
+The argument `dependencies` tells **R** whether it should also download other packages that `readxl` needs to work.
+
+**R** may ask you to select a CRAN mirror, which simply put refers to the location of the servers you want to download from. Choose a mirror close to where you are.
+
+After installing a package, we need to load it into **R** before we can use its functions. To load the package `readxl`, we need to use the function `library()`, which will also load any other packages required to load `readxl` and may print additional information.
+```{r loading readxl}
+#| eval: false
+library("readxl")
+```
+
+Every time we start a new **R** session we need to load the packages we need. If we try to run a function without loading its package first, we will get an error message saying that **R** could not find it. 
+
+Writing all our `library()` statements at the top of our **R** scripts is almost always a good idea. This helps us know that we need to load the libraries at the start our sessions; and it helps others know quickly that they will need to have those libraries installed to be able to use our code.
+
+Sometimes only need one or two functions from a library. To avoid loading the entire library, we can access the specific function directly by specifying the package name followed by two colons and then the function name. For example:
+```{r using specific function from library}
+#| eval: false
+readxl::read_xlsx("fake_data_file.xlsx")
+```
+
 
 ## Exercise
 
 Let's try to practice all of the basic features of **[R]{.sans-serif}** that you just learned.
 
 Write a function that can simulate the roll of a pair of six-sided dice (let's call them red and blue) an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die. Hint: to simulate rolling a die, you can use the function `sample()`.
-
-Bonus: modify your function so that the dice can have different numbers of faces.

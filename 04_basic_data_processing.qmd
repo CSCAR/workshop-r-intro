@@ -2,22 +2,22 @@
 
 Now that we understand how **R** handles data, we can start working with pre-existing data files. These files need to be correctly formatted and in a file format that **R** can recognize. Don't worry, there are plenty of options.
 
-The first step when loading data in **R** is to locate our working directory. This is the default location where **R** will look for files we want to load and where it will put any files we save. The working directory will change on different computers. To determine which directory **R** is using as your working directory, run:
+The first step when loading data in **R** is to locate our working directory. This is the default location where **R** will look for files we want to load and where it will put any files we save. The working directory will change on different computers. To find our current working directory, we run:
 
 ```{r get working directory}
 getwd()
 ```
 
-You can move your working directory to any folder on your computer with the function `setwd()`. Just give `setwd()` the [file path](https://www.codecademy.com/resources/docs/general/file-paths) to your new working directory. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. This way, all files related to my project are in the same place. For example:
+We can move our working directory to any folder on your computer with the function `setwd()`. Just give `setwd()` the [file path](https://www.codecademy.com/resources/docs/general/file-paths) to your new working directory. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. This way, all files related to my project are in the same place. For example:
 
 ```{r}
 #| eval: false
 setwd("C:/Users/user_name/workshop_folder/learning_r/code")
 ```
 
-You can also change your working directory by clicking on Session > Set Working Directory > Choose Directory in the **R**Studio menu bar. The Windows and Mac graphical user interfaces have similar options. If you start **R** from a UNIX command line (as on Linux machines), the working directory will be whichever directory you were in when you called R.
+We can also change your working directory by clicking on Session > Set Working Directory > Choose Directory in the **R**Studio menu bar. The Windows and Mac graphical user interfaces have similar options. If you start **R** from a UNIX command line (as on Linux machines), the working directory will be whichever directory we were in when we called R.
 
-`list.files()` will show you what files are in your working directory. If the file that you want to open is in your working directory, then you are ready to proceed.
+`list.files()` will show us what files are in our working directory. If the file that we want to open is in our working directory, then we are ready to proceed.
 
 ## Loading data
 
@@ -33,7 +33,7 @@ We will work with data from [this](https://github.com/CSCAR/workshop-r-intro/blo
 
 #### read.table
 
-`read.table()` can load plain-text files. The first argument of `read.table()` is the name of your file (if it is in your working directory), or the file path to your file (if it is not in your working directory). 
+`read.table()` can load plain-text files. The first argument of `read.table()` is the name of our file (if it is in your working directory), or the file path to our file (if it is not in our working directory). 
 ```{r loading flower_df}
 flower_df <- read.table("data_files/flower.csv", header = TRUE, sep = ",")
 ```
@@ -53,7 +53,7 @@ flower_df_chunk <- read.table(
 flower_df_chunk
 ```
 
-`read.table()` has other arguments that you can tweak. You can consult the function's help page to know more about it.
+`read.table()` has other arguments that we can tweak. You can consult the function's help page to know more about it.
 
 #### Shortcuts for read.table
 
@@ -87,7 +87,7 @@ tip    medium   1      9.8     10.08   12.2      72.7       9
 
 Fixed-width files may be visually intuitive, but they are difficult to work with. Perhaps because of this, **R** has a function for reading fixed-width files, but not for saving them.
 
-You can read fixed-width files into R with the function `read.fwf()`. This function adds another argument to the ones from `read.table()`: `widths`, which should be a vector of numbers. Each ith entry of the `widths` vector should state the width (in characters) of the ith column of the data set.
+We can read fixed-width files into R with the function `read.fwf()`. This function adds another argument to the ones from `read.table()`: `widths`, which should be a vector of numbers. Each ith entry of the `widths` vector should state the width (in characters) of the ith column of the data set.
 
 ```{r}
 #| include: false
@@ -104,11 +104,11 @@ flowers_fwf_df
 
 The best way to load data from Excel files (.xlsx) into **R** is not to use Excel files. Instead, save these files as .csv or .txt files and then use `read.table`. Excel files can include multiple spreadsheets, macros, colors, dynamic tables, and other complicated formats. All of these make it difficult for **R** to read the files properly. Plain text files are simpler, so we can load and transfer them more easily.
 
-Still, there are ways to load Excel files into **R** if we *really* need to. **R** has no native way of loading these files, but we can use the package `readxl`, which works on all operating systems. You install it using `install.packages("readxl")`. Then load it using `library(readxl)`. Once you load the package, you can use the function `read_excel()` to load files of the type .xls and .xlsx (see help("read_excel") for more information).
+Still, there are ways to load Excel files into **R** if we *really* need to. **R** has no native way of loading these files, but we can use the package `readxl`, which works on all operating systems. We install it using `install.packages("readxl")`. Then we load it using `library(readxl)`. Once we load the package, we can use the function `read_excel()` to load files of the type .xls and .xlsx (see `help("read_excel")` for more information).
 
 ### Files from other programs
 
-As with Excel files, I suggest that you first try to transform files from other programs to plain-text files. This transformation is usually the best way to verify that your data is transcribed properly, and allows us to customize the transformation.
+As with Excel files, I suggest that you first try to transform files from other programs to plain-text files. This transformation is usually the best way to verify that our data is transcribed properly, and allows us to customize the transformation.
 
 But sometimes we can't transform the file to a plain-text format---maybe because we can't access the program that created the file (e.g. SAS). In these cases, we can resort to one of several libraries:
 
@@ -118,19 +118,19 @@ But sometimes we can't transform the file to a plain-text format---maybe because
 
 ## Cleaning data
 
-Once we load our data files as data.frames in **R**, we want to make sure that all of the information has an appropriate format. The process of identifying, removing and correcting inaccurate information is often referred to as "data cleaning". To practice this cleaning, we will use a "messy" version of the flower data that we loaded above. You can get this messy version from here. Again, you can use `Ctrl+Shift+s` to download the file.
+Once we load our data files as data.frames in **R**, we want to make sure that all of the information has an appropriate format. The process of identifying, removing and correcting inaccurate information is often referred to as "data cleaning". To practice this cleaning, we will use a "messy" version of the flower data that we loaded above. You can get this messy version from [here](https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower_messy.csv). Again, you can use `Ctrl+Shift+s` to download the file.
 
 Since this is a .csv file, we can load it using:
 ```{r loading messy flower data}
 flower_messy_df = read.csv("data_files/flower_messy.csv", header = TRUE)
 ```
 
-First, we should ensure the column names to follow the rules we saw in section 1. This will facilitate working with different columns later. We can check these column names using the `colnames()` function:
+First, we should ensure the column names to follow the rules we saw in section 1. This will facilitate accessing the data in the columns later. We can check these column names using the `colnames()` function:
 ```{r check colnames}
 colnames(flower_messy_df)
 ```
 
-If we open the data file using something like Excel or Notepad, we can see that the names for columns 6 and 7 had blank spaces inside it. When loading the data, `read.csv()` automatically substitutes these blank spaces with periods `.`, so that the names conform to **R**'s conventions. `read.csv()` checks for other things too, and it often does a pretty good job by itself. But it's not perfect, so it's always a good idea to double-check everything ourselves.
+If we open the data file using something like Excel or Notepad, we can see that the names for columns 6 and 7 had blank spaces inside it. When loading the data, `read.csv()` automatically substitutes these blank spaces with periods `.`, so that the names conform to **R**'s conventions. `read.csv()` checks for other things too, and it often does a pretty good job by itself, but it's not perfect. So, it's always a good idea to double-check everything ourselves.
 
 The column names of `flower_messy_df` look fine, but they can be better. Note that some names have capital letters, while others only have lower-case letters. Remembering the exact mix of upper and lower case letters is a drag, so why don't we make them all lower case? A fast way to do this is to use the `tolower()` function, which changes all characters in a vector of strings to lower case:
 ```{r colnames to lower case}
@@ -138,7 +138,7 @@ new_colnames <- tolower(colnames(flower_messy_df)) # Modify column names
 new_colnames
 ```
 
-These new column names are better, but we have not changed the column names inside `flower_messy_df`. Before moving on, let's create a new data set called `flower_clean_df`. Using a copy of the original data set makes it easier to track our changes because we can always look at the original version. It also eases backtracking when we make a mistake because we don't have to reload our original data---a lengthy process with large files. Creating a copy is easy:
+These new column names are better, but we have not changed the column names inside `flower_messy_df`. Before moving on, let's create a new data set called `flower_clean_df`. Using a copy of the original data set makes it easier to track our changes because we can always look at the original version. It also eases backtracking when we make a mistake because we don't have to reload our original data (which can take a long time with large files). Creating a copy is easy:
 ```{r create flower_clean_df}
 flower_clean_df <- flower_messy_df
 ```
@@ -151,19 +151,19 @@ colnames(flower_clean_df) # Check our work
 ```
 
 
-The column names are almost ready. The last change will be to substitute the periods in the names with underscores. In **R**, this is purely out of personal preference. However, the change is a good excuse to get acquainted with function `gsub()`, which substitutes patterns of strings:
+The column names are almost ready. The last change will be to substitute the periods in the names with underscores. In **R**, this is purely out of personal preference. However, the change is a good excuse to meet the function `gsub()`, which substitutes patterns of strings:
 ```{r substitute periods with underscores in colnames}
 colnames(flower_clean_df) <- gsub(
-    pattern = "\\.", # What we want to substitute
+    pattern = "\\.", # What we want to remove
     replacement = "_", # What we want to have instead
     x = colnames(flower_clean_df) # The object we want to modify
 )
 colnames(flower_clean_df)
 ```
 
-Note that I had to use `"\\."` instead of simply `"."` to match the period. The reason is that `gsub()` interprets `"."` as saying "match any character". This may sound silly but it helps when using a [regular expression](https://en.wikipedia.org/wiki/Regular_expression)---a syntax to find many different, complicated patterns in strings. Regular expressions are too complicated to discuss here, but if you expect to work with text data regularly, I encourage you to learn more about them.
+Note that I had to use `"\\."` instead of simply `"."` to match the period. The reason is that `gsub()` interprets `"."` as saying "match any character". This may sound silly but it helps when working with [regular expressions](https://en.wikipedia.org/wiki/Regular_expression)---a syntax to find many different, complicated patterns in strings. Regular expressions are too complicated to discuss here, but if you expect to work with text data regularly, I encourage you to learn more about them.
 
-Now we want to ensure that every column has the right format. Numbers should be of type "double" or "integer", and text should be of type "character". Let's check the types of the columns in our current data set **R**.
+The names of the columns are ready, so now we can focus on giving every column an appropriate format. Numbers should be of type "double" or "integer", and text should be of type "character". Let's check the types of the columns in our current data set **R**.
 
 ```{r check column types}
 str(flower_clean_df)
@@ -216,7 +216,7 @@ Unless I have a good reason not to, I usually transform all character columns to
 
 ## Data summaries and visualizations
 
-Now that our data is clean, we can get more complete summaries to understand what is going on. Function `summary()` recognizes the type of each column and displays an intuitively appropriate summary:
+Now that our data is clean, we can get more complete summaries to understand it better. Function `summary()` recognizes the type of each column and displays an intuitively appropriate summary:
 
 ```{r summary of flower_clean_df}
 summary(flower_clean_df)
@@ -233,17 +233,18 @@ hist(
 )
 ```
 
-Or we can get a simpler description using a box plot
+Or we can get a simpler description using a box plot.
 ```{r boxplot for weight}
 boxplot(
-    flower_clean_df$weight, xlab = "height", 
+    flower_clean_df$weight, 
+    xlab = "height", 
     col = "darkgreen",
     main = "Boxplot for weight"
 )
 ```
 
 
-A single box plot has little information compared to a histogram. But box plots make it easier to look for "big" differences in the distribution of values. Let's compare the distributions of height by nitrogen level:
+A single box plot has less information than a histogram. But it is easier to compare box plots to look for "big" differences in the distribution of values. Let's compare the distributions of height by nitrogen level:
 
 ```{r height by nitrogen boxplots}
 boxplot(
@@ -287,7 +288,7 @@ mosaicplot(nitrogen_by_treat_table, main = "Nitrogen by treat table")
 
 ## Success!
 
-Dear reader, you are now a capable user**R**. From this humble introduction, you can now choose your own adventure and learn more about many different topics in **R**. Be curious, be bold, and, above all, be patient. **R**ome wasn't built in a day. Best of luck, fellow traveler!
+Dear reader, you are now a capable use**R**. From this humble introduction, you can now choose your own adventure and learn more about many different topics in **R**. Be curious, be bold, and, above all, be patient. **R**ome wasn't built in a day. Best of luck, fellow traveler!
 
 ## References
 

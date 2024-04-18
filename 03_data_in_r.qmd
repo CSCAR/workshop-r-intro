@@ -24,7 +24,7 @@ In data science, we often don't need integers because we can save them as double
 my_comparison <- -3 < 1
 typeof(my_comparison)
 ```
-In most situations, **R** will assume that `T` and `F` are abbreviations of `TRUE` and `FALSE`. But not always, so I suggest you always write the full words.
+In most situations, **R** will assume that `T` and `F` are abbreviations of `TRUE` and `FALSE`, but not always. `TRUE` and `FALSE` are reserved words, so their meaning can not change. `T` and `F` are not reserved words, so their meaning can change if we want to, or if a function does it in the background. The initial values of `T` and `F` are `TRUE` and `FALSE`, but this may change without us knowing. So, I suggest you always write the full words.
 
 **Characters** are text, like "hello", "Elvis", or "Somewhere in La Mancha"; or symbols we want to handle as text, like "size 45", or "mail/u". You can create a character vector by typing a character or *string* of characters surrounded by quotes:
 ```{r character value}
@@ -150,7 +150,7 @@ scores_mat %*% scores_mat # Matrix multiplication
 
 ### Arrays
 
-The `array()` function creates an n-dimensional array. Using an n-dimensional array is like stacking groups of data. 1 dimension forms a column of data with multiple values; 2 dimensions are like a sheet of paper with several columns of data; 3 dimensions are like a book with several sheets; 4 dimensions are like a box with several books; 5 dimensions are like room that contains boxes, and so on. Note that layers of an array have consistent sizes. All books have the same number of sheets, and all sheets have the same number of rows and columns.
+The `array()` function creates an n-dimensional array. Using an n-dimensional array is like stacking groups of data. 1 dimension forms a column of data with multiple values; 2 dimensions are like a sheet of paper with several columns of data; 3 dimensions are like a book with several sheets; 4 dimensions are like a box with several books, and so on. Note that layers of an array have consistent sizes. All books have the same number of sheets, and all sheets have the same number of rows and columns.
 
 To use `array()`, we need an atomic vector as the first argument, and a vector of dimension sizes `dim` as the second argument:
 

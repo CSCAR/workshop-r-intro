@@ -5,8 +5,15 @@ Now that we understand how **R** handles data, we can start working with pre-exi
 The first step when loading data in **R** is to locate our working directory. This is the default location where **R** will look for files we want to load and where it will put any files we save. The working directory will change on different computers. To find our current working directory, we run:
 
 ```{r get working directory}
+#| eval: false
 getwd()
 ```
+
+```{r print fake working directory}
+#| echo: false
+print("C:/Users/user_name/workshop_folder/learning_r/code")
+```
+
 
 We can move our working directory to any folder on your computer with the function `setwd()`. Just give `setwd()` the [file path](https://www.codecademy.com/resources/docs/general/file-paths) to your new working directory. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. This way, all files related to my project are in the same place. For example:
 
@@ -114,7 +121,7 @@ But sometimes we can't transform the file to a plain-text format---maybe because
 
 + `haven`, for reading files from SAS, SPSS, and Stata.
 + `R.matlab` for reading files for versions MAT 4 and MAT 5.
-+ `foreign` for reading minitab and Systat file formats. This library can also read files from SAS, SPSS, and Stata, but I prefer to use `heaven` in these cases.
++ `foreign` for reading minitab and Systat file formats. This library can also read files from SAS, SPSS, and Stata, but I prefer to use `haven` in these cases.
 
 ## Cleaning data
 

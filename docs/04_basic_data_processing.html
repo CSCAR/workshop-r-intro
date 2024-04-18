@@ -214,8 +214,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The first step when loading data in <strong>R</strong> is to locate our working directory. This is the default location where <strong>R</strong> will look for files we want to load and where it will put any files we save. The working directory will change on different computers. To find our current working directory, we run:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:/Users/abnerhb/Documents/workshops/workshop-r-intro"</code></pre>
+<pre><code>[1] "C:/Users/user_name/workshop_folder/learning_r/code"</code></pre>
 </div>
 </div>
 <p>We can move our working directory to any folder on your computer with the function <code>setwd()</code>. Just give <code>setwd()</code> the <a href="https://www.codecademy.com/resources/docs/general/file-paths">file path</a> to your new working directory. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. This way, all files related to my project are in the same place. For example:</p>
@@ -302,7 +304,7 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 <ul>
 <li><code>haven</code>, for reading files from SAS, SPSS, and Stata.</li>
 <li><code>R.matlab</code> for reading files for versions MAT 4 and MAT 5.</li>
-<li><code>foreign</code> for reading minitab and Systat file formats. This library can also read files from SAS, SPSS, and Stata, but I prefer to use <code>heaven</code> in these cases.</li>
+<li><code>foreign</code> for reading minitab and Systat file formats. This library can also read files from SAS, SPSS, and Stata, but I prefer to use <code>haven</code> in these cases.</li>
 </ul>
 </section>
 </section>

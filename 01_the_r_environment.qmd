@@ -159,7 +159,7 @@ Once you find the CRAN web page, take the following steps to obtain
 
 **[R]{.sans-serif}**Studio is already installed on the lab workstations. The
 following information is useful if you need to install
-**[R]{.sans-serif}**Studio on another machine.
+**[R]{.sans-serif}**Studio on another machine. **You must install R before you install RStudio**. Otherwise, **R**Studio will not work.
 
 Visit <https://www.posit.co> and download the free desktop version of
 **[R]{.sans-serif}**Studio.

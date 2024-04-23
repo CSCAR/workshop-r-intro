@@ -1,12 +1,12 @@
 # Data in R
 
-**[R]{.sans-serif}** can recognize, store, extract, and manipulate different kinds of data. In the previous section we saw how to do all this with numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how **[R]{.sans-serif}** handles different data types and structures, and how to use them to study and summarize data.
+In the previous section we saw how to store, extract, and manipulate numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how **R** handles different data types and structures, and how to use them to study and summarize data.
 
 ## Data types
 
-Data types are classifications of data that help **R** conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are different rules for storing and handling each of these types. And learning these rules will allow us to analyze data later with less effort and fewer mistakes.
+Data types are classifications of data that help **R** conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are different rules for storing and handling each of these data types. And learning these rules will allow us to analyze data later with less effort and fewer mistakes.
 
-There are six types of data in **R**: doubles, integers, logicals, characters, complex, and raw. **Doubles** are regular numbers with a decimal value (which may be zero). In general, R will save any number that you type in R as a double.
+There are six types of data in **R**: doubles, integers, logicals, characters, complex, and raw. **Doubles** are regular numbers with a decimal value (which may be zero). In general, **R** will save any number that we type in as a double.
 ```{r double value}
 my_double <- 5
 typeof(my_double)
@@ -17,7 +17,7 @@ typeof(my_double)
 my_integer <- 5L
 typeof(my_integer)
 ```
-In data science, we often don't need integers because we can save them as doubles. But **R** stores integers more precisely than doubles. So, integers are still helpful when dealing with complicated operations.
+In data science, we rarely use integers because we can save them as doubles. But **R** stores integers more precisely than doubles. So, integers are still helpful when dealing with complicated operations.
  
 **Logicals** are truth values `TRUE` and `FALSE`. **R** also has a type of logical value called `NA`, which denotes a missing value. We often have to work with logical values when we compare numbers or objects:
 ```{r logical value}
@@ -33,7 +33,7 @@ typeof(my_character)
 ```
 *Anything* surrounded by quotes in R will be treated as a character string---regardless of what is between the quotes.
 
-It is easy to confuse **R** objects with character strings because both appear as pieces of text in R code. For example, `the_thing` is the name of an R object named *the_thing* that contains data; but `"the_thing"` is a character string that contains the character *the_thing*, i.e., it is itself a piece of data. If we forget to use the quotation marks when writing a name, **R** will look for an object that likely doesn't exist, so we will most likely get an error.
+It is easy to confuse **R** objects with character strings because both appear as pieces of text in R code. For example, `the_thing` is the name of an **R** object named *the_thing* that contains data; but `"the_thing"` is a character string that contains the character *the_thing*, i.e., it is itself a piece of data. If we forget to use the quotation marks when writing a name, **R** will look for an object that likely doesn't exist, so we will likely get an error.
 ```{r}
 #| error: true
 noquotes
@@ -52,7 +52,7 @@ A special type of character string is a *factor.* Factors are **R**'s way of sto
 
 ## Data structures
 
-Data structures are ways of organizing data. They make it easier for us to manipulate and operate with data. Different data structures have different advantages and limitations.
+Data structures are ways of organizing data that make it easier for us to manipulate and operate data. I will explain five different data structures---each with its own advantages and limitations---: atomic vectors, matrices, arrays, lists, and data frames.
 
 ### Atomic vectors
 
@@ -75,7 +75,7 @@ length(c())
 ::: {.callout-caution}
 #### Coercion
 
-Adding different data types to the same atomic vector does not produce an error. Instead, **R** automatically follows specific rules to *coerce* everything inside the vector to be of the same type. If a character string is present in an atomic vector, **R** will convert all other values to character strings. If a vector only contains logicals and numbers, R will convert the logicals to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`.
+Adding different data types to the same atomic vector does not produce an error. Instead, **R** automatically follows specific rules to *coerce* everything inside the vector to be of the same type. If a character string is present in an atomic vector, **R** will convert all other values to character strings. If a vector only contains logicals and numbers, **R** will convert the logicals to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`.
 
 Following these coercion rules helps preserve information. It is easy, for example, to recognize the original type of strings `"TRUE"` and `"3.14"`. Or to transform a vector of `0`s and `1`s back to `TRUE`s and `FALSE`s.
 :::
@@ -230,7 +230,7 @@ Data frames are the most common storage structure for data analysis. We can thin
 
 Different vectors can have different data types, but they must have the same length. If we use vectors of different lengths, **R** will recycle values of some vectors to ensure that the data frame has a square shape. 
 
-We can create a data frame using the `data.frame()` function. Give `data.frame()` any number of vectors of equal length, each separated with a comma. Each vector should be set equal to a name that describes the vector. data.frame will turn each vector into a column of the new data frame:
+We can create a data frame using the `data.frame()` function. Give `data.frame()` any number of vectors of equal length, each separated with a comma. Each vector should be set equal to a name that describes the vector. `data.frame()` will turn each vector into a column of the new data frame:
 ```{r create data frame from scratch}
 aliens_df <- data.frame(
     name = c("Axanim", "Blob", "Cloomin", "Dlemex"),
@@ -246,7 +246,7 @@ dim(aliens_df)
 str(aliens_df)
 ```
 
-The `str()` function gives us the data frame dimensions and also reminds us that `aliens_df` is a data.frame type object. `str()` also lists all of the variables (columns) contained in the data frame, tells us what type of data the variables contain and prints out the first five values.
+The `str()` function gives us the data frame dimensions and also reminds us that `aliens_df` is a data.frame type object. `str()` also lists all of the variables (columns) contained in the data frame, tells us what type of data the variables contain, and prints the first five values.
 
 To us, a data frame resembles a matrix, but to **R** it is a list with an attribute "class" set to "data.frame"
 
@@ -264,7 +264,7 @@ aliens_df["planet"]
 
 Or we can use double brackets `[[ ]]` or dollar sign notation `$`, both of which produce atomic vectors:
 ```{r}
-aliens_df[[1]]
+aliens_df$name
 ```
 
 Also, as with matrices, we can use a single bracket with two indices (note that this produces an atomic vector):

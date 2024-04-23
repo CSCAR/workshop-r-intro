@@ -1,26 +1,48 @@
 # The R *Environment*
 
-**[R]{.sans-serif}** is an environment for statistical
-modeling and graphics. That it is an *environment* instead of a *package* is one of the main reasons **[R]{.sans-serif}** is distinct from other statistical
+**R** is an environment for statistical
+modeling and graphics. That it is an *environment* instead of a *package* is one of the main reasons **R** is distinct from other statistical
 programs. A package only gives us a fixed set of tools. An environment
 allows us to modify, combine and even create tools to suit our specific needs.
 
 ## Why becoming a useR?
 
+### Big potential
+
+You can start with a data set that looks like this:
+```{r loading messy flower data}
+#| echo: false
+flower_df <- read.table("data_files/flower.csv", header = TRUE, sep = ",")
+head(flower_df, 5)
+```
+
+And, in 8 lines of code or less, you can get a plot that looks like this:
+```{r height by nitrogen boxplots}
+#| echo: false
+boxplot(
+    height ~ nitrogen,
+    data = flower_df, 
+    col = c("yellow", "blue", "pink"),
+    main = "No clear pattern between height and nitrogen level",
+    xlab = "Nitrogen",
+    ylab = "Height"
+)
+```
+
 ### Price (\$0) and availability
 
-**[R]{.sans-serif}** is free---as in "no money required"---and it runs on
+**R** is free---as in "no money required"---and it runs on
 Windows, MacOS, and several Unix platforms.
 
 ### Easy and cool graphics
 
-With **[R]{.sans-serif}**, you can make basic scatter plots or histograms with one or two lines of code (assuming your data has a nice format). And you can use
+With **R**, you can make basic scatter plots or histograms with one or two lines of code (assuming your data has a nice format). And you can use
 the "grammar of graphics" to make incremental changes: add custom colors, change
 the size of the plot or its contents, or arrange several graphics in grids.
 
 ### Abundant statistical tools
 
-**[R]{.sans-serif}** offers many powerful tools to fit statistical models 
+**R** offers many powerful tools to fit statistical models 
 (both bayesian and frequentist), including:
 
 - Linear and Generalized Linear Models
@@ -30,93 +52,81 @@ the size of the plot or its contents, or arrange several graphics in grids.
     models)
 - Classification and Clustering
 - Sample Size and Power Calculations
-- Multivariable analysis (FA, PCA, SEM, ...)
-
-<!--
-In this workshop will see and use sample code for many of these analyses.
--->
+- Multivariable analysis (Factor Analysis, Principal Component Analysis, Structural Equations Modeling, ...)
 
 ### Constant expansion
 
-New tools become available in R all the time. **[R]{.sans-serif}** is a
+New tools become available in R all the time. **R** is a
 full-fledged programming language that allows users to write their own
-functions. Also, all of **[R]{.sans-serif}**'s code is open source, which means
-that everyone can examine it and contribute to it. So, users constantly publish
-their own "packages" (ready-to-use tools), which expand **[R]{.sans-serif}**'s
+functions. Also, all of **R**'s code is open source, which means
+that everyone can examine it and contribute to it. Users constantly publish
+their own "packages" (ready-to-use tools), which expand **R**'s
 base capabilities. As of March 2019, users have contributed over 13,700 packages
-to Comprehensive **[R]{.sans-serif}** Archive Network (CRAN). Many of these
+to Comprehensive **R** Archive Network (CRAN). Many of these
 packages perform complex statistical routines that are not (and may never be)
 available in other statistical software systems.
 
 ### Flexible interfaces
 
-In Windows, there are several ways to use **[R]{.sans-serif}**. The standard 
-**[R]{.sans-serif}** graphical unit interface (GUI) allows you to point and 
-click to do many basic tasks. Another GUI is [**[R]{.sans-serif}** 
+In Windows, there are several ways to use **R**. The standard 
+**R** graphical unit interface (GUI) allows you to point and 
+click to do many basic tasks. Another GUI is [**R** 
 Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by 
-John Fox at McMaster University. **[R]{.sans-serif}** Commander displays the 
-underlying **[R]{.sans-serif}** code for each analysis to help the user learn
-the programming language. [Tinn-**[R]{.sans-serif}**](http://sourceforge.net/projects/tinn-r/) is another 
-GUI from Jose Claudio Faria.
+John Fox at McMaster University. **R** Commander displays the 
+underlying **R** code for each analysis to help the user learn
+the programming language. [Tinn-**R**](http://sourceforge.net/projects/tinn-r/) 
+is another GUI from Jose Claudio Faria.
 
-These GUIs are friendly and easy to grasp if you're a beginner. But to use all of **[R]{.sans-serif}**'s capabilities you will need to do more than point and click.
+These GUIs are friendly and easy to grasp if you're a beginner. But to use all of **R**'s capabilities you will need to do more than point and click.
 
-A more complete way of using **[R]{.sans-serif}** is through an integrated development environment (IDE), which, in short, helps you code. The most popular IDE for **[R]{.sans-serif}** is [**[R]{.sans-serif}**Studio](https://www.posit.com), which organizes the
+A more complete way of using **R** is through an integrated development environment (IDE), which, in short, helps you code. The most popular IDE for **R** is [**R**Studio](https://www.posit.com), which organizes the
 user's screen into panes that display scripts, objects, graphics, and
-the **[R]{.sans-serif}** console.
+the **R** console.
 
-In these notes, we will use **[R]{.sans-serif}**Studio a lot. The goal is for you to start taking full advantage of **[R]{.sans-serif}**'s capabilities.
+In these notes, we will use **R**Studio a lot. The goal is for you to start taking full advantage of **R**'s capabilities.
 
 <!--
 
 ### Easier to make reproducible research
 
-**[R]{.sans-serif}**'s availability and accessibility mean that you can share your work with many. This allows consumers to confirm the
+**R**'s availability and accessibility mean that you can share your work with many. This allows consumers to confirm the
 original analysis and to investigate other approaches.
 
 -->
 
 
-## Why Isn't Everyone a Use**[R]{.sans-serif}**?
+## Why Isn't Everyone a Use**R**?
 
-### One and Only
+Maybe because many users of statistics only learn how to use one statistical software, often the one taught in their first statistics course. In the past, **R** was almost never this first language, but nowadays many schools are teaching how to use it.
 
-Many users of statistics only learn how to use one statistical software, often the one taught in their first statistics course. In the past, **[R]{.sans-serif}** was almost never this first language, but nowadays many schools are teaching how to use it.
+And even if people have used **R**, they can take time to get comfortable and 
+productive with it, especially if you have little coding experience. Typing
+commands explicitly is more difficult than pointing and clicking. Also, each 
+package has its own rules to learn. You can find a lot of good help for popular 
+packages written by professional developers, but not so much for smaller 
+packages written by other common users. Worst of all, some of the messages **R**
+displays if you make a mistake are uninformative, so figuring out what went 
+wrong can be difficult. 
 
-### Hard to learn
+Don't get frustrated! You don't have to be an expert programmer to use
+**R**. The benefits are worth spending some time up front.
 
-It can take time to get comfortable and productive with **[R]{.sans-serif}**,
-especially if you have little coding experience. Typing commands explicitly is
-more difficult than pointing and clicking. Also, each package has its own rules
-to learn. You can find a lot of good help for popular packages written by
-professional developers, but not so much for smaller packages written by other
-common users. Worst of all, some of the messages **[R]{.sans-serif}** displays
-if you make a mistake are uninformative, so figuring out what went wrong can be
-difficult. 
+## Suggestions for Learning **R**
 
-But don't get frustrated! You don't have to be an expert programmer to use
-**[R]{.sans-serif}**. The benefits are worth spending some time up front.
-
-## Suggestions for Learning **[R]{.sans-serif}**
-
-- Learn interactively! Reading can help only so much. Most people learn
-    **[R]{.sans-serif}** best by typing commands themselves.
-- Ask other **[R]{.sans-serif}** users for help.
-- Look at (and retype) lots of sample code. Experiment with modifications of
-  the code. You won't break **[R]{.sans-serif}**. You'll see many examples in
-  this workshop but there is much more online.
-- Don't worry about getting errors. Experienced **[R]{.sans-serif}** users
+- Learn interactively! Retype and experiment with lots of sample code; you won't   break it. These notes contain several code examples and you can find many more   online.
+- Don't worry about getting errors. Experienced **R** users
   make errors all the time. Besides, you can learn a lot from error
   messages.
+- Ask other **R** users for help.
 - Some useful links are:
-    -   <https://www.r-project.org>: The **[R]{.sans-serif}** Home page, the
-        central webpage for the **[R]{.sans-serif}** project. Here you will find
-        links for downloading **[R]{.sans-serif}**, downloading additional
-        packages for **[R]{.sans-serif}**, and almost everything else that you
+    -   <https://www.r-project.org>: The **R** Home page, the
+        central webpage for the **R** project. Here you will find
+        links for downloading **R**, downloading additional
+        packages for **R**, and almost everything else that you
         would like to know about the software or the people behind it.
     -   <https://cran.r-project.org/web/views/>: Task views summarize the most
         important packages involved in a subject field or analysis type.
-    -   <https://journal.r-project.org>: The **[R]{.sans-serif}** Journal
+    -   <https://journal.r-project.org>: The **R** Journal
     -   <https://stats.stackexchange.com>: Cross-Validated
     -   <https://www.r-bloggers.com>
     -   <https://stats.idre.ucla.edu/r/>: Institute for Digital Research and
@@ -125,54 +135,54 @@ But don't get frustrated! You don't have to be an expert programmer to use
     -   <https://sas-and-r.blogspot.com/>: Examples of code to perform same task
         in each language
 
-## How to get **[R]{.sans-serif}**
+## How to get **R**
 
-**[R]{.sans-serif}** is already installed on the lab workstations. The following
-information is useful if you need to install **[R]{.sans-serif}** on another
+**R** is already installed on the lab workstations. The following
+information is useful if you need to install **R** on another
 machine.
 
-At the [**[R]{.sans-serif}** Project Web Page](https://www.r-project.org) the
+At the [**R** Project Web Page](https://www.r-project.org) the
 most important link is at the left hand side of the screen, under the "Download"
-heading. Click on the CRAN link (Comprehensive **[R]{.sans-serif}** Archive
+heading. Click on the CRAN link (Comprehensive **R** Archive
 Network), and, after you choose one of the U.S. mirrors, you will be taken to
-the page that you will use to download everything **[R]{.sans-serif}**-related.
+the page that you will use to download everything **R**-related.
 
 Once you find the CRAN web page, take the following steps to obtain
-**[R]{.sans-serif}**:
+**R**:
 
-1.  Click on "Download **[R]{.sans-serif}** for XXX" that best describes your
+1.  Click on "Download **R** for XXX" that best describes your
     operating system (Linux, OS X, Windows).
 2.  When using Windows, click on the "base" subdirectory. This will allow
-    you to download the base **[R]{.sans-serif}** packages.
-3.  Click the "Download **[R]{.sans-serif}** 3.X.X for Windows" link.
-    **[R]{.sans-serif}** is updated quite frequently. At the time of this
+    you to download the base **R** packages.
+3.  Click the "Download **R** 3.X.X for Windows" link.
+    **R** is updated quite frequently. At the time of this
     printing, version 4.3.3 is available. Save the `.exe` file somewhere on your
     computer.
 4.  Double-click on the `.exe` file once it has been downloaded. A wizard will
-    appear that will guide you through the setup of the **[R]{.sans-serif}**
+    appear that will guide you through the setup of the **R**
     software on your machine.
-5.  Once you are finished, you should have an **[R]{.sans-serif}** icon on your
-    desktop that gives you a shortcut to the **[R]{.sans-serif}** system.
+5.  Once you are finished, you should have an **R** icon on your
+    desktop that gives you a shortcut to the **R** system.
     Double-click on this icon, and you are ready to go!
 
 ### How to get RStudio
 
-**[R]{.sans-serif}**Studio is already installed on the lab workstations. The
+**R**Studio is already installed on the lab workstations. The
 following information is useful if you need to install
-**[R]{.sans-serif}**Studio on another machine. **You must install R before you install RStudio**. Otherwise, **R**Studio will not work.
+**R**Studio on another machine. **You must install R before you install RStudio**. Otherwise, **R**Studio will not work.
 
 Visit <https://www.posit.co> and download the free desktop version of
-**[R]{.sans-serif}**Studio.
+**R**Studio.
 
 ### Contributed Packages
 
-What exactly are "additional contributed packages"? **[R]{.sans-serif}** is an
+What exactly are "additional contributed packages"? **R** is an
 open source software environment, so users are free to explore the code behind
 the software and to write their own new code. Statisticians, researchers, and
-other users have written additional packages for **[R]{.sans-serif}** that
+other users have written additional packages for **R** that
 perform complex analyses (and simple ones!). In order to use these packages and
 the functions within them, you first need to download them. Base
-**[R]{.sans-serif}** comprises many packages, but odds are that you will
+**R** comprises many packages, but odds are that you will
 discover an uncommon analysis technique in your research that requires you to
 install an additional package that is not included by default.
 

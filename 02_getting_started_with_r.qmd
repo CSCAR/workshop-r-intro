@@ -13,11 +13,7 @@ shows the objects that we have saved during our session (I will explain this
 soon); "History" shows a record of all the code we asked the computer to run; and "Connections"—which we will not use here—shows we the connections we have to remote databases.
 
 The "Files-Plots-Packages" window has several tabs. "Files" shows us all the 
-files in our current working directory, which is the default location where R 
-will look for files we want to load and where it will put any files we save. 
-"Plots" will display the plots we make in R. "Packages" shows us the packages 
-installed in our computer and whether they are loaded in our current session. 
-"Help" allows us to search and read the documentation for packages and 
+files in our current working directory, which is the default location where **R** will look for files we want to load and where it will put any files we save. "Plots" will display the plots we make in **R**. "Packages" shows us the packages installed in our computer and whether they are loaded in our current session. "Help" allows us to search and read the documentation for packages and 
 functions. "Viewer" can display content that usually belongs to a web browser 
 (i.e., html files).
 
@@ -33,8 +29,7 @@ The `[1]` that appears next to the result informs us that the line begins with t
 80:110
 ```
 
-If we type an incomplete command, R will assume that we are still writing and 
-will show a `+`. This `+` is *not* an arithmetical operator; it's a prompt for us to continue writing in the next line. The prompt will not go away unless we complete the command or we press the "Escape" key. For example:
+If we type an incomplete command, **R** will assume that we are still writing and will show a `+`. This `+` is *not* an arithmetical operator; it's a prompt for us to continue writing in the next line. The prompt will not go away unless we complete the command or we press the "Escape" key. For example:
 
 ```{r}
 #| eval: false
@@ -45,7 +40,7 @@ will show a `+`. This `+` is *not* an arithmetical operator; it's a prompt for u
 [1] 41
 ```
 
-If R does not understand a command, it will display an error message.
+If **R** does not understand a command, it will display an error message.
 
 ```{r}
 #| eval: false
@@ -156,7 +151,7 @@ my_object
 
 ```{r}
 my_object + 7
-my_object**my_object
+my_object^my_object
 ```
 
 We can also create objects based on other objects.
@@ -189,7 +184,8 @@ b
 
 We can use almost any name we want, but there are a few rules:
 
-+ Names can be a combination of letters, digits, period `.` and underscore `_`.
++ Names can be a combination of letters, digits, periods `.` and underscores
+  `_`.
 + Names can *not* include white spaces.
 + If a name starts with a period `.`, it can *not* be followed by a digit.
 + Names can *not* start with a number or an underscore `_`.
@@ -199,12 +195,12 @@ We can use almost any name we want, but there are a few rules:
 There are also a few suggestions that will save you many hours of frustration:
 
 + Avoid giving your object the same name as a built-in function.
-+ If you need to create objects with multiple words in their name, separate them with [an underscore] (`my_value`) or a dot (`my.value`), or capitalize the different words (`MyValue`). I like the underscore format (called [snake case](https://en.wikipedia.org/wiki/Snake_case) naming). You can use whichever one you want. Just be consistent.
++ If you need to create objects with multiple words in their name, separate them with an underscore (`my_value`) or a dot (`my.value`), or capitalize the different words (`MyValue`). I like the underscore format (called [snake case](https://en.wikipedia.org/wiki/Snake_case) naming). You can use whichever one you want. Just be consistent.
 + Use informative names. It is quick and easy to use names like `x` or `my_value`. But your code will be easier and faster to understand if your objects have names that illustrate what you want to do with them. Your colleagues and your future self will really appreciate it.
 
 ## Using functions
 
-**R** has many built-in functions for anything from basic math to text manipulation to advanced statistical models. Functions are also objects in **R**. But instead of storing a single number as we did before, functions store commands that we can apply to an input. For example, we can round a number, calculate its square root, its factorial, or its natural logarithm. To use a function, we must write the name of a function followed by the data we want it to use inside a pair of round brackets.
+**R** has many built-in functions for anything from basic math to text manipulation to advanced statistical models. In **R**, functions are objects that store commands that we can apply to an input. For example, we can round a number, calculate its square root, its factorial, or its natural logarithm. To use a function, we must write the name of a function followed by the data we want it to use inside a pair of round brackets.
 
 ```{r simple mathematical functions}
 #| results: hide
@@ -214,33 +210,33 @@ factorial(7)
 log(100)
 ```
 
-The information inside the round brackets is called an "argument". `sqrt()` and `factorial()` only use one argument (the number that we want to use). But other functions---like `round()` and `log()`---can take more arguments to modify their behavior. For example, in `round()`, the first argument corresponds to the number we want to round, and the second argument corresponds to the number of decimal places that we want to keep. The arguments are separated by commas.
+The pieces of information inside the round brackets are called "arguments". Some functions, like `sqrt()` and `factorial()`, only use one argument (the number that we want to use). But other functions, like `round()` and `log()`, can take more arguments to modify their behavior. For example, in `round()`, the first argument corresponds to the number we want to round, and the second argument corresponds to the number of decimal places that we want to keep. The arguments are separated by commas.
 
 ```{r rounding to different decimal places}
 round(2.1415, 0)
 round(2.1415, 2)
 ```
 
-The order of the arguments is important. What happens if we try to run `round(2, 2.1415)`? Fortunately, arguments have names that you can use to specify which data to use in each case. So, we can write
+The order of the arguments is important (what happens if we try to run `round(2, 2.1415)`?) Fortunately, arguments have names that you can use to specify which data to use in each case. So, we can write
 
 ```{r naming arguments}
 round(x = 2.1415, digits = 3)
 ```
 
-Even better, we can pass arguments in any order as long as we name them all
+Even better, we can pass arguments in any order as long as we name them all.
 
 ```{r}
 round(digits = 3, x = 2.1415)
 ```
 
-But if we use the wrong name in a function, we will probably get an error message
+But if we use the wrong name in a function, we will probably get an error message.
 
 ```{r}
 #| error: true
 round(x = 2.1415, basket = 3)
 ```
 
-A quick way to check what arguments we can use is to use another function called `args()`, which takes the name of a function as its argument:
+A quick way to check what arguments we can use is to invoke `args()`, which takes the name of a function as its argument:
 
 ```{r}
 args(round)
@@ -248,7 +244,7 @@ args(round)
 
 The output shows that `round()` has two arguments: `x` (the number we want to round) and `digits`. It also shows that `digits` is already set to zero. This means that **R** will use `0` as the default value. Arguments with default values are optional because we can choose to modify them or not.
 
-I encourage you to name all the arguments in the function, or at least the ones after the first argument. It is hard to remember all the arguments that can go into more complicated functions. And it is even harder to remember the correct order. Accidentally switching unnamed arguments can produce wrong results without us knowing. Naming the arguments will prevent errors and clarify the function's behavior.
+I encourage you to name all the arguments in the function, or at least the ones after the first argument. It is hard to remember all the arguments that can go into more complicated functions. And it is even harder to remember them in the correct order. Accidentally switching unnamed arguments can produce wrong results without us knowing. Naming the arguments will prevent errors and clarify the function's behavior.
 
 We can also use functions inside other functions
 
@@ -256,13 +252,13 @@ We can also use functions inside other functions
 sqrt(round(16.483, digits = 0))
 ```
 
-R first runs the innermost function and then uses the result in the outermost function to get the final result.
+**R** first runs the innermost function and then uses the result in the outermost function to get the final result.
 
 The functions we have used are simple and intuitive to use. But sometimes we need to know more before we can use a function in our code. Where can we find explanations to help us?
 
 ## Getting help
 
-To access R’s built-in help information on any function simply use the `help()` function. For example, to open the help page for `round()`, we do
+The `help()` function allows us to access **R**'s built-in help information on any function. For example, to open the help page for `round()`, we do
 
 ```{r help function}
 #| eval: false
@@ -278,7 +274,7 @@ A shorter way of writing this is to use `?` before the name of the function.
 
 After you run the code, the help page is displayed in the "Help" tab in the "Files-Plots-Packages" pane (usually in the bottom right of **R**Studio).
 
-As a novice user, help pages may seem arcane, probably because they aim for shortness and use a lot of technical jargon. But this short jargon makes (most of) the explanations precise, so we can use the information we need without having to read the entire document. Also, all help pages are organized similarly, so we don't have to relearn how to navigate them. So, with a bit of practice, you will be able to find exactly what you need in mere seconds.
+As a novice user, help pages may seem arcane---probably because they aim for shortness and use technical jargon. But this short jargon makes (most of) the explanations precise, so we can use the information we need without having to read the entire document. Also, all help pages are organized similarly, so we don't have to relearn how to navigate them. With a bit of practice, you will be able to find exactly what you need in mere seconds.
 
 The first line of the help document displays the name of the function and the package that contains the function. Other sections are:
 
@@ -288,13 +284,13 @@ The first line of the help document displays the name of the function and the pa
 
 + **Arguments**: expounds each argument and what they do.
 
-+ **Details**: a more detailed description of the function.
++ **Details**: a more detailed description of what the function does and how it does it.
 
 + **Value**: if applicable, gives the type and structure of the object returned by the function or the operator.
 
 + **See Also**: leads to other help pages with similar or related content.
 
-+ **Examples**: code examples on how to use the function. To see how they work, we just need to copy and paste them into the console. We can also access examples at any time by using the `example()` function (e.g., `example("round")`).
++ **Examples**: code examples on how to use the function. We can see how they work if we copy and paste them into the console. We can also access examples at any time by using the `example()` function (e.g., `example("round")`).
 
 The `help()` function is useful if we know the name of the function. But if all we remember is a key word in the name, we can search through **R**'s help system using `help.search()`
 
@@ -312,7 +308,7 @@ Or we can use the shortcut `??`
 
 As before, the 'Help' tab in RStudio will display the results of the search. `help.search()` searches through the help documentation, code demonstrations, and package vignettes and displays the results as clickable links that we can follow.
 
-Another useful function is `apropos()`, which lists all functions containing a specified character string. For example, to find all functions with `sum` in their name, we use
+Another useful function is `apropos()`, which lists all functions containing a specified character string. For example, to find all functions with `round` in their name, we use
 
 ```{r}
 apropos("round")
@@ -338,10 +334,12 @@ RSiteSearch("regression")
 ## How to get started with help pages?
 Start by reading the help pages of functions that you already understand. This will teach you how to understand the structure of the pages and will familiarize you with the jargon. As you use **R** you will likely need other, more complicated functions, so reading more help pages will happen almost naturally.
 
-Just keep in mind that help pages are about code, not about the underlying concepts. If you don't know what it means to round a number, reading the documentation for `round()` will not help you.
+Keep in mind that help pages are about code, not about the underlying concepts. If you don't know what it means to round a number, reading the documentation for `round()` will not help you.
 :::
 
-Now that we know how to get help, we can move on to more advanced stuff. Previously we worked with one number at the time. But we can also work with groups of numbers (and of other stuff) by using something called "vectors".
+<!--
+Now that we know how to get help, we can move on to more advanced stuff.
+--> 
 
 Until now, the console satisfied all our coding needs. But if we wanted to reuse a command from before, we would have to either rewrite it from scratch, or look through our command history in the "Environment-History-Connections" window---a tedious task. Besides, once we close this session in **R**Studio, all of our work will be gone, like tears in the rain. It would be much better if we wrote our code in a place where we can easily review and modify it.
 
@@ -353,7 +351,7 @@ To open a script, click on `File > New File > R script` in the menu bar on the u
 
 [![A screen with a new script](./images/new_script_screen.jpg)](./images/new_script_screen.jpg)
 
-We can run a line of code using the `Run` button. **R** will run whichever line of code your cursor is on. We can also run all of the code in the script by clicking the `Source` button that's next to `Run`. I find that clicking buttons is slow, so I use a keyboard shortcut for running a line of code: `Control + Enter` in Windows and Linux; `Command + Enter` in Mac.
+We can run a line of code in the script using the `Run` button in the upper right-hand side of the script window (see picture below). **R** will run whichever line of code your cursor is on. We can also run all of the code in the script by clicking the `Source` button that's next to `Run`. I find that clicking buttons is slow, so I use a keyboard shortcut for running a line of code: `Control + Enter` in Windows and Linux; `Command + Enter` in Mac.
 
 [![Buttons for running code](./images/run_code_buttons_edited.jpg)](./images/run_code_buttons_edited.jpg)
 
@@ -361,16 +359,21 @@ To save your script, you can click on the blue square^[Young reader, this square
 
 Moving forward, I will write all my code in a script and will assume you are doing so too. Trust me, it's for your own benefit.
 
-Now that we know how to preserve our hard-obtained code, we can start doing more elaborate work.
+Now that we know how to preserve our hard-obtained code, we can start doing more elaborate work. Previously we worked with one number at the time. But we can also work with groups of numbers (and of other stuff) by using something called "vectors".
 
 ## Working with vectors
 
 In **R**, an ordered group of numbers is called a vector. To create a vector of numbers, we need to use the function `c()` (short for "combine"). The arguments of `c()` are the numbers you want to use in the vector, in the order you want to use them.
 
 ```{r first vector}
-my_vec <- c(5, 3, 7, 1, 1, 8)
+my_vec <- c(5, 3, 7, 1, 1, 8) # This is a vector of numbers
 my_vec
 ```
+
+::: {.callout-note}
+## Comments 
+Did you see the text I added next to the code? **R** will ignore everything in a line that comes after a hashtag `#`. This `#` is known in **R** as *commenting symbol* because it allows us to comment our code. Comments can explain confusing chunks of code, or warn about potential problems.
+:::
 
 Vectors can also contain other types of data, like words:
 
@@ -387,6 +390,16 @@ vector_of_words <- c(monday, lemon)
 ```
 
 Later on we will work more with vectors of words, but for now let's focus on numerical vectors.
+
+### Named vectors
+
+We can name the elements of a vector if we add a name followed by an equal size before the value that we want to save:
+```{r named vector}
+my_named_vec <- c(tigers = 2, lions = 5)
+my_named_vec
+```
+
+Named vectors help us store more information in the same object. They also give us another way of accessing the elements inside the vector.
 
 ### Operations with numerical vectors
 
@@ -415,15 +428,15 @@ If the length of the short vector does not divide evenly into the length of the 
 my_vec * c(1, 2, 3, 4)
 ```
 
-Repeating the numbers of the vector is known as "vector recycling", and it helps R do element-wise operations.
+Repeating the numbers of the vector is known as "vector recycling", and it helps **R** do element-wise operations.
 
-Element-wise operations allow us to manipulate entire data variables rather than 
+Element-wise operations allow us to manipulate entire data variables rather than
 one element at a time. When you start working with data sets, element-wise 
 operations will ensure that values from one observation or case are only paired 
 with values from the same observation or case. Element-wise operations also make
-it easier to write your own programs and functions in R.
+it easier to write your own programs and functions in **R**.
 
-**R** can also do vector and matrix multiplications, but we have to explicitly ask for them. For example, to get the inner product, we need the operator `%*%`. And to get the outer product, we need `%o%`. If you are not familiar with matrix operations, don't worry. You won't need them in these notes.
+**R** can also do vector and matrix multiplications, but we have to explicitly ask for them. For example, to get the inner product, we need the operator `%*%`. And to get the outer product, we need `%o%`. If you are not familiar with matrix operations, don't worry, you won't need them in these notes.
 
 ### Extracting elements
 
@@ -463,6 +476,11 @@ my_vec[3:6]
 ## Note 
 In **R**, the positional index starts at 1, so to call the first element of a vector we need to use `[1]`. In most other programming languages (like Python and C++), the positional index starts at 0.
 :::
+
+If we the elements of the vector have names, we can use the name instead of a positional index.
+```{r extracting named element}
+my_named_vec["lions"]
+```
 
 Another convenient way to extract elements from a vector is to use a logical expression as an index. For example, to extract all elements greater than 4 from `my_vec`, we do
 
@@ -555,9 +573,9 @@ countries_ordered
 
 Ta-da!
 
-These vector manipulations can do more than dazzle your friends. Imagine you have a dataset with two columns of data and you want to sort each column. If you just use `sort()` on each column separately, the values of each column will become uncoupled from each other. By using `order()` on one column, a vector of positional indices is created of the values of the column in ascending order. Then we can use this vector as the index of elements on the second column, which will return a vector of values based on the first column.
+These vector manipulations can do more than dazzle your friends. Imagine you have a dataset with two columns of data and you want to sort each column. If you just use `sort()` on each column separately, the values of each column will become uncoupled from each other. Instead, we can use `order()` on one column to make a vector of positional indices. Then we can use this vector on the second column, which will return a vector of values based on the order of the first column.
 
-**R** doesn't always have a pre-made function to do what we need. But we can write one ourselves and test it easily using a script.
+So far we have relied on **R**'s built-in capabilities to do everything we need. But sometimes we need to do something for which **R** doesn't have a pre-made function. In these cases, we can write a function ourselves and test it easily using a script.
 
 ## Writing our own functions
 
@@ -576,8 +594,6 @@ simple_function <- function() {
     1 + 1 # This function is very simple
 }
 ```
-
-Did you see the text I added next to the code? **R** will ignore everything that comes after a hashtag `#`. This `#` is known in **R** as *commenting symbol* because it allows us to comment our code. Comments can explain confusing chunks of code, or warn about potential problems.
 
 :::callout-tip
 ## Indents make code more readable
@@ -629,6 +645,20 @@ solve_quadratic = function(a, b, c) {
 solve_quadratic(a = 1, b = -1, c = -3)
 ```
 
+A more explicit way of ensuring our function will return a result is to use the `return()` statement inside the function:
+
+```{r solve_quadratic with return()}
+solve_quadratic = function(a, b, c) {
+    # Quadratic equations can have two solutions
+    solution_1 = (-b + sqrt(b**2 - 4*a*c)) / 2*a # First solution to equation
+    solution_2 = (-b - sqrt(b**2 - 4*a*c)) / 2*a # Second solution to equation
+    return(c(solution_1, solution_2)) # Return vector of solutions
+}
+solve_quadratic(a = 1, b = -1, c = -3)
+```
+
+`return()` does not need to be the last line of the function. It can appear anywhere else and the function will still yield whatever `return()` contains.
+
 Our function can have as many arguments as we like. It is enough to add their names, separated by commas, in the parentheses that follow the function. When the function runs, **R** will replace each argument name in the function body with the corresponding value that we supply. If we don't supply a value, **R** will replace the argument name with the argument's default value (if we defined one).
 
 Now imagine that we want to multiply the solutions to our equation by an arbitrary value (maybe because we want to convert the units of $x$ to something else). And let's pretend that, by default, we want to double the solutions. We can write another function that first calls `solve_quadratic()` and then multiplies the result by our arbitrary number.
@@ -643,7 +673,7 @@ multiply_solutions(a = 1, b = -1, c = -3, multiplier = 10)
 
 ::: {.callout-note}
 ## Objects created in functions disappear
-All of the objects that we create inside a function will disappear after it finishes running. We can only save the output of the function by assigning it to an object.
+All of the objects that we create inside a function will disappear after it finishes running. Only the output will remain after the function runs, and we need to assign it to an object if we want to save it.
 :::
 
 ## Acquiring external packages
@@ -670,7 +700,7 @@ Every time we start a new **R** session we need to load the packages we need. If
 
 Writing all our `library()` statements at the top of our **R** scripts is almost always a good idea. This helps us know that we need to load the libraries at the start our sessions; and it helps others know quickly that they will need to have those libraries installed to be able to use our code.
 
-Sometimes only need one or two functions from a library. To avoid loading the entire library, we can access the specific function directly by specifying the package name followed by two colons and then the function name. For example:
+Sometimes we only need one or two functions from a library. To avoid loading the entire library, we can access the specific function directly by specifying the package name followed by two colons and then the function name. For example:
 ```{r using specific function from library}
 #| eval: false
 readxl::read_xlsx("fake_data_file.xlsx")

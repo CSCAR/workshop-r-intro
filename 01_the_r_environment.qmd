@@ -1,15 +1,14 @@
 # The R *Environment*
 
-**R** is an environment for statistical
-modeling and graphics. That it is an *environment* instead of a *package* is one of the main reasons **R** is distinct from other statistical
-programs. A package only gives us a fixed set of tools. An environment
-allows us to modify, combine and even create tools to suit our specific needs.
+**R** is an environment for statistical modeling and graphics. That it is an
+*environment* instead of a *package* is one of the main reasons **R** is 
+distinct from other statistical programs. A package only gives us a fixed set of
+tools. An environment allows us to modify, combine and even create tools to suit
+our specific needs.
 
 ## Why becoming a useR?
 
-### Big potential
-
-You can start with a data set that looks like this:
+**R** is gratis and it runs on Windows, MacOS, and several Unix platforms. With **R** you can start with a data set that looks like this:
 ```{r loading messy flower data}
 #| echo: false
 flower_df <- read.table("data_files/flower.csv", header = TRUE, sep = ",")
@@ -29,20 +28,7 @@ boxplot(
 )
 ```
 
-### Price (\$0) and availability
-
-**R** is free---as in "no money required"---and it runs on
-Windows, MacOS, and several Unix platforms.
-
-### Easy and cool graphics
-
-With **R**, you can make basic scatter plots or histograms with one or two lines of code (assuming your data has a nice format). And you can use
-the "grammar of graphics" to make incremental changes: add custom colors, change
-the size of the plot or its contents, or arrange several graphics in grids.
-
-### Abundant statistical tools
-
-**R** offers many powerful tools to fit statistical models 
+You can also find many powerful tools to fit statistical models 
 (both bayesian and frequentist), including:
 
 - Linear and Generalized Linear Models
@@ -54,28 +40,10 @@ the size of the plot or its contents, or arrange several graphics in grids.
 - Sample Size and Power Calculations
 - Multivariable analysis (Factor Analysis, Principal Component Analysis, Structural Equations Modeling, ...)
 
-### Constant expansion
+Even better, new tools become available in **R** all the time. As with other open source programming languages, everyone can examine and contribute to **R**'s code. Users constantly publish their own code "packages" (ready-to-use tools), which expand **R**'s base capabilities. As of March 2019, users have contributed over 13,700 packages to Comprehensive **R** Archive Network (CRAN)., many of which perform complex statistical routines that are not (and may never be) available in other statistical software systems.
 
-New tools become available in R all the time. **R** is a
-full-fledged programming language that allows users to write their own
-functions. Also, all of **R**'s code is open source, which means
-that everyone can examine it and contribute to it. Users constantly publish
-their own "packages" (ready-to-use tools), which expand **R**'s
-base capabilities. As of March 2019, users have contributed over 13,700 packages
-to Comprehensive **R** Archive Network (CRAN). Many of these
-packages perform complex statistical routines that are not (and may never be)
-available in other statistical software systems.
-
-### Flexible interfaces
-
-In Windows, there are several ways to use **R**. The standard 
-**R** graphical unit interface (GUI) allows you to point and 
-click to do many basic tasks. Another GUI is [**R** 
-Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by 
-John Fox at McMaster University. **R** Commander displays the 
-underlying **R** code for each analysis to help the user learn
-the programming language. [Tinn-**R**](http://sourceforge.net/projects/tinn-r/) 
-is another GUI from Jose Claudio Faria.
+You can choose your own way of using **R**. In Windows, there are several ways to use **R**. The standard **R** graphical unit interface (GUI) allows you to point and click to do many basic tasks. Another GUI is [**R** Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by 
+John Fox at McMaster University. **R** Commander displays the underlying **R** code for each analysis to help the user learn the programming language. [Tinn-**R**](http://sourceforge.net/projects/tinn-r/)  is another GUI from Jose Claudio Faria.
 
 These GUIs are friendly and easy to grasp if you're a beginner. But to use all of **R**'s capabilities you will need to do more than point and click.
 
@@ -99,14 +67,8 @@ original analysis and to investigate other approaches.
 
 Maybe because many users of statistics only learn how to use one statistical software, often the one taught in their first statistics course. In the past, **R** was almost never this first language, but nowadays many schools are teaching how to use it.
 
-And even if people have used **R**, they can take time to get comfortable and 
-productive with it, especially if you have little coding experience. Typing
-commands explicitly is more difficult than pointing and clicking. Also, each 
-package has its own rules to learn. You can find a lot of good help for popular 
-packages written by professional developers, but not so much for smaller 
-packages written by other common users. Worst of all, some of the messages **R**
-displays if you make a mistake are uninformative, so figuring out what went 
-wrong can be difficult. 
+And even if people have used **R**, they can struggle to get comfortable and 
+productive with it, especially if they have little coding experience. Typing commands explicitly is more difficult than pointing and clicking. Also, each package has its own rules to learn. You can find a lot of good help for popular packages written by professional developers, but not so much for smaller packages written by other common users. Worst of all, some of the messages **R** displays if you make a mistake are uninformative, so figuring out what went wrong can be difficult. 
 
 Don't get frustrated! You don't have to be an expert programmer to use
 **R**. The benefits are worth spending some time up front.
@@ -150,20 +112,17 @@ the page that you will use to download everything **R**-related.
 Once you find the CRAN web page, take the following steps to obtain
 **R**:
 
-1.  Click on "Download **R** for XXX" that best describes your
-    operating system (Linux, OS X, Windows).
+1.  Click on "Download **R** for X" that best describes your operating system       (Linux, OS X, Windows).
 2.  When using Windows, click on the "base" subdirectory. This will allow
     you to download the base **R** packages.
-3.  Click the "Download **R** 3.X.X for Windows" link.
+3.  Click the "Download **R** 4.X.X for Windows" link.
     **R** is updated quite frequently. At the time of this
-    printing, version 4.3.3 is available. Save the `.exe` file somewhere on your
+    printing, version 4.4.0 is available. Save the `.exe` file somewhere on your
     computer.
-4.  Double-click on the `.exe` file once it has been downloaded. A wizard will
-    appear that will guide you through the setup of the **R**
-    software on your machine.
-5.  Once you are finished, you should have an **R** icon on your
+4.  Double-click on the `.exe` file once it is downloaded. An installation
+    window will appear to guide you through the setup of **R** in your machine.
+5.  Once you finish, you should have an **R** icon on your
     desktop that gives you a shortcut to the **R** system.
-    Double-click on this icon, and you are ready to go!
 
 ### How to get RStudio
 
@@ -171,9 +130,9 @@ Once you find the CRAN web page, take the following steps to obtain
 following information is useful if you need to install
 **R**Studio on another machine. **You must install R before you install RStudio**. Otherwise, **R**Studio will not work.
 
-Visit <https://www.posit.co> and download the free desktop version of
-**R**Studio.
+Visit <https://posit.co/downloads/> and click on "Download **R**Studio". Choose the version for your operating system (Linux, OS X, Windows) and download the installer. Then double click on the installer `.exe` file and follow the instructions on the screen to install **R**Studio.
 
+<!---
 ### Contributed Packages
 
 What exactly are "additional contributed packages"? **R** is an
@@ -188,3 +147,4 @@ install an additional package that is not included by default.
 
 These additional packages are usually found CRAN. However, there are other
 repositories as well (e.g., bioconductor, github).
+!-->

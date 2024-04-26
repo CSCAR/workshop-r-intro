@@ -211,11 +211,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>In the previous section we saw how to store, extract, and manipulate numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how <strong>R</strong> handles different data types and structures, and how to use them to study and summarize data.</p>
+<p>In the previous section we learned how to store, extract, and manipulate numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how <strong>R</strong> handles different data types and structures, and how to use them to study and summarize data.</p>
 <section id="data-types" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">3.1</span> Data types</h2>
-<p>Data types are classifications of data that help <strong>R</strong> conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are different rules for storing and handling each of these data types. And learning these rules will allow us to analyze data later with less effort and fewer mistakes.</p>
-<p>There are six types of data in <strong>R</strong>: doubles, integers, logicals, characters, complex, and raw. <strong>Doubles</strong> are regular numbers with a decimal value (which may be zero). In general, <strong>R</strong> will save any number that we type in as a double.</p>
+<p>Data types are classifications of data that help <strong>R</strong> conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are six types of data in <strong>R</strong>: doubles, integers, logicals, characters, complex, and raw. Each type has different rules for storing and handling them. Learning these rules will allow us to analyze data later with less effort and fewer mistakes.</p>
+<p><strong>Doubles</strong> are regular numbers with a decimal value (which may be zero). In general, <strong>R</strong> will save any number that we type in as a double.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_double <span class="ot">&lt;-</span> <span class="dv">5</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_double)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -232,7 +232,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>In data science, we rarely use integers because we can save them as doubles. But <strong>R</strong> stores integers more precisely than doubles. So, integers are still helpful when dealing with complicated operations.</p>
-<p><strong>Logicals</strong> are truth values <code>TRUE</code> and <code>FALSE</code>. <strong>R</strong> also has a type of logical value called <code>NA</code>, which denotes a missing value. We often have to work with logical values when we compare numbers or objects:</p>
+<p><strong>Logicals</strong> are truth values <code>TRUE</code> and <code>FALSE</code>, and a special type of logical value called <code>NA</code>, which denotes a missing value. We often have to work with logical values when we compare numbers or objects:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_comparison <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_comparison)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -240,7 +240,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "logical"</code></pre>
 </div>
 </div>
+<div class="callout callout-style-simple callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Write TRUE and FALSE explicitly
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>In most situations, <strong>R</strong> will assume that <code>T</code> and <code>F</code> are abbreviations of <code>TRUE</code> and <code>FALSE</code>, but not always. <code>TRUE</code> and <code>FALSE</code> are reserved words, so their meaning can not change. <code>T</code> and <code>F</code> are not reserved words, so their meaning can change if we want to, or if a function does it in the background. The initial values of <code>T</code> and <code>F</code> are <code>TRUE</code> and <code>FALSE</code>, but this may change without us knowing. So, I suggest you always write the full words.</p>
+</div>
+</div>
 <p><strong>Characters</strong> are text, like “hello”, “Elvis”, or “Somewhere in La Mancha”; or symbols we want to handle as text, like “size 45”, or “mail/u”. You can create a character vector by typing a character or <em>string</em> of characters surrounded by quotes:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_character <span class="ot">&lt;-</span> <span class="st">"Somewhere in La Mancha"</span></span>
@@ -257,7 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Error in eval(expr, envir, enclos): object 'noquotes' not found</code></pre>
 </div>
 </div>
-<p>We can differentiate strings from real numbers because <strong>R</strong> always shows strings surrounded by quotation marks. And because in <strong>R</strong>Studio, strings have different colors from other data types.</p>
+<p>We can differentiate strings from real numbers because <strong>R</strong> always shows strings surrounded by quotation marks. And because, in <strong>R</strong>Studio, strings have different colors from other data types.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="st">"9"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -273,10 +285,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-structures" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">3.2</span> Data structures</h2>
-<p>Data structures are ways of organizing data that make it easier for us to manipulate and operate data. I will explain five different data structures—each with its own advantages and limitations—: atomic vectors, matrices, arrays, lists, and data frames.</p>
+<p>Data structures are ways of organizing data that make it easier for us to manipulate and operate data. I will explain five different data structures, each with its own advantages and limitations: atomic vectors, matrices, arrays, lists, and data frames.</p>
 <section id="atomic-vectors" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="atomic-vectors"><span class="header-section-number">3.2.1</span> Atomic vectors</h3>
-<p>Atomic vectors store values as one-dimensional groups. All the elements of an atomic vector must be of the same type of data, with one exception: any vector can include <code>NA</code> as a value regardless of the type of the other values. These vector are called “atomic” because we can think of them as the most basic type of data structure.</p>
+<p>Atomic vectors store values as one-dimensional groups. All the elements of an atomic vector must be of the same type of data, with one exception: any vector can include <code>NA</code> as a value regardless of the type of the other values. These vectors are called “atomic” because we can think of them as the most basic type of data structure.</p>
 <p>To create an atomic vector, we can group values using the combine function <code>c()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>quijote_characters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Don Quijote"</span>, <span class="st">"Sancho Panza"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

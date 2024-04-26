@@ -1,12 +1,12 @@
 # Data in R
 
-In the previous section we saw how to store, extract, and manipulate numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how **R** handles different data types and structures, and how to use them to study and summarize data.
+In the previous section we learned how to store, extract, and manipulate numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how **R** handles different data types and structures, and how to use them to study and summarize data.
 
 ## Data types
 
-Data types are classifications of data that help **R** conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are different rules for storing and handling each of these data types. And learning these rules will allow us to analyze data later with less effort and fewer mistakes.
+Data types are classifications of data that help **R** conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are six types of data in **R**: doubles, integers, logicals, characters, complex, and raw. Each type has different rules for storing and handling them. Learning these rules will allow us to analyze data later with less effort and fewer mistakes.
 
-There are six types of data in **R**: doubles, integers, logicals, characters, complex, and raw. **Doubles** are regular numbers with a decimal value (which may be zero). In general, **R** will save any number that we type in as a double.
+**Doubles** are regular numbers with a decimal value (which may be zero). In general, **R** will save any number that we type in as a double.
 ```{r double value}
 my_double <- 5
 typeof(my_double)
@@ -19,12 +19,17 @@ typeof(my_integer)
 ```
 In data science, we rarely use integers because we can save them as doubles. But **R** stores integers more precisely than doubles. So, integers are still helpful when dealing with complicated operations.
  
-**Logicals** are truth values `TRUE` and `FALSE`. **R** also has a type of logical value called `NA`, which denotes a missing value. We often have to work with logical values when we compare numbers or objects:
+**Logicals** are truth values `TRUE` and `FALSE`, and a special type of logical value called `NA`, which denotes a missing value. We often have to work with logical values when we compare numbers or objects:
 ```{r logical value}
 my_comparison <- -3 < 1
 typeof(my_comparison)
 ```
+::: {.callout-caution}
+#### Write TRUE and FALSE explicitly
+
 In most situations, **R** will assume that `T` and `F` are abbreviations of `TRUE` and `FALSE`, but not always. `TRUE` and `FALSE` are reserved words, so their meaning can not change. `T` and `F` are not reserved words, so their meaning can change if we want to, or if a function does it in the background. The initial values of `T` and `F` are `TRUE` and `FALSE`, but this may change without us knowing. So, I suggest you always write the full words.
+:::
+
 
 **Characters** are text, like "hello", "Elvis", or "Somewhere in La Mancha"; or symbols we want to handle as text, like "size 45", or "mail/u". You can create a character vector by typing a character or *string* of characters surrounded by quotes:
 ```{r character value}
@@ -39,7 +44,7 @@ It is easy to confuse **R** objects with character strings because both appear a
 noquotes
 ```
 
-We can differentiate strings from real numbers because **R** always shows strings surrounded by quotation marks. And because in **R**Studio, strings have different colors from other data types.
+We can differentiate strings from real numbers because **R** always shows strings surrounded by quotation marks. And because, in **R**Studio, strings have different colors from other data types.
 
 ```{r character vs double}
 typeof("9")
@@ -52,11 +57,11 @@ A special type of character string is a *factor.* Factors are **R**'s way of sto
 
 ## Data structures
 
-Data structures are ways of organizing data that make it easier for us to manipulate and operate data. I will explain five different data structures---each with its own advantages and limitations---: atomic vectors, matrices, arrays, lists, and data frames.
+Data structures are ways of organizing data that make it easier for us to manipulate and operate data. I will explain five different data structures, each with its own advantages and limitations: atomic vectors, matrices, arrays, lists, and data frames.
 
 ### Atomic vectors
 
-Atomic vectors store values as one-dimensional groups. All the elements of an atomic vector must be of the same type of data, with one exception: any vector can include `NA` as a value regardless of the type of the other values. These vector are called "atomic" because we can think of them as the most basic type of data structure.
+Atomic vectors store values as one-dimensional groups. All the elements of an atomic vector must be of the same type of data, with one exception: any vector can include `NA` as a value regardless of the type of the other values. These vectors are called "atomic" because we can think of them as the most basic type of data structure.
 
 To create an atomic vector, we can group values using the combine function `c()`:
 

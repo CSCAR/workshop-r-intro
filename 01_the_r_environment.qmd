@@ -38,16 +38,14 @@ You can also find many powerful tools to fit statistical models
     models)
 - Classification and Clustering
 - Sample Size and Power Calculations
-- Multivariable analysis (Factor Analysis, Principal Component Analysis, Structural Equations Modeling, ...)
+- Multivariable analysis (e.g., Factor Analysis, Principal Component Analysis, and Structural Equations Modeling)
 
 Even better, new tools become available in **R** all the time. As with other open source programming languages, everyone can examine and contribute to **R**'s code. Users constantly publish their own code "packages" (ready-to-use tools), which expand **R**'s base capabilities. As of March 2019, users have contributed over 13,700 packages to Comprehensive **R** Archive Network (CRAN)., many of which perform complex statistical routines that are not (and may never be) available in other statistical software systems.
 
 You can choose your own way of using **R**. In Windows, there are several ways to use **R**. The standard **R** graphical unit interface (GUI) allows you to point and click to do many basic tasks. Another GUI is [**R** Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by 
 John Fox at McMaster University. **R** Commander displays the underlying **R** code for each analysis to help the user learn the programming language. [Tinn-**R**](http://sourceforge.net/projects/tinn-r/)  is another GUI from Jose Claudio Faria.
 
-These GUIs are friendly and easy to grasp if you're a beginner. But to use all of **R**'s capabilities you will need to do more than point and click.
-
-A more complete way of using **R** is through an integrated development environment (IDE), which, in short, helps you code. The most popular IDE for **R** is [**R**Studio](https://www.posit.com), which organizes the
+These GUIs are friendly and easy to grasp if you're a beginner. But to use all of **R**'s capabilities you will need to do more than point and click. A more complete way of using **R** is through an integrated development environment (IDE), which, in short, helps you code. The most popular IDE for **R** is [**R**Studio](https://www.posit.com), which organizes the
 user's screen into panes that display scripts, objects, graphics, and
 the **R** console.
 

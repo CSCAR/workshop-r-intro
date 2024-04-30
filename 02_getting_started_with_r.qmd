@@ -660,7 +660,7 @@ solve_quadratic(a = 1, b = -1, c = -3)
 
 Our function can have as many arguments as we like. It is enough to add their names, separated by commas, in the parentheses that follow the function. When the function runs, **R** will replace each argument name in the function body with the corresponding value that we supply. If we don't supply a value, **R** will replace the argument name with the argument's default value (if we defined one).
 
-We can also user our functions to create other functions. Imagine that we want to multiply the solutions to our equation by an arbitrary value (maybe because we want to convert the units of $x$ to something else). And let's pretend that, by default, we want to double the solutions. We can write another function that first calls `solve_quadratic()` and then multiplies the result by our arbitrary number.
+We can also use our functions to create other functions. Imagine that we want to multiply the solutions to our equation by an arbitrary value (maybe because we want to convert the units of $x$ to something else). And let's pretend that, by default, we want to double the solutions. We can write another function that first calls `solve_quadratic()` and then multiplies the result by our arbitrary number.
 
 ```{r}
 multiply_solutions = function(a, b, c, multiplier = 2) {
@@ -708,6 +708,4 @@ readxl::read_xlsx("fake_data_file.xlsx")
 
 ## Exercise
 
-Let's try to practice all of the basic features of **R** that you just learned.
-
-Write a function that can simulate the roll of a pair of six-sided dice (let's call them red and blue) an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die. Hint: to simulate rolling a die, you can use the function `sample()`.
+Let's try to practice all of the basic features of **R** that you just learned. Write a function that can simulate the roll of a pair of six-sided dice (let's call them red and blue) an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die. Hint: to simulate rolling a die, you can use the function `sample()`.

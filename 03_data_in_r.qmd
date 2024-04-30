@@ -99,7 +99,7 @@ length(c())
 
 Adding different data types to the same atomic vector does not produce an error. Instead, **R** automatically follows specific rules to *coerce* everything inside the vector to be of the same type. If a character string is present in an atomic vector, **R** will convert all other values to character strings. If a vector only contains logicals and numbers, **R** will convert the logicals to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`. The only values that are not coerced are `NA`s.
 
-Following these rules helps preserve information. It is easy, for example, to recognize the original type of strings `"TRUE"` and `"3.14"`. Or to transform a vector of `0`s and `1`s back to `TRUE`s and `FALSE`s.
+Following these rules helps preserve information. It is easy, for example, to recognize the original types of strings `"TRUE"` and `"3.14"`. Or to transform a vector of `1`s and `0`s back to `TRUE`s and `FALSE`s.
 :::
 
 ### Matrices
@@ -132,7 +132,7 @@ scores_mat <- matrix(data = scores_vec, nrow = 3, byrow = TRUE)
 scores_mat
 ```
 
-When showing a matrix, **R** shows expressions with square brackets (e.g., `[,1]`). These are positional indices that denote the "coordinates" of the matrix. Two-dimensional objects like matrices have two indices, one for each dimension. The first number always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation `[ ]` to extract values from matrices.
+When showing a matrix, **R** shows expressions with square brackets (e.g., `[,1]`). The numbers inside the square brackets are positional indices that denote the "coordinates" of the matrix. Two-dimensional objects like matrices have two indices, one for each dimension. The first number always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation `[ ]` to extract values from matrices.
 ```{r extract value from matrix}
 scores_mat[c(1, 3), 2] # Rows 1 and 3 in column 2
 ```

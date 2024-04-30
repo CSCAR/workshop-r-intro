@@ -350,7 +350,7 @@ Coercion
 </div>
 <div class="callout-body-container callout-body">
 <p>Adding different data types to the same atomic vector does not produce an error. Instead, <strong>R</strong> automatically follows specific rules to <em>coerce</em> everything inside the vector to be of the same type. If a character string is present in an atomic vector, <strong>R</strong> will convert all other values to character strings. If a vector only contains logicals and numbers, <strong>R</strong> will convert the logicals to numbers; every <code>TRUE</code> becomes a <code>1</code>, and every <code>FALSE</code> becomes a <code>0</code>. The only values that are not coerced are <code>NA</code>s.</p>
-<p>Following these rules helps preserve information. It is easy, for example, to recognize the original type of strings <code>"TRUE"</code> and <code>"3.14"</code>. Or to transform a vector of <code>0</code>s and <code>1</code>s back to <code>TRUE</code>s and <code>FALSE</code>s.</p>
+<p>Following these rules helps preserve information. It is easy, for example, to recognize the original types of strings <code>"TRUE"</code> and <code>"3.14"</code>. Or to transform a vector of <code>1</code>s and <code>0</code>s back to <code>TRUE</code>s and <code>FALSE</code>s.</p>
 </div>
 </div>
 </section>
@@ -402,7 +402,7 @@ Coercion
 [3,]    8   13    4</code></pre>
 </div>
 </div>
-<p>When showing a matrix, <strong>R</strong> shows expressions with square brackets (e.g., <code>[,1]</code>). These are positional indices that denote the “coordinates” of the matrix. Two-dimensional objects like matrices have two indices, one for each dimension. The first number always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation <code>[ ]</code> to extract values from matrices.</p>
+<p>When showing a matrix, <strong>R</strong> shows expressions with square brackets (e.g., <code>[,1]</code>). The numbers inside the square brackets are positional indices that denote the “coordinates” of the matrix. Two-dimensional objects like matrices have two indices, one for each dimension. The first number always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation <code>[ ]</code> to extract values from matrices.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>scores_mat[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dv">2</span>] <span class="co"># Rows 1 and 3 in column 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

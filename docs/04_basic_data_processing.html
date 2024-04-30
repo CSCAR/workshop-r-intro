@@ -210,8 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Now that we understand how <strong>R</strong> handles data, we can start working with pre-existing data files. These files need to be correctly formatted and in a file format that <strong>R</strong> can recognize. Don’t worry, there are plenty of options.</p>
-<p>The first step when loading data in <strong>R</strong> is to locate our working directory. This is the default location where <strong>R</strong> will look for files we want to load and where it will put any files we save. The working directory will change on different computers. To find our current working directory, we run:</p>
+<p>Now we can apply our understanding of <strong>R</strong> to work with files of pre-existing data. The first step when loading data into <strong>R</strong> is to locate our working directory. This is the default location where <strong>R</strong> will look for files we want to load and where it will put any files we save. The working directory will change on different computers. To find our current working directory, we run:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -220,19 +219,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "C:/Users/user_name/workshop_folder/learning_r/code"</code></pre>
 </div>
 </div>
-<p>We can move our working directory to any folder on your computer with the function <code>setwd()</code>. Just give <code>setwd()</code> the <a href="https://www.codecademy.com/resources/docs/general/file-paths">file path</a> to your new working directory. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. This way, all files related to my project are in the same place. For example:</p>
+<p>We can move our working directory to any folder on our computer by writing a new <a href="https://www.codecademy.com/resources/docs/general/file-paths">file path</a> inside the function <code>setwd()</code>. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. This way, every file related to my project is in the same place. For example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/user_name/workshop_folder/learning_r/code"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can also change your working directory by clicking on Session &gt; Set Working Directory &gt; Choose Directory in the <strong>R</strong>Studio menu bar. The Windows and Mac graphical user interfaces have similar options. If we start <strong>R</strong> from a UNIX command line (as on Linux machines), the working directory will be whichever directory we were in when we called <strong>R</strong>.</p>
+<p>We can also change our working directory by clicking on Session &gt; Set Working Directory &gt; Choose Directory in the <strong>R</strong>Studio menu bar. The Windows and Mac graphical user interfaces have similar options. If we start <strong>R</strong> from a UNIX command line (as on Linux machines), the working directory will be whichever directory we were in when we called <strong>R</strong>.</p>
 <p><code>list.files()</code> will show us what files are in our working directory. If the file that we want to open is in our working directory, then we are ready to proceed.</p>
 <section id="loading-data" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">4.1</span> Loading data</h2>
 <p>Once we know where to find data files in our computer, we can start loading them into <strong>R</strong>. Note, however, that we need specific ways to open different file formats.</p>
 <section id="plain-text-files" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="plain-text-files"><span class="header-section-number">4.1.1</span> Plain text files</h3>
-<p>Plain-text files are simple and many programs can read them. This is why many organizations (e.g., the Census Bureau, the Social Security Administration, etc.) publish their data as plain-text files.</p>
 <p>A plain-text file stores a table of data in a text document. Each row of the table is saved on its own line, and a simple symbol separates the cells within a row. This symbol is often a comma, but it can also be a tab, a pipe delimiter <code>|</code>, or any other character. Each file only uses one symbol to separate cells, which minimizes confusion.</p>
+<p>Plain-text files are simple and many programs can read them. This is why many organizations (e.g., the Census Bureau and the Social Security Administration) publish their data as plain-text files.</p>
 <p>We will work with data from <a href="https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower.csv">this</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> plain text file. Use <code>Ctrl+Shift+s</code> to download the file. I am going to save it in a folder called “data_files” inside my working directory under the name “flower.csv”. But you can save it wherever you want as long as you can keep track of it.</p>
 <section id="read.table" class="level4" data-number="4.1.1.1">
 <h4 data-number="4.1.1.1" class="anchored" data-anchor-id="read.table"><span class="header-section-number">4.1.1.1</span> read.table</h4>
@@ -240,8 +239,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>flower_df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data_files/flower.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In the code above, I added two more arguments, <code>header</code> and <code>sep</code>. <code>header</code> tells <strong>R</strong> whether the first line of the file contains variable names instead of values. <code>sep</code> tells <strong>R</strong> the symbol that the file uses to separate the cells.</p>
-<p>Sometimes a plain-text file starts with text that is not part of the data set. Or, maybe we want to read only part of a data set. Argument <code>skip</code> tells <strong>R</strong> to skip a specific number of lines before it starts reading in values from the file. Argument <code>nrow</code> tells <strong>R</strong> to stop reading in values after it has read in a certain number of lines. Keep in mind that the header row doesn’t count towards the total rows allowed by <code>nrow</code>.</p>
+<p>In the code above, I added arguments <code>header</code> and <code>sep</code>. <code>header</code> tells <strong>R</strong> whether the first line of the file contains variable names instead of values; this will help us identify the variables in the data frame. <code>sep</code> tells <strong>R</strong> the symbol that the file uses to separate the cells; this will help us preserve the correct location of the data cells.</p>
+<p>Sometimes a plain-text file starts with text that is not part of the data set. Or maybe we want to read only part of a data set. Argument <code>skip</code> tells <strong>R</strong> to skip a specific number of lines before it starts reading values from the file. Argument <code>nrow</code> tells <strong>R</strong> to only read a certain number of lines, starting from the top. Keep in mind that <code>nrow</code> does not count the header in the number of rows it reads.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>flower_df_chunk <span class="ot">&lt;-</span> <span class="fu">read.table</span>(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"data_files/flower.csv"</span>, </span>
@@ -273,11 +272,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="html-links" class="level4" data-number="4.1.1.3">
 <h4 data-number="4.1.1.3" class="anchored" data-anchor-id="html-links"><span class="header-section-number">4.1.1.3</span> HTML links</h4>
-<p><code>read.table()</code> and its shortcuts allow us to load data files directly from a website. Instead of using the file’s path or name, we can directly use a web address in the <code>file</code> argument of the function. Do make sure that you are using the web address that links directly to the file, not to a web page that has a link to the file.</p>
+<p><code>read.table()</code> and its shortcuts allow us to load data files directly from a website. Instead of using the file’s path or name, we can directly use a web address in the <code>file</code> argument of the function. Make sure to use the web address that links directly to the file, not to a web page that has a link to the file.</p>
 </section>
 <section id="read.fwf" class="level4" data-number="4.1.1.4">
 <h4 data-number="4.1.1.4" class="anchored" data-anchor-id="read.fwf"><span class="header-section-number">4.1.1.4</span> read.fwf</h4>
-<p><em>Fixed-width file</em> (.fwf) is a type of plain-text file that, instead of a symbol, uses its layout to separate data cells. Each row is still in a single line, and each column begins at a specific number of characters from the left-hand side of the document. To correctly position its data, the file adds an arbitrary number of character spaces between data entries.</p>
+<p>A <em>fixed-width file</em> (.fwf) is a type of plain-text file that, instead of a symbol, uses its layout to separate data cells. Each row is still in a single line, and each column begins at a specific number of characters from the left-hand side of the document. To correctly position its data, the file adds an arbitrary number of character spaces between data entries.</p>
 <p>If our flowers data came in a fixed-width file, the first few lines would look like this:</p>
 <div class="cell">
 <pre class="flowers cell-code"><code>treat  nitrogen block  height  weight  leafarea  shootarea  flowers
@@ -289,18 +288,18 @@ tip    medium   1      10.4    13.58   14.5      26.9       4
 tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 </div>
 <p>Fixed-width files may be visually intuitive, but they are difficult to work with. This may explain why <strong>R</strong> has a function for reading fixed-width files, but not for saving them.</p>
-<p>We can read fixed-width files into R with the function <code>read.fwf()</code>. This function adds another argument to the ones from <code>read.table()</code>: <code>widths</code>, which should be a vector of numbers. Each ith entry of the <code>widths</code> vector should state the width (in characters) of the ith column of the data set.</p>
+<p>We can read fixed-width files into <strong>R</strong> with the function <code>read.fwf()</code>. This function adds another argument to the ones from <code>read.table()</code>: <code>widths</code>, which should be a vector of numbers. Each ith entry of the <code>widths</code> vector should state the width (in characters) of the ith column of the data set.</p>
 </section>
 </section>
 <section id="excel-files" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="excel-files"><span class="header-section-number">4.1.2</span> Excel files</h3>
-<p>The best way to load data from Excel files (.xlsx) into <strong>R</strong> is not to use Excel files. Instead, save these files as .csv or .txt files and then use <code>read.table</code>. Excel files can include multiple spreadsheets, macros, colors, dynamic tables, and other complicated formats. All of these make it difficult for <strong>R</strong> to read the files properly. Plain text files are simpler, so we can load and transfer them more easily.</p>
+<p>The best way to load data from Excel files (.xlsx) into <strong>R</strong> is to first save these files as .csv or .txt files and then use <code>read.table</code>. Excel files can include multiple spreadsheets, macros, colors, dynamic tables, and other complicated formats. All of these make it difficult for <strong>R</strong> to read the files properly. Plain text files are simpler, so we can load and transfer them more easily.</p>
 <p>Still, there are ways to load Excel files into <strong>R</strong> if we <em>really</em> need to. <strong>R</strong> has no native way of loading these files, but we can use the package <code>readxl</code>, which works on all operating systems. We install it using <code>install.packages("readxl")</code>. Then we load it using <code>library(readxl)</code>. Once we load the package, we can use the function <code>read_excel()</code> to load files of the type .xls and .xlsx (see <code>help("read_excel")</code> for more information).</p>
 </section>
 <section id="files-from-other-programs" class="level3" data-number="4.1.3">
 <h3 data-number="4.1.3" class="anchored" data-anchor-id="files-from-other-programs"><span class="header-section-number">4.1.3</span> Files from other programs</h3>
 <p>As with Excel files, I suggest that you first try to transform files from other programs to plain-text files. This transformation is usually the best way to verify that our data is transcribed properly, and allows us to customize the transformation.</p>
-<p>But sometimes we can’t transform the file to a plain-text format—maybe because we can’t access the program that created the file (e.g.&nbsp;SAS). In these cases, we can resort to one of several libraries:</p>
+<p>But sometimes we can’t transform the file to a plain-text format—maybe because we can’t access the program that created the file (e.g., SAS or SPSS). In these cases, we can resort to one of several libraries:</p>
 <ul>
 <li><code>haven</code>, for reading files from SAS, SPSS, and Stata.</li>
 <li><code>R.matlab</code> for reading files for versions MAT 4 and MAT 5.</li>
@@ -310,7 +309,7 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 </section>
 <section id="cleaning-data" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="cleaning-data"><span class="header-section-number">4.2</span> Cleaning data</h2>
-<p>Once we load our data files as data.frames in <strong>R</strong>, we want to make sure that all of the information has an appropriate format. The process of identifying, removing and correcting inaccurate information is often referred to as “data cleaning”. We will practice data cleaning using a “messy” version of the flower data that we loaded above. You can get this messy version from <a href="https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower_messy.csv">here</a>. Again, you can use <code>Ctrl+Shift+s</code> to download the file.</p>
+<p>Once we load our data files as data.frames in <strong>R</strong>, we should verify that all of the information has an appropriate format. The process of identifying, removing and correcting inaccurate information is often referred to as “data cleaning”. We will practice data cleaning using a “messy” version of the flower data that we loaded above. You can get this messy version from <a href="https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower_messy.csv">here</a>. Again, you can use <code>Ctrl+Shift+s</code> to download the file.</p>
 <p>Since this is a .csv file, we can load it into <strong>R</strong> using:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>flower_messy_df <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data_files/flower_messy.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -324,7 +323,7 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 </div>
 </div>
 <p>If we open the data file using something like Excel or Notepad, we can see that the names for columns 6 and 7 had blank spaces inside it. When loading the data, <code>read.csv()</code> automatically substitutes these blank spaces with periods <code>.</code>, so that the names conform to <strong>R</strong>’s conventions. <code>read.csv()</code> is pretty good at checking column names and other things, but it’s not perfect. So, it’s always a good idea to double-check everything ourselves.</p>
-<p>The column names of <code>flower_messy_df</code> are legible, but unwieldy. They have a mix of upper and lower-case that we don’t want to struggle with. Let’s rewrite all the names in lower case, which is quick and easy if we use <code>tolower()</code>.</p>
+<p>The column names of <code>flower_messy_df</code> are legible, but unwieldy. We don’t want to struggle with their mix of upper and lower-case letters. Let’s rewrite all the names in lower case, which is quick and easy if we use <code>tolower()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>new_colnames <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">colnames</span>(flower_messy_df)) <span class="co"># Modify column names</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>new_colnames</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -347,7 +346,7 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 [6] "leaf.area"  "shoot.area" "flowers"   </code></pre>
 </div>
 </div>
-<p>The column names are almost ready. The last change will be to substitute the periods in the names with underscores. In <strong>R</strong>, this is purely out of personal preference, but it’s a good excuse to meet the function <code>gsub()</code>, which substitutes patterns of strings:</p>
+<p>The last change to these column names will be to substitute the periods in the names with underscores. In <strong>R</strong>, this is purely out of personal preference, but it’s a good excuse to meet the function <code>gsub()</code>, which substitutes patterns of strings:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(flower_clean_df) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>, <span class="co"># What we want to remove</span></span>
@@ -361,7 +360,7 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 </div>
 </div>
 <p>Note that I had to use <code>"\\."</code> instead of simply <code>"."</code> to match the period. The reason is that <code>gsub()</code> interprets <code>"."</code> as saying “match any character”. This may sound silly but it helps when working with <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>—a syntax to find many different, complicated patterns in strings. Regular expressions are too complicated to explain here, but if you expect to work with text data regularly, I encourage you to learn more about them.</p>
-<p>With our improved column names it will be easier to focus on giving every column an appropriate format. Numbers should be of type “double” or “integer”, and text should be of type “character”. Let’s check the types of the columns in our current data set.</p>
+<p>With our improved column names it will be easier to focus on giving every column an appropriate format: numbers should be of type “double” or “integer”, and text should be of type “character” of “factor”. Let’s check the types of the columns in our current data set.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(flower_clean_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -388,8 +387,8 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>flower_clean_df[<span class="st">"flowers"</span>] <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\"</span><span class="st">"</span>, <span class="co"># \" the backlash tells R to match quotes</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">replacement =</span> <span class="st">""</span>, <span class="co"># This is how we write "nothing"</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> flower_clean_df<span class="sc">$</span>flowers <span class="co"># x needs to be a vector, so use </span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                                     <span class="co"># double brackets or dollar sign</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> flower_clean_df<span class="sc">$</span>flowers <span class="co"># x needs to be a vector, so use</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                                <span class="co"># double brackets or dollar sign</span></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flower_clean_df<span class="sc">$</span>flowers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -408,7 +407,7 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 <pre><code>[1]  1 10 10  1  4  9</code></pre>
 </div>
 </div>
-<p>Columns “treat” and “nitrogen” are of type character, which is not wrong, but it will be easier to handle them if we convert them to factors.</p>
+<p>Columns “treat” and “nitrogen” are of type character. This is not wrong, but it will be easier to handle them if we convert them to factors.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>flower_clean_df[<span class="st">"treat"</span>] <span class="ot">&lt;-</span> <span class="fu">factor</span>(flower_clean_df<span class="sc">$</span>treat)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>flower_clean_df[<span class="st">"nitrogen"</span>] <span class="ot">&lt;-</span> <span class="fu">factor</span>(flower_clean_df<span class="sc">$</span>nitrogen)</span>
@@ -425,14 +424,14 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
  $ flowers   : num  1 10 10 1 4 9 7 6 5 8 ...</code></pre>
 </div>
 </div>
-<p>The transformation fixed column “flowers”, but column “nitrogen” looks suspicious. It is supposed to have only three values (“low”, “medium”, and “high”), but its description counts eight values. Let’s examine them more closely:</p>
+<p>Column “flowers” looks fine, but column “nitrogen” looks suspicious. It is supposed to have only three values (“low”, “medium”, and “high”), but its description counts eight values. Let’s examine them more closely:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(flower_clean_df<span class="sc">$</span>nitrogen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "high"   "High"   "HIGH"   "low"    "lOw"    "Low"    "medium" "Medium"</code></pre>
 </div>
 </div>
-<p>Remember that <strong>R</strong> is case sensitive, so it interprets each spelling as a different value. We can fix this using <code>tolower()</code> once more. Note that this will convert the “nitrogen” column back to a simple character type, so we have to reconvert it to factor.</p>
+<p>Remember that <strong>R</strong> is case sensitive, so it interprets each of spelling “high” and “low” as a different value. We can fix this using <code>tolower()</code> once more. Note that this will convert the “nitrogen” column back to a simple character type, so we have to reconvert it to factor.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>flower_clean_df[<span class="st">"nitrogen"</span>] <span class="ot">&lt;-</span> <span class="fu">tolower</span>(flower_clean_df<span class="sc">$</span>nitrogen)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>flower_clean_df[<span class="st">"nitrogen"</span>] <span class="ot">&lt;-</span> <span class="fu">factor</span>(flower_clean_df<span class="sc">$</span>nitrogen)</span>
@@ -495,13 +494,13 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    height <span class="sc">~</span> nitrogen,</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> flower_clean_df, </span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"yellow"</span>, <span class="st">"blue"</span>, <span class="st">"pink"</span>),</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"No clear pattern between height and nitrogen"</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"No clear association between height and nitrogen"</span></span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="04_basic_data_processing_files/figure-html/height by nitrogen boxplots-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Now let’s say we want to investigate the relationship between shoot area and leaf area. And let’s check whether that relationship differs depending on the value of treat. We can use a scatter plot with shoot area and leaf area, and we can color each point by their treat value.</p>
+<p>Now let’s investigate the relationship between shoot area and leaf area. And let’s check whether that relationship changes depending on the value of treat. We can use a scatter plot with shoot area and leaf area, and we can color each point by their treat value.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> flower_clean_df<span class="sc">$</span>leaf_area,</span>
@@ -522,7 +521,7 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 <p><img src="04_basic_data_processing_files/figure-html/leaf area vs shoot area by treat-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Now let’s say we want to see how frequently the values of nitrogen and treat combine with each other, but only for flowers with a leaf area greater than 13.</p>
+<p>Now let’s see how frequently the values of nitrogen and treat combine with each other, but only for flowers with a leaf area greater than 13.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>nitrogen_by_treat_table <span class="ot">=</span> <span class="fu">xtabs</span>(</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> <span class="sc">~</span> nitrogen <span class="sc">+</span> treat,</span>

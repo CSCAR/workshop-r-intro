@@ -1,21 +1,21 @@
 # The R *Environment*
 
 **R** is an environment for statistical modeling and graphics. That it is an
-*environment* instead of a *package* is one of the main reasons **R** is 
+*environment* instead of a *package* is one of the main reasons why **R** is 
 distinct from other statistical programs. A package only gives us a fixed set of
 tools. An environment allows us to modify, combine and even create tools to suit
 our specific needs.
 
 ## Why becoming a useR?
 
-**R** is gratis and it runs on Windows, MacOS, and several Unix platforms. With **R** you can start with a data set that looks like this:
+**R** is gratis and it runs on Windows, MacOS, and several Unix platforms. With **R** you can start with a data set like this:
 ```{r loading messy flower data}
 #| echo: false
 flower_df <- read.table("data_files/flower.csv", header = TRUE, sep = ",")
 head(flower_df, 5)
 ```
 
-And, in 8 lines of code or less, you can get a plot that looks like this:
+and, in 8 lines of code or less, make a plot like this:
 ```{r height by nitrogen boxplots}
 #| echo: false
 boxplot(
@@ -31,21 +31,21 @@ boxplot(
 You can also find many powerful tools to fit statistical models 
 (both bayesian and frequentist), including:
 
-- Linear and Generalized Linear Models
+- Generalized linear models (including linear regression)
 - Survival analysis
 - Time series analysis
-- Random and Mixed Effects Models (aka hierarchical models, aka multilevel
+- Random and Mixed effects models (aka hierarchical models, aka multilevel
     models)
-- Classification and Clustering
-- Sample Size and Power Calculations
-- Multivariable analysis (e.g., Factor Analysis, Principal Component Analysis, and Structural Equations Modeling)
+- Classification and clustering
+- Sample size and power calculations
+- Multivariable analysis (e.g., factor analysis, principal component analysis, and structural equations modeling)
 
-Even better, new tools become available in **R** all the time. As with other open source programming languages, everyone can examine and contribute to **R**'s code. Users constantly publish their own code "packages" (ready-to-use tools), which expand **R**'s base capabilities. As of March 2019, users have contributed over 13,700 packages to Comprehensive **R** Archive Network (CRAN)., many of which perform complex statistical routines that are not (and may never be) available in other statistical software systems.
+Even better, new tools become available in **R** all the time. As with other open source programming languages, everyone can examine and contribute to **R**'s code. Users constantly publish their own code "packages" (ready-to-use tools), which expand **R**'s base capabilities. As of March 2019, users have contributed over 13,700 packages to Comprehensive **R** Archive Network (CRAN), many of which perform complex statistical routines that are not (and may never be) available in other statistical software systems.
 
 You can choose your own way of using **R**. In Windows, there are several ways to use **R**. The standard **R** graphical unit interface (GUI) allows you to point and click to do many basic tasks. Another GUI is [**R** Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by 
-John Fox at McMaster University. **R** Commander displays the underlying **R** code for each analysis to help the user learn the programming language. [Tinn-**R**](http://sourceforge.net/projects/tinn-r/)  is another GUI from Jose Claudio Faria.
+John Fox at McMaster University. **R** Commander displays the underlying **R** code for each analysis to help the user learn the programming language. [Tinn-**R**](http://sourceforge.net/projects/tinn-r/)  is another GUI from Jose Claudio Faria. These GUIs are friendly and easy to grasp if you're a beginner. But to use all of **R**'s capabilities you will need to do more than point and click. 
 
-These GUIs are friendly and easy to grasp if you're a beginner. But to use all of **R**'s capabilities you will need to do more than point and click. A more complete way of using **R** is through an integrated development environment (IDE), which, in short, helps you code. The most popular IDE for **R** is [**R**Studio](https://www.posit.com), which organizes the
+A more complete way of using **R** is through an integrated development environment (IDE), which, in short, helps you code. The most popular IDE for **R** is [**R**Studio](https://www.posit.com), which organizes the
 user's screen into panes that display scripts, objects, graphics, and
 the **R** console.
 
@@ -63,10 +63,15 @@ original analysis and to investigate other approaches.
 
 ## Why Isn't Everyone a Use**R**?
 
-Maybe because many users of statistics only learn how to use one statistical software, often the one taught in their first statistics course. In the past, **R** was almost never this first language, but nowadays many schools are teaching how to use it.
+Maybe because many users of statistics only learn how to use one statistical software, often the one taught in their first statistics course. In the past, **R** was almost never this first language (although nowadays more schools are teaching how to use it).
 
-And even if people have used **R**, they can struggle to get comfortable and 
-productive with it, especially if they have little coding experience. Typing commands explicitly is more difficult than pointing and clicking. Also, each package has its own rules to learn. You can find a lot of good help for popular packages written by professional developers, but not so much for smaller packages written by other common users. Worst of all, some of the messages **R** displays if you make a mistake are uninformative, so figuring out what went wrong can be difficult. 
+Besides, even if people have used **R**, they can struggle to get comfortable 
+and productive with it, especially if they have little coding experience. Typing 
+commands explicitly is more difficult than pointing and clicking. Also, each 
+package has its own rules to learn. You can find a lot of good help for popular 
+packages written by professional developers, but not so much for smaller 
+packages written by other common users. Worst of all, some of the messages **R** 
+displays if you make a mistake are uninformative, so fixing the problem can be difficult. 
 
 Don't get frustrated! You don't have to be an expert programmer to use
 **R**. The benefits are worth spending some time up front.
@@ -74,7 +79,7 @@ Don't get frustrated! You don't have to be an expert programmer to use
 ## Suggestions for Learning **R**
 
 - Learn interactively! Retype and experiment with lots of sample code; you won't   break it. These notes contain several code examples and you can find many more   online.
-- Don't worry about getting errors. Experienced **R** users
+- Don't worry about getting errors. Even experienced **R** users
   make errors all the time. Besides, you can learn a lot from error
   messages.
 - Ask other **R** users for help.
@@ -93,7 +98,7 @@ Don't get frustrated! You don't have to be an expert programmer to use
         Education at UCLA
     -   <https://socialsciences.mcmaster.ca/jfox/>: John Fox's home page
     -   <https://sas-and-r.blogspot.com/>: Examples of code to perform same task
-        in each language
+        in SAS and R.
 
 ## How to get **R**
 

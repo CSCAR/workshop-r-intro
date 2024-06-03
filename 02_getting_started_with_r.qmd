@@ -2,9 +2,9 @@
 
 ## The RStudio interface
 
-The first screen we see in R should look like this:
+The first screen we see in **R** should look like this:
 
-[![The first screen we see when we open RStudio](./images/rstudio_first_screen.jpg)](./images/rstudio_first_screen.jpg)
+[![The first screen we see when we open **R**Studio](./images/rstudio_first_screen.jpg)](./images/rstudio_first_screen.jpg)
 
 Here, there are three main window panes. The "Console" window is where we type the code to tell the computer to do stuff.
 
@@ -141,11 +141,11 @@ In this context, both `<-` and `=` are acting as "assignment operators" because 
 
 Now the environment window shows that there is an object called `my_object`, which we can access at anytime by typing its name.
 
+[![The environment pane with an object](./images/environment_with_object.jpg)](./images/environment_with_object.jpg)
+
 ```{r call my_object}
 my_object
 ```
-
-[![The environment pane with an object](./images/environment_with_object.jpg)](./images/environment_with_object.jpg)
 
 `my_object` has a number as its value, so we can do mathematical operations with it.
 
@@ -163,7 +163,7 @@ a
 b
 ```
 
-Be careful with names. If we try to reuse a name, **R** will overwrite the previous object without notifying us in any way.
+Be careful: if we try to reuse a name, **R** will overwrite the previous object without notifying us in any way.
 
 ```{r overwriting object}
 c <- 2
@@ -189,18 +189,18 @@ We can use almost any name we want, but there are a few rules:
 + Names can *not* include white spaces.
 + If a name starts with a period `.`, it can *not* be followed by a digit.
 + Names can *not* start with a number or an underscore `_`.
-+ Names are case-sensitive (`age`, `Age` and `AGE` are three different variables).
-+ Reserved words can *not* be used as variables (`TRUE`, `FALSE`, `NULL`, `if`, ...).
++ Names are case-sensitive (`age`, `Age` and `AGE` are three different objects).
++ Reserved words can *not* be used as names (`TRUE`, `FALSE`, `NULL`, `if`, ...).
 
 There are also a few suggestions that will save you many hours of frustration:
 
 + Avoid giving your object the same name as a built-in function.
-+ If you need to create objects with multiple words in their name, separate them with an underscore (`my_value`) or a dot (`my.value`), or capitalize the different words (`MyValue`). I like the underscore format (called [snake case](https://en.wikipedia.org/wiki/Snake_case) naming). You can use whichever one you want. Just be consistent.
++ If you need to create objects with multiple words in their name, separate them with an underscore (`my_value`) or a dot (`my.value`), or capitalize the different words (`MyValue`). Choose whichever format you like most. Just be consistent.
 + Use informative names. It is quick and easy to use names like `x` or `my_value`. But your code will be easier and faster to understand if your objects have names that illustrate what you want to do with them. Your colleagues and your future self will really appreciate it.
 
 ## Using functions
 
-**R** has many built-in functions for anything from basic math to text manipulation to advanced statistical models. In **R**, functions are objects that store commands that we can apply to an input. For example, we can round a number, calculate its square root, its factorial, or its natural logarithm. To use a function, we must write the name of a function followed by the input we want it to use inside a pair of round brackets.
+**R** has many built-in functions for anything from basic math to text manipulation to advanced statistical models. **R** thinks of functions as objects that store commands that we can apply to an input. For example, we can round a number, calculate its square root, its factorial, or its natural logarithm. To use a function, we must write the name of a function followed by the input we want it to use inside a pair of round brackets.
 
 ```{r simple mathematical functions}
 #| results: hide
@@ -217,7 +217,7 @@ round(2.1415, 0)
 round(2.1415, 2)
 ```
 
-The order of the arguments is important (what happens if we try to run `round(2, 2.1415)`?) Fortunately, arguments have names that you can use to specify which data to use in each case. So, we can write
+The order of these arguments is important (what happens if we try to run `round(2, 2.1415)`?) Fortunately, arguments have names that you can use to specify which data to use in each case. So, we can write
 
 ```{r naming arguments}
 round(x = 2.1415, digits = 3)
@@ -229,7 +229,7 @@ Even better, we can pass arguments in any order as long as we name them all.
 round(digits = 3, x = 2.1415)
 ```
 
-But if we use the wrong name in a function, we will likely get an error message.
+Note that using the wrong name in a function will likely yield an error message.
 
 ```{r}
 #| error: true
@@ -242,11 +242,11 @@ A quick way to check what arguments we can use is to invoke `args()`, which take
 args(round)
 ```
 
-The output shows that `round()` has two arguments: `x` (the number we want to round) and `digits`. It also shows that `digits` is already set to zero. This means that **R** will use `0` as the default value. Arguments with default values are optional because we can choose to modify them or not.
+The output shows that `round()` has two arguments: `x` (the number we want to round) and `digits`. It also shows that `digits` is already set to zero. This means that **R** will use `0` as the default value. We can omit arguments with default values and **R** will automatically fill them for us in the background.
 
 I encourage you to name all the arguments in the function, or at least the ones after the first argument. It is hard to remember all the arguments that can go into more complicated functions. And it is even harder to remember them in the correct order. Accidentally switching unnamed arguments can produce wrong results without us knowing. Naming the arguments will prevent errors and clarify the function's behavior.
 
-We can also run functions inside other functions. This works because **R** first runs the innermost function and then uses the result in the outermost function to get the final result.
+We can also run functions inside other functions. This works because **R** first runs the innermost function and then uses the result in the outermost function.
 
 ```{r nested function}
 sqrt(round(16.483, digits = 0))
@@ -272,22 +272,16 @@ A shorter way of writing this is to use `?` before the name of the function.
 
 After you run the code, the help page is displayed in the "Help" tab in the "Files-Plots-Packages" pane (usually in the bottom right of **R**Studio).
 
-As a novice user, help pages may seem arcane---probably because they aim for shortness and use technical jargon. But this short jargon makes (most of) the explanations precise, so we can use the information we need without having to read the entire document. Also, all help pages are organized similarly, so we don't have to relearn how to navigate them. With a bit of practice, you will be able to find exactly what you need in mere seconds.
+As a novice user, help pages may seem arcane---probably because they aim for shortness and use technical terminology. But this short jargon makes (most of) the explanations precise, so we can use the information we need without having to read the entire document. Also, all help pages are organized similarly, so we don't have to relearn how to navigate them. With a bit of practice, you will be able to find exactly what you need in mere seconds.
 
 The first line of the help document displays the name of the function and the package that contains the function. Other sections are:
 
 + **Description**: a short description of the function.
-
 + **Usage**: names the arguments associated with the function and possible default values.
-
 + **Arguments**: expounds each argument and what they do.
-
 + **Details**: a more detailed description of what the function does and how it does it.
-
 + **Value**: if applicable, gives the type and structure of the object returned by the function or the operator.
-
 + **See Also**: leads to other help pages with similar or related content.
-
 + **Examples**: code examples on how to use the function. We can see how they work if we copy and paste them into the console. We can also access examples at any time by using the `example()` function (e.g., `example("round")`).
 
 `help()` is useful if we know the name of the function. But if all we remember is a key word in the name, we can search through **R**'s help system using `help.search()`

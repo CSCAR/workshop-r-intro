@@ -214,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In the previous section we learned how to store, extract, and manipulate numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how <strong>R</strong> handles different data types and structures, and how to use them to study and summarize data.</p>
 <section id="data-types" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">3.1</span> Data types</h2>
-<p>Data types are classifications of data that help <strong>R</strong> conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are six data types in <strong>R</strong>: doubles, integers, logicals, characters, complex, and raw. Each type has different rules for storing and handling them. Learning these rules will allow us to analyze data later with less effort and fewer mistakes.</p>
+<p>Data types are classifications of data that help <strong>R</strong> conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are six data types in <strong>R</strong>: doubles, integers, logicals, characters, complex, and raw, each with its own rules for storing and handling. Learning these rules will allow us to analyze data later with less effort and fewer mistakes.</p>
 <p>Data type <strong>complex</strong> is for imaginary numbers, and type <strong>raw</strong> represents raw bytes of data. It is unlikely that you will ever need these data types, so I will not explain them in these notes.</p>
 <p><strong>Doubles</strong> are regular numbers with a decimal value (which may be zero). In general, <strong>R</strong> will save any number that we type as a double.</p>
 <div class="cell">
@@ -232,7 +232,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "integer"</code></pre>
 </div>
 </div>
-<p>Data scientists rarely use integers because we can save them as doubles. But <strong>R</strong> stores integers more precisely than doubles. So, integers are still helpful when dealing with complicated operations.</p>
+<p>Data scientists rarely use integers because we can save them as doubles. But integers are still helpful when dealing with complicated operations because <strong>R</strong> stores them more precisely than doubles.</p>
 <p><strong>Logicals</strong> are truth values <code>TRUE</code> and <code>FALSE</code>, which are useful when we compare numbers or objects:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_comparison <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">1</span></span>
@@ -251,7 +251,7 @@ Write TRUE and FALSE explicitly
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>At the beginning of every session, <strong>R</strong> saves <code>T</code> and <code>F</code> as shortcuts for <code>TRUE</code> and <code>FALSE</code>. But <code>T</code> and <code>F</code> are not reserved words; they are regular variables that we can modify and even delete inadvertently. An accidental misuse of <code>T</code> or <code>F</code> will cost you more time and effort than whatever you may save by typing a single letter instead of a full word. So, I strongly suggest you always write the full words.</p>
+<p>At the beginning of every session, <strong>R</strong> saves <code>T</code> and <code>F</code> as shortcuts for <code>TRUE</code> and <code>FALSE</code>. But <code>T</code> and <code>F</code> are not reserved words; they are regular objects that we can modify and even delete inadvertently. An accidental misuse of <code>T</code> or <code>F</code> will cost you more time and effort than whatever you may save by typing a single letter instead of a full word. So, I strongly suggest you always write the full words.</p>
 </div>
 </div>
 <p>There is also a special type of logical value called <code>NA</code>, which denotes a missing value.</p>
@@ -273,7 +273,7 @@ Write TRUE and FALSE explicitly
 <pre><code>[1] NA</code></pre>
 </div>
 </div>
-<p><strong>Characters</strong> are text (like “hello”, “Elvis”, or “Somewhere in La Mancha”) or symbols that we want to handle as text (like “size 45”, or “mail/u”). We can create a character object by typing a character or <em>string</em> of characters surrounded by quotes:</p>
+<p><strong>Characters</strong> are text, like “hello”, “Elvis”, or “Somewhere in La Mancha”; or symbols that we want to handle as text, like “size 45” or “mail/u”. We can create a character object by typing a character or <em>string</em> of characters surrounded by quotes:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>my_character <span class="ot">&lt;-</span> <span class="st">"Somewhere in La Mancha"</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_character)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -281,7 +281,7 @@ Write TRUE and FALSE explicitly
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
-<p>As you may notice, it is easy to confuse <strong>R</strong> objects with character strings because both appear as pieces of text in R code. For example, <code>the_thing</code> is the name of an <strong>R</strong> object named <em>the_thing</em> that can contain any type of data; but <code>"the_thing"</code> is a character string, i.e., it is itself a piece of data that we can assign to any name we want. If we forget to use the quotation marks when writing a name, <strong>R</strong> will look for an object that likely doesn’t exist, so we will likely get an error.</p>
+<p>As you may notice, it is easy to confuse objects with character strings because both appear as pieces of text in the code. For example, <code>the_thing</code> is the name of an object named <em>the_thing</em> that can contain any type of data. Conversely, <code>"the_thing"</code> is a character string, i.e., a piece of data that we can assign to any name. If we forget the quotation marks when writing a name, <strong>R</strong> will look for an object that likely doesn’t exist, so we will likely get an error.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>noquotes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -323,7 +323,8 @@ Levels: red</code></pre>
 <p>Data structures are ways of organizing data that make it easier for us to manipulate and understand data. I will explain five different data structures, each with its own advantages and limitations: atomic vectors, matrices, arrays, lists, and data frames.</p>
 <section id="atomic-vectors" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="atomic-vectors"><span class="header-section-number">3.2.1</span> Atomic vectors</h3>
-<p>Atomic vectors are the most basic type of data structure. They are one-dimensional groups of data where all values must be of the same type. There is only one exception: any vector can include <code>NA</code> as a value regardless of the type of the other values. To create an atomic vector, we can group values using the combine function <code>c()</code>:</p>
+<p>Atomic vectors are the most basic type of data structure. They are one-dimensional groups of data where all values must be of the same type. There is only one exception: any vector can include <code>NA</code> as a value regardless of the type of the other values. Vectors make it easy for us to store values that are supposed to measure the same property. It would be hard to understand what a vector represented if it had values like <code>"salsa"</code> and <code>sqrt(77)</code>.</p>
+<p>To create an atomic vector, we can group values using the combine function <code>c()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>quijote_characters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Don Quijote"</span>, <span class="st">"Sancho Panza"</span>, <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -350,7 +351,7 @@ Coercion
 </div>
 <div class="callout-body-container callout-body">
 <p>Adding different data types to the same atomic vector does not produce an error. Instead, <strong>R</strong> automatically follows specific rules to <em>coerce</em> everything inside the vector to be of the same type. If a character string is present in an atomic vector, <strong>R</strong> will convert all other values to character strings. If a vector only contains logicals and numbers, <strong>R</strong> will convert the logicals to numbers; every <code>TRUE</code> becomes a <code>1</code>, and every <code>FALSE</code> becomes a <code>0</code>. The only values that are not coerced are <code>NA</code>s.</p>
-<p>Following these rules helps preserve information. It is easy, for example, to recognize the original types of strings <code>"TRUE"</code> and <code>"3.14"</code>. Or to transform a vector of <code>1</code>s and <code>0</code>s back to <code>TRUE</code>s and <code>FALSE</code>s.</p>
+<p>Following these rules helps preserve information. It is easy, for example, to recognize the original types of strings <code>"TRUE"</code> and <code>"3.14"</code>, or to transform a vector of <code>1</code>s and <code>0</code>s back to <code>TRUE</code>s and <code>FALSE</code>s.</p>
 </div>
 </div>
 </section>
@@ -377,7 +378,7 @@ Coercion
 [3,]    2   35    4</code></pre>
 </div>
 </div>
-<p>Like atomic vectors, matrices can have any data type, but only one (or <code>NA</code>):</p>
+<p>Like atomic vectors, matrices can have any data type, but only one (or <code>NA</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>character_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">c</span>(<span class="st">"Mario"</span>, <span class="st">"Peach"</span>, <span class="st">"Luigi"</span>, <span class="st">"Yoshi"</span>), </span>
@@ -402,7 +403,7 @@ Coercion
 [3,]    8   13    4</code></pre>
 </div>
 </div>
-<p>When showing a matrix, <strong>R</strong> shows expressions with square brackets (e.g., <code>[,1]</code>). The numbers inside the square brackets are positional indices that denote the “coordinates” of the matrix. Two-dimensional objects like matrices have two indices, one for each dimension. The first number always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation <code>[ ]</code> to extract values from matrices.</p>
+<p>When showing a matrix, <strong>R</strong> shows expressions with square brackets (e.g., <code>[,1]</code>). The numbers inside the square brackets are positional indices that denote the “coordinates” of the matrix. Two-dimensional objects like matrices have two indices. The first index always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation <code>[ ]</code> to extract values from matrices.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>scores_mat[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dv">2</span>] <span class="co"># Rows 1 and 3 in column 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -464,8 +465,8 @@ Comstock        8      13        4</code></pre>
 </section>
 <section id="arrays" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="arrays"><span class="header-section-number">3.2.3</span> Arrays</h3>
-<p>The <code>array()</code> function creates an n-dimensional array. Using an n-dimensional array is like stacking groups of data. 1 dimension forms a column of data with multiple values; 2 dimensions are like a sheet of paper with several columns of data; 3 dimensions are like a book with several sheets; 4 dimensions are like a box with several books, and so on. Note that layers of an array have consistent sizes. All books have the same number of sheets, and all sheets have the same number of rows and columns.</p>
-<p>To use <code>array()</code>, we need an atomic vector as the first argument, and a vector of dimension sizes <code>dim</code> as the second argument:</p>
+<p>An array is a multidimensional object that stacks groups of data. Using 1 dimension in an array forms a column of data with multiple values; using 2 dimensions is like a sheet of paper with several columns of data; 3 dimensions are like a book with several sheets; 4 dimensions are like a box with several books, and so on. Note that layers of an array have consistent sizes. All books have the same number of sheets, and all sheets have the same number of rows and columns.</p>
+<p>We can use <code>array()</code> to create an n-dimensional array. The first argument in <code>array()</code> must be a vector with the values that we want to store in the array. The second argument must be a vector where the length denotes the number of dimensions, and the values denote the size of each dimension.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">array</span>(<span class="fu">c</span>(<span class="dv">25</span><span class="sc">:</span><span class="dv">28</span>, <span class="dv">35</span><span class="sc">:</span><span class="dv">38</span>, <span class="dv">45</span><span class="sc">:</span><span class="dv">48</span>), <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -500,7 +501,7 @@ Applied inception
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Try to make an array with 4 dimensions. Following the metaphor from above, try to make a box that contains 3 books, each of which has 4 sheets with 2 columns and 2 rows each. See a quick solution below.</p>
+<p>Try to make an array with 4 dimensions. Following the metaphor from above, try to make an array with 3 books, each of which has 4 sheets with 2 columns and 2 rows each. See a quick solution below.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -509,7 +510,7 @@ Applied inception
 </div>
 </div>
 </div>
-<p>Vectors, matrices, and arrays need all of its values to be of the same type. This requirement seems rigid, but it allows the computer to store large sets of numbers in a simple and efficient way; and it accelerates computations because <strong>R</strong> knows that it can manipulate all values in the object the same way. Also, vectors make it easy for us to store values that are supposed to measure the same property. It would be hard to understand what a vector represented if it had values like <code>"salsa"</code> and <code>sqrt(77)</code>.</p>
+<p>Vectors, matrices, and arrays need all of its values to be of the same type. This requirement seems rigid, but it allows the computer to store large sets of numbers in a simple and efficient way; and it accelerates computations because <strong>R</strong> knows that it can manipulate all values in the object the same way.</p>
 <p>However, we often need to store different types of data in a single place—maybe because all of that data belongs to the same underlying concept. For example, we can describe a dog based on its height, weight, and age (numerical values), and on its color and breed (character strings). <strong>R</strong> can keep all of these in a single place.</p>
 </section>
 <section id="lists" class="level3" data-number="3.2.4">
@@ -546,7 +547,7 @@ Applied inception
 <pre><code>[1] "list"</code></pre>
 </div>
 </div>
-<p>Or we can use double bracket notation <code>[[ ]]</code> to get only the contents of an element from the original list (we can not extract multiple elements this way).</p>
+<p>Or we can use double bracket notation <code>[[ ]]</code> to get only the subelements of an element from the original list (we can not extract multiple elements this way).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>new_item <span class="ot">&lt;-</span> all_in_one_list[[<span class="dv">1</span>]]</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>new_item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -599,21 +600,21 @@ $game[[1]]
 <section id="data-frames" class="level3" data-number="3.2.5">
 <h3 data-number="3.2.5" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">3.2.5</span> Data frames</h3>
 <p>Data frames are the most common storage structure for data analysis. We can think of them as a group of atomic vectors (columns) of the same length. Usually, each row of a data frame represents an individual observation and each column represents a different measurement or variable of that observation.</p>
-<p>Different vectors can have different data types, but they must have the same length. If we use vectors of different lengths, <strong>R</strong> will recycle values of some vectors to ensure that the data frame has a square shape.</p>
+<p>Different vectors in a data frame can have different data types, but they must all have the same length. If we use vectors of different lengths, <strong>R</strong> will recycle values of some vectors to ensure that the data frame has a square shape.</p>
 <p>We can create a data frame using the <code>data.frame()</code> function. Give <code>data.frame()</code> any number of vectors of equal length, each separated with a comma. Each vector should be set equal to a name that describes the vector. <code>data.frame()</code> will turn each vector into a column of the new data frame:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>aliens_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Axanim"</span>, <span class="st">"Blob"</span>, <span class="st">"Cloomin"</span>, <span class="st">"Dlemex"</span>),</span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">planet =</span> <span class="fu">c</span>(<span class="st">"Kepler-5"</span>, <span class="st">"Patzapuan"</span>, <span class="st">"Laodic_Prime"</span>, <span class="st">"Future_Earth"</span>), </span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">number_of_arms =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">1</span>, <span class="fl">2.5</span>)</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Bender"</span>, <span class="st">"Fry"</span>, <span class="st">"Nibbler"</span>, <span class="st">"Zoidberg"</span>),</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">species =</span> <span class="fu">c</span>(<span class="st">"Robot"</span>, <span class="st">"Human"</span>, <span class="st">"Nibblonian"</span>, <span class="st">"Decapodian"</span>), </span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fingers_per_hand =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="cn">NA</span>)</span>
 <span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>aliens_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     name       planet number_of_arms
-1  Axanim     Kepler-5            5.0
-2    Blob    Patzapuan             NA
-3 Cloomin Laodic_Prime            1.0
-4  Dlemex Future_Earth            2.5</code></pre>
+<pre><code>      name    species fingers_per_hand
+1   Bender      Robot                3
+2      Fry      Human                4
+3  Nibbler Nibblonian                3
+4 Zoidberg Decapodian               NA</code></pre>
 </div>
 </div>
 <p>We can use the function <code>dim()</code> to get the size of each dimension of the data frame, and the function <code>str()</code> to get a compact summary:</p>
@@ -625,9 +626,9 @@ $game[[1]]
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(aliens_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   4 obs. of  3 variables:
- $ name          : chr  "Axanim" "Blob" "Cloomin" "Dlemex"
- $ planet        : chr  "Kepler-5" "Patzapuan" "Laodic_Prime" "Future_Earth"
- $ number_of_arms: num  5 NA 1 2.5</code></pre>
+ $ name            : chr  "Bender" "Fry" "Nibbler" "Zoidberg"
+ $ species         : chr  "Robot" "Human" "Nibblonian" "Decapodian"
+ $ fingers_per_hand: num  3 4 3 NA</code></pre>
 </div>
 </div>
 <p>The <code>str()</code> function gives us the data frame dimensions and also reminds us that <code>aliens_df</code> is a data.frame type object. <code>str()</code> also lists all of the variables (columns) contained in the data frame, tells us what type of data the variables contain, and prints the first five values.</p>
@@ -646,34 +647,34 @@ $game[[1]]
 <div class="cell">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>aliens_df[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        planet
-1     Kepler-5
-2    Patzapuan
-3 Laodic_Prime
-4 Future_Earth</code></pre>
+<pre><code>     species
+1      Robot
+2      Human
+3 Nibblonian
+4 Decapodian</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalently</span></span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>aliens_df[<span class="st">"planet"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>aliens_df[<span class="st">"species"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        planet
-1     Kepler-5
-2    Patzapuan
-3 Laodic_Prime
-4 Future_Earth</code></pre>
+<pre><code>     species
+1      Robot
+2      Human
+3 Nibblonian
+4 Decapodian</code></pre>
 </div>
 </div>
 <p>Or we can use double brackets <code>[[ ]]</code> or dollar sign notation <code>$</code> to get atomic vectors:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>aliens_df<span class="sc">$</span>name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Axanim"  "Blob"    "Cloomin" "Dlemex" </code></pre>
+<pre><code>[1] "Bender"   "Fry"      "Nibbler"  "Zoidberg"</code></pre>
 </div>
 </div>
 <p>Also, as with matrices, we can use a single bracket with two indices (note that this produces an atomic vector):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>aliens_df[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="st">"number_of_arms"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>aliens_df[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="st">"fingers_per_hand"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  5 NA</code></pre>
+<pre><code>[1] 3 4</code></pre>
 </div>
 </div>
 <p>Creating data frames from scratch is cumbersome and prone to errors. In the next section, we will see how to import data from different sources into <strong>R</strong>, as well as basic ways to prepare it for analysis.</p>

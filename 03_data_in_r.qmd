@@ -4,7 +4,7 @@ In the previous section we learned how to store, extract, and manipulate numeric
 
 ## Data types
 
-Data types are classifications of data that help **R** conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are six data types in **R**: doubles, integers, logicals, characters, complex, and raw. Each type has different rules for storing and handling them. Learning these rules will allow us to analyze data later with less effort and fewer mistakes.
+Data types are classifications of data that help **R** conform to our intuition. For example, multiplying numbers by each other feels right, but multiplying words by each other does not. There are six data types in **R**: doubles, integers, logicals, characters, complex, and raw, each with its own rules for storing and handling. Learning these rules will allow us to analyze data later with less effort and fewer mistakes.
 
 Data type **complex** is for imaginary numbers, and type **raw** represents raw bytes of data. It is unlikely that you will ever need these data types, so I will not explain them in these notes.
 
@@ -19,7 +19,7 @@ typeof(my_double)
 my_integer <- 5L
 typeof(my_integer)
 ```
-Data scientists rarely use integers because we can save them as doubles. But **R** stores integers more precisely than doubles. So, integers are still helpful when dealing with complicated operations.
+Data scientists rarely use integers because we can save them as doubles. But integers are still helpful when dealing with complicated operations because **R** stores them more precisely than doubles.
  
 **Logicals** are truth values `TRUE` and `FALSE`, which are useful when we compare numbers or objects:
 ```{r logical value}
@@ -28,7 +28,7 @@ typeof(my_comparison)
 ```
 ::: {.callout-tip}
 #### Write TRUE and FALSE explicitly
-At the beginning of every session, **R** saves `T` and `F` as shortcuts for `TRUE` and `FALSE`. But `T` and `F` are not reserved words; they are regular variables that we can modify and even delete inadvertently. An accidental misuse of `T` or `F` will cost you more time and effort than whatever you may save by typing a single letter instead of a full word. So, I strongly suggest you always write the full words.
+At the beginning of every session, **R** saves `T` and `F` as shortcuts for `TRUE` and `FALSE`. But `T` and `F` are not reserved words; they are regular objects that we can modify and even delete inadvertently. An accidental misuse of `T` or `F` will cost you more time and effort than whatever you may save by typing a single letter instead of a full word. So, I strongly suggest you always write the full words.
 :::
 
 There is also a special type of logical value called `NA`, which denotes a missing value.
@@ -42,14 +42,12 @@ NA > 5
 NA == "Sancho"
 ```
 
-
-
-**Characters** are text (like "hello", "Elvis", or "Somewhere in La Mancha") or symbols that we want to handle as text (like "size 45", or "mail/u"). We can create a character object by typing a character or *string* of characters surrounded by quotes:
+**Characters** are text, like "hello", "Elvis", or "Somewhere in La Mancha"; or symbols that we want to handle as text, like "size 45" or "mail/u". We can create a character object by typing a character or *string* of characters surrounded by quotes:
 ```{r character value}
 my_character <- "Somewhere in La Mancha"
 typeof(my_character)
 ```
-As you may notice, it is easy to confuse **R** objects with character strings because both appear as pieces of text in R code. For example, `the_thing` is the name of an **R** object named *the_thing* that can contain any type of data; but `"the_thing"` is a character string, i.e., it is itself a piece of data that we can assign to any name we want. If we forget to use the quotation marks when writing a name, **R** will look for an object that likely doesn't exist, so we will likely get an error.
+As you may notice, it is easy to confuse objects with character strings because both appear as pieces of text in the code. For example, `the_thing` is the name of an object named *the_thing* that can contain any type of data. Conversely, `"the_thing"` is a character string, i.e., a piece of data that we can assign to any name. If we forget the quotation marks when writing a name, **R** will look for an object that likely doesn't exist, so we will likely get an error.
 ```{r}
 #| error: true
 noquotes
@@ -80,7 +78,9 @@ Data structures are ways of organizing data that make it easier for us to manipu
 
 ### Atomic vectors
 
-Atomic vectors are the most basic type of data structure. They are one-dimensional groups of data where all values must be of the same type. There is only one exception: any vector can include `NA` as a value regardless of the type of the other values. To create an atomic vector, we can group values using the combine function `c()`:
+Atomic vectors are the most basic type of data structure. They are one-dimensional groups of data where all values must be of the same type. There is only one exception: any vector can include `NA` as a value regardless of the type of the other values. Vectors make it easy for us to store values that are supposed to measure the same property. It would be hard to understand what a vector represented if it had values like `"salsa"` and `sqrt(77)`.
+
+To create an atomic vector, we can group values using the combine function `c()`:
 
 ```{r atomic vector}
 quijote_characters <- c("Don Quijote", "Sancho Panza", NA)
@@ -99,7 +99,7 @@ length(c())
 
 Adding different data types to the same atomic vector does not produce an error. Instead, **R** automatically follows specific rules to *coerce* everything inside the vector to be of the same type. If a character string is present in an atomic vector, **R** will convert all other values to character strings. If a vector only contains logicals and numbers, **R** will convert the logicals to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`. The only values that are not coerced are `NA`s.
 
-Following these rules helps preserve information. It is easy, for example, to recognize the original types of strings `"TRUE"` and `"3.14"`. Or to transform a vector of `1`s and `0`s back to `TRUE`s and `FALSE`s.
+Following these rules helps preserve information. It is easy, for example, to recognize the original types of strings `"TRUE"` and `"3.14"`, or to transform a vector of `1`s and `0`s back to `TRUE`s and `FALSE`s. 
 :::
 
 ### Matrices
@@ -115,7 +115,7 @@ scores_mat <- matrix(data = scores_vec, ncol = 3)
 scores_mat
 ```
 
-Like atomic vectors, matrices can have any data type, but only one (or `NA`):
+Like atomic vectors, matrices can have any data type, but only one (or `NA`).
 ```{r}
 character_mat <- matrix(
     data = c("Mario", "Peach", "Luigi", "Yoshi"), 
@@ -132,7 +132,7 @@ scores_mat <- matrix(data = scores_vec, nrow = 3, byrow = TRUE)
 scores_mat
 ```
 
-When showing a matrix, **R** shows expressions with square brackets (e.g., `[,1]`). The numbers inside the square brackets are positional indices that denote the "coordinates" of the matrix. Two-dimensional objects like matrices have two indices, one for each dimension. The first number always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation `[ ]` to extract values from matrices.
+When showing a matrix, **R** shows expressions with square brackets (e.g., `[,1]`). The numbers inside the square brackets are positional indices that denote the "coordinates" of the matrix. Two-dimensional objects like matrices have two indices. The first index always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation `[ ]` to extract values from matrices.
 ```{r extract value from matrix}
 scores_mat[c(1, 3), 2] # Rows 1 and 3 in column 2
 ```
@@ -172,9 +172,9 @@ scores_mat %*% scores_mat # Matrix multiplication
 
 ### Arrays
 
-The `array()` function creates an n-dimensional array. Using an n-dimensional array is like stacking groups of data. 1 dimension forms a column of data with multiple values; 2 dimensions are like a sheet of paper with several columns of data; 3 dimensions are like a book with several sheets; 4 dimensions are like a box with several books, and so on. Note that layers of an array have consistent sizes. All books have the same number of sheets, and all sheets have the same number of rows and columns.
+An array is a multidimensional object that stacks groups of data. Using 1 dimension in an array forms a column of data with multiple values; using 2 dimensions is like a sheet of paper with several columns of data; 3 dimensions are like a book with several sheets; 4 dimensions are like a box with several books, and so on. Note that layers of an array have consistent sizes. All books have the same number of sheets, and all sheets have the same number of rows and columns.
 
-To use `array()`, we need an atomic vector as the first argument, and a vector of dimension sizes `dim` as the second argument:
+We can use `array()` to create an n-dimensional array. The first argument in `array()` must be a vector with the values that we want to store in the array. The second argument must be a vector where the length denotes the number of dimensions, and the values denote the size of each dimension.
 
 ```{r array with three dimensions}
 array(c(25:28, 35:38, 45:48), dim = c(2, 2, 3))
@@ -187,7 +187,7 @@ Note that the total number of elements in the array is equal to multiplying the 
 ::: {.callout-tip}
 ## Applied inception
 
-Try to make an array with 4 dimensions. Following the metaphor from above, try to make a box that contains 3 books, each of which has 4 sheets with 2 columns and 2 rows each. See a quick solution below.
+Try to make an array with 4 dimensions. Following the metaphor from above, try to make an array with 3 books, each of which has 4 sheets with 2 columns and 2 rows each. See a quick solution below.
 
 ```{r inception solution}
 #| code-fold: true
@@ -196,7 +196,7 @@ array(c(1:48), dim = c(2, 2, 4, 3))
 ```
 :::
 
-Vectors, matrices, and arrays need all of its values to be of the same type. This requirement seems rigid, but it allows the computer to store large sets of numbers in a simple and efficient way; and it accelerates computations because **R** knows that it can manipulate all values in the object the same way. Also, vectors make it easy for us to store values that are supposed to measure the same property. It would be hard to understand what a vector represented if it had values like `"salsa"` and `sqrt(77)`.
+Vectors, matrices, and arrays need all of its values to be of the same type. This requirement seems rigid, but it allows the computer to store large sets of numbers in a simple and efficient way; and it accelerates computations because **R** knows that it can manipulate all values in the object the same way. 
 
 However, we often need to store different types of data in a single place---maybe because all of that data belongs to the same underlying concept. For example, we can describe a dog based on its height, weight, and age (numerical values), and on its color and breed (character strings). **R** can keep all of these in a single place.
 
@@ -218,7 +218,7 @@ new_list
 typeof(new_list)
 ```
 
-Or we can use double bracket notation `[[ ]]` to get only the contents of an element from the original list (we can not extract multiple elements this way).
+Or we can use double bracket notation `[[ ]]` to get only the subelements of an element from the original list (we can not extract multiple elements this way).
 ```{r extracting a single element without more lists}
 new_item <- all_in_one_list[[1]]
 new_item
@@ -250,14 +250,14 @@ countries_info[["speak_spanish"]]
 
 Data frames are the most common storage structure for data analysis. We can think of them as a group of atomic vectors (columns) of the same length. Usually, each row of a data frame represents an individual observation and each column represents a different measurement or variable of that observation.
 
-Different vectors can have different data types, but they must have the same length. If we use vectors of different lengths, **R** will recycle values of some vectors to ensure that the data frame has a square shape. 
+Different vectors in a data frame can have different data types, but they must all have the same length. If we use vectors of different lengths, **R** will recycle values of some vectors to ensure that the data frame has a square shape. 
 
 We can create a data frame using the `data.frame()` function. Give `data.frame()` any number of vectors of equal length, each separated with a comma. Each vector should be set equal to a name that describes the vector. `data.frame()` will turn each vector into a column of the new data frame:
 ```{r create data frame from scratch}
 aliens_df <- data.frame(
-    name = c("Axanim", "Blob", "Cloomin", "Dlemex"),
-    planet = c("Kepler-5", "Patzapuan", "Laodic_Prime", "Future_Earth"), 
-    number_of_arms = c(5, NA, 1, 2.5)
+    name = c("Bender", "Fry", "Nibbler", "Zoidberg"),
+    species = c("Robot", "Human", "Nibblonian", "Decapodian"), 
+    fingers_per_hand = c(3, 4, 3, NA)
 )
 aliens_df
 ```
@@ -281,7 +281,7 @@ This means that we can extract extract values from data frames the same way we e
 ```{r extracting values from data frame}
 aliens_df[2]
 # Equivalently
-aliens_df["planet"]
+aliens_df["species"]
 ```
 Or we can use double brackets `[[ ]]` or dollar sign notation `$` to get atomic vectors:
 ```{r}
@@ -290,7 +290,7 @@ aliens_df$name
 
 Also, as with matrices, we can use a single bracket with two indices (note that this produces an atomic vector):
 ```{r}
-aliens_df[c(1,2), "number_of_arms"]
+aliens_df[c(1,2), "fingers_per_hand"]
 ```
 
 Creating data frames from scratch is cumbersome and prone to errors. In the next section, we will see how to import data from different sources into **R**, as well as basic ways to prepare it for analysis.

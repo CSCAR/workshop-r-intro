@@ -1,6 +1,6 @@
 # Basic data processing
 
-Now we can apply our understanding of **R** to work with files of pre-existing data. The first step when loading data into **R** is to locate our working directory. This is the default location where **R** will look for files we want to load and where it will put any files we save. The working directory will change on different computers. To find our current working directory, we run:
+Now we can apply our understanding of **R** to work with files of pre-existing data. The first step when loading data is to locate our working directory. This is the default location where **R** will look for files we want to load and where it will put any files we save. The working directory will change on different computers. To find our current working directory, we run:
 ```{r get working directory}
 #| eval: false
 getwd()
@@ -44,7 +44,7 @@ flower_df <- read.table("data_files/flower.csv", header = TRUE, sep = ",")
 
 In the code above, I added arguments `header` and `sep`. `header` tells **R** whether the first line of the file contains variable names instead of values; this will help us identify the variables in the data frame. `sep` tells **R** the symbol that the file uses to separate the cells; this will help us preserve the correct location of the data cells.
 
-Sometimes a plain-text file starts with text that is not part of the data set. Or maybe we want to read only part of a data set. Argument `skip` tells **R** to skip a specific number of lines before it starts reading values from the file. Argument `nrow` tells **R** to only read a certain number of lines, starting from the top. Keep in mind that `nrow` does not count the header in the number of rows it reads.
+Other useful arguments are `skip` and `nrow`. `skip` tells **R** to skip a specific number of lines before it starts reading values from the file. This argument is helpful when the file starts with text that is not part of the data set, and when we want to read only part of a data set. `nrow` tells **R** to only read a certain number of lines, starting from the top. Keep in mind that `nrow` does not count the header in the number of rows it reads.
 
 ```{r}
 flower_df_chunk <- read.table(
@@ -57,7 +57,7 @@ flower_df_chunk <- read.table(
 flower_df_chunk
 ```
 
-`read.table()` has other arguments that we can tweak. You can consult the function's help page to know more about it.
+`read.table()` has other arguments that we can tweak. You can consult the function's help page to know more about them.
 
 #### Shortcuts for read.table
 
@@ -106,9 +106,9 @@ flowers_fwf_df
 
 ### Excel files
 
-The best way to load data from Excel files (.xlsx) into **R** is to first save these files as .csv or .txt files and then use `read.table`. Excel files can include multiple spreadsheets, macros, colors, dynamic tables, and other complicated formats. All of these make it difficult for **R** to read the files properly. Plain text files are simpler, so we can load and transfer them more easily.
+The best way to load data from Excel files (.xlsx) is to first save these files as .csv or .txt files and then use `read.table`. Excel files can include multiple spreadsheets, macros, colors, dynamic tables, and other complicated formats that make it difficult for **R** to read the files properly. Plain text files are simpler, so we can load and transfer them more easily.
 
-Still, there are ways to load Excel files into **R** if we *really* need to. **R** has no native way of loading these files, but we can use the package `readxl`, which works on all operating systems. We install it using `install.packages("readxl")`. Then we load it using `library(readxl)`. Once we load the package, we can use the function `read_excel()` to load files of the type .xls and .xlsx (see `help("read_excel")` for more information).
+Still, there are ways to load Excel files if we *really* need to. **R** has no native way of loading these files, but we can use the package `readxl`, which works on all operating systems. We install it using `install.packages("readxl")` and then load it using `library(readxl)`. Once we load the package, we can use the function `read_excel()` to load files of the type .xls and .xlsx (see `help("read_excel")` for more information).
 
 ### Files from other programs
 
@@ -122,9 +122,9 @@ But sometimes we can't transform the file to a plain-text format---maybe because
 
 ## Cleaning data
 
-Once we load our data files as data.frames in **R**, we should verify that all of the information has an appropriate format. The process of identifying, removing and correcting inaccurate information is often referred to as "data cleaning". We will practice data cleaning using a "messy" version of the flower data that we loaded above. You can get this messy version from [here](https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower_messy.csv). Again, you can use `Ctrl+Shift+s` to download the file.
+Once we load our data files as data.frames, we should verify that all of the information has an appropriate format. The process of identifying, removing and correcting inaccurate information is often referred to as "data cleaning". We will practice data cleaning using a "messy" version of the flower data that we loaded above. You can get this messy version from [here](https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower_messy.csv). Again, you can use `Ctrl+Shift+s` to download the file.
 
-Since this is a .csv file, we can load it into **R** using:
+Since this is a .csv file, we can load it using:
 ```{r loading messy flower data}
 flower_messy_df = read.csv("data_files/flower_messy.csv", header = TRUE)
 ```
@@ -155,7 +155,7 @@ colnames(flower_clean_df) <- new_colnames # Replace column names in data frame
 colnames(flower_clean_df) # Check our work
 ```
 
-The last change to these column names will be to substitute the periods in the names with underscores. In **R**, this is purely out of personal preference, but it's a good excuse to meet the function `gsub()`, which substitutes patterns of strings:
+The last change to these column names will be to substitute the periods in the names with underscores. In **R**, this is purely out of personal preference, but it's a good excuse to meet `gsub()`, which substitutes patterns of strings:
 ```{r substitute periods with underscores in colnames}
 colnames(flower_clean_df) <- gsub(
     pattern = "\\.", # What we want to remove
@@ -204,7 +204,7 @@ flower_clean_df["nitrogen"] <- factor(flower_clean_df$nitrogen)
 str(flower_clean_df)
 ```
 
-Column "flowers" looks fine, but column "nitrogen" looks suspicious. It is supposed to have only three values ("low", "medium", and "high"), but its description counts eight values. Let's examine them more closely:
+Column "flowers" looks fine, but column "nitrogen" looks suspicious. It is supposed to have only three levels ("low", "medium", and "high"), but its description counts eight. Let's examine them more closely:
 ```{r check levels of nitrogen column}
 levels(flower_clean_df$nitrogen)
 ```

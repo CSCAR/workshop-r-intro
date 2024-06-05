@@ -8,7 +8,7 @@ Last modified: `r Sys.Date()`
 
 ## Who are this notes for? {.unnumbered}
 
-These notes are a intended for anyone that wants to use R but has little or no 
+These notes are a intended for anyone that wants to use **R** but has little or no 
 experience using it, and little or no experience in programming.
 
 ## Creation of this document {.unnumbered}

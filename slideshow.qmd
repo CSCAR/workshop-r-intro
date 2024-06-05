@@ -1,0 +1,135 @@
+---
+title: "Intro to R with RStudio"
+author: "Abner Heredia Bustos, CSCAR"
+format:
+  revealjs:
+    incremental: true
+---
+
+# Welcome
+
+## About this workshop
+
++ For novice or inexperienced coders that want to use **R**.
++ From 1 to 5 pm.
++ A few slides for context and extra information.
++ A lot of hands-on coding and live demonstrations.
+
+## What is CSCAR?
+
++ Full name: Consulting for Statistics, Computing and Analytics Research.
++ A unit of the Office of the Vice President of Research.
++ Guides and trains researchers in data collection, management, and analysis.
++ Also helps researchers to use technical software and advanced computing.
++ Address: The University of Michigan, 3560 Rackham, 915 E. Washington St., Ann Arbor, MI 48109-1070.
+
+## CSCAR is here to help you
+
++ Free, one-hour consultations with graduate-level statisticians.
++ To request a consultation: email <deskpeople@umich.edu>, or fill [this form](https://docs.google.com/forms/d/e/1FAIpQLSei-twcjFkoobUrVwSQTmSxdKKEc1Ub8w5LHmeIZUmTV1wmIg/viewform?pli=1). Or visit [cscar.research.umich.edu](cscar.research.umich.edu).
++ Walk-in consultations with GSRAs. Self-schedule using [this link](https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUMyTFpCR1RXbmhYfGRlZmF1bHR8ZWNjNGJlMWZlYTA4ZWE5NzYzNmNkNzgyZjUyZDYxNDg). 
++ GSRAs are available Monday through Friday, between 9am and 5pm (we close on Tuesdays between noon and 1pm). 
++ All of our scheduled appointments can be either remote or in-person.
+
+## Who am I?
+
++ Abner Heredia Bustos, a data science consultant at CSCAR.
++ I want to code with as little time and effort as possible...
++ ...which means learning it well from the beginning.
+
+# Why becoming a useR? 
+
+## R is cool for statistics and graphics
+
++ **R** is gratis and it runs on Windows, MacOS, and several Unix platforms. 
++ You can start with this:
+
+---
+
+```{r loading messy flower data}
+#| echo: false
+flower_df <- read.table("data_files/flower.csv", header = TRUE, sep = ",")
+head(flower_df, 5)
+```
+
+---
+
+and, in 8 lines of code or less, make this:
+```{r height by nitrogen boxplots}
+#| echo: false
+boxplot(
+    height ~ nitrogen,
+    data = flower_df, 
+    col = c("yellow", "blue", "pink"),
+    main = "No clear pattern between height and nitrogen level",
+    xlab = "Nitrogen",
+    ylab = "Height"
+)
+```
+
+## R is an *environment*, not a package
+
++ A package is a fixed set of tools. 
++ An environment is for combining, modifying, and creating tools.
+
+## R has plenty of statistical tools and models
+
++ Generalized linear models (including linear regression).
++ Survival analysis.
++ Time series analysis.
++ Random and Mixed effects models (aka hierarchical models, aka multilevel
+    models).
++ Classification and clustering.
++ Sample size and power calculations.
++ Multivariable analysis (e.g., factor analysis, principal component analysis, and structural equations modeling).
++ And more.
+
+## Even more tools and models
+
++ Users constantly publish their own code packages: more than 13,700 in the Comprehensive **R** Archive Network (CRAN) as of March 2019.
++ Many complex statistical routines are not (and may never be) available in other statistical software.
+
+## Why Isn't Everyone a Use**R**?
+
++ Some people only use whatever they learned first, which is not always **R**.
++ Other software seems friendlier.
++ Need to learn rules of packages you use.
++ Help pages and error messages may be hard to understand.
+
+## Suggestions for Learning **R**
+
++ Learn interactively.
++ Don't worry about getting errors.
++ Ask other **R** users for help.
+
+## Some useful links
+
+::: {.nonincremental}
+
+-   <https://www.r-project.org>: Here you will find links for downloading **R**,
+    downloading additional packages for **R**, and more.
+-   <https://cran.r-project.org/web/views/>: Summaries of important packages         by subject field or analysis type.
+-   <https://journal.r-project.org>: The **R** Journal.
+-   <https://stats.stackexchange.com>: Cross-Validated.
+-   <https://www.r-bloggers.com>
+    
+:::
+
+## More useful links
+
+::: {.nonincremental}
+
+-   <https://stats.idre.ucla.edu/r/>: Institute for Digital Research and
+    Education at UCLA.
+-   <https://socialsciences.mcmaster.ca/jfox/>: John Fox's home page.
+-   <https://sas-and-r.blogspot.com/>: Examples of code to perform same task
+    in SAS and R.
+    
+:::
+
+# Let's start coding
+
+
+
+
+

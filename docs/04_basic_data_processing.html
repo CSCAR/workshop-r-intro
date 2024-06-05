@@ -464,14 +464,15 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
  Max.   :49.20   Max.   :189.60   Max.   :17.000  </code></pre>
 </div>
 </div>
-<p>Now let’s imagine we want to study the distribution of values for weight. We can use a histogram to check the shape.</p>
+<p>Now let’s imagine we want to study the distribution of values for weight. We can use a histogram to check the shape of this distribution.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    flower_clean_df<span class="sc">$</span>weight, </span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="dv">15</span>,</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">"Weight"</span>,</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"Histogram for weight"</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">25</span>),</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">"Weight"</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"Few weights are above 20"</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="04_basic_data_processing_files/figure-html/histogram for weight-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -480,9 +481,9 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    flower_clean_df<span class="sc">$</span>weight, </span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">"height"</span>, </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">"Weight"</span>, </span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">"darkgreen"</span>,</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"Boxplot for weight"</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"Most weights are between 9 and 15"</span></span>
 <span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="04_basic_data_processing_files/figure-html/boxplot for weight-1.png" class="img-fluid" width="672"></p>
@@ -521,7 +522,7 @@ tip    medium   1      9.8     10.08   12.2      72.7       9</code></pre>
 <p><img src="04_basic_data_processing_files/figure-html/leaf area vs shoot area by treat-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Now let’s see how frequently the values of nitrogen and treat combine with each other, but only for flowers with a leaf area greater than 13.</p>
+<p>Now let’s see how frequently the values of nitrogen and treat combine with each other, but only for flowers with a leaf area greater than 13. We can use a mosaic plot for this.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>nitrogen_by_treat_table <span class="ot">=</span> <span class="fu">xtabs</span>(</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> <span class="sc">~</span> nitrogen <span class="sc">+</span> treat,</span>

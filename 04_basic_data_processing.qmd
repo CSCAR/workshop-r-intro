@@ -226,14 +226,15 @@ Now that our data is clean, we can get more complete summaries to understand it 
 summary(flower_clean_df)
 ```
 
-Now let's imagine we want to study the distribution of values for weight. We can use a histogram to check the shape.
+Now let's imagine we want to study the distribution of values for weight. We can use a histogram to check the shape of this distribution.
 
 ```{r histogram for weight}
 hist(
     flower_clean_df$weight, 
     breaks = 15,
+    xlim = c(5, 25),
     xlab = "Weight",
-    main = "Histogram for weight"
+    main = "Few weights are above 20"
 )
 ```
 
@@ -241,9 +242,9 @@ Or we can get a simpler description using a box plot.
 ```{r boxplot for weight}
 boxplot(
     flower_clean_df$weight, 
-    xlab = "height", 
+    ylab = "Weight", 
     col = "darkgreen",
-    main = "Boxplot for weight"
+    main = "Most weights are between 9 and 15"
 )
 ```
 
@@ -279,7 +280,7 @@ legend(
 )
 ```
 
-Now let's see how frequently the values of nitrogen and treat combine with each other, but only for flowers with a leaf area greater than 13.
+Now let's see how frequently the values of nitrogen and treat combine with each other, but only for flowers with a leaf area greater than 13. We can use a mosaic plot for this.
 
 ```{r mosaic plot for nitrogen vs treat}
 nitrogen_by_treat_table = xtabs(

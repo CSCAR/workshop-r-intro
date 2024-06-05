@@ -6,6 +6,11 @@ format:
     incremental: true
 ---
 
+```{r}
+source("load_clean_flower_df.R")
+```
+
+
 # Welcome
 
 ## About this workshop
@@ -21,15 +26,19 @@ format:
 + A unit of the Office of the Vice President of Research.
 + Guides and trains researchers in data collection, management, and analysis.
 + Also helps researchers to use technical software and advanced computing.
-+ Address: The University of Michigan, 3560 Rackham, 915 E. Washington St., Ann Arbor, MI 48109-1070.
 
 ## CSCAR is here to help you
 
 + Free, one-hour consultations with graduate-level statisticians.
-+ To request a consultation: email <deskpeople@umich.edu>, or fill [this form](https://docs.google.com/forms/d/e/1FAIpQLSei-twcjFkoobUrVwSQTmSxdKKEc1Ub8w5LHmeIZUmTV1wmIg/viewform?pli=1). Or visit [cscar.research.umich.edu](cscar.research.umich.edu).
-+ Walk-in consultations with GSRAs. Self-schedule using [this link](https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUMyTFpCR1RXbmhYfGRlZmF1bHR8ZWNjNGJlMWZlYTA4ZWE5NzYzNmNkNzgyZjUyZDYxNDg). 
 + GSRAs are available Monday through Friday, between 9am and 5pm (we close on Tuesdays between noon and 1pm). 
 + All of our scheduled appointments can be either remote or in-person.
+
+## Contact CSCAR
+
++ To request a consultation: email <deskpeople@umich.edu>, or fill [this form](https://docs.google.com/forms/d/e/1FAIpQLSei-twcjFkoobUrVwSQTmSxdKKEc1Ub8w5LHmeIZUmTV1wmIg/viewform?pli=1). Or visit [cscar.research.umich.edu](cscar.research.umich.edu).
++ Self-schedule a consultation with a GSRA using [this link](https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUMyTFpCR1RXbmhYfGRlZmF1bHR8ZWNjNGJlMWZlYTA4ZWE5NzYzNmNkNzgyZjUyZDYxNDg).
++ Address: The University of Michigan, 3560 Rackham, 915 E. Washington St., Ann Arbor, MI 48109-1070.
+
 
 ## Who am I?
 
@@ -46,9 +55,8 @@ format:
 
 ---
 
-```{r loading messy flower data}
+```{r loading flower data}
 #| echo: false
-flower_df <- read.table("data_files/flower.csv", header = TRUE, sep = ",")
 head(flower_df, 5)
 ```
 
@@ -77,12 +85,10 @@ boxplot(
 + Generalized linear models (including linear regression).
 + Survival analysis.
 + Time series analysis.
-+ Random and Mixed effects models (aka hierarchical models, aka multilevel
-    models).
++ Random and Mixed effects models.
 + Classification and clustering.
 + Sample size and power calculations.
-+ Multivariable analysis (e.g., factor analysis, principal component analysis, and structural equations modeling).
-+ And more.
++ Multivariable analysis (e.g., factor analysis, PCA, and SEM).
 
 ## Even more tools and models
 
@@ -129,7 +135,191 @@ boxplot(
 
 # Let's start coding
 
+## Practice your arithmetic
+
+Think of an integer, double it, add six, divide it in half, subtract the number you started with, and then square it. If your code is correct, the answer should be nine.
+
+## Object names have rules
+
++ Names can be a combination of letters, digits, periods `.` and underscores
+  `_`.
++ Names can *not* include white spaces.
++ If a name starts with a period `.`, it can *not* be followed by a digit.
++ Names can *not* start with a number or an underscore `_`.
++ Names are case-sensitive (`age`, `Age` and `AGE` are three different objects).
++ Reserved words can *not* be used as names (`TRUE`, `FALSE`, `NULL`, `if`, ...).
+
+## Tips for naming objects
+
++ Avoid giving your object the same name as a built-in function.
++ To separate words, use an underscore (`my_object`) or a dot (`my.object`), or capitalize the different words (`MyObject`). Choose your favorite way, but *be consistent* with it.
++ Use names that illustrate what you want to do with the objects.
+
+## Exercise
+
+Write a function that can simulate the roll of a pair of six-sided dice an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die. Hint: to simulate rolling a die, you can use the function `sample()`.
+
+## Coercion
+
+When adding different data types to the same atomic vector, **R** follows specific rules to coerce everything to be of the same type.
+
++ If a character string is present in an atomic vector, **R** will convert all other values to character strings. 
++ If a vector only contains logicals and numbers, **R** will convert the logicals to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`. 
++ `NA`s are never coerced automatically.
+
+## Make a histogram
+
+Use the example I showed to you to make a histogram for variable `height`. Bonus: can you color the bars?
+
+Your histogram result should resemble this one:
+
+```{r histogram of height}
+#| echo: false
+#| fig-width: 6.5
+#| fig-height: 5
+#| fig-align: center
+hist(
+    flower_df$height,
+    breaks = 12,
+    xlim = c(0, 20),
+    xlab = "Height",
+    main = "Few weights are above 20",
+    col = "green"
+)
+```
+
+---
+
+Here is the code for the histogram:
+
+```{r}
+#| echo: true
+#| eval: false
+hist(
+    flower_df$height,
+    breaks = 12,
+    xlim = c(0, 20),
+    xlab = "Height",
+    main = "Few weights are above 20",
+    col = "green"
+)
+```
+
+## Make a boxplot
+
+Use the example I showed to you to make a histogram for variable `leaf_area`. Bonus: can you color the box?
+
+```{r boxplot for leaf_area}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 5
+#| fig-align: center
+boxplot(
+    flower_df$leaf_area, 
+    ylab = "Leaf area", 
+    col = "blue",
+    main = "Most leaf areas are between 11 and 18"
+)
+```
+
+---
+
+Here is the code for the boxplot.
+
+```{r}
+#| echo: true
+#| eval: false
+boxplot(
+    flower_df$leaf_area, 
+    ylab = "Leaf area", 
+    col = "blue",
+    main = "Most leaf areas are between 11 and 18"
+)
+```
 
 
+## Make a scatterplot
 
+Use the example I showed to you to make a scatter plot with `height` and `weight`, coloring by nitrogen level. Remember to add a legend to the plot. Your scatter plot should resemble this one:
+
+---
+
+```{r}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 4.5
+#| fig-align: center
+plot(
+    x = flower_df$weight,
+    y = flower_df$height, 
+    col = flower_df$nitrogen,
+    main = "No clear association between height and weight",
+    xlab = "Weight",
+    ylab = "Height"
+)
+# Add a legend to the plot
+legend(
+    x = "bottomright", 
+    legend = levels(flower_df$nitrogen), 
+    col = 1:length(levels(flower_df$nitrogen)), 
+    pch = 16
+)
+```
+
+---
+
+Here is the code for the scatter plot.
+
+```{r}
+#| echo: true
+#| eval: false
+plot(
+    x = flower_df$weight,
+    y = flower_df$height, 
+    col = flower_df$nitrogen,
+    main = "No clear association between height and weight",
+    xlab = "Weight",
+    ylab = "Height"
+)
+# Add a legend to the plot
+legend(
+    x = "bottomright", 
+    legend = levels(flower_df$nitrogen), 
+    col = 1:length(levels(flower_df$nitrogen)), 
+    pch = 16
+)
+```
+
+
+## Make a mosaic plot
+
+Use the example I showed to you to make a mosaic plot to visualize how frequently the values of nitrogen and treat combine with each other, but only for flowers with a weight below 10. Your plot should resemble this:
+
+---
+
+```{r mosaic plot for nitrogen vs treat}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+nitrogen_by_treat_table = xtabs(
+    formula = ~ nitrogen + treat,
+    data = flower_df[which(flower_df$weight < 10),]
+)
+mosaicplot(nitrogen_by_treat_table, main = "Nitrogen by treat, weight below 10")
+```
+
+---
+
+Here is the code for the mosaic plot
+
+```{r}
+#| echo: true
+#| eval: false
+nitrogen_by_treat_table = xtabs(
+    formula = ~ nitrogen + treat,
+    data = flower_df[which(flower_df$weight < 10),]
+)
+mosaicplot(nitrogen_by_treat_table, main = "Nitrogen by treat, weight below 10")
+```
 

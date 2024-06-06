@@ -11,27 +11,57 @@ source("load_clean_flower_df.R")
 ```
 
 
-# Welcome
-
 ## About this workshop
 
-+ For novice or inexperienced coders that want to use **R**.
+For novice or inexperienced coders that want to use **R**. We will use RStudio to:
+
++ Use and write basic functions.
++ Learn how R stores and handles different types of data. 
++ Basic ways to create, manipulate, import, clean, and summarize data.
++ *NO* statistical modeling.
+
+## Workshop format
+
 + From 1 to 5 pm.
++ Breaks every 90 minutes.
 + A few slides for context and extra information.
 + A lot of hands-on coding and live demonstrations.
++ All materials will be available after the workshop ends.
+
+::: {.notes}
+This workshop runs from 1 to 5 pm, with breaks at least every 90 minutes. Right now I will use a few slides for context and extra information. But it is a WORKshop, so there will be plenty of hands-on coding and live demonstrations. All materials will be available after the workshop ends, so don't worry about copying these slides.
+:::
+
+## Tips for this workshop
+
++ Coding along with me is the best way to learn.
++ Ask questions at any time.
++ During exercises, interact with your peers.
+
+::: {.notes}
+Coding along with me is the best way to learn. If you just watch, you will not remember anything after you leave today. Feel free to ask questions at any time. Code can be confusing and mistakes are easy to make, but I'm here to help, so don't be afraid to interrupt me. During exercises, interact with your peers. We all struggle with computers, but it's easier if we can help each other.
+:::
 
 ## What is CSCAR?
 
 + Full name: Consulting for Statistics, Computing and Analytics Research.
-+ A unit of the Office of the Vice President of Research.
++ A unit of the Office of the Vice President of Research (OVPR).
 + Guides and trains researchers in data collection, management, and analysis.
 + Also helps researchers to use technical software and advanced computing.
+
+::: {.notes}
+Before we get to the coding part, let me tell you a little bit about the people behind this workshop: CSCAR.
+:::
 
 ## CSCAR is here to help you
 
 + Free, one-hour consultations with graduate-level statisticians.
-+ GSRAs are available Monday through Friday, between 9am and 5pm (we close on Tuesdays between noon and 1pm). 
++ GSRAs are available for walk-in consultations Monday through Friday, between 9am and 5pm (we close on Tuesdays between noon and 1pm). 
 + All of our scheduled appointments can be either remote or in-person.
+
+::: {.notes}
+All of our scheduled appointments can be either remote or in-person. So, if you live out of town, work in a different campus or just don't want to deal with bad weather, you can still ask CSCAR for help.
+:::
 
 ## Contact CSCAR
 
@@ -39,18 +69,25 @@ source("load_clean_flower_df.R")
 + Self-schedule a consultation with a GSRA using [this link](https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUMyTFpCR1RXbmhYfGRlZmF1bHR8ZWNjNGJlMWZlYTA4ZWE5NzYzNmNkNzgyZjUyZDYxNDg).
 + Address: The University of Michigan, 3560 Rackham, 915 E. Washington St., Ann Arbor, MI 48109-1070.
 
+::: {.notes}
+There are several ways to contact CSCAR. You can request a consultation by email or by filling this form. You can also self-schedule a consultation with a GSRA using this link. Our office is at 3560 Rackham, 915 E. Washington St., Ann Arbor, Michigan.
+:::
 
 ## Who am I?
 
 + Abner Heredia Bustos, a data science consultant at CSCAR.
-+ I want to code with as little time and effort as possible...
++ I want to make coding as simple and effortless as possible...
 + ...which means learning it well from the beginning.
 
-# Why becoming a useR? 
+::: {.notes}
+My name is Abner Heredia Bustos. I am a data science consultant at CSCAR. Apart from this, all you need to know is that, for me, coding is just a mean to an end. This means that I will try hard to make coding as simple and effortless as possible for you; but to achieve this you will need to put some effort in learning the basics.
+:::
 
-## R is cool for statistics and graphics
+# Why do you want to learn R?
 
-+ **R** is gratis and it runs on Windows, MacOS, and several Unix platforms. 
+## R is cheap and powerful
+
++ **R** is gratis ($0) and it runs on Windows, MacOS, and several Unix platforms. 
 + You can start with this:
 
 ---
@@ -65,20 +102,31 @@ head(flower_df, 5)
 and, in 8 lines of code or less, make this:
 ```{r height by nitrogen boxplots}
 #| echo: false
+#| fig-width: 6.2
+#| fig-height: 4.5
+#| fig-align: center
 boxplot(
     height ~ nitrogen,
     data = flower_df, 
     col = c("yellow", "blue", "pink"),
-    main = "No clear pattern between height and nitrogen level",
+    main = "No clear association between height and nitrogen level",
     xlab = "Nitrogen",
     ylab = "Height"
 )
 ```
 
+::: {.notes}
+You can change the colors, the order of the boxes, the names, and much more. Doing all of this will be straightforward once you are familiar with R's syntax.
+:::
+
 ## R is an *environment*, not a package
 
 + A package is a fixed set of tools. 
 + An environment is for combining, modifying, and creating tools.
+
+::: {.notes}
+R is very powerful because it is an environment, not a package. A package is a fixed set of tools---what you see is what you get and that's it. An environment is for combining, modifying, and creating tools. So, even if a tool is not readily available in an environment, chances are there is a way to make it.
+:::
 
 ## R has plenty of statistical tools and models
 
@@ -90,23 +138,42 @@ boxplot(
 + Sample size and power calculations.
 + Multivariable analysis (e.g., factor analysis, PCA, and SEM).
 
+::: {.notes}
+Luckily for us, other people have already built tools and models to do a lot of statistics. We have...
+
+Better yet, people add more tools every day.
+:::
+
 ## Even more tools and models
 
-+ Users constantly publish their own code packages: more than 13,700 in the Comprehensive **R** Archive Network (CRAN) as of March 2019.
++ Users constantly publish their own code packages: more than 13 thousand in the Comprehensive **R** Archive Network (CRAN) as of March 2019.
 + Many complex statistical routines are not (and may never be) available in other statistical software.
+
+::: {.notes}
+As of March 2019, users like you and I have published more than 13 thousand packages in CRAN. Many of these packages implement complex statistical routines that are not (and may never be) available in other statistical software.
+:::
 
 ## Why Isn't Everyone a Use**R**?
 
-+ Some people only use whatever they learned first, which is not always **R**.
-+ Other software seems friendlier.
-+ Need to learn rules of packages you use.
++ Some people only use the software they learned first, which is not always **R**.
++ Each package in R has its own rules to learn.
 + Help pages and error messages may be hard to understand.
+
+::: {.notes}
+But if R is so good, why isn't everyone a user? Some people only use whatever they learned first. They took a course in statistics years ago that used SPSS or STATA and that has been enough for them. Also, each package in R has its own rules to learn. You can find a lot of good help for popular 
+packages written by professional developers, but not so much for smaller 
+packages written by other common users. Worst of all, some of the error messages in R are uninformative, so fixing problems can be difficult. Still, I think the advantages are well worth the effort. 
+:::
 
 ## Suggestions for Learning **R**
 
 + Learn interactively.
 + Don't worry about getting errors.
 + Ask other **R** users for help.
+
+::: {.notes}
+Learn interactively. Retype, experiment, go crazy with sample code. Today I will show you many examples that you can use and you can find many more online. Also, don't worry about making mistakes. Even professional coders make errors all the time, and you can learn a lot from error messages. Besides you can always ask other users for help. Take advantage of R's popularity to tap into our collective knowledge. It's also a good excuse to get up from your desk every once in a while.
+:::
 
 ## Some useful links
 

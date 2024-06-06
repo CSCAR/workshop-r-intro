@@ -78,7 +78,7 @@ Don't get frustrated! You don't have to be an expert programmer to use
 
 ## Suggestions for Learning **R**
 
-- Learn interactively! Retype and experiment with lots of sample code; you won't   break it. These notes contain several code examples and you can find many more   online.
+- Learn interactively! Retype and experiment with lots of sample code; you won't   break it. These notes contain many code examples and you can find many more   online.
 - Don't worry about getting errors. Even experienced **R** users
   make errors all the time. Besides, you can learn a lot from error
   messages.

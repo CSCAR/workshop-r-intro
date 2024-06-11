@@ -4,6 +4,9 @@ author: "Abner Heredia Bustos, CSCAR"
 format:
   revealjs:
     incremental: true
+project:
+  type: default
+  output-dir: docs/
 ---
 
 ```{r}

@@ -216,6 +216,9 @@ Think of an integer, double it, add six, divide it in half, subtract the number 
 + Names can *not* include white spaces.
 + If a name starts with a period `.`, it can *not* be followed by a digit.
 + Names can *not* start with a number or an underscore `_`.
+
+## Object names have rules
+
 + Names are case-sensitive (`age`, `Age` and `AGE` are three different objects).
 + Reserved words can *not* be used as names (`TRUE`, `FALSE`, `NULL`, `if`, ...).
 

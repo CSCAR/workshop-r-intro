@@ -11,7 +11,7 @@
     "href": "index.html#who-are-this-notes-for",
     "title": "Introduction to R",
     "section": "Who are this notes for?",
-    "text": "Who are this notes for?\nThese notes are a intended for anyone that wants to use R but has little or no experience using it, and little or no experience in programming."
+    "text": "Who are this notes for?\nThese notes are a intended for anyone that wants to use R but has little or no experience using it, and little or no experience in programming. These notes are self-contained and form the basis for in-person workshops hosted by CSCAR (see contact information below). During the workshops, we also use a slideshow based on these notes. This slideshow is available here."
   },
   {
     "objectID": "index.html#creation-of-this-document",
@@ -53,7 +53,7 @@
     "href": "01_the_r_environment.html#suggestions-for-learning-r",
     "title": "1  The R Environment",
     "section": "1.3 Suggestions for Learning R",
-    "text": "1.3 Suggestions for Learning R\n\nLearn interactively! Retype and experiment with lots of sample code; you won’t break it. These notes contain several code examples and you can find many more online.\nDon’t worry about getting errors. Even experienced R users make errors all the time. Besides, you can learn a lot from error messages.\nAsk other R users for help.\nSome useful links are:\n\nhttps://www.r-project.org: The R Home page, the central webpage for the R project. Here you will find links for downloading R, downloading additional packages for R, and almost everything else that you would like to know about the software or the people behind it.\nhttps://cran.r-project.org/web/views/: Task views summarize the most important packages involved in a subject field or analysis type.\nhttps://journal.r-project.org: The R Journal\nhttps://stats.stackexchange.com: Cross-Validated\nhttps://www.r-bloggers.com\nhttps://stats.idre.ucla.edu/r/: Institute for Digital Research and Education at UCLA\nhttps://socialsciences.mcmaster.ca/jfox/: John Fox’s home page\nhttps://sas-and-r.blogspot.com/: Examples of code to perform same task in SAS and R."
+    "text": "1.3 Suggestions for Learning R\n\nLearn interactively! Retype and experiment with lots of sample code; you won’t break it. These notes contain many code examples and you can find many more online.\nDon’t worry about getting errors. Even experienced R users make errors all the time. Besides, you can learn a lot from error messages.\nAsk other R users for help.\nSome useful links are:\n\nhttps://www.r-project.org: The R Home page, the central webpage for the R project. Here you will find links for downloading R, downloading additional packages for R, and almost everything else that you would like to know about the software or the people behind it.\nhttps://cran.r-project.org/web/views/: Task views summarize the most important packages involved in a subject field or analysis type.\nhttps://journal.r-project.org: The R Journal\nhttps://stats.stackexchange.com: Cross-Validated\nhttps://www.r-bloggers.com\nhttps://stats.idre.ucla.edu/r/: Institute for Digital Research and Education at UCLA\nhttps://socialsciences.mcmaster.ca/jfox/: John Fox’s home page\nhttps://sas-and-r.blogspot.com/: Examples of code to perform same task in SAS and R."
   },
   {
     "objectID": "01_the_r_environment.html#how-to-get-r",

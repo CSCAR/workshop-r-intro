@@ -8,8 +8,8 @@ Last modified: `r Sys.Date()`
 
 ## Who are this notes for? {.unnumbered}
 
-These notes are a intended for anyone that wants to use **R** but has little or no 
-experience using it, and little or no experience in programming.
+These notes are a intended for anyone that wants to use **R** but has little or 
+no experience using it, and little or no experience in programming. These notes are self-contained and form the basis for in-person workshops hosted by CSCAR (see contact information below). During the workshops, we also use a slideshow based on these notes. This slideshow is available [here](https://cscar.github.io/workshop-r-intro/slideshow.html).
 
 ## Creation of this document {.unnumbered}
 

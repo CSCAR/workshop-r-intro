@@ -86,7 +86,7 @@ To create an atomic vector, we can group values using the combine function `c()`
 quijote_characters <- c("Don Quijote", "Sancho Panza", NA)
 ```
 
-Atomic vectors can have almost^[The maximum length (number of elements) of a vector is 2^31 - 1 ~ 2*10^9. See [here](https://en.wikipedia.org/wiki/Floppy_disk) for more information.] as many elements as you want---including zero!
+Atomic vectors can have almost^[The maximum length (number of elements) of a vector is 2^31 - 1 ~ 2*10^9. See [here](https://astrostatistics.psu.edu/su07/R/html/base/html/Memory-limits.html) for more information.] as many elements as you want---including zero!
 
 ```{r}
 # length() counts the number of elements in the vector

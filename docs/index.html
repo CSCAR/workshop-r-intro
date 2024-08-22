@@ -152,12 +152,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
   <ul class="collapse">
-  <li><a href="#who-are-this-notes-for" id="toc-who-are-this-notes-for" class="nav-link" data-scroll-target="#who-are-this-notes-for">Who are this notes for?</a></li>
   <li><a href="#creation-of-this-document" id="toc-creation-of-this-document" class="nav-link" data-scroll-target="#creation-of-this-document">Creation of this document</a></li>
-  <li><a href="#contact-information" id="toc-contact-information" class="nav-link" data-scroll-target="#contact-information">Contact information</a>
-  <ul class="collapse">
-  <li><a href="#cscar" id="toc-cscar" class="nav-link" data-scroll-target="#cscar">CSCAR</a></li>
-  </ul></li>
   <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
   </ul></li>
   </ul>
@@ -185,33 +180,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Last modified: 2024-07-16</p>
+<p>Last modified: 2024-08-22</p>
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
-<section id="who-are-this-notes-for" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="who-are-this-notes-for">Who are this notes for?</h2>
-<p>These notes are a intended for anyone that wants to use <strong>R</strong> but has little or no experience using it, and little or no experience in programming. These notes are self-contained and form the basis for in-person workshops hosted by CSCAR (see contact information below). During the workshops, we also use a slideshow based on these notes. This slideshow is available <a href="https://cscar.github.io/workshop-r-intro/slideshow.html">here</a>.</p>
-</section>
+<p>These self-contained notes are intended for anyone that wants to use <strong>R</strong> but has little or no experience using it, and little or no experience in programming. Faculty and staff from the Consulting for Statistics, Computing &amp; Analytics Research (CSCAR) unit made these notes as the basis for in-person workshops at the University of Michigan. During the workshops, we also use a slideshow based on these notes. This slideshow is available <a href="https://cscar.github.io/workshop-r-intro/slideshow.html">here</a>.</p>
+<p>CSCAR is a unit of the Office of the Vice President of Research at the University of Michigan. We offer U-M researchers guidance and training in data collection, management, and analysis; and in the use of technical software and advanced computing in research.</p>
+<p>If you are a member of the faculty, professional staff, or a student at the University of Michigan, you can access our free, one-hour consultations with graduate-level statisticians. To request an appointment—which can be remote or in person—you can send an email to <a href="mailto:deskpeople@umich.edu" class="email">deskpeople@umich.edu</a>, or you can fill <a href="https://docs.google.com/forms/d/e/1FAIpQLSei-twcjFkoobUrVwSQTmSxdKKEc1Ub8w5LHmeIZUmTV1wmIg/viewform?pli=1">this form</a>. You can also walk-in for a consultation with one of our Graduate Student Research Assistants (GSRAs). GSRAs are available Monday through Friday, between 9am and 5pm (we close on Tuesdays between noon and 1pm).</p>
+<p>CSCAR can also help with simple statistical questions through email. You can write to <a href="mailto:stats-consulting@umich.edu" class="email">stats-consulting@umich.edu</a>.</p>
+<p>For more information on CSCAR, please visit <a href="http://cscar.research.umich.edu/" class="uri">http://cscar.research.umich.edu/</a>.</p>
+<!--
+Or you can use [this link](https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUMyTFpCR1RXbmhYfGRlZmF1bHR8ZWNjNGJlMWZlYTA4ZWE5NzYzNmNkNzgyZjUyZDYxNDg) to 
+self-schedule an appointment with a GSRA at your own convenience. 
+-->
 <section id="creation-of-this-document" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="creation-of-this-document">Creation of this document</h2>
-<p>These notes are published using <a href="https://quarto.org">Quarto</a>. Their source code is available at <a href="https://github.com/CSCAR/workshop-r-intro" class="uri">https://github.com/CSCAR/workshop-r-intro</a>.</p>
+<p>These notes are published using <a href="https://quarto.org">Quarto</a>; the source code is available at <a href="https://github.com/CSCAR/workshop-r-intro" class="uri">https://github.com/CSCAR/workshop-r-intro</a>.</p>
 <p>You can switch between light and dark modes using the button in the top left corner of the screen. Dark mode reverses the colors of the images to reduce brightness. To show an image in its original colors, move your mouse over it (or press it if you are on a mobile device). All images link to more detailed full-size versions.</p>
-</section>
-<section id="contact-information" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="contact-information">Contact information</h2>
-<section id="cscar" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="cscar">CSCAR</h3>
-<p><a href="http://cscar.research.umich.edu/" class="uri">http://cscar.research.umich.edu/</a></p>
-<p>Consulting for Statistics, Computing and Analytics Research (CSCAR) is a unit of the Office of the Vice President of Research at the University of Michigan. CSCAR offers U-M researchers guidance and training in data collection, management, and analysis; and in the use of technical software and advanced computing in research.</p>
-<p>We offer free, one-hour consultations with graduate-level statisticians. To request an appointment, you can send an email to <a href="mailto:deskpeople@umich.edu" class="email">deskpeople@umich.edu</a>, or you can fill <a href="https://docs.google.com/forms/d/e/1FAIpQLSei-twcjFkoobUrVwSQTmSxdKKEc1Ub8w5LHmeIZUmTV1wmIg/viewform?pli=1">this form</a>. You can also walk-in for a consultation with one of our Graduate Student Research Assistants (GSRAs). Or you can use <a href="https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUMyTFpCR1RXbmhYfGRlZmF1bHR8ZWNjNGJlMWZlYTA4ZWE5NzYzNmNkNzgyZjUyZDYxNDg">this link</a> to self-schedule an appointment with a GSRA at your own convenience. GSRAs are available Monday through Friday, between 9am and 5pm (we close on Tuesdays between noon and 1pm). All of our scheduled appointments can be either remote or in-person.</p>
-<p>CSCAR can also help with simple statistical questions through email. You can write to <a href="mailto:stats-consulting@umich.edu" class="email">stats-consulting@umich.edu</a>.</p>
 <p>If you have any questions or comments about these notes, you can contact Abner Heredia Bustos (<a href="mailto:abnerhb@umich.edu" class="email">abnerhb@umich.edu</a>).</p>
-</section>
 </section>
 <section id="acknowledgments" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>These notes have evolved over the years thanks to Abner Heredia Bustos, Josh Errickson, Xiru Lyu, and Chris Andrews.</p>
-<p>This material was created for use in workshops and short courses presented by faculty and staff from the Consulting for Statistics, Computing &amp; Analytics Research (CSCAR) unit at the University of Michigan.</p>
+<p>We thank Abner Heredia Bustos, Josh Errickson, Xiru Lyu, and Chris Andrews for their contributions to these notes over the years.</p>
 
 
 </section>

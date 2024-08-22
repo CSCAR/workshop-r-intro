@@ -118,14 +118,14 @@ The `all.equal` function will test if two values are "close enough":
 This is not **R**'s fault. All computers have limited space to 
 store numbers and decimal positions. So, computers often use numbers with 
 "hidden" decimals even when it looks like they use round numbers. For example, 
-what we think of as `3` may actually be `3.000005`. This is common enough to justify the **R** [FAQ (7.31)](https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f). To quote from "The Elements of Programming Style", 
+what looks like a `3` may actually be `3.000005`. This is common enough to justify the **R** [FAQ (7.31)](https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f). To quote from "The Elements of Programming Style", 
 by Kernighan and Plauger: "10.0 times 0.1 is hardly ever 1.0."
 
 Being able to do these computations is nice, but what happens if we want to use a result later without redoing the computation? **R** can save numbers (and more) using something called "objects".
 
 ## Objects
 
-In simple terms, an object is a named piece of information. A single number, a word, a plot, and a set of instructions can all be objects if we name them. The name allows us to access the piece of information whenever we want. To create an object, we must first choose a name, then type an arrow `<-` (a "lower than" symbol `<` followed by a "minus" sign `-`), and then write the value that we want to save.
+In simple terms, an object is a named piece of information that we can access whenever we want. A single number, a word, a plot, and a set of instructions can all be objects if we name them. To create an object, we must first choose a name, then type an arrow `<-` (a "lower than" symbol `<` followed by a "minus" sign `-`), and then write the value that we want to save.
 
 ```{r create first object}
 my_object <- 42
@@ -172,7 +172,7 @@ c <- 711
 c
 ```
 
-However, if an object was the copy of another object, overwriting the original object does not affect the copy:
+However, if an object was the copy of another object, overwriting the original object does not affect the copy; and overwriting the copy does not affect the original.
 
 ```{r}
 a <- 10
@@ -184,23 +184,23 @@ b
 
 We can use almost any name we want, but there are a few rules:
 
-+ Names can be a combination of letters, digits, periods `.` and underscores
++ Names *can* be a combination of letters, digits, periods `.` and underscores
   `_`.
-+ Names can *not* include white spaces.
-+ If a name starts with a period `.`, it can *not* be followed by a digit.
-+ Names can *not* start with a number or an underscore `_`.
++ Names *cannot* include white spaces.
++ If a name starts with a period `.`, it *cannot* be followed by a digit.
++ Names *cannot* start with a number or an underscore `_`.
 + Names are case-sensitive (`age`, `Age` and `AGE` are three different objects).
-+ Reserved words can *not* be used as names (`TRUE`, `FALSE`, `NULL`, `if`, ...).
++ Reserved words (e.g., `TRUE`, `FALSE`, `NULL`, `if`, ...) *cannot* be used as names.
 
-There are also a few suggestions that will save you many hours of frustration:
+Also, here are a few suggestions that can save you many hours of frustration:
 
 + Avoid giving your object the same name as a built-in function.
 + If you need to create objects with multiple words in their name, separate them with an underscore (`my_object`) or a dot (`my.object`), or capitalize the different words (`MyObject`). Choose whichever format you like most. Just be consistent.
-+ Use informative names. It is quick and easy to use names like `x` or `value1`. But your code will be easier and faster to understand if your objects have names that illustrate what you want to do with them. Your colleagues and your future self will really appreciate it.
++ Use informative names. It is quick and easy to use names like `x` or `value1`. But your code will be easier and faster to understand if your objects have names that illustrate their purposes. Your colleagues and your future self will really appreciate it.
 
 ## Using functions
 
-**R** has many built-in functions for anything from basic math to text manipulation to advanced statistical models. **R** thinks of functions as objects that store commands that we can apply to an input. For example, we can round a number, calculate its square root, its factorial, or its natural logarithm. To use a function, we must write the name of a function followed by the input we want it to use inside a pair of round brackets.
+**R** has many built-in functions to do anything from basic math to text manipulation to advanced statistical models. **R** thinks of functions as objects that store commands that we can apply to an input. For example, we can input a number to round it, or to calculate its square root, its factorial, or its natural logarithm. To use a function, we must write the name of a function followed by the input we want it to use inside a pair of round brackets.
 
 ```{r simple mathematical functions}
 #| results: hide
@@ -217,7 +217,7 @@ round(2.1415, 0)
 round(2.1415, 2)
 ```
 
-The order of these arguments is important (what happens if we try to run `round(2, 2.1415)`?) Fortunately, arguments have names that you can use to specify which data to use in each case. So, we can write
+The order of these arguments is important (what happens if we try to run `round(2, 2.1415)`?) Fortunately, arguments have names that we can use to specify which data to use in each case. So, we can write
 
 ```{r naming arguments}
 round(x = 2.1415, digits = 3)
@@ -242,7 +242,7 @@ A quick way to check what arguments we can use is to invoke `args()`, which take
 args(round)
 ```
 
-The output shows that `round()` has two arguments: `x` (the number we want to round) and `digits`. It also shows that `digits` is already set to zero. This means that **R** will use `0` as the default value. We can omit arguments with default values and **R** will automatically fill them for us in the background.
+The output shows that `round()` has two arguments: `x`, which is the number we want to round; and `digits`, which determines how many decimal places to keep. The output also shows that `digits` is already set to zero. This means that `round` will use 0 as the default value for `digits`, i.e., it will not keep any decimal places. We can omit arguments with default values and **R** will automatically fill them for us in the background.
 
 I encourage you to name all the arguments in the function, or at least the ones after the first argument. It is hard to remember all the arguments that can go into more complicated functions. And it is even harder to remember them in the correct order. Accidentally switching unnamed arguments can produce wrong results without us knowing. Naming the arguments will prevent errors and clarify the function's behavior.
 
@@ -252,7 +252,7 @@ We can also run functions inside other functions. This works because **R** first
 sqrt(round(16.483, digits = 0))
 ```
 
-The functions we have used are simple and intuitive to use. But sometimes we need to know more before we can use a function in our code. Where can we find explanations to help us?
+The functions we have used are simple and intuitive to use. But sometimes we need to know more about a function before we can use it. Where can we find explanations to help us?
 
 ## Getting help
 
@@ -278,7 +278,7 @@ The first line of the help document displays the name of the function and the pa
 
 + **Description**: a short description of the function.
 + **Usage**: names the arguments associated with the function and possible default values.
-+ **Arguments**: expounds each argument and what they do.
++ **Arguments**: explains the purpose and format of each argument.
 + **Details**: a more detailed description of what the function does and how it does it.
 + **Value**: if applicable, gives the type and structure of the object returned by the function or the operator.
 + **See Also**: leads to other help pages with similar or related content.
@@ -300,19 +300,10 @@ Note that in this case we have to use quotes `" "` around the name of the functi
 
 As before, the 'Help' tab in **R**Studio will display the results of the search. `help.search()` looks for the pattern in the help documentation, code demonstrations, and package vignettes and displays the results as clickable links that we can follow.
 
-Another useful function is `apropos()`, which lists all functions containing a specified character string. For example, to find all functions with `round` in their name, we use^[This output should show 6 names instead of 3. I can not fix the output in the notes, but the code works fine inside **R**Studio.]
+Another useful function is `apropos()`, which lists all functions containing a specified character string. Note that `apropos()` returns names even when the word we used is only part of a larger word, like in "surround". For example, to find all functions with `round` in their name, we use^[This output should show 6 names instead of 3. I can not fix the output in the notes, but the code works fine inside **R**Studio.]
 
 ```{r}
 apropos("round")
-```
-
-Note that `apropos()` returns names even when the word we used is only part of a larger word, like in "surround".
-
-If we find the function we need, we can look for its documentation.
-
-```{r}
-#| eval: false
-help("round.Date")
 ```
 
 Another useful function is `RSiteSearch()`, which allows us to search for keywords and phrases in function help pages and vignettes for *all* CRAN packages, and in CRAN task views. This way we can access the [online search engine](https://www.r-project.org/search.html) directly from the Console and display the results in our web browser.
@@ -326,18 +317,18 @@ RSiteSearch("regression")
 ## How to get started with help pages?
 Start by reading the help pages of functions that you already understand. This will teach you how to understand the structure of the pages and will familiarize you with the jargon. As you use **R** you will likely need other, more complicated functions, so reading more help pages will happen almost naturally.
 
-Keep in mind that help pages are about code, not about the underlying concepts. If you don't know what it means to round a number, reading the documentation for `round()` will not help you.
+Keep in mind that help pages explain the code, not the underlying concepts. If you don't know what it means to round a number, reading the documentation for `round()` will not help you.
 :::
 
 <!--
 Now that we know how to get help, we can move on to more advanced stuff.
 --> 
 
-Until now, the console satisfied all our coding needs. But if we wanted to reuse a command from before, we would have to either rewrite it from scratch, or look through our command history in the "Environment-History-Connections" window---a tedious task. Besides, once we close this session in **R**Studio, all of our work will be gone, like tears in the rain. It would be much better if we wrote our code in a place where we can easily review and modify it.
+Until now, the console satisfied all our coding needs. But if we wanted to reuse a command from before, we would have to either rewrite it from scratch, or look tediously through our command history in the "Environment-History-Connections" window. Besides, once we close this session in **R**Studio, all of our work will be gone, like tears in the rain. It would be much better if we wrote our code in a place where we can easily review and modify it.
 
 ## Working with scripts
 
-An **R** script is a plain text file that we can use to save our code. I think the best way to code in **R** is to use a script, and I strongly suggest you always use one. A script helps us edit, proofread, and reuse our code. Also, it is cumbersome to write multi-line code in the console, but it is easy if we use a script. A script also allows us to save our code so we can share it with others or come back to it later. 
+A script is a plain text file where we write our code. With a script we can edit, proofread, and reuse code; we can easily write multi-line code (which is cumbersome to do in the console); and we can save our code so we can share it with others or come back to it later. I think the best way to code in **R** is to use a script, and I strongly suggest you always use one. 
 
 To open a script, click on `File > New File > R script` in the menu bar on the upper left-hand side of the screen.
 
@@ -347,9 +338,9 @@ We can run a line of code in the script using the `Run` button in the upper righ
 
 [![Buttons for running code](./images/run_code_buttons_edited.jpg)](./images/run_code_buttons_edited.jpg)
 
-To save your script, you can click on the blue square^[Young reader, this square is a [floppy disk](https://en.wikipedia.org/wiki/Floppy_disk); not-so-young reader, I feel your pain.] right below the tab with the script name. The first time you save your script, **R** will ask you to choose a name and a location to save your file in. I strongly suggest that you pick a name and and a location that you will remember easily in the future.
+To save your script, you can click on the blue square^[Young reader, this square is a [floppy disk](https://en.wikipedia.org/wiki/Floppy_disk); not-so-young reader, I feel your pain.] right below the tab with the script name. The first time you save your script, **R** will ask you to choose a name and a location to save your file in. I strongly suggest that you pick a name and a location that you will remember easily in the future.
 
-Moving forward, I will write all my code in a script and will assume you are doing so too. Trust me, it's for your own benefit.
+Moving forward, I will write all my code in a script and will assume you are doing the same. Trust me, it's for your own benefit.
 
 Now that we know how to preserve our hard-gained code, we can start doing more elaborate work. Previously we worked with one number at the time. But we can also work with groups of numbers (and of other stuff) by using something called "vectors".
 
@@ -364,7 +355,7 @@ my_vec
 
 ::: {.callout-note}
 ## Comments 
-Did you see the text I added next to the code? **R** will ignore everything in a line that comes after a hashtag `#`. This `#` is known in **R** as *commenting symbol* because it allows us to comment our code. Comments can explain confusing chunks of code, or warn about potential problems.
+Did you see the text I added next to the code? **R** will ignore everything in a line that comes after a hashtag `#`. This `#` is known as *commenting symbol* because it allows us to comment our code. Comments can explain confusing chunks of code, or warn about potential problems.
 :::
 
 Vectors can also contain other types of data, like words:
@@ -374,14 +365,15 @@ vector_of_words <- c("monday", "lemon")
 vector_of_words
 ```
 
-Note that we must enclose words in quotation marks to let **R** know that we want to use "monday" and "lemon" as values instead of the names of objects. Look at what happens if we forget the quotation marks:
+Note that we must enclose words in quotation marks to let **R** know that we want to use "monday" and "lemon" as values and not as names for objects. Look at what happens if we forget the quotation marks:
 
 ```{r}
 #| error: true
 vector_of_words <- c(monday, lemon)
 ```
 
-Later on we will work more with vectors of words, but for now let's focus on vectors of numbers.
+Later on we will work more with vectors of words, but for now let's focus on
+vectors of numbers.
 
 ### Named vectors
 
@@ -404,21 +396,31 @@ log(my_vec)
 my_vec*my_vec
 ```
 
-In the last example, **R** did not obey the rules of linear algebra to multiply two vectors. Instead, **R** used "element-wise execution", which means that **R** applied the same operation to each member of the vector. For example, `my_vec + 7` adds `7` to each number inside `my_vec`.
+In the last example, **R** did not obey the rules of linear algebra to multiply
+two vectors. Instead, **R** used "element-wise execution", which means that
+**R** applied the same operation to each element of the vector independently of
+the other elements.
 
-Element-wise execution allows us to manipulate entire data variables rather than
-one element at a time. When working with a data set, element-wise 
-execution will ensure that values from one observation or case are only paired 
-with values from the same observation or case. Element-wise execution also facilitates writing our functions in **R**.
+To decide how to apply element-wise execution, **R** considers the *length* of
+the vectors, which refers to the number of elements inside them. When we use two
+vectors with the same length, **R** will line up the vectors and perform a
+sequence of individual operations. For instance, in `my_vec*my_vec`, **R**
+multiplies the first element of vector 1 by the first element of vector 2, then
+the second element of vector 1 by the second element of vector 2, and so on,
+until all elements are multiplied. The result will be a new vector with the same
+length as the first two. 
 
-To decide how to apply element-wise execution, **R** considers the *length* of the vectors, which refers to the number of elements inside them. When you use two vectors with the same length for an operation, **R** will line up the vectors and perform a sequence of individual operations. For instance, in `my_vec*my_vec`, **R** multiplies the first element of vector 1 by the first element of vector 2, then the second element of vector 1 by the second element of vector 2, and so on, until all elements are multiplied. The result will be a new vector with the same length as the first two.
+When we use two vectors with *different* lengths, **R** will repeat the shorter
+vector until it has as many elements as the longer vector, and then it will do
+the same as before. For example:
 
-If you give **R** two vectors with different lengths, it will repeat the shorter vector until it has as many elements as the longer vector, and then do the math. 
 ```{r recycling vectors 1}
 my_vec * c(1, 2)
 ```
 
-If the length of the short vector does not divide evenly into the length of the long vector, **R** will do an incomplete repeat of the shorter vector and return a warning. 
+If the length of the short vector does not divide evenly into the length of the 
+long vector, **R** will do an incomplete repeat of the shorter vector and return
+a warning. 
 
 ```{r recycling vectors 2}
 my_vec * c(1, 2, 3, 4)
@@ -426,14 +428,25 @@ my_vec * c(1, 2, 3, 4)
 
 Repeating the numbers of the vector is known as "vector recycling", and it helps **R** do element-wise operations.
 
+Element-wise execution allows us to apply the same instruction to all elements 
+in an object rather than one element at a time. When working with a data set, 
+element-wise execution will ensure that values from one observation or case are 
+only paired with values from the same observation or case. Element-wise 
+execution also facilitates writing our functions in **R**.
+
 **R** can do vector and matrix multiplications, but we have to ask for them 
 explicitly. For example, to get the inner product, we need the operator `%*%`. 
-And to get the outer product, we need `%o%`. Don't worry if you are not familiar 
+And to get the outer product, we need `%o%`. Don't worry if you are not familiar
 with matrix operations; you won't need them in these notes.
 
 ### Extracting elements
 
-We can access specific elements of vectors using the square bracket `[ ]` notation. To use it, we first write the name of the vector we want to extract from, followed by the square brackets with an index of the element we wish to extract. This index can be a position or a logical statement. To extract elements based on their position we simply write the position number inside the `[ ]`. For example, to extract the 3rd value of `my_vec`, we use
+We can access specific elements of vectors using the square bracket `[ ]`
+notation. To use it, we first write the name of the vector we want to extract
+from, followed by the square brackets with an index of the element we wish to
+extract. This index can be a position or a logical statement. To extract
+elements based on their position we simply write the position number inside the
+`[ ]`. For example, to extract the 3rd value of `my_vec`, we use
 
 ```{r extract value from my_vec}
 my_vec[3]
@@ -543,7 +556,7 @@ sorted_vec_decreasing <- rev(sort(my_vec))
 sorted_vec_decreasing
 ```
 
-A more useful feature of vectors is that we can reorder their elements based on the values of other vectors. To show this, let's first create a vector of cities and another vector with (my guess of) their typical daily temperatures in degrees Fahrenheit.
+A more useful feature of vectors is that we can reorder their elements based on the values of other vectors. To show this, let's first create a vector of city names and another vector with (my guess of) their typical daily temperatures in degrees Fahrenheit.
 
 ```{r}
 cities <- c("Tokyo", "Cairo", "Mexico City", "Helsinki")

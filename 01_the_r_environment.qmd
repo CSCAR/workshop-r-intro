@@ -22,7 +22,7 @@ boxplot(
     height ~ nitrogen,
     data = flower_df, 
     col = c("yellow", "blue", "pink"),
-    main = "No clear pattern between height and nitrogen level",
+    main = "No clear association between height and nitrogen level",
     xlab = "Nitrogen",
     ylab = "Height"
 )
@@ -40,10 +40,12 @@ You can also find many powerful tools to fit statistical models
 - Sample size and power calculations
 - Multivariable analysis (e.g., factor analysis, principal component analysis, and structural equations modeling)
 
-Even better, new tools become available in **R** all the time. As with other open source programming languages, everyone can examine and contribute to **R**'s code. Users constantly publish their own code "packages" (ready-to-use tools), which expand **R**'s base capabilities. As of March 2019, users have contributed over 13,700 packages to Comprehensive **R** Archive Network (CRAN), many of which perform complex statistical routines that are not (and may never be) available in other statistical software systems.
+Even better, new tools become available in **R** all the time. As with other open source programming languages, everyone can examine and contribute to **R**'s code. Users constantly publish their own code packages to expand **R**'s capabilities. As of March 2019, users have contributed over 13,700 packages to Comprehensive **R** Archive Network (CRAN), many of which perform complex statistical routines that are not (and may never be) available in other statistical software systems.
 
-You can choose your own way of using **R**. In Windows, there are several ways to use **R**. The standard **R** graphical unit interface (GUI) allows you to point and click to do many basic tasks. Another GUI is [**R** Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by 
-John Fox at McMaster University. **R** Commander displays the underlying **R** code for each analysis to help the user learn the programming language. [Tinn-**R**](http://sourceforge.net/projects/tinn-r/)  is another GUI from Jose Claudio Faria. These GUIs are friendly and easy to grasp if you're a beginner. But to use all of **R**'s capabilities you will need to do more than point and click. 
+In Windows, there are several ways to use **R**. The standard **R** graphical unit interface (GUI) allows you to point and click to do many basic tasks. Another GUI is [**R** Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by 
+John Fox at McMaster University. **R** Commander displays the underlying **R** code for each analysis to help the user learn the programming language. [Tinn-**R**](http://sourceforge.net/projects/tinn-r/)  is another GUI from Jose Claudio Faria. 
+
+These GUIs are friendly and easy to grasp if you're a beginner. But to use all of **R**'s capabilities you will need to do more than point and click. 
 
 A more complete way of using **R** is through an integrated development environment (IDE), which, in short, helps you code. The most popular IDE for **R** is [**R**Studio](https://www.posit.com), which organizes the
 user's screen into panes that display scripts, objects, graphics, and
@@ -63,10 +65,10 @@ original analysis and to investigate other approaches.
 
 ## Why Isn't Everyone a Use**R**?
 
-Maybe because many users of statistics only learn how to use one statistical software, often the one taught in their first statistics course. In the past, **R** was almost never this first language (although nowadays more schools are teaching how to use it).
+Many users of statistics only learn how to use one statistical software, often the one taught in their first statistics course. In the past, **R** rarely was this first language, but nowadays more schools are teaching how to use it.
 
-Besides, even if people have used **R**, they can struggle to get comfortable 
-and productive with it, especially if they have little coding experience. Typing 
+Some people have used **R**, but struggles to get comfortable 
+and productive with it, especially if they had little coding experience. Typing 
 commands explicitly is more difficult than pointing and clicking. Also, each 
 package has its own rules to learn. You can find a lot of good help for popular 
 packages written by professional developers, but not so much for smaller 
@@ -80,7 +82,7 @@ Don't get frustrated! You don't have to be an expert programmer to use
 
 - Learn interactively! Retype and experiment with lots of sample code; you won't   break it. These notes contain many code examples and you can find many more   online.
 - Don't worry about getting errors. Even experienced **R** users
-  make errors all the time. Besides, you can learn a lot from error
+  make mistakes all the time. And you can learn a lot from error
   messages.
 - Ask other **R** users for help.
 - Some useful links are:
@@ -102,10 +104,6 @@ Don't get frustrated! You don't have to be an expert programmer to use
 
 ## How to get **R**
 
-**R** is already installed on the lab workstations. The following
-information is useful if you need to install **R** on another
-machine.
-
 At the [**R** Project Web Page](https://www.r-project.org) the
 most important link is at the left hand side of the screen, under the "Download"
 heading. Click on the CRAN link (Comprehensive **R** Archive
@@ -120,7 +118,7 @@ Once you find the CRAN web page, take the following steps to obtain
     you to download the base **R** packages.
 3.  Click the "Download **R** 4.X.X for Windows" link.
     **R** is updated quite frequently. At the time of this
-    printing, version 4.4.0 is available. Save the `.exe` file somewhere on your
+    printing, version 4.4.1 is available. Save the `.exe` file somewhere on your
     computer.
 4.  Double-click on the `.exe` file once it is downloaded. An installation
     window will appear to guide you through the setup of **R** in your machine.

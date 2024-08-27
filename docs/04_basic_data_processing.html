@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.556">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - 4&nbsp; Basic data processing</title>
+<title>4&nbsp; Basic data processing – Introduction to R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -113,13 +113,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_basic_data_processing.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Basic data processing</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Now we can apply our understanding of <strong>R</strong> to work with files of pre-existing data. The first step when loading data is to locate our working directory. This is the default location where <strong>R</strong> will look for files we want to load and where it will put any files we save. The working directory will change on different computers. To find our current working directory, we run:</p>
+<p>Now we can apply our understanding of <strong>R</strong> to work with pre-made files of data. To load data we should first locate our working directory. This is the default location where <strong>R</strong> will look for files we want to load and where it will put any files we save. This directory is different on each computer, but we can find it by running:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -228,20 +228,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "C:/Users/user_name/workshop_folder/learning_r/code"</code></pre>
 </div>
 </div>
-<p>We can move our working directory to any folder on our computer by writing a new <a href="https://www.codecademy.com/resources/docs/general/file-paths">file path</a> inside the function <code>setwd()</code>. I prefer to set my working directory to a folder dedicated to whichever project I am currently working on. This way, every file related to my project is in the same place. For example:</p>
+<p>We can move our working directory to any folder on our computer by writing a new <a href="https://www.codecademy.com/resources/docs/general/file-paths">file path</a> inside the function <code>setwd()</code>. I prefer to set my working directory to a folder dedicated exclusively to whichever project I am currently working on. This way, every file related to my project is in the same place. For example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/user_name/workshop_folder/learning_r/code"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can also change our working directory by clicking on Session &gt; Set Working Directory &gt; Choose Directory in the <strong>R</strong>Studio menu bar. The Windows and Mac graphical user interfaces have similar options. If we start <strong>R</strong> from a UNIX command line (as on Linux machines), the working directory will be whichever directory we were in when we called <strong>R</strong>.</p>
+<p>We can also change our working directory by clicking on <code>Session &gt; Set Working Directory &gt; Choose Directory</code> in the <strong>R</strong>Studio menu bar. The Windows and Mac graphical user interfaces have similar options. If we start <strong>R</strong> from a UNIX command line (as on Linux machines), the working directory will be whichever directory we were in when we called <strong>R</strong>.</p>
 <p><code>list.files()</code> will show us what files are in our working directory. If the file that we want to open is in our working directory, then we are ready to proceed.</p>
 <section id="loading-data" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">4.1</span> Loading data</h2>
-<p>Once we know where to find data files in our computer, we can start loading them into <strong>R</strong>. Note, however, that we need specific ways to open different file formats.</p>
+<p>Once we can locate files in our computer, we can load them into <strong>R</strong>. Note, however, that we need specific ways to open different file formats.</p>
 <section id="plain-text-files" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="plain-text-files"><span class="header-section-number">4.1.1</span> Plain text files</h3>
-<p>A plain-text file stores a table of data in a text document. Each row of the table is saved on its own line, and a simple symbol separates the cells within a row. This symbol is often a comma, but it can also be a tab, a pipe delimiter <code>|</code>, or any other character. Each file only uses one symbol to separate cells, which minimizes confusion.</p>
+<p>A plain-text file stores a table of data in a text document. Each row of the table is saved on its own line, and a simple symbol separates the cells within a row. This symbol is most often a comma, and sometimes a tab or a pipe delimiter <code>|</code>, but it can also be any other character. Each file only uses one symbol to separate cells, which minimizes confusion.</p>
 <p>Plain-text files are simple and many programs can read them. This is why many organizations (e.g., the Census Bureau and the Social Security Administration) publish their data as plain-text files.</p>
-<p>We will work with data from <a href="https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower.csv">this</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> plain text file. Use <code>Ctrl+Shift+s</code> to download the file. I am going to save it in a folder called “data_files” inside my working directory under the name “flower.csv”. But you can save it wherever you want as long as you can keep track of it.</p>
+<p>We will work with data from <a href="https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower.csv">this</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> plain text file. Use <code>Ctrl+Shift+s</code> to download the file. I will save it in a folder called “data_files” inside my working directory under the name “flower.csv”. You can save it wherever you want as long as you can keep track of it.</p>
 <section id="read.table" class="level4" data-number="4.1.1.1">
 <h4 data-number="4.1.1.1" class="anchored" data-anchor-id="read.table"><span class="header-section-number">4.1.1.1</span> read.table</h4>
 <p><code>read.table()</code> can load plain-text files. The first argument of <code>read.table()</code> is the name of our file (if it is in your working directory), or the file path to our file (if it is not in our working directory).</p>
@@ -266,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3   tip   medium     1   11.2  12.76      7.1      66.7      10</code></pre>
 </div>
 </div>
-<p><code>read.table()</code> has other arguments that we can tweak. You can consult the function’s help page to know more about them.</p>
+<p><code>read.table()</code> has other arguments that we can tweak. You can read more about them in the function’s help page.</p>
 </section>
 <section id="shortcuts-for-read.table" class="level4" data-number="4.1.1.2">
 <h4 data-number="4.1.1.2" class="anchored" data-anchor-id="shortcuts-for-read.table"><span class="header-section-number">4.1.1.2</span> Shortcuts for read.table</h4>
@@ -302,13 +302,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="excel-files" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="excel-files"><span class="header-section-number">4.1.2</span> Excel files</h3>
-<p>The best way to load data from Excel files (.xlsx) is to first save these files as .csv or .txt files and then use <code>read.table</code>. Excel files can include multiple spreadsheets, macros, colors, dynamic tables, and other complicated formats that make it difficult for <strong>R</strong> to read the files properly. Plain text files are simpler, so we can load and transfer them more easily.</p>
-<p>Still, there are ways to load Excel files if we <em>really</em> need to. <strong>R</strong> has no native way of loading these files, but we can use the package <code>readxl</code>, which works on all operating systems. We install it using <code>install.packages("readxl")</code> and then load it using <code>library(readxl)</code>. Once we load the package, we can use the function <code>read_excel()</code> to load files of the type .xls and .xlsx (see <code>help("read_excel")</code> for more information).</p>
+<p>The best way to load data from Excel files (.xlsx) is to first save these files as .csv or .txt files and then use <code>read.table</code>. Excel files can include multiple spreadsheets, macros, colors, dynamic tables, and other complicated features that make it difficult for <strong>R</strong> to read the files properly. Plain text files are simpler, so we can load and transfer them more easily.</p>
+<p>Still, it is possible to load Excel files if we <em>really</em> need to. <strong>R</strong> has no native way of loading these files, but we can use the package <code>readxl</code>, which works on Windows, OS X, and Linux. We install it using <code>install.packages("readxl")</code> and then load it using <code>library(readxl)</code>. Once we load the package, we can use the function <code>read_excel()</code> to load files of the type .xls and .xlsx (see <code>help("read_excel")</code> for more information).</p>
 </section>
 <section id="files-from-other-programs" class="level3" data-number="4.1.3">
 <h3 data-number="4.1.3" class="anchored" data-anchor-id="files-from-other-programs"><span class="header-section-number">4.1.3</span> Files from other programs</h3>
-<p>As with Excel files, I suggest that you first try to transform files from other programs to plain-text files. This transformation is usually the best way to verify that our data is transcribed properly, and allows us to customize the transformation.</p>
-<p>But sometimes we can’t transform the file to a plain-text format—maybe because we can’t access the program that created the file (e.g., SAS or SPSS). In these cases, we can resort to one of several libraries:</p>
+<p>As with Excel files, I suggest that you first try to transform files from other programs to plain-text files. This transformation is usually the best way to verify that our data are transcribed properly.</p>
+<p>Still, sometimes we can’t transform the file to a plain-text format—maybe because we can’t access the program that created the file (e.g., SAS or SPSS). In these cases, we can resort to one of several libraries:</p>
 <ul>
 <li><code>haven</code>, for reading files from SAS, SPSS, and Stata.</li>
 <li><code>R.matlab</code> for reading files for versions MAT 4 and MAT 5.</li>
@@ -345,11 +345,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>flower_clean_df <span class="ot">&lt;-</span> flower_messy_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Using a copy of the original data set makes it easier to track our changes because we can always look at the original version. It also eases backtracking when we make a mistake because we don’t have to reload our original data (which can take a long time with large files).</p>
+<p>Using a copy of the original data set makes it easier to track our changes because we can always look back at the original version. It also eases backtracking when we make a mistake because we don’t have to reload our original data (which can take a long time with large files).</p>
 <p>Now we can use our improved column names.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(flower_clean_df) <span class="ot">&lt;-</span> new_colnames <span class="co"># Replace column names in data frame</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(flower_clean_df) <span class="co"># Check our work</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(flower_clean_df) <span class="co"># Verify replacement</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "treat"      "nitrogen"   "block"      "height"     "weight"    
 [6] "leaf.area"  "shoot.area" "flowers"   </code></pre>
@@ -369,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Note that I had to use <code>"\\."</code> instead of simply <code>"."</code> to match the period. The reason is that <code>gsub()</code> interprets <code>"."</code> as saying “match any character”. This may sound silly but it helps when working with <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>—a syntax to find many different, complicated patterns in strings. Regular expressions are too complicated to explain here, but if you expect to work with text data regularly, I encourage you to learn more about them.</p>
-<p>With our improved column names it will be easier to focus on giving every column an appropriate format: numbers should be of type “double” or “integer”, and text should be of type “character” of “factor”. Let’s check the types of the columns in our current data set.</p>
+<p>With our improved column names it will be easier to focus on giving every column an appropriate format: numbers should be of type “double” or “integer”, and text should be of type “character” or “factor”. Let’s check the types of the columns in our current data set.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(flower_clean_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -453,7 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-summaries-and-visualizations" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="data-summaries-and-visualizations"><span class="header-section-number">4.3</span> Data summaries and visualizations</h2>
-<p>Now that our data is clean, we can get more complete summaries to understand it better. Function <code>summary()</code> recognizes the type of each column and displays an intuitively appropriate summary:</p>
+<p>Now that our data are clean, we can get more complete summaries to understand them better. Function <code>summary()</code> recognizes the type of each column and displays a convenient summary:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(flower_clean_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -506,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>A single box plot has less information than a histogram. But it is easier to compare box plots to look for “big” differences between distributions. Let’s compare the distributions of height by nitrogen level:</p>
+<p>A single box plot is less descriptive than a histogram. But it is easier to compare box plots to look for “big” differences between distributions. Let’s compare the distributions of height by nitrogen level:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    height <span class="sc">~</span> nitrogen,</span>
@@ -522,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Now let’s investigate the relationship between shoot area and leaf area. And let’s check whether that relationship changes depending on the value of treat. We can use a scatter plot with shoot area and leaf area, and we can color each point by their treat value.</p>
+<p>Now let’s investigate the relationship between shoot area and leaf area. And let’s check whether this relationship changes depending on the value of treat. We can use a scatter plot with shoot area and leaf area, and we can color each point by their treat value.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> flower_clean_df<span class="sc">$</span>leaf_area,</span>
@@ -584,7 +584,7 @@ nitrogen notip tip
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>You can find the original file <a href="https://alexd106.github.io/intro2R/data.html">here</a> courtesy of Douglas et al.&nbsp;(see references).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>You can find the original file <a href="https://alexd106.github.io/intro2R/data.html">here</a>, courtesy of Douglas et al.&nbsp;(see references).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -768,18 +768,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -811,7 +800,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -819,7 +830,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

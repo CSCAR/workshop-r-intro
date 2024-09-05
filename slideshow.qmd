@@ -232,11 +232,17 @@ Think of an integer, double it, add six, divide it in half, subtract the number 
 
 Write a function that can simulate the roll of two six-sided dice, one red and one blue, an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die.
 
-## Exercise step by step
+## Exercise step by step (part 1)
 
-+ Step 1: define a function that takes one argument, `num_rolls`, representing the number of times to roll the dice.
-+ Step 2: create two objects called `red` and `blue` to store the results from the dice rolls.
-+ Step 3: simulate the dice rolls using function `sample()` (read its help page if you need to).
++ Step 1: define a function that takes one argument, `num_rolls`, representing 
+the number of times to roll the dice.
++ Step 2: create two objects called `red` and `blue` to store the results from 
+the dice rolls.
++ Step 3: simulate the dice rolls using function `sample()` (read its help page 
+if you need to).
+
+## Exercise step by step (part 2)
+
 + Step 4: create a vector of indices that identifies the values in the red die that were larger than the values in the blue die.
 + Step 5: use this vector of indices to extract the values from the red die.
 + Step 6: make sure that your function returns the values you extracted in step 5.

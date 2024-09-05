@@ -395,18 +395,18 @@ The `all.equal` function will test if two values are "close enough":
 
 `> ?all.equal`
 -->
-<p>This is not <strong>R</strong>’s fault. All computers have limited space to store numbers and decimal positions. So, computers often use numbers with “hidden” decimals even when it looks like they use round numbers. For example, what looks like a <code>3</code> may actually be <code>3.000005</code>. This is common enough to justify the <strong>R</strong> <a href="https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f">FAQ (7.31)</a>. To quote from “The Elements of Programming Style”, by Kernighan and Plauger: “10.0 times 0.1 is hardly ever 1.0.”</p>
+<p>This is not <strong>R</strong>’s fault. All computers have limited space to store numbers and decimal positions. So, computers often use numbers with “hidden” decimals even when it looks like they use round numbers. For example, what looks like a <code>3</code> may actually be <code>3.000005</code>. This is common enough to justify the <strong>R</strong> <a href="https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f">FAQ (7.31)</a>.</p>
 <p>Being able to do these computations is nice, but what happens if we want to use a result later without redoing the computation? <strong>R</strong> can save numbers (and more) using something called “objects”.</p>
 </section>
 <section id="objects" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="objects"><span class="header-section-number">2.3</span> Objects</h2>
 <p>In simple terms, an object is a named piece of information that we can access whenever we want. A single number, a word, a plot, and a set of instructions can all be objects if we name them. To create an object, we must first choose a name, then type an arrow <code>&lt;-</code> (a “lower than” symbol <code>&lt;</code> followed by a “minus” sign <code>-</code>), and then write the value that we want to save.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="ot">&lt;-</span> <span class="dv">42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="ot">&lt;-</span> <span class="fl">4.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Another way of creating the object is to use the “equal to” sign <code>=</code> instead of the arrow.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="ot">=</span> <span class="dv">42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="ot">=</span> <span class="fl">4.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this context, both <code>&lt;-</code> and <code>=</code> are acting as “assignment operators” because they assign the value <code>42</code> to the name <code>my_object</code>. In <strong>R</strong>, <code>=</code> has several uses, so if you want to avoid confusion, I suggest you use <code>&lt;-</code>. But you can pick whichever symbol you like the most as long as you are consistent.</p>
 <p>Now the environment window shows that there is an object called <code>my_object</code>, which we can access at anytime by typing its name.</p>
@@ -419,18 +419,18 @@ The `all.equal` function will test if two values are "close enough":
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>my_object</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 42</code></pre>
+<pre><code>[1] 4.2</code></pre>
 </div>
 </div>
 <p><code>my_object</code> has a number as its value, so we can do mathematical operations with it.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="sc">+</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 49</code></pre>
+<pre><code>[1] 11.2</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>my_object<span class="sc">^</span>my_object</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.501309e+68</code></pre>
+<pre><code>[1] 414.6169</code></pre>
 </div>
 </div>
 <p>We can also create objects based on other objects.</p>
@@ -629,7 +629,7 @@ Now that we know how to get help, we can move on to more advanced stuff.
 </div>
 <p>To save your script, you can click on the blue square<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> right below the tab with the script name. The first time you save your script, <strong>R</strong> will ask you to choose a name and a location to save your file in. I strongly suggest that you pick a name and a location that you will remember easily in the future.</p>
 <p>Moving forward, I will write all my code in a script and will assume you are doing the same. Trust me, it’s for your own benefit.</p>
-<p>Now that we know how to preserve our hard-gained code, we can start doing more elaborate work. Previously we worked with one number at the time. But we can also work with groups of numbers (and of other stuff) by using something called “vectors”.</p>
+<p>Now that we know how to preserve our hard-gained code, we can do more elaborate work. Previously we worked with one number at the time. But we can also work with groups of numbers (and of other stuff) by using something called “vectors”.</p>
 </section>
 <section id="working-with-vectors" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="working-with-vectors"><span class="header-section-number">2.7</span> Working with vectors</h2>
@@ -775,7 +775,7 @@ Note
 <p>In <strong>R</strong>, the positional index starts at 1, so to call the first element of a vector we need to use <code>[1]</code>. In many other programming languages (like Python and C++), the positional index starts at 0.</p>
 </div>
 </div>
-<p>If the elements of the vector have names, we can use the name (surrounded by quotes) instead of a positional index.</p>
+<p>If the elements of the vector have names, we can extract a value using its name (surrounded by quotes) instead of a positional index.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>my_named_vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -973,7 +973,7 @@ Indents make code more readable
 <pre><code>[1]  2.302776 -1.302776</code></pre>
 </div>
 </div>
-<p><code>return()</code> does not need to be the last line of the function. It can appear anywhere else and the result will still be whatever <code>return()</code> contains.</p>
+<p><code>return()</code> can appear anywhere in the body and the function output will still be whatever <code>return()</code> contains.</p>
 <p>Note that the result of a function must always be a single object. If we tried to use <code>return(solution_1, solution_2)</code>, we would get an error message. This is why we combined both solutions from <code>solve_quadratic()</code> into a single vector.</p>
 <p>Our function can have as many arguments as we like. It is enough to add their names, separated by commas, in the parentheses that follow the function. When the function runs, <strong>R</strong> will replace each argument name in the function body with the corresponding value that we supply. If we don’t supply a value, <strong>R</strong> will replace the argument name with the argument’s default value (if we defined one).</p>
 <p>We can also use our functions to create other functions. Imagine that we want to multiply the solutions to our equation by an arbitrary value (maybe because we want to convert the units of <span class="math inline">\(x\)</span> to something else). And let’s pretend that, by default, we want to double the solutions. We can write another function that first calls <code>solve_quadratic()</code> and then multiplies the result by our arbitrary number.</p>

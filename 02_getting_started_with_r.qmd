@@ -118,8 +118,7 @@ The `all.equal` function will test if two values are "close enough":
 This is not **R**'s fault. All computers have limited space to 
 store numbers and decimal positions. So, computers often use numbers with 
 "hidden" decimals even when it looks like they use round numbers. For example, 
-what looks like a `3` may actually be `3.000005`. This is common enough to justify the **R** [FAQ (7.31)](https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f). To quote from "The Elements of Programming Style", 
-by Kernighan and Plauger: "10.0 times 0.1 is hardly ever 1.0."
+what looks like a `3` may actually be `3.000005`. This is common enough to justify the **R** [FAQ (7.31)](https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f).
 
 Being able to do these computations is nice, but what happens if we want to use a result later without redoing the computation? **R** can save numbers (and more) using something called "objects".
 
@@ -128,13 +127,13 @@ Being able to do these computations is nice, but what happens if we want to use 
 In simple terms, an object is a named piece of information that we can access whenever we want. A single number, a word, a plot, and a set of instructions can all be objects if we name them. To create an object, we must first choose a name, then type an arrow `<-` (a "lower than" symbol `<` followed by a "minus" sign `-`), and then write the value that we want to save.
 
 ```{r create first object}
-my_object <- 42
+my_object <- 4.2
 ```
 
 Another way of creating the object is to use the "equal to" sign `=` instead of the arrow.
 
 ```{r create first object method 2}
-my_object = 42
+my_object = 4.2
 ```
 
 In this context, both `<-` and `=` are acting as "assignment operators" because they assign the value `42` to the name `my_object`. In **R**, `=` has several uses, so if you want to avoid confusion, I suggest you use `<-`. But you can pick whichever symbol you like the most as long as you are consistent.
@@ -340,9 +339,13 @@ We can run a line of code in the script using the `Run` button in the upper righ
 
 To save your script, you can click on the blue square^[Young reader, this square is a [floppy disk](https://en.wikipedia.org/wiki/Floppy_disk); not-so-young reader, I feel your pain.] right below the tab with the script name. The first time you save your script, **R** will ask you to choose a name and a location to save your file in. I strongly suggest that you pick a name and a location that you will remember easily in the future.
 
-Moving forward, I will write all my code in a script and will assume you are doing the same. Trust me, it's for your own benefit.
+Moving forward, I will write all my code in a script and will assume you are
+doing the same. Trust me, it's for your own benefit.
 
-Now that we know how to preserve our hard-gained code, we can start doing more elaborate work. Previously we worked with one number at the time. But we can also work with groups of numbers (and of other stuff) by using something called "vectors".
+Now that we know how to preserve our hard-gained code, we can do more
+elaborate work. Previously we worked with one number at the time. But we can also
+work with groups of numbers (and of other stuff) by using something called
+"vectors".
 
 ## Working with vectors
 
@@ -481,7 +484,7 @@ my_vec[3:6]
 In **R**, the positional index starts at 1, so to call the first element of a vector we need to use `[1]`. In many other programming languages (like Python and C++), the positional index starts at 0.
 :::
 
-If the elements of the vector have names, we can use the name (surrounded by quotes) instead of a positional index.
+If the elements of the vector have names, we can extract a value using its name (surrounded by quotes) instead of a positional index.
 ```{r extracting named element}
 my_named_vec
 my_named_vec["lions"]
@@ -661,7 +664,7 @@ solve_quadratic = function(a, b, c) {
 solve_quadratic(a = 1, b = -1, c = -3)
 ```
 
-`return()` does not need to be the last line of the function. It can appear anywhere else and the result will still be whatever `return()` contains.
+`return()` can appear anywhere in the body and the function output will still be whatever `return()` contains.
 
 Note that the result of a function must always be a single object. If we tried to use `return(solution_1, solution_2)`, we would get an error message. This is why we combined both solutions from `solve_quadratic()` into a single vector.
 

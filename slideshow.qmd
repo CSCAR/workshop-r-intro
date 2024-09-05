@@ -16,23 +16,23 @@ source("load_clean_flower_df.R")
 
 ## About this workshop
 
-For novice or inexperienced coders that want to use **R**. We will use RStudio to:
+For novice or inexperienced coders that want to use **R**. We will use RStudio to learn:
 
-+ Use and write basic functions.
-+ Learn how R stores and handles different types of data. 
++ How to use and write basic functions.
++ How R stores and handles different types of data. 
 + Basic ways to create, manipulate, import, clean, and summarize data.
-+ *NO* statistical modeling.
++ But *NOT* statistical modeling.
 
 ## Workshop format
 
-+ From 1 to 5 pm.
++ From 1 to 4:45 pm.
 + Breaks every 90 minutes.
 + A few slides for context and extra information.
 + A lot of hands-on coding and live demonstrations.
 + All materials will be available after the workshop ends.
 
 ::: {.notes}
-This workshop runs from 1 to 5 pm, with breaks at least every 90 minutes. Right now I will use a few slides for context and extra information. But it is a WORKshop, so there will be plenty of hands-on coding and live demonstrations. All materials will be available after the workshop ends, so don't worry about copying these slides.
+This workshop runs from 1 to 4:45 pm, with breaks every 90 minutes. Right now I will use a few slides for context and extra information. But this is a WORKshop, so there will be plenty of hands-on coding and live demonstrations. All materials will be available after the workshop ends, so don't worry about copying these slides.
 :::
 
 ## Tips for this workshop
@@ -83,7 +83,7 @@ There are several ways to contact CSCAR. You can request a consultation by email
 + ...which means learning it well from the beginning.
 
 ::: {.notes}
-My name is Abner Heredia Bustos. I am a data science consultant at CSCAR. Apart from this, all you need to know is that, for me, coding is just a mean to an end. This means that I will try hard to make coding as simple and effortless as possible for you; but to achieve this you will need to put some effort in learning the basics.
+My name is Abner Heredia Bustos. I am a data science consultant at CSCAR. Apart from this, all you need to know is that, for me, coding is just a mean to an end. So, I will try hard to make coding as simple and effortless as possible for you; but to achieve this you will need to put some effort in learning the basics.
 :::
 
 # Why do you want to learn R?
@@ -136,7 +136,7 @@ R is very powerful because it is an environment, not a package. A package is a f
 + Generalized linear models (including linear regression).
 + Survival analysis.
 + Time series analysis.
-+ Random and Mixed effects models.
++ Multilevel models.
 + Classification and clustering.
 + Sample size and power calculations.
 + Multivariable analysis (e.g., factor analysis, PCA, and SEM).
@@ -220,7 +220,7 @@ Think of an integer, double it, add six, divide it in half, subtract the number 
 ## Object names have rules
 
 + Names are case-sensitive (`age`, `Age` and `AGE` are three different objects).
-+ Reserved words can *not* be used as names (`TRUE`, `FALSE`, `NULL`, `if`, ...).
++ Reserved words (`TRUE`, `FALSE`, `NULL`, `if`, ...) can *not* be used as names 
 
 ## Tips for naming objects
 
@@ -230,7 +230,16 @@ Think of an integer, double it, add six, divide it in half, subtract the number 
 
 ## Exercise
 
-Write a function that can simulate the roll of a pair of six-sided dice an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die. Hint: to simulate rolling a die, you can use the function `sample()`.
+Write a function that can simulate the roll of two six-sided dice, one red and one blue, an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die.
+
+## Exercise step by step
+
++ Step 1: define a function that takes one argument, `num_rolls`, representing the number of times to roll the dice.
++ Step 2: create two objects called `red` and `blue` to store the results from the dice rolls.
++ Step 3: simulate the dice rolls using function `sample()` (read its help page if you need to).
++ Step 4: create a vector of indices that identifies the values in the red die that were larger than the values in the blue die.
++ Step 5: use this vector of indices to extract the values from the red die.
++ Step 6: make sure that your function returns the values you extracted in step 5.
 
 ## Coercion
 

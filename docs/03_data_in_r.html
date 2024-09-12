@@ -301,7 +301,7 @@ Write TRUE and FALSE explicitly
 <pre><code>[1] "logical"</code></pre>
 </div>
 </div>
-<p>Treating <code>NA</code> as a type of logical value allows <strong>R</strong> to handle missing data in intuitive ways. Consider, for example, that if a value is missing, we can not know whether it is bigger than a number, or whether it is equal to a word. <strong>R</strong> reflects this intuition by forcing any comparison involving <code>NA</code> to result in another <code>NA</code>.</p>
+<p>Treating <code>NA</code> as a logical value allows <strong>R</strong> to handle missing data in intuitive ways. Consider, for example, that if a value is missing, we can not know whether it is bigger than a number, or whether it is equal to a word. <strong>R</strong> reflects this intuition by forcing any comparison involving <code>NA</code> to result in another <code>NA</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">&gt;</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -312,7 +312,7 @@ Write TRUE and FALSE explicitly
 <pre><code>[1] NA</code></pre>
 </div>
 </div>
-<p><strong>Characters</strong> are text, like “hello”, “Elvis”, or “Somewhere in La Mancha”; or symbols that we want to handle as text, like “size 45” or “mail/u”. We can create a character object by typing a character or <em>string</em> of characters surrounded by quotes:</p>
+<p><strong>Characters</strong> are text like “hello”, “Elvis”, or “Somewhere in La Mancha”; or symbols that we want to handle as text, like “size 45” or “mail/u”. We can create a character object by typing a character or <em>string</em> of characters surrounded by quotes:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>my_character <span class="ot">&lt;-</span> <span class="st">"Somewhere in La Mancha"</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_character)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -320,7 +320,7 @@ Write TRUE and FALSE explicitly
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
-<p>It is easy to confuse objects with character strings because both look like chunks of text in the code. For example, <code>the_thing</code> is the name of an object named <em>the_thing</em> that can contain any type of data. Conversely, <code>"the_thing"</code> is a character string, i.e., a piece of data that we can assign to any name. If we forget the quotation marks when writing a name, <strong>R</strong> will look for an object that likely doesn’t exist, so we will likely get an error.</p>
+<p>It is easy to confuse character strings with objects because both look like chunks of text in the code. For example, <code>the_thing</code> and <code>"the_thing"</code> look alike. However, <code>the_thing</code> is the name of an object that can contain any type of data, while <code>"the_thing"</code> is a character string, i.e., a piece of data that we can assign to any name. If we forget the quotation marks when writing a name, <strong>R</strong> will look for an object that likely doesn’t exist, so we will likely get an error.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>noquotes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -329,13 +329,13 @@ Write TRUE and FALSE explicitly
 </div>
 <p>Also, notice that <strong>R</strong> will be treat <em>anything</em> surrounded by quotes as a character string—regardless of what is between the quotes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>numbers_as_characters <span class="ot">&lt;-</span> <span class="st">"-5 + 71"</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(numbers_as_characters)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>nums_as_chars <span class="ot">&lt;-</span> <span class="st">"-5 + 71"</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(nums_as_chars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
-<p>Still, we can differentiate strings from actual numbers because <strong>R</strong> always shows strings surrounded by quotation marks and in different colors from other data types.</p>
+<p>Still, we can identify strings because <strong>R</strong> always shows them surrounded by quotation marks and in a different colors from other data types.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="st">"9"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -346,7 +346,7 @@ Write TRUE and FALSE explicitly
 <pre><code>[1] "double"</code></pre>
 </div>
 </div>
-<p>A special type of character string is a <em>factor.</em> Factors are <strong>R</strong>’s way of storing categorical information, like color or level of agreement. They can only have certain values (e.g., “red” or “green”) called “levels”, which may have their own order (e.g., “agree”, “neutral”, “disagree”). To create a factor, we can start with a vector of strings and use function <code>as.factor()</code> to convert it to a factor.</p>
+<p>A special type of character string is a <em>factor</em>, which stores categorical information like color or level of agreement. Factors can only have certain values called “levels”, which may be ordered (e.g., “agree”, “neutral”, “disagree”) or disordered (e.g., “red” or “green”). To create a factor, we can start with a vector of strings and use function <code>as.factor()</code> to convert it to a factor.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>my_factor <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(<span class="st">"red"</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>my_factor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -550,8 +550,8 @@ Applied inception
 </div>
 </div>
 </div>
-<p>Vectors, matrices, and arrays need all of its values to be of the same type. This requirement seems rigid, but it allows the computer to store large sets of numbers in a simple and efficient way; and it accelerates computations because <strong>R</strong> knows that it can manipulate all values in the object in the same way.</p>
-<p>However, we often need to store different types of data in a single place—maybe because all of that data belongs to the same underlying subject of study. For example, we can describe a dog based on its height, weight, and age (numerical values), and on its color and breed (character strings or factors). <strong>R</strong> can keep all these information in a single place.</p>
+<p>Vectors, matrices, and arrays need all of its values to be of the same type. This requirement seems severe, but it allows the computer to store large sets of numbers in a simple and efficient way; and it accelerates computations because it tells <strong>R</strong> that it can manipulate all values in the object in the same way.</p>
+<p>However, we often need to store different types of data in a single place—maybe because all the data belong to the same underlying subject of study. For example, we can describe a dog based on its height, weight, and age (numerical values), and on its color and breed (character strings or factors). <strong>R</strong> can keep all this information in a single place.</p>
 </section>
 <section id="lists" class="level3" data-number="3.2.4">
 <h3 data-number="3.2.4" class="anchored" data-anchor-id="lists"><span class="header-section-number">3.2.4</span> Lists</h3>
@@ -671,7 +671,7 @@ $game[[1]]
  $ fingers_per_hand: num  3 4 3 NA</code></pre>
 </div>
 </div>
-<p>The <code>str()</code> function gives us the data frame dimensions and also reminds us that <code>aliens_df</code> is a data.frame type object. <code>str()</code> also lists all of the variables (columns) contained in the data frame, tells us what type of data the variables contain, and prints the first five values.</p>
+<p>As you can see, <code>str()</code> gives us the data frame dimensions, reminds us that <code>aliens_df</code> is of type data.frame, lists the names and data types of all of the variables (columns) contained in the data frame, and prints the first five values.</p>
 <p>To us, a data frame resembles a matrix, but to <strong>R</strong> it is a list with an attribute “class” set to “data.frame”</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(aliens_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -729,7 +729,7 @@ $game[[1]]
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>The maximum length (number of elements) of a vector is 2^31 - 1 ~ 2*10^9. See <a href="https://astrostatistics.psu.edu/su07/R/html/base/html/Memory-limits.html">here</a> for more information.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>The maximum length (number of elements) of a vector is 2^31 - 1 ~ 2*10^9. See <code>help(.Machine)</code> for more information.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

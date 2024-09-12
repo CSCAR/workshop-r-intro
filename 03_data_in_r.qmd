@@ -57,7 +57,7 @@ missing value.
 missing_value <- NA
 typeof(missing_value)
 ```
-Treating `NA` as a type of logical value allows **R** to handle missing data in
+Treating `NA` as a logical value allows **R** to handle missing data in
 intuitive ways. Consider, for example, that if a value is missing, we can not
 know whether it is bigger than a number, or whether it is equal to a word. **R**
 reflects this intuition by forcing any comparison involving `NA` to result in
@@ -67,7 +67,7 @@ NA > 5
 NA == "Sancho"
 ```
 
-**Characters** are text, like "hello", "Elvis", or "Somewhere in La Mancha"; or
+**Characters** are text like "hello", "Elvis", or "Somewhere in La Mancha"; or
 symbols that we want to handle as text, like "size 45" or "mail/u". We can
 create a character object by typing a character or *string* of characters
 surrounded by quotes:
@@ -75,12 +75,13 @@ surrounded by quotes:
 my_character <- "Somewhere in La Mancha"
 typeof(my_character)
 ```
-It is easy to confuse objects with character strings because both look like
-chunks of text in the code. For example, `the_thing` is the name of an object
-named *the_thing* that can contain any type of data. Conversely, `"the_thing"`
-is a character string, i.e., a piece of data that we can assign to any name. If
-we forget the quotation marks when writing a name, **R** will look for an object
-that likely doesn't exist, so we will likely get an error.
+It is easy to confuse character strings with objects because both look like
+chunks of text in the code. For example, `the_thing` and `"the_thing"` look
+alike. However, `the_thing` is the name of an object that can contain any type
+of data, while `"the_thing"` is a character string, i.e., a piece of data
+that we can assign to any name. If we forget the quotation marks when writing a
+name, **R** will look for an object that likely doesn't exist, so we will likely
+get an error.
 ```{r}
 #| error: true
 noquotes
@@ -89,23 +90,22 @@ noquotes
 Also, notice that **R** will be treat *anything* surrounded by quotes as a
 character string---regardless of what is between the quotes.
 ```{r numbers as characters}
-numbers_as_characters <- "-5 + 71"
-typeof(numbers_as_characters)
+nums_as_chars <- "-5 + 71"
+typeof(nums_as_chars)
 ```
-Still, we can differentiate strings from actual numbers because **R** always
-shows strings surrounded by quotation marks and in different colors from other
-data types.
+Still, we can identify strings because **R** always shows them surrounded by
+quotation marks and in a different colors from other data types.
 ```{r character vs double}
 typeof("9")
 typeof(9)
 ```
 
-A special type of character string is a *factor.* Factors are **R**'s way of
-storing categorical information, like color or level of agreement. They can only
-have certain values (e.g., "red" or "green") called "levels", which may have
-their own order (e.g., "agree", "neutral", "disagree"). To create a factor, we
-can start with a vector of strings and use function `as.factor()` to convert it
-to a factor.
+A special type of character string is a *factor*, which stores categorical
+information like color or level of agreement. Factors can only have certain
+values called "levels", which may be ordered (e.g., "agree", "neutral",
+"disagree") or disordered (e.g., "red" or "green"). To create a factor, we can
+start with a vector of strings and use function `as.factor()` to convert it to a
+factor.
 ```{r create factor}
 my_factor <- as.factor("red")
 my_factor
@@ -135,8 +135,9 @@ To create an atomic vector, we can group values using the combine function `c()`
 quijote_characters <- c("Don Quijote", "Sancho Panza", NA)
 ```
 
-Atomic vectors can have almost^[The maximum length (number of elements) of a vector is 2^31 - 1 ~ 2*10^9. See [here](https://astrostatistics.psu.edu/su07/R/html/base/html/Memory-limits.html)
-for more information.] as many elements as you want (including zero).
+Atomic vectors can have almost^[The maximum length (number of elements) of a
+vector is 2^31 - 1 ~ 2*10^9. See `help(.Machine)` for more information.] as many
+elements as you want (including zero).
 
 ```{r}
 # length() counts the number of elements in the vector
@@ -285,15 +286,15 @@ array(c(1:48), dim = c(2, 2, 4, 3))
 :::
 
 Vectors, matrices, and arrays need all of its values to be of the same type.
-This requirement seems rigid, but it allows the computer to store large sets of
+This requirement seems severe, but it allows the computer to store large sets of
 numbers in a simple and efficient way; and it accelerates computations because
-**R** knows that it can manipulate all values in the object in the same way. 
+it tells **R** that it can manipulate all values in the object in the same way. 
 
 However, we often need to store different types of data in a single
-place---maybe because all of that data belongs to the same underlying subject of
+place---maybe because all the data belong to the same underlying subject of
 study. For example, we can describe a dog based on its height, weight, and age
 (numerical values), and on its color and breed (character strings or factors).
-**R** can keep all these information in a single place.
+**R** can keep all this information in a single place.
 
 ### Lists
 
@@ -385,10 +386,8 @@ dim(aliens_df)
 str(aliens_df)
 ```
 
-The `str()` function gives us the data frame dimensions and also reminds us that
-`aliens_df` is a data.frame type object. `str()` also lists all of the variables
-(columns) contained in the data frame, tells us what type of data the variables
-contain, and prints the first five values.
+As you can see, `str()` gives us the data frame dimensions, reminds us that
+`aliens_df` is of type data.frame, lists the names and data types of all of the variables (columns) contained in the data frame, and prints the first five values.
 
 To us, a data frame resembles a matrix, but to **R** it is a list with an
 attribute "class" set to "data.frame"

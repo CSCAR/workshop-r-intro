@@ -204,8 +204,8 @@ c <- 711
 c
 ```
 
-However, if an object was the copy of another object, overwriting the original
-object does not affect the copy; and overwriting the copy does not affect the
+However, if an object is the copy of another object, overwriting the original
+does not affect the copy; and overwriting the copy does not affect the
 original.
 
 ```{r}
@@ -216,7 +216,7 @@ a <- 5
 b
 ```
 
-We can use almost any name we want, but there are a few rules:
+We can name our objects in almost any way we want. The only rules are:
 
 + Names *can* be a combination of letters, digits, periods `.` and underscores
   `_`.
@@ -233,8 +233,8 @@ Also, here are a few suggestions that can save you many hours of frustration:
 + Avoid giving your object the same name as a built-in function.
 + If you need to create objects with multiple words in their name, separate them
 with an underscore (`my_object`) or a dot (`my.object`), or capitalize the
-different words (`MyObject`). Choose whichever format you like most. Just be
-consistent.
+different words (`MyObject`). Choose whichever format you like most and be
+consistent with it.
 + Use informative names. It is quick and easy to use names like `x` or `value1`.
 But your code will be easier and faster to understand if your objects have names
 that illustrate their purposes. Your colleagues and your future self will really
@@ -897,3 +897,7 @@ that were larger than the values in the blue die.
 + Step 6: make sure that your function returns the values you extracted in step 5.
 
 :::
+
+## References
+
+Most of this section is based on ["Hands-On Programming with R"](https://rstudio-education.github.io/hopr/), by Garret Grolemund; and on ["An Introduction to R"](https://intro2r.com/), by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto & David Lusseau.

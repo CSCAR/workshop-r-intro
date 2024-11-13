@@ -231,6 +231,7 @@ window.Quarto = {
   <li><a href="#writing-our-own-functions" id="toc-writing-our-own-functions" class="nav-link" data-scroll-target="#writing-our-own-functions"><span class="header-section-number">2.8</span> Writing our own functions</a></li>
   <li><a href="#acquiring-external-packages" id="toc-acquiring-external-packages" class="nav-link" data-scroll-target="#acquiring-external-packages"><span class="header-section-number">2.9</span> Acquiring external packages</a></li>
   <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">2.10</span> Exercise</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.11</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -459,7 +460,7 @@ The `all.equal` function will test if two values are "close enough":
 <pre><code>[1] 711</code></pre>
 </div>
 </div>
-<p>However, if an object was the copy of another object, overwriting the original object does not affect the copy; and overwriting the copy does not affect the original.</p>
+<p>However, if an object is the copy of another object, overwriting the original does not affect the copy; and overwriting the copy does not affect the original.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a</span>
@@ -473,7 +474,7 @@ The `all.equal` function will test if two values are "close enough":
 <pre><code>[1] 10</code></pre>
 </div>
 </div>
-<p>We can use almost any name we want, but there are a few rules:</p>
+<p>We name our objects in almost any way we want. The only rules are:</p>
 <ul>
 <li>Names <em>can</em> be a combination of letters, digits, periods <code>.</code> and underscores <code>_</code>.</li>
 <li>Names <em>cannot</em> include white spaces.</li>
@@ -1049,6 +1050,10 @@ Exercise step by step
 </div>
 </div>
 </div>
+</section>
+<section id="references" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="references"><span class="header-section-number">2.11</span> References</h2>
+<p>Most of this section is based on <a href="https://rstudio-education.github.io/hopr/">“Hands-On Programming with R”</a>, by Garret Grolemund; and on <a href="https://intro2r.com/">“An Introduction to R”</a>, by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto &amp; David Lusseau.</p>
 
 
 </section>

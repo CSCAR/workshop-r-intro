@@ -1,6 +1,6 @@
 # Basic data processing
 
-Now we can apply our understanding of **R** to work with pre-made files of data. To load data we should first locate our working directory. This is the default location where **R** will look for files we want to load and where it will put any files we save. This directory is different on each computer, but we can find it by running:
+Now we can apply our understanding of **R** to work with pre-made files of data. The first step is to locate our working directory, which is the default location where **R** will look for files we want to load and where it will put any files we save. This directory is different on each computer, but we can find it by running:
 ```{r get working directory}
 #| eval: false
 getwd()
@@ -11,7 +11,6 @@ getwd()
 print("C:/Users/user_name/workshop_folder/learning_r/code")
 ```
 
-
 We can move our working directory to any folder on our computer by writing a new [file path](https://www.codecademy.com/resources/docs/general/file-paths) inside the function `setwd()`. I prefer to set my working directory to a folder dedicated exclusively to whichever project I am currently working on. This way, every file related to my project is in the same place. For example:
 
 ```{r}
@@ -19,7 +18,7 @@ We can move our working directory to any folder on our computer by writing a new
 setwd("C:/Users/user_name/workshop_folder/learning_r/code")
 ```
 
-We can also change our working directory by clicking on `Session > Set Working Directory > Choose Directory` in the **R**Studio menu bar. The Windows and Mac graphical user interfaces have similar options. If we start **R** from a UNIX command line (as on Linux machines), the working directory will be whichever directory we were in when we called **R**.
+We can also change our working directory by clicking on `Session > Set Working Directory > Choose Directory` in the **R**Studio menu bar. The graphical user interfaces in Windows and Mac  have similar options. If we start **R** from a UNIX command line (as on Linux machines), the working directory will be whichever directory we were in when we called **R**.
 
 `list.files()` will show us what files are in our working directory. If the file that we want to open is in our working directory, then we are ready to proceed.
 
@@ -29,7 +28,7 @@ Once we can locate files in our computer, we can load them into **R**. Note, how
 
 ### Plain text files
 
-A plain-text file stores a table of data in a text document. Each row of the table is saved on its own line, and a simple symbol separates the cells within a row. This symbol is most often a comma, and sometimes a tab or a pipe delimiter `|`, but it can also be any other character. Each file only uses one symbol to separate cells, which minimizes confusion.
+A plain-text file stores a table of data in a text document. Each row of the table is saved in its own line, and a simple symbol separates the cells within a row. This symbol is most often a comma, and sometimes a tab or a pipe delimiter `|`, but it can also be any other character. Each file only uses one symbol to separate cells, which minimizes confusion.
 
 Plain-text files are simple and many programs can read them. This is why many organizations (e.g., the Census Bureau and the Social Security Administration) publish their data as plain-text files.
 
@@ -37,7 +36,7 @@ We will work with data from [this](https://github.com/CSCAR/workshop-r-intro/blo
 
 #### read.table
 
-`read.table()` can load plain-text files. The first argument of `read.table()` is the name of our file (if it is in your working directory), or the file path to our file (if it is not in our working directory). 
+`read.table()` can load plain-text files. The first argument of `read.table()` is a string with the name of our file (if it is in your working directory), or with the file path to our file (if it is not in our working directory). 
 ```{r loading flower_df}
 flower_df <- read.table("data_files/flower.csv", header = TRUE, sep = ",")
 ```
@@ -90,7 +89,7 @@ tip    medium   1      9.8     10.08   12.2      72.7       9
 ```
 
 
-Fixed-width files may be visually intuitive, but they are difficult to work with. This may explain why **R** has a function for reading fixed-width files, but not for saving them.
+Fixed-width files may be visually intuitive, but computers find them difficult to work with. This may explain why **R** has a function for reading fixed-width files, but not for creating or saving them.
 
 We can read fixed-width files into **R** with the function `read.fwf()`. This function adds another argument to the ones from `read.table()`: `widths`, which should be a vector of numbers. Each ith entry of the `widths` vector should state the width (in characters) of the ith column of the data set.
 
@@ -123,21 +122,25 @@ Still, sometimes we can't transform the file to a plain-text format---maybe beca
 
 ## Cleaning data
 
-Once we load our data files as data.frames, we should verify that all of the information has an appropriate format. The process of identifying, removing and correcting inaccurate information is often referred to as "data cleaning". We will practice data cleaning using a "messy" version of the flower data that we loaded above. You can get this messy version from [here](https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower_messy.csv). Again, you can use `Ctrl+Shift+s` to download the file.
+Once we load our data files as data.frames, we should verify that all of the
+information has an appropriate format. The process of identifying, removing, and
+correcting inaccurate information is often referred to as "data cleaning". We
+will practice data cleaning using a "messy" version of the flower data that we
+loaded above. You can get this messy version from [here](https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower_messy.csv). Again, you can use `Ctrl+Shift+s` to download the file.
 
 Since this is a .csv file, we can load it using:
 ```{r loading messy flower data}
 flower_messy_df = read.csv("data_files/flower_messy.csv", header = TRUE)
 ```
 
-First, we should ensure the column names to follow the rules we saw in section 1. This will facilitate accessing the data in the columns later. We can check these column names using the `colnames()` function:
+First, we should ensure the column names follow the rules we saw in section 1. This will facilitate accessing the data in the columns later. We can check these column names using the `colnames()` function:
 ```{r check colnames}
 colnames(flower_messy_df)
 ```
 
 If we open the data file using something like Excel or Notepad, we can see that the names for columns 6 and 7 had blank spaces inside it. When loading the data, `read.csv()` automatically substitutes these blank spaces with periods `.`, so that the names conform to **R**'s conventions. `read.csv()` is pretty good at checking column names and other things, but it's not perfect. So, it's always a good idea to double-check everything ourselves.
 
-The column names of `flower_messy_df` are legible, but unwieldy. We don't want to struggle with their mix of upper and lower-case letters. Let's rewrite all the names in lower case, which is quick and easy if we use `tolower()`.
+The column names of `flower_messy_df` are legible, but we don't want to struggle with their mix of upper and lower-case letters. Let's rewrite all the names in lower case, which is quick and easy if we use `tolower()`.
 ```{r colnames to lower case}
 new_colnames <- tolower(colnames(flower_messy_df)) # Modify column names
 new_colnames
@@ -156,7 +159,7 @@ colnames(flower_clean_df) <- new_colnames # Replace column names in data frame
 colnames(flower_clean_df) # Verify replacement
 ```
 
-The last change to these column names will be to substitute the periods in the names with underscores. In **R**, this is purely out of personal preference, but it's a good excuse to meet `gsub()`, which substitutes patterns of strings:
+The last change to these column names will be to substitute the periods with underscores. In **R**, this is purely out of personal preference, but it's a good excuse to meet `gsub()`, which substitutes patterns of strings:
 ```{r substitute periods with underscores in colnames}
 colnames(flower_clean_df) <- gsub(
     pattern = "\\.", # What we want to remove
@@ -198,7 +201,7 @@ typeof(flower_clean_df$flowers)
 head(flower_clean_df$flowers)
 ```
 
-Columns "treat" and "nitrogen" are of type character. This is not wrong, but it will be easier to handle them if we convert them to factors.
+Columns "treat" and "nitrogen" are of type character. This is not wrong, but they will be easier to handle if we convert them to factors.
 ```{r}
 flower_clean_df["treat"] <- factor(flower_clean_df$treat)
 flower_clean_df["nitrogen"] <- factor(flower_clean_df$nitrogen)

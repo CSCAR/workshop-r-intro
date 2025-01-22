@@ -42,8 +42,8 @@ that produce multiple values, like in this case:
 
 If we type an incomplete command, **R** will assume that we are still writing
 and will show a `+`. This `+` is *not* an arithmetical operator; it is a prompt
-for us to continue writing in the next line. The prompt will not go away unless
-we complete the command or we press the "Escape" key. For example:
+for us to continue writing in the next line and will not go away unless we 
+complete the command or we press the "Escape" key. For example:
 
 ```{r}
 #| eval: false
@@ -119,7 +119,7 @@ you started with, and then square it. If your code is correct, the answer should
 be nine.
 :::
 
-**Be careful of comparisons and floating point arithmetic**:
+**Be careful with comparisons and floating point arithmetic**:
 
 ```{r floating point arithmetic}
 (.1 + .2) == .3
@@ -134,23 +134,23 @@ The `all.equal` function will test if two values are "close enough":
 `> ?all.equal`
 -->
 
-This is not **R**'s fault. All computers have limited space to 
-store numbers and decimal positions. So, computers often use numbers with 
+This imprecision is not **R**'s fault. All computers have limited space to 
+store numbers and decimal positions, so they often use numbers with 
 "hidden" decimals even when it looks like they use round numbers. For example, 
-what looks like a `3` may actually be `3.000005`. This is common enough to
-justify the **R** [FAQ (7.31)](https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f).
+what looks like a `3` may actually be `3.000005`. You can find more information
+about this imprecision in [FAQ (7.31)](https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f).
 
 Being able to do these computations is nice, but what happens if we want to use
-a result later without redoing the computation? **R** can save numbers (and
-more) using something called "objects".
+a result later without redoing or retyping everything? **R** can save numbers
+(and more) using something called "objects".
 
 ## Objects
 
 In simple terms, an object is a named piece of information that we can access
 whenever we want. A single number, a word, a plot, and a set of instructions can
 all be objects if we name them. To create an object, we must first choose a
-name, then type an arrow `<-` (a "lower than" symbol `<` followed by a "minus"
-sign `-`), and then write the value that we want to save.
+name, then type an arrow `<-` (this is a "lower than" symbol `<` followed by a
+"minus" sign `-`), and then write the value that we want to save.
 
 ```{r create first object}
 my_object <- 42
@@ -164,9 +164,10 @@ my_object = 42
 ```
 
 In this context, both `<-` and `=` are acting as "assignment operators" because
-they assign the value `42` to the name `my_object`. In **R**, `=` has several
-uses, so if you want to avoid confusion, I suggest you use `<-`. But you can
-pick whichever symbol you like the most as long as you are consistent.
+they assign the value `42` to the name `my_object`. In **R**, the symbol `=` has
+several common uses, so if you want to avoid confusion, I suggest you use `<-`.
+But you can pick whichever symbol you like the most as long as you are 
+consistent.
 
 Now the environment window shows that there is an object called `my_object`,
 which we can access at anytime by typing its name.
@@ -304,12 +305,12 @@ The output also shows that `digits` is already set to zero. This means that
 decimal places. We can omit arguments with default values and **R** will
 automatically fill them for us in the background.
 
-I encourage you to name all the arguments in the function, or at least the ones
-after the first argument. It is hard to remember all the arguments that can go
-into more complicated functions. And it is even harder to remember them in the
-correct order. Accidentally switching unnamed arguments can produce wrong
-results without us knowing. Naming the arguments will prevent errors and clarify
-the function's behavior.
+I encourage you to name all the arguments you define when using a function, or
+at least the ones after the first argument. It is hard to remember all the
+arguments that can go into more complicated functions, and it is even harder to
+remember them in the correct order. It is easy to accidentally switch unnamed
+arguments and get wrong results without even noticing. This is why naming the
+arguments will prevent errors and clarify the function's behavior.
 
 We can also run functions inside other functions. This works because **R** first
 runs the innermost function and then uses the result in the outermost function.
@@ -343,11 +344,11 @@ After you run the code, the help page is displayed in the "Help" tab in the
 "Files-Plots-Packages" pane (usually in the bottom right of **R**Studio).
 
 As a novice user, help pages may seem arcane---perhaps because they aim for
-shortness and use jargon. But this short jargon makes (most of) the explanations
-precise, so we can use the information we need without having to read the entire
-document. Also, all help pages are organized similarly, so we don't have to
-relearn how to navigate them. With a bit of practice, you will be able to find
-exactly what you need in mere seconds.
+shortness and use technical vocabulary. But this short vocabulary makes (most
+of) the explanations precise, so we can use the information we need without
+having to read the entire document. Also, all help pages are organized
+similarly, so we don't have to relearn how to navigate them. With a bit of
+practice, you will be able to find exactly what you need in mere seconds.
 
 The first line of the help document displays the name of the function and the
 package that contains the function. Other sections are:
@@ -363,6 +364,18 @@ the function returns.
 + **Examples**: shows code to illustrate how to use the function. We can copy
 and paste examples in the console, and we can access them at any time by using
 the `example()` function (e.g., `example("round")`).
+
+:::callout-tip
+## How to get started with help pages?
+Start by reading the help pages of functions that you already understand. This
+will teach you how to understand the structure of the pages and will familiarize
+you with the jargon. As you use **R** you will likely need other, more
+complicated functions, so reading more help pages will happen almost naturally.
+
+Keep in mind that help pages explain the code, not the underlying concepts. If
+you don't know what it means to round a number, reading the documentation for
+`round()` will not help you.
+:::
 
 `help()` is useful if we know the full name of the function. But if all we remember is a key word in the name, we can search through **R**'s help system using `help.search()`
 
@@ -405,18 +418,6 @@ directly from the Console and display the results in our web browser.
 RSiteSearch("regression")
 ```
 
-:::callout-tip
-## How to get started with help pages?
-Start by reading the help pages of functions that you already understand. This
-will teach you how to understand the structure of the pages and will familiarize
-you with the jargon. As you use **R** you will likely need other, more
-complicated functions, so reading more help pages will happen almost naturally.
-
-Keep in mind that help pages explain the code, not the underlying concepts. If
-you don't know what it means to round a number, reading the documentation for
-`round()` will not help you.
-:::
-
 <!--
 Now that we know how to get help, we can move on to more advanced stuff.
 --> 
@@ -443,9 +444,7 @@ To open a script, click on `File > New File > R script` in the menu bar on the u
 We can run a line of code in the script using the `Run` button in the upper
 right-hand side of the script window (see picture below). **R** will run
 whichever line of code your cursor is on. We can also run all of the code in the
-script by clicking the `Source` button that's next to `Run`. I find that
-clicking buttons is slow, so I use a keyboard shortcut for running a line of
-code: `Control + Enter` in Windows and Linux; `Command + Enter` in Mac.
+script by clicking the `Source` button that's next to `Run`. Since I find clicking buttons slow, I use a keyboard shortcut to run a line of code: `Control + Enter` in Windows and Linux; `Command + Enter` in Mac.
 
 [![Buttons for running code](./images/run_code_buttons_edited.jpg)](./images/run_code_buttons_edited.jpg)
 
@@ -479,9 +478,9 @@ my_vec
 ::: {.callout-note}
 ## Comments 
 Did you see the text I added next to the code? **R** will ignore everything in a
-line that comes after a hashtag `#`. This `#` is known as *commenting symbol*
-because it allows us to comment our code. Comments can explain confusing chunks
-of code, or warn about potential problems.
+line that comes after a hashtag `#`, also known as *commenting symbol*. Comments
+can explain confusing chunks of code, or warn future users about potential
+problems.
 :::
 
 Vectors can also contain other types of data, like words:
@@ -567,8 +566,8 @@ only paired with values from the same observation or case. Element-wise
 execution also facilitates writing our functions in **R**.
 
 **R** can do vector and matrix multiplications, but we have to ask for them 
-explicitly. For example, to get the inner product, we need the operator `%*%`. 
-And to get the outer product, we need `%o%`. Don't worry if you are not familiar
+explicitly. For example, to get the inner product, we need the operator `%*%`;
+and to get the outer product, we need `%o%`. Don't worry if you are not familiar
 with matrix operations; you won't need them in these notes.
 
 ### Extracting elements
@@ -576,9 +575,10 @@ with matrix operations; you won't need them in these notes.
 We can access specific elements of vectors using the square bracket `[ ]`
 notation. To use it, we first write the name of the vector we want to extract
 from, followed by the square brackets with an index of the element we wish to
-extract. This index can be a position or a logical statement. To extract
-elements based on their position we simply write the position number inside the
-`[ ]`. For example, to extract the 3rd value of `my_vec`, we use
+extract. This index can be a position, a logical statement, or a name (if
+available). To extract elements based on their position we simply write the
+position number inside the `[ ]`. For example, to extract the 3rd value of
+`my_vec`, we use
 
 ```{r extract value from my_vec}
 my_vec[3]
@@ -587,7 +587,7 @@ my_vec[3]
 We can store this value in another object.
 
 ```{r}
-value_3 = my_vec[3]
+value_3 <- my_vec[3]
 ```
 
 We can also extract multiple elements at the time by using a vector of indices
@@ -703,24 +703,24 @@ sorted_vec_decreasing <- rev(sort(my_vec))
 sorted_vec_decreasing
 ```
 
-A more useful feature of vectors is that we can reorder their elements based on the values of other vectors. To show this, let's first create a vector of city names and a vector with (my guess of) their typical daily temps in degrees Fahrenheit.
+A more useful feature of vectors is that we can reorder their elements based on the values of other vectors. To show this, let's first create a vector of city names and a vector with (my guess of) their typical daily temperatures in degrees Fahrenheit.
 
 ```{r}
 cities <- c("Tokyo", "Cairo", "Mexico City", "Helsinki")
 temps_fahr <- c(50, 90, 65, -10)
 ```
 
-Now imagine that we want to order the vector of cities, going from coldest to hottest. The first step is to use `order()` to create a new variable called "temps_ordered".
+Now imagine that we want to order the vector of cities, going from coldest to hottest. The first step is to use `order()` to create a new variable called "temps_order".
 
 ```{r}
-temps_ordered <- order(temps_fahr)
-temps_ordered
+temps_order <- order(temps_fahr)
+temps_order
 ```
 
-This output says that the lowest value in `temps_fahr` is in the fourth position, the second lowest value is in the first position, and so on. We can think of `temps_ordered` as a vector of positional indices of temps in ascending order. Now we can use these indices to reorder the vector of cities.
+This output says that the lowest value in `temps_fahr` is in the fourth position, the second lowest value is in the first position, and so on. We can think of `temps_order` as a vector of positional indices of temperatures in ascending order. Now we can use these indices to reorder the vector of cities.
 
 ```{r}
-cities_ordered <- cities[temps_ordered]
+cities_ordered <- cities[temps_order]
 cities_ordered
 ```
 
@@ -754,7 +754,7 @@ simple_function <- function() {
 
 :::callout-tip
 ## Indents make code more readable
-Indenting the body of the function helps the reader notice that the code is only supposed to run inside the function. Indentation doesn't affect our functions, but it is helpful and predominant among **R** coders.
+Indenting the body of the function helps the reader notice that the code is only supposed to run inside the function. Indentation doesn't affect our functions, but it is helpful and widespread among **R** coders.
 :::
 
 To run our function, we have to write its name followed by round brackets, just like with any other function:
@@ -777,10 +777,10 @@ fahr_to_cels(27)
 Now let's try something a bit more complicated: solving a quadratic equation. If we have an equation of the form $ax^2 + bx + c = 0$, then the solutions are given by $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$. We can write a function that will apply this formula for us.
 
 ```{r solve_quadratic incomplete}
-solve_quadratic = function(a, b, c) {
+solve_quadratic <- function(a, b, c) {
     # Quadratic equations can have two solutions
-    solution_1 = (-b + sqrt(b**2 - 4*a*c)) / 2*a # First solution
-    solution_2 = (-b - sqrt(b**2 - 4*a*c)) / 2*a # Second solution
+    solution_1 <- (-b + sqrt(b**2 - 4*a*c)) / 2*a # First solution
+    solution_2 <- (-b - sqrt(b**2 - 4*a*c)) / 2*a # Second solution
 }
 ```
 
@@ -798,10 +798,10 @@ Since we are using a script (right?), it is easy add one more line to our
 function:
 
 ```{r solve_quadratic}
-solve_quadratic = function(a, b, c) {
+solve_quadratic <- function(a, b, c) {
     # Quadratic equations can have two solutions
-    solution_1 = (-b + sqrt(b**2 - 4*a*c)) / 2*a # First solution
-    solution_2 = (-b - sqrt(b**2 - 4*a*c)) / 2*a # Second solution
+    solution_1 <- (-b + sqrt(b**2 - 4*a*c)) / 2*a # First solution
+    solution_2 <- (-b - sqrt(b**2 - 4*a*c)) / 2*a # Second solution
     c(solution_1, solution_2) # Show vector of solutions
 }
 solve_quadratic(a = 1, b = -1, c = -3)
@@ -810,10 +810,10 @@ solve_quadratic(a = 1, b = -1, c = -3)
 A more explicit way of ensuring our function will display its result is to use the `return()` statement inside the function:
 
 ```{r solve_quadratic with return()}
-solve_quadratic = function(a, b, c) {
+solve_quadratic <- function(a, b, c) {
     # Quadratic equations can have two solutions
-    solution_1 = (-b + sqrt(b**2 - 4*a*c)) / 2*a # First solution
-    solution_2 = (-b - sqrt(b**2 - 4*a*c)) / 2*a # Second solution
+    solution_1 <- (-b + sqrt(b**2 - 4*a*c)) / 2*a # First solution
+    solution_2 <- (-b - sqrt(b**2 - 4*a*c)) / 2*a # Second solution
     return(c(solution_1, solution_2)) # Return vector of solutions
 }
 solve_quadratic(a = 1, b = -1, c = -3)
@@ -869,7 +869,7 @@ library("readxl")
 
 Whenever we start a new **R** session we need to load the packages we need. If we try to run a function without loading its package first, **R** will not be able to find it and will return an error message. 
 
-Writing all our `library()` statements at the top of our **R** scripts is almost always good because it helps us know that we need to load the libraries at the start our sessions. It also helps others know quickly that they will need to have those libraries installed to be able to use our code.
+Writing all our `library()` statements at the top of our **R** scripts is almost always good because it helps us know that we need to load the libraries at the start our sessions. It also lets others know quickly that they will need to have those libraries installed to be able to use our code.
 
 A library can contain many objects, but sometimes we only need one or two of its functions. To avoid loading the entire library, we can access the specific function directly by specifying the package name followed by two colons and then the function name. For example:
 ```{r using specific function from library}

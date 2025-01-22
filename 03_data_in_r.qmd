@@ -2,7 +2,7 @@
 
 In the previous section we learned how to store, extract, and manipulate
 numerical vectors. But working with real data requires using multiple types of
-data with different shapes and sizes. In this section we will learn how **R**\
+data with different shapes and sizes. In this section we will learn how **R**
 handles different data types and structures, and how to use them to study and
 summarize data.
 
@@ -45,10 +45,9 @@ typeof(my_comparison)
 #### Write TRUE and FALSE explicitly
 At the beginning of every session, **R** saves `T` and `F` as shortcuts for
 `TRUE` and `FALSE`. But `T` and `F` are not reserved words; they are regular
-objects that we can modify and even delete inadvertently. An accidental misuse
-of `T` or `F` will cost you more time and effort than whatever you may save by
-typing a single letter instead of a full word. So, I strongly suggest you always
-write the complete words.
+objects that we can modify and even delete inadvertently. Fixing an accidental
+misuse of `T` or `F` will cost you more time and effort than whatever you may
+save by typing a single letter instead of a full word. So, I strongly suggest you always write `TRUE` and `FALSE` explicitly.
 :::
 
 There is also a special type of logical value called `NA`, which denotes a
@@ -87,14 +86,14 @@ get an error.
 noquotes
 ```
 
-Also, notice that **R** will be treat *anything* surrounded by quotes as a
+Also, notice that **R** will treat *anything* surrounded by quotation marks as a
 character string---regardless of what is between the quotes.
 ```{r numbers as characters}
 nums_as_chars <- "-5 + 71"
 typeof(nums_as_chars)
 ```
 Still, we can identify strings because **R** always shows them surrounded by
-quotation marks and in a different colors from other data types.
+quotation marks and in a color different from other data types.
 ```{r character vs double}
 typeof("9")
 typeof(9)
@@ -136,10 +135,11 @@ quijote_characters <- c("Don Quijote", "Sancho Panza", NA)
 ```
 
 Atomic vectors can have almost^[The maximum length (number of elements) of a
-vector is 2^31 - 1 ~ 2*10^9. See `help(.Machine)` for more information.] as many
-elements as you want (including zero).
+vector is $2^{31} - 1 \approx 2*10^9$. Run `help(.Machine)` in your **R**
+console to learn more about this.] as many elements as you want (including
+zero).
 
-```{r}
+```{r length of quijote_characters}
 # length() counts the number of elements in the vector
 length(quijote_characters)
 length(c())
@@ -152,9 +152,9 @@ Adding different data types to the same atomic vector does not produce an error.
 Instead, **R** automatically follows specific rules to *coerce* everything
 inside the vector to be of the same type. If a character string is present in an
 atomic vector, **R** will convert all other values to character strings. If a
-vector only contains logicals and numbers, **R** will convert the logicals to
-numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`. The only
-values that are not coerced are `NA`s.
+vector only contains logical values and numbers, **R** will convert the logicals
+to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`. The
+only values that are not coerced are `NA`s.
 
 Following these rules helps preserve information. It is easy, for example, to
 recognize the original types of strings `"TRUE"` and `"3.14"`, or to transform a
@@ -367,8 +367,9 @@ shape.
 
 We can create a data frame using the `data.frame()` function. Give
 `data.frame()` any number of vectors of equal length, each separated with a
-comma. Each vector should be set equal to a name that describes the vector.
-`data.frame()` will turn each vector into a column of the new data frame:
+comma. It is usually convenient to set each vector equal to a name that
+describes the vector. `data.frame()` will turn each vector into a column of the
+new data frame:
 
 ```{r create data frame from scratch}
 aliens_df <- data.frame(

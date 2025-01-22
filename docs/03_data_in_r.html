@@ -249,8 +249,7 @@ window.Quarto = {
 </header>
 
 
-<p>In the previous section we learned how to store, extract, and manipulate numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how <strong>R</strong><br>
-handles different data types and structures, and how to use them to study and summarize data.</p>
+<p>In the previous section we learned how to store, extract, and manipulate numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how <strong>R</strong> handles different data types and structures, and how to use them to study and summarize data.</p>
 <section id="data-types" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">3.1</span> Data types</h2>
 <p>Data types are classifications of data that help <strong>R</strong> conform to our intuition. For example, multiplying <span class="math inline">\(2\)</span> by <span class="math inline">\(7\)</span> feels right, but multiplying “pineapple” by “stalactite” does not. There are six data types in <strong>R</strong>: double, integer, logical, character, complex, and raw, each with its own rules for storing and handling. Learning these rules will allow us to analyze data later with less effort and fewer mistakes.</p>
@@ -290,7 +289,7 @@ Write TRUE and FALSE explicitly
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>At the beginning of every session, <strong>R</strong> saves <code>T</code> and <code>F</code> as shortcuts for <code>TRUE</code> and <code>FALSE</code>. But <code>T</code> and <code>F</code> are not reserved words; they are regular objects that we can modify and even delete inadvertently. An accidental misuse of <code>T</code> or <code>F</code> will cost you more time and effort than whatever you may save by typing a single letter instead of a full word. So, I strongly suggest you always write the complete words.</p>
+<p>At the beginning of every session, <strong>R</strong> saves <code>T</code> and <code>F</code> as shortcuts for <code>TRUE</code> and <code>FALSE</code>. But <code>T</code> and <code>F</code> are not reserved words; they are regular objects that we can modify and even delete inadvertently. Fixing an accidental misuse of <code>T</code> or <code>F</code> will cost you more time and effort than whatever you may save by typing a single letter instead of a full word. So, I strongly suggest you always write <code>TRUE</code> and <code>FALSE</code> explicitly.</p>
 </div>
 </div>
 <p>There is also a special type of logical value called <code>NA</code>, which denotes a missing value.</p>
@@ -324,10 +323,10 @@ Write TRUE and FALSE explicitly
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>noquotes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'noquotes' not found</code></pre>
+<pre><code>Error: object 'noquotes' not found</code></pre>
 </div>
 </div>
-<p>Also, notice that <strong>R</strong> will be treat <em>anything</em> surrounded by quotes as a character string—regardless of what is between the quotes.</p>
+<p>Also, notice that <strong>R</strong> will treat <em>anything</em> surrounded by quotation marks as a character string—regardless of what is between the quotes.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>nums_as_chars <span class="ot">&lt;-</span> <span class="st">"-5 + 71"</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(nums_as_chars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -335,7 +334,7 @@ Write TRUE and FALSE explicitly
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
-<p>Still, we can identify strings because <strong>R</strong> always shows them surrounded by quotation marks and in a different colors from other data types.</p>
+<p>Still, we can identify strings because <strong>R</strong> always shows them surrounded by quotation marks and in a color different from other data types.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="st">"9"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -389,7 +388,7 @@ Coercion
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Adding different data types to the same atomic vector does not produce an error. Instead, <strong>R</strong> automatically follows specific rules to <em>coerce</em> everything inside the vector to be of the same type. If a character string is present in an atomic vector, <strong>R</strong> will convert all other values to character strings. If a vector only contains logicals and numbers, <strong>R</strong> will convert the logicals to numbers; every <code>TRUE</code> becomes a <code>1</code>, and every <code>FALSE</code> becomes a <code>0</code>. The only values that are not coerced are <code>NA</code>s.</p>
+<p>Adding different data types to the same atomic vector does not produce an error. Instead, <strong>R</strong> automatically follows specific rules to <em>coerce</em> everything inside the vector to be of the same type. If a character string is present in an atomic vector, <strong>R</strong> will convert all other values to character strings. If a vector only contains logical values and numbers, <strong>R</strong> will convert the logicals to numbers; every <code>TRUE</code> becomes a <code>1</code>, and every <code>FALSE</code> becomes a <code>0</code>. The only values that are not coerced are <code>NA</code>s.</p>
 <p>Following these rules helps preserve information. It is easy, for example, to recognize the original types of strings <code>"TRUE"</code> and <code>"3.14"</code>, or to transform a vector of <code>1</code>s and <code>0</code>s back to <code>TRUE</code>s and <code>FALSE</code>s.</p>
 </div>
 </div>
@@ -641,7 +640,7 @@ $game[[1]]
 <h3 data-number="3.2.5" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">3.2.5</span> Data frames</h3>
 <p>Data frames are the most common storage structure for data analysis. We can think of them as a group of atomic vectors (columns) of the same length. Usually, each row of a data frame represents an individual observation and each column represents a different measurement or variable of that observation.</p>
 <p>Different vectors in a data frame can have different data types, but they must all have the same length. If we use vectors of different lengths, <strong>R</strong> will recycle values of the shorter vectors to ensure that the data frame has a square shape.</p>
-<p>We can create a data frame using the <code>data.frame()</code> function. Give <code>data.frame()</code> any number of vectors of equal length, each separated with a comma. Each vector should be set equal to a name that describes the vector. <code>data.frame()</code> will turn each vector into a column of the new data frame:</p>
+<p>We can create a data frame using the <code>data.frame()</code> function. Give <code>data.frame()</code> any number of vectors of equal length, each separated with a comma. It is usually convenient to set each vector equal to a name that describes the vector. <code>data.frame()</code> will turn each vector into a column of the new data frame:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>aliens_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Bender"</span>, <span class="st">"Fry"</span>, <span class="st">"Nibbler"</span>, <span class="st">"Zoidberg"</span>),</span>
@@ -729,7 +728,7 @@ $game[[1]]
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>The maximum length (number of elements) of a vector is 2^31 - 1 ~ 2*10^9. See <code>help(.Machine)</code> for more information.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>The maximum length (number of elements) of a vector is <span class="math inline">\(2^{31} - 1 \approx 2*10^9\)</span>. Run <code>help(.Machine)</code> in your <strong>R</strong> console to learn more about this.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

@@ -8,8 +8,10 @@ Last modified: `r Sys.Date()`
 
 These self-contained notes are intended for anyone that wants to use **R** but 
 has little or no experience using it, and little or no experience in programming.
-Faculty and staff from the Consulting for Statistics, Computing & Analytics
-Research (CSCAR) unit made these notes as the basis for in-person workshops at the University of Michigan. During the workshops, we also use a slideshow based on these notes, available [here](https://cscar.github.io/workshop-r-intro/slideshow.html).
+Faculty and staff from "Consulting for Statistics, Computing & Analytics
+Research" (CSCAR) wrote these notes to support in-person workshops at
+the University of Michigan. During these workshops, we also use a slideshow 
+based on these notes, which is available [here](https://cscar.github.io/workshop-r-intro/slideshow.html).
 
 CSCAR is a unit of the Office of the Vice President of Research at the University of Michigan. We offer U-M researchers guidance and training in data collection, management, and analysis; and in the use of technical software and advanced computing in research. 
 

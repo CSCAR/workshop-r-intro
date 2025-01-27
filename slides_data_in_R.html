@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="slideshow_files/libs/clipboard/clipboard.min.js"></script>
-<script src="slideshow_files/libs/quarto-html/tabby.min.js"></script>
-<script src="slideshow_files/libs/quarto-html/popper.min.js"></script>
-<script src="slideshow_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="slideshow_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="slideshow_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slideshow_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="slideshow_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="slides_data_in_R_files/libs/clipboard/clipboard.min.js"></script>
+<script src="slides_data_in_R_files/libs/quarto-html/tabby.min.js"></script>
+<script src="slides_data_in_R_files/libs/quarto-html/popper.min.js"></script>
+<script src="slides_data_in_R_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="slides_data_in_R_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="slides_data_in_R_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="slides_data_in_R_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="slides_data_in_R_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.54">
 
   <meta name="author" content="Abner Heredia Bustos, CSCAR">
-  <title>Intro to R with RStudio</title>
+  <title>Data in R with RStudio</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="slideshow_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="slideshow_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="slides_data_in_R_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="slides_data_in_R_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -95,11 +95,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slideshow_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="slideshow_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="slideshow_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="slideshow_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="slideshow_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="slides_data_in_R_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="slides_data_in_R_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="slides_data_in_R_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="slides_data_in_R_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="slides_data_in_R_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -391,7 +391,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Intro to R with RStudio</h1>
+  <h1 class="title">Data in R with RStudio</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -404,25 +404,24 @@ Abner Heredia Bustos, CSCAR
 </section>
 <section id="about-this-workshop" class="slide level2">
 <h2>About this workshop</h2>
-<p>For novice or inexperienced coders that want to use <strong>R</strong>. We will use RStudio to learn:</p>
+<p>For beginner <strong>R</strong> coders that want to understand how to manipulate different types of data. We will use RStudio to learn:</p>
 <ul>
-<li class="fragment">How to use and write basic functions.</li>
 <li class="fragment">How R stores and handles different types of data.</li>
-<li class="fragment">Basic ways to create, manipulate, import, clean, and summarize data.</li>
+<li class="fragment">Basic ways to create, import, clean, summarize, and plot data.</li>
 <li class="fragment">But <em>NOT</em> statistical modeling.</li>
 </ul>
 </section>
 <section id="workshop-format" class="slide level2">
 <h2>Workshop format</h2>
 <ul>
-<li class="fragment">From 1 to 4:45 pm.</li>
-<li class="fragment">Breaks every 90 minutes.</li>
+<li class="fragment">From 2:30 to 4:45 pm.</li>
+<li class="fragment">Breaks every 45 minutes.</li>
 <li class="fragment">A few slides for context and extra information.</li>
 <li class="fragment">A lot of hands-on coding and live demonstrations.</li>
 <li class="fragment">All materials will be available after the workshop ends.</li>
 </ul>
 <aside class="notes">
-<p>This workshop runs from 1 to 4:45 pm, with breaks every 90 minutes. Right now I will use a few slides for context and extra information. But this is a WORKshop, so there will be plenty of hands-on coding and live demonstrations. All materials will be available after the workshop ends, so don’t worry about copying these slides.</p>
+<p>This workshop runs from 2:30 to 4:45 pm, with breaks every 45 minutes. Right now I will use a few slides for context and extra information. But this is a WORKshop, so there will be plenty of hands-on coding and live demonstrations. All materials will be available after the workshop ends, so don’t worry about copying these slides.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -441,6 +440,7 @@ Abner Heredia Bustos, CSCAR
 <li class="fragment">Coding along with me is the best way to learn.</li>
 <li class="fragment">Ask questions at any time.</li>
 <li class="fragment">During exercises, interact with your peers.</li>
+<li class="fragment">Make sure to type your code in an RStudio script.</li>
 </ul>
 <aside class="notes">
 <p>Coding along with me is the best way to learn. If you just watch, you will not remember anything after you leave today. Feel free to ask questions at any time. Code can be confusing and mistakes are easy to make, but I’m here to help, so don’t be afraid to interrupt me. During exercises, interact with your peers. We all struggle with computers, but it’s easier if we can help each other.</p>
@@ -541,231 +541,15 @@ Abner Heredia Bustos, CSCAR
           display:block!important;
       }</style></aside>
 </section>
-<section>
-<section id="why-do-you-want-to-learn-r" class="title-slide slide level1 center">
-<h1>Why do you want to learn R?</h1>
+<section id="why-are-you-trying-to-learn-r" class="title-slide slide level1 center">
+<h1>Why are you trying to learn R?</h1>
 
 </section>
-<section id="r-is-cheap-and-powerful" class="slide level2">
-<h2>R is cheap and powerful</h2>
-<ul>
-<li class="fragment"><strong>R</strong> is gratis ($0) and it runs on Windows, MacOS, and several Unix platforms.</li>
-<li class="fragment">You can start with this:</li>
-</ul>
-</section>
-<section class="slide level2">
 
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>  treat nitrogen block height weight leaf_area shoot_area flowers
-1   tip   medium     1    7.5   7.62      11.7       31.9       1
-2   tip   medium     1   10.7  12.14      14.1       46.0      10
-3   tip   medium     1   11.2  12.76       7.1       66.7      10
-4   tip   medium     1   10.4   8.78      11.9       20.3       1
-5   tip   medium     1   10.4  13.58      14.5       26.9       4</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<p>and, in 8 lines of code or less, make this:</p>
-
-<img data-src="slideshow_files/figure-revealjs/height%20by%20nitrogen%20boxplots-1.png" class="quarto-figure quarto-figure-center r-stretch" width="595"><aside class="notes">
-<p>You can change the colors, the order of the boxes, the names, and much more. Doing all of this will be straightforward once you are familiar with R’s syntax.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="r-is-an-environment-not-a-package" class="slide level2">
-<h2>R is an <em>environment</em>, not a package</h2>
-<ul>
-<li class="fragment">A package is a fixed set of tools.</li>
-<li class="fragment">An environment is for combining, modifying, and creating tools.</li>
-</ul>
-<aside class="notes">
-<p>R is very powerful because it is an environment, not a package. A package is a fixed set of tools—what you see is what you get and that’s it. An environment is for combining, modifying, and creating tools. So, even if a tool is not readily available in an environment, chances are there is a way to make it.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="r-has-plenty-of-statistical-tools-and-models" class="slide level2">
-<h2>R has plenty of statistical tools and models</h2>
-<ul>
-<li class="fragment">Generalized linear models (including linear regression).</li>
-<li class="fragment">Survival analysis.</li>
-<li class="fragment">Time series analysis.</li>
-<li class="fragment">Multilevel models.</li>
-<li class="fragment">Classification and clustering.</li>
-<li class="fragment">Sample size and power calculations.</li>
-<li class="fragment">Multivariable analysis (e.g., factor analysis, PCA, and SEM).</li>
-</ul>
-<aside class="notes">
-<p>Luckily for us, other people have already built tools and models to do a lot of statistics. We have…</p>
-<p>Better yet, people add more tools every day.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="even-more-tools-and-models" class="slide level2">
-<h2>Even more tools and models</h2>
-<ul>
-<li class="fragment">Users constantly publish their own code packages: more than 13 thousand in the Comprehensive <strong>R</strong> Archive Network (CRAN) as of March 2019.</li>
-<li class="fragment">Many complex statistical routines are not (and may never be) available in other statistical software.</li>
-</ul>
-<aside class="notes">
-<p>As of March 2019, users like you and I have published more than 13 thousand packages in CRAN. Many of these packages implement complex statistical routines that are not (and may never be) available in other statistical software.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="why-isnt-everyone-a-user" class="slide level2">
-<h2>Why Isn’t Everyone a Use<strong>R</strong>?</h2>
-<ul>
-<li class="fragment">Some people only use the software they learned first, which is not always <strong>R</strong>.</li>
-<li class="fragment">Each package in R has its own rules to learn.</li>
-<li class="fragment">Help pages and error messages may be hard to understand.</li>
-</ul>
-<aside class="notes">
-<p>But if R is so good, why isn’t everyone a user? Some people only use whatever they learned first. They took a course in statistics years ago that used SPSS or STATA and that has been enough for them. Also, each package in R has its own rules to learn. You can find a lot of good help for popular packages written by professional developers, but not so much for smaller packages written by other common users. Worst of all, some of the error messages in R are uninformative, so fixing problems can be difficult. Still, I think the advantages are well worth the effort.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="suggestions-for-learning-r" class="slide level2">
-<h2>Suggestions for Learning <strong>R</strong></h2>
-<ul>
-<li class="fragment">Learn interactively.</li>
-<li class="fragment">Don’t worry about getting errors.</li>
-<li class="fragment">Ask other <strong>R</strong> users for help.</li>
-</ul>
-<aside class="notes">
-<p>Learn interactively. Retype, experiment, go crazy with sample code. Today I will show you many examples that you can use and you can find many more online. Also, don’t worry about making mistakes. Even professional coders make errors all the time, and you can learn a lot from error messages. Besides you can always ask other users for help. Take advantage of R’s popularity to tap into our collective knowledge. It’s also a good excuse to get up from your desk every once in a while.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="some-useful-links" class="slide level2">
-<h2>Some useful links</h2>
-<div>
-<ul>
-<li><a href="https://www.r-project.org" class="uri">https://www.r-project.org</a>: Here you will find links for downloading <strong>R</strong>, downloading additional packages for <strong>R</strong>, and more.</li>
-<li><a href="https://cran.r-project.org/web/views/" class="uri">https://cran.r-project.org/web/views/</a>: Summaries of important packages by subject field or analysis type.</li>
-<li><a href="https://journal.r-project.org" class="uri">https://journal.r-project.org</a>: The <strong>R</strong> Journal.</li>
-<li><a href="https://stats.stackexchange.com" class="uri">https://stats.stackexchange.com</a>: Cross-Validated.</li>
-<li><a href="https://www.r-bloggers.com" class="uri">https://www.r-bloggers.com</a></li>
-</ul>
-</div>
-</section>
-<section id="more-useful-links" class="slide level2">
-<h2>More useful links</h2>
-<div>
-<ul>
-<li><a href="https://stats.idre.ucla.edu/r/" class="uri">https://stats.idre.ucla.edu/r/</a>: Institute for Digital Research and Education at UCLA.</li>
-<li><a href="https://socialsciences.mcmaster.ca/jfox/" class="uri">https://socialsciences.mcmaster.ca/jfox/</a>: John Fox’s home page.</li>
-<li><a href="https://sas-and-r.blogspot.com/" class="uri">https://sas-and-r.blogspot.com/</a>: Examples of code to perform same task in SAS and R.</li>
-</ul>
-</div>
-</section></section>
 <section>
 <section id="lets-start-coding" class="title-slide slide level1 center">
 <h1>Let’s start coding</h1>
 
-</section>
-<section id="practice-your-arithmetic" class="slide level2">
-<h2>Practice your arithmetic</h2>
-<p>Think of an integer, double it, add six, divide it in half, subtract the number you started with, and then square it. If your code is correct, the answer should be nine.</p>
-</section>
-<section id="object-names-have-rules" class="slide level2">
-<h2>Object names have rules</h2>
-<ul>
-<li class="fragment">Names can be a combination of letters, digits, periods <code>.</code> and underscores <code>_</code>.</li>
-<li class="fragment">Names can <em>not</em> include white spaces.</li>
-<li class="fragment">If a name starts with a period <code>.</code>, it can <em>not</em> be followed by a digit.</li>
-<li class="fragment">Names can <em>not</em> start with a number or an underscore <code>_</code>.</li>
-</ul>
-</section>
-<section id="object-names-have-rules-1" class="slide level2">
-<h2>Object names have rules</h2>
-<ul>
-<li class="fragment">Names are case-sensitive (<code>age</code>, <code>Age</code> and <code>AGE</code> are three different objects).</li>
-<li class="fragment">Reserved words (<code>TRUE</code>, <code>FALSE</code>, <code>NULL</code>, <code>if</code>, …) can <em>not</em> be used as names</li>
-</ul>
-</section>
-<section id="tips-for-naming-objects" class="slide level2">
-<h2>Tips for naming objects</h2>
-<ul>
-<li class="fragment">Avoid giving your object the same name as a built-in function.</li>
-<li class="fragment">To separate words, use an underscore (<code>my_object</code>) or a dot (<code>my.object</code>), or capitalize the different words (<code>MyObject</code>). Choose your favorite way, but <em>be consistent</em> with it.</li>
-<li class="fragment">Use names that illustrate what you want to do with the objects.</li>
-</ul>
-</section>
-<section id="exercise" class="slide level2">
-<h2>Exercise</h2>
-<p>Write a function that can simulate the roll of two six-sided dice, one red and one blue, an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die.</p>
-</section>
-<section id="exercise-step-by-step-part-1" class="slide level2">
-<h2>Exercise step by step (part 1)</h2>
-<ul>
-<li class="fragment">Step 1: define a function that takes one argument, <code>num_rolls</code>, representing the number of times to roll the dice.</li>
-<li class="fragment">Step 2: create two objects called <code>red</code> and <code>blue</code> to store the results from the dice rolls.</li>
-<li class="fragment">Step 3: simulate the dice rolls using function <code>sample()</code> (read its help page if you need to).</li>
-</ul>
-</section>
-<section id="exercise-step-by-step-part-2" class="slide level2">
-<h2>Exercise step by step (part 2)</h2>
-<ul>
-<li class="fragment">Step 4: create a vector of indices that identifies the values in the red die that were larger than the values in the blue die.</li>
-<li class="fragment">Step 5: use this vector of indices to extract the values from the red die.</li>
-<li class="fragment">Step 6: make sure that your function returns the values you extracted in step 5.</li>
-</ul>
 </section>
 <section id="coercion" class="slide level2">
 <h2>Coercion</h2>
@@ -781,36 +565,36 @@ Abner Heredia Bustos, CSCAR
 <p>Use the example I showed to you to make a histogram for variable <code>height</code>. Bonus: can you color the bars?</p>
 <p>Your histogram result should resemble this one:</p>
 
-<img data-src="slideshow_files/figure-revealjs/histogram%20of%20height-1.png" class="quarto-figure quarto-figure-center r-stretch" width="624"></section>
+<img data-src="slides_data_in_R_files/figure-revealjs/histogram%20of%20height-1.png" class="quarto-figure quarto-figure-center r-stretch" width="624"></section>
 <section class="slide level2">
 
 <p>Here is the code for the histogram:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">hist</span>(</span>
-<span id="cb2-2"><a href=""></a>    flower_df<span class="sc">$</span>height,</span>
-<span id="cb2-3"><a href=""></a>    <span class="at">breaks =</span> <span class="dv">12</span>,</span>
-<span id="cb2-4"><a href=""></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>),</span>
-<span id="cb2-5"><a href=""></a>    <span class="at">xlab =</span> <span class="st">"Height"</span>,</span>
-<span id="cb2-6"><a href=""></a>    <span class="at">main =</span> <span class="st">"Few weights are above 20"</span>,</span>
-<span id="cb2-7"><a href=""></a>    <span class="at">col =</span> <span class="st">"green"</span></span>
-<span id="cb2-8"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">hist</span>(</span>
+<span id="cb1-2"><a href=""></a>    flower_df<span class="sc">$</span>height,</span>
+<span id="cb1-3"><a href=""></a>    <span class="at">breaks =</span> <span class="dv">12</span>,</span>
+<span id="cb1-4"><a href=""></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>),</span>
+<span id="cb1-5"><a href=""></a>    <span class="at">xlab =</span> <span class="st">"Height"</span>,</span>
+<span id="cb1-6"><a href=""></a>    <span class="at">main =</span> <span class="st">"Few weights are above 20"</span>,</span>
+<span id="cb1-7"><a href=""></a>    <span class="at">col =</span> <span class="st">"green"</span></span>
+<span id="cb1-8"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="make-a-boxplot" class="slide level2">
 <h2>Make a boxplot</h2>
 <p>Use the example I showed to you to make a histogram for variable <code>leaf_area</code>. Bonus: can you color the box?</p>
 
-<img data-src="slideshow_files/figure-revealjs/boxplot%20for%20leaf_area-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
+<img data-src="slides_data_in_R_files/figure-revealjs/boxplot%20for%20leaf_area-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
 <section class="slide level2">
 
 <p>Here is the code for the boxplot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">boxplot</span>(</span>
-<span id="cb3-2"><a href=""></a>    flower_df<span class="sc">$</span>leaf_area, </span>
-<span id="cb3-3"><a href=""></a>    <span class="at">ylab =</span> <span class="st">"Leaf area"</span>, </span>
-<span id="cb3-4"><a href=""></a>    <span class="at">col =</span> <span class="st">"blue"</span>,</span>
-<span id="cb3-5"><a href=""></a>    <span class="at">main =</span> <span class="st">"Most leaf areas are between 11 and 18"</span></span>
-<span id="cb3-6"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">boxplot</span>(</span>
+<span id="cb2-2"><a href=""></a>    flower_df<span class="sc">$</span>leaf_area, </span>
+<span id="cb2-3"><a href=""></a>    <span class="at">ylab =</span> <span class="st">"Leaf area"</span>, </span>
+<span id="cb2-4"><a href=""></a>    <span class="at">col =</span> <span class="st">"blue"</span>,</span>
+<span id="cb2-5"><a href=""></a>    <span class="at">main =</span> <span class="st">"Most leaf areas are between 11 and 18"</span></span>
+<span id="cb2-6"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="make-a-scatterplot" class="slide level2">
@@ -820,26 +604,26 @@ Abner Heredia Bustos, CSCAR
 <section class="slide level2">
 
 
-<img data-src="slideshow_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"></section>
+<img data-src="slides_data_in_R_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"></section>
 <section class="slide level2">
 
 <p>Here is the code for the scatter plot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">plot</span>(</span>
-<span id="cb4-2"><a href=""></a>    <span class="at">x =</span> flower_df<span class="sc">$</span>weight,</span>
-<span id="cb4-3"><a href=""></a>    <span class="at">y =</span> flower_df<span class="sc">$</span>height, </span>
-<span id="cb4-4"><a href=""></a>    <span class="at">col =</span> flower_df<span class="sc">$</span>nitrogen,</span>
-<span id="cb4-5"><a href=""></a>    <span class="at">main =</span> <span class="st">"No clear association between height and weight"</span>,</span>
-<span id="cb4-6"><a href=""></a>    <span class="at">xlab =</span> <span class="st">"Weight"</span>,</span>
-<span id="cb4-7"><a href=""></a>    <span class="at">ylab =</span> <span class="st">"Height"</span></span>
-<span id="cb4-8"><a href=""></a>)</span>
-<span id="cb4-9"><a href=""></a><span class="co"># Add a legend to the plot</span></span>
-<span id="cb4-10"><a href=""></a><span class="fu">legend</span>(</span>
-<span id="cb4-11"><a href=""></a>    <span class="at">x =</span> <span class="st">"bottomright"</span>, </span>
-<span id="cb4-12"><a href=""></a>    <span class="at">legend =</span> <span class="fu">levels</span>(flower_df<span class="sc">$</span>nitrogen), </span>
-<span id="cb4-13"><a href=""></a>    <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(flower_df<span class="sc">$</span>nitrogen)), </span>
-<span id="cb4-14"><a href=""></a>    <span class="at">pch =</span> <span class="dv">16</span></span>
-<span id="cb4-15"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">plot</span>(</span>
+<span id="cb3-2"><a href=""></a>    <span class="at">x =</span> flower_df<span class="sc">$</span>weight,</span>
+<span id="cb3-3"><a href=""></a>    <span class="at">y =</span> flower_df<span class="sc">$</span>height, </span>
+<span id="cb3-4"><a href=""></a>    <span class="at">col =</span> flower_df<span class="sc">$</span>nitrogen,</span>
+<span id="cb3-5"><a href=""></a>    <span class="at">main =</span> <span class="st">"No clear association between height and weight"</span>,</span>
+<span id="cb3-6"><a href=""></a>    <span class="at">xlab =</span> <span class="st">"Weight"</span>,</span>
+<span id="cb3-7"><a href=""></a>    <span class="at">ylab =</span> <span class="st">"Height"</span></span>
+<span id="cb3-8"><a href=""></a>)</span>
+<span id="cb3-9"><a href=""></a><span class="co"># Add a legend to the plot</span></span>
+<span id="cb3-10"><a href=""></a><span class="fu">legend</span>(</span>
+<span id="cb3-11"><a href=""></a>    <span class="at">x =</span> <span class="st">"bottomright"</span>, </span>
+<span id="cb3-12"><a href=""></a>    <span class="at">legend =</span> <span class="fu">levels</span>(flower_df<span class="sc">$</span>nitrogen), </span>
+<span id="cb3-13"><a href=""></a>    <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(flower_df<span class="sc">$</span>nitrogen)), </span>
+<span id="cb3-14"><a href=""></a>    <span class="at">pch =</span> <span class="dv">16</span></span>
+<span id="cb3-15"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="make-a-mosaic-plot" class="slide level2">
@@ -849,16 +633,16 @@ Abner Heredia Bustos, CSCAR
 <section class="slide level2">
 
 
-<img data-src="slideshow_files/figure-revealjs/mosaic%20plot%20for%20nitrogen%20vs%20treat-1.png" class="quarto-figure quarto-figure-center r-stretch" width="480"></section>
+<img data-src="slides_data_in_R_files/figure-revealjs/mosaic%20plot%20for%20nitrogen%20vs%20treat-1.png" class="quarto-figure quarto-figure-center r-stretch" width="480"></section>
 <section class="slide level2">
 
 <p>Here is the code for the mosaic plot</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>nitrogen_by_treat_table <span class="ot">=</span> <span class="fu">xtabs</span>(</span>
-<span id="cb5-2"><a href=""></a>    <span class="at">formula =</span> <span class="sc">~</span> nitrogen <span class="sc">+</span> treat,</span>
-<span id="cb5-3"><a href=""></a>    <span class="at">data =</span> flower_df[<span class="fu">which</span>(flower_df<span class="sc">$</span>weight <span class="sc">&lt;</span> <span class="dv">10</span>),]</span>
-<span id="cb5-4"><a href=""></a>)</span>
-<span id="cb5-5"><a href=""></a><span class="fu">mosaicplot</span>(nitrogen_by_treat_table, <span class="at">main =</span> <span class="st">"Nitrogen by treat, weight below 10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>nitrogen_by_treat_table <span class="ot">=</span> <span class="fu">xtabs</span>(</span>
+<span id="cb4-2"><a href=""></a>    <span class="at">formula =</span> <span class="sc">~</span> nitrogen <span class="sc">+</span> treat,</span>
+<span id="cb4-3"><a href=""></a>    <span class="at">data =</span> flower_df[<span class="fu">which</span>(flower_df<span class="sc">$</span>weight <span class="sc">&lt;</span> <span class="dv">10</span>),]</span>
+<span id="cb4-4"><a href=""></a>)</span>
+<span id="cb4-5"><a href=""></a><span class="fu">mosaicplot</span>(nitrogen_by_treat_table, <span class="at">main =</span> <span class="st">"Nitrogen by treat, weight below 10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -870,19 +654,19 @@ Abner Heredia Bustos, CSCAR
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="slideshow_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="slides_data_in_R_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="slideshow_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="slides_data_in_R_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="slides_data_in_R_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="slides_data_in_R_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="slides_data_in_R_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="slides_data_in_R_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="slideshow_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="slides_data_in_R_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="slides_data_in_R_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="slides_data_in_R_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="slides_data_in_R_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

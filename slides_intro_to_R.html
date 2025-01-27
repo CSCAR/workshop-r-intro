@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="slideshow_files/libs/clipboard/clipboard.min.js"></script>
-<script src="slideshow_files/libs/quarto-html/tabby.min.js"></script>
-<script src="slideshow_files/libs/quarto-html/popper.min.js"></script>
-<script src="slideshow_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="slideshow_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="slideshow_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slideshow_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="slideshow_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="slides_intro_to_R_files/libs/clipboard/clipboard.min.js"></script>
+<script src="slides_intro_to_R_files/libs/quarto-html/tabby.min.js"></script>
+<script src="slides_intro_to_R_files/libs/quarto-html/popper.min.js"></script>
+<script src="slides_intro_to_R_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="slides_intro_to_R_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="slides_intro_to_R_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="slides_intro_to_R_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="slides_intro_to_R_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.54">
 
   <meta name="author" content="Abner Heredia Bustos, CSCAR">
@@ -15,8 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="slideshow_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="slideshow_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="slides_intro_to_R_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="slides_intro_to_R_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,77 +29,12 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slideshow_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="slideshow_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="slideshow_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="slideshow_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="slideshow_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="slides_intro_to_R_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="slides_intro_to_R_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="slides_intro_to_R_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="slides_intro_to_R_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="slides_intro_to_R_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -404,25 +339,26 @@ Abner Heredia Bustos, CSCAR
 </section>
 <section id="about-this-workshop" class="slide level2">
 <h2>About this workshop</h2>
-<p>For novice or inexperienced coders that want to use <strong>R</strong>. We will use RStudio to learn:</p>
+<p>For novice or inexperienced coders that want to use <strong>R</strong>. We will learn:</p>
 <ul>
+<li class="fragment">How to use the RStudio interface and scripts to code in R.</li>
+<li class="fragment">What are and how to use “objects”.</li>
 <li class="fragment">How to use and write basic functions.</li>
-<li class="fragment">How R stores and handles different types of data.</li>
-<li class="fragment">Basic ways to create, manipulate, import, clean, and summarize data.</li>
+<li class="fragment">How to work with numerical vectors.</li>
 <li class="fragment">But <em>NOT</em> statistical modeling.</li>
 </ul>
 </section>
 <section id="workshop-format" class="slide level2">
 <h2>Workshop format</h2>
 <ul>
-<li class="fragment">From 1 to 4:45 pm.</li>
-<li class="fragment">Breaks every 90 minutes.</li>
+<li class="fragment">From 2:30 to 4:45 pm.</li>
+<li class="fragment">Breaks every 45 minutes.</li>
 <li class="fragment">A few slides for context and extra information.</li>
 <li class="fragment">A lot of hands-on coding and live demonstrations.</li>
 <li class="fragment">All materials will be available after the workshop ends.</li>
 </ul>
 <aside class="notes">
-<p>This workshop runs from 1 to 4:45 pm, with breaks every 90 minutes. Right now I will use a few slides for context and extra information. But this is a WORKshop, so there will be plenty of hands-on coding and live demonstrations. All materials will be available after the workshop ends, so don’t worry about copying these slides.</p>
+<p>This workshop runs from 2:30 to 4:45 pm, with breaks every 45 minutes. Right now I will use a few slides for context and extra information. But this is a WORKshop, so there will be plenty of hands-on coding and live demonstrations. All materials will be available after the workshop ends, so don’t worry about copying these slides.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -570,7 +506,7 @@ Abner Heredia Bustos, CSCAR
 
 <p>and, in 8 lines of code or less, make this:</p>
 
-<img data-src="slideshow_files/figure-revealjs/height%20by%20nitrogen%20boxplots-1.png" class="quarto-figure quarto-figure-center r-stretch" width="595"><aside class="notes">
+<img data-src="slides_intro_to_R_files/figure-revealjs/height%20by%20nitrogen%20boxplots-1.png" class="quarto-figure quarto-figure-center r-stretch" width="595"><aside class="notes">
 <p>You can change the colors, the order of the boxes, the names, and much more. Doing all of this will be straightforward once you are familiar with R’s syntax.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -766,100 +702,6 @@ Abner Heredia Bustos, CSCAR
 <li class="fragment">Step 5: use this vector of indices to extract the values from the red die.</li>
 <li class="fragment">Step 6: make sure that your function returns the values you extracted in step 5.</li>
 </ul>
-</section>
-<section id="coercion" class="slide level2">
-<h2>Coercion</h2>
-<p>When adding different data types to the same atomic vector, <strong>R</strong> follows specific rules to coerce everything to be of the same type.</p>
-<ul>
-<li class="fragment">If a character string is present in an atomic vector, <strong>R</strong> will convert all other values to character strings.</li>
-<li class="fragment">If a vector only contains logicals and numbers, <strong>R</strong> will convert the logicals to numbers; every <code>TRUE</code> becomes a <code>1</code>, and every <code>FALSE</code> becomes a <code>0</code>.</li>
-<li class="fragment"><code>NA</code>s are never coerced automatically.</li>
-</ul>
-</section>
-<section id="make-a-histogram" class="slide level2">
-<h2>Make a histogram</h2>
-<p>Use the example I showed to you to make a histogram for variable <code>height</code>. Bonus: can you color the bars?</p>
-<p>Your histogram result should resemble this one:</p>
-
-<img data-src="slideshow_files/figure-revealjs/histogram%20of%20height-1.png" class="quarto-figure quarto-figure-center r-stretch" width="624"></section>
-<section class="slide level2">
-
-<p>Here is the code for the histogram:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">hist</span>(</span>
-<span id="cb2-2"><a href=""></a>    flower_df<span class="sc">$</span>height,</span>
-<span id="cb2-3"><a href=""></a>    <span class="at">breaks =</span> <span class="dv">12</span>,</span>
-<span id="cb2-4"><a href=""></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>),</span>
-<span id="cb2-5"><a href=""></a>    <span class="at">xlab =</span> <span class="st">"Height"</span>,</span>
-<span id="cb2-6"><a href=""></a>    <span class="at">main =</span> <span class="st">"Few weights are above 20"</span>,</span>
-<span id="cb2-7"><a href=""></a>    <span class="at">col =</span> <span class="st">"green"</span></span>
-<span id="cb2-8"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="make-a-boxplot" class="slide level2">
-<h2>Make a boxplot</h2>
-<p>Use the example I showed to you to make a histogram for variable <code>leaf_area</code>. Bonus: can you color the box?</p>
-
-<img data-src="slideshow_files/figure-revealjs/boxplot%20for%20leaf_area-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
-<section class="slide level2">
-
-<p>Here is the code for the boxplot.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">boxplot</span>(</span>
-<span id="cb3-2"><a href=""></a>    flower_df<span class="sc">$</span>leaf_area, </span>
-<span id="cb3-3"><a href=""></a>    <span class="at">ylab =</span> <span class="st">"Leaf area"</span>, </span>
-<span id="cb3-4"><a href=""></a>    <span class="at">col =</span> <span class="st">"blue"</span>,</span>
-<span id="cb3-5"><a href=""></a>    <span class="at">main =</span> <span class="st">"Most leaf areas are between 11 and 18"</span></span>
-<span id="cb3-6"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="make-a-scatterplot" class="slide level2">
-<h2>Make a scatterplot</h2>
-<p>Use the example I showed to you to make a scatter plot with <code>height</code> and <code>weight</code>, coloring by nitrogen level. Remember to add a legend to the plot. Your scatter plot should resemble this one:</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="slideshow_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"></section>
-<section class="slide level2">
-
-<p>Here is the code for the scatter plot.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">plot</span>(</span>
-<span id="cb4-2"><a href=""></a>    <span class="at">x =</span> flower_df<span class="sc">$</span>weight,</span>
-<span id="cb4-3"><a href=""></a>    <span class="at">y =</span> flower_df<span class="sc">$</span>height, </span>
-<span id="cb4-4"><a href=""></a>    <span class="at">col =</span> flower_df<span class="sc">$</span>nitrogen,</span>
-<span id="cb4-5"><a href=""></a>    <span class="at">main =</span> <span class="st">"No clear association between height and weight"</span>,</span>
-<span id="cb4-6"><a href=""></a>    <span class="at">xlab =</span> <span class="st">"Weight"</span>,</span>
-<span id="cb4-7"><a href=""></a>    <span class="at">ylab =</span> <span class="st">"Height"</span></span>
-<span id="cb4-8"><a href=""></a>)</span>
-<span id="cb4-9"><a href=""></a><span class="co"># Add a legend to the plot</span></span>
-<span id="cb4-10"><a href=""></a><span class="fu">legend</span>(</span>
-<span id="cb4-11"><a href=""></a>    <span class="at">x =</span> <span class="st">"bottomright"</span>, </span>
-<span id="cb4-12"><a href=""></a>    <span class="at">legend =</span> <span class="fu">levels</span>(flower_df<span class="sc">$</span>nitrogen), </span>
-<span id="cb4-13"><a href=""></a>    <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(flower_df<span class="sc">$</span>nitrogen)), </span>
-<span id="cb4-14"><a href=""></a>    <span class="at">pch =</span> <span class="dv">16</span></span>
-<span id="cb4-15"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="make-a-mosaic-plot" class="slide level2">
-<h2>Make a mosaic plot</h2>
-<p>Use the example I showed to you to make a mosaic plot to visualize how frequently the values of nitrogen and treat combine with each other, but only for flowers with a weight below 10. Your plot should resemble this:</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="slideshow_files/figure-revealjs/mosaic%20plot%20for%20nitrogen%20vs%20treat-1.png" class="quarto-figure quarto-figure-center r-stretch" width="480"></section>
-<section class="slide level2">
-
-<p>Here is the code for the mosaic plot</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>nitrogen_by_treat_table <span class="ot">=</span> <span class="fu">xtabs</span>(</span>
-<span id="cb5-2"><a href=""></a>    <span class="at">formula =</span> <span class="sc">~</span> nitrogen <span class="sc">+</span> treat,</span>
-<span id="cb5-3"><a href=""></a>    <span class="at">data =</span> flower_df[<span class="fu">which</span>(flower_df<span class="sc">$</span>weight <span class="sc">&lt;</span> <span class="dv">10</span>),]</span>
-<span id="cb5-4"><a href=""></a>)</span>
-<span id="cb5-5"><a href=""></a><span class="fu">mosaicplot</span>(nitrogen_by_treat_table, <span class="at">main =</span> <span class="st">"Nitrogen by treat, weight below 10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -870,19 +712,19 @@ Abner Heredia Bustos, CSCAR
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="slideshow_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="slides_intro_to_R_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="slideshow_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="slides_intro_to_R_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="slides_intro_to_R_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="slides_intro_to_R_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="slides_intro_to_R_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="slides_intro_to_R_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="slideshow_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="slideshow_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="slides_intro_to_R_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="slides_intro_to_R_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="slides_intro_to_R_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="slides_intro_to_R_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

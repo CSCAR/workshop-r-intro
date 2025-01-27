@@ -1,0 +1,254 @@
+---
+title: "Data in R with RStudio"
+author: "Abner Heredia Bustos, CSCAR"
+format:
+  revealjs:
+    incremental: true
+project:
+  type: default
+  output-dir: docs/
+---
+
+```{r}
+source("load_clean_flower_df.R")
+```
+
+## About this workshop
+
+For beginner **R** coders that want to understand how to manipulate different types of data. We will use RStudio to learn:
+
++ How R stores and handles different types of data. 
++ Basic ways to create, import, clean, summarize, and plot data.
++ But *NOT* statistical modeling.
+
+## Workshop format
+
++ From 2:30 to 4:45 pm.
++ Breaks every 45 minutes.
++ A few slides for context and extra information.
++ A lot of hands-on coding and live demonstrations.
++ All materials will be available after the workshop ends.
+
+::: {.notes}
+This workshop runs from 2:30 to 4:45 pm, with breaks every 45 minutes. Right now I will use a few slides for context and extra information. But this is a WORKshop, so there will be plenty of hands-on coding and live demonstrations. All materials will be available after the workshop ends, so don't worry about copying these slides.
+:::
+
+## Tips for this workshop
+
++ Coding along with me is the best way to learn.
++ Ask questions at any time.
++ During exercises, interact with your peers.
++ Make sure to type your code in an RStudio script.
+
+::: {.notes}
+Coding along with me is the best way to learn. If you just watch, you will not remember anything after you leave today. Feel free to ask questions at any time. Code can be confusing and mistakes are easy to make, but I'm here to help, so don't be afraid to interrupt me. During exercises, interact with your peers. We all struggle with computers, but it's easier if we can help each other.
+:::
+
+## What is CSCAR?
+
++ Full name: Consulting for Statistics, Computing and Analytics Research.
++ A unit of the Office of the Vice President of Research (OVPR).
++ Guides and trains researchers in data collection, management, and analysis.
++ Also helps researchers to use technical software and advanced computing.
+
+::: {.notes}
+Before we get to the coding part, let me tell you a little bit about the people behind this workshop: CSCAR.
+:::
+
+## CSCAR is here to help you
+
++ Free, one-hour consultations with full-time statistical consultants.
++ GSRAs are available for walk-in consultations Monday through Friday, between 9am and 5pm (we close on Tuesdays between noon and 1pm). 
++ All of our scheduled appointments can be either remote or in-person.
+
+::: {.notes}
+All of our scheduled appointments can be either remote or in-person. So, if you live out of town, work in a different campus or just don't want to deal with bad weather, you can still ask CSCAR for help.
+:::
+
+## Contact CSCAR
+
++ To request a consultation: email <deskpeople@umich.edu>, or fill [this form](https://docs.google.com/forms/d/e/1FAIpQLSei-twcjFkoobUrVwSQTmSxdKKEc1Ub8w5LHmeIZUmTV1wmIg/viewform?pli=1). Or visit [cscar.research.umich.edu](cscar.research.umich.edu).
++ Self-schedule a consultation with a GSRA using [this link](https://calendar.google.com/calendar/u/0/appointments/AcZssZ1DT776EMK1EGFFmBRyW-FrQrzo35QnU2nIv1E=).
++ Address: The University of Michigan, 3560 Rackham, 915 E. Washington St., Ann Arbor, MI 48109-1070.
+
+::: {.notes}
+There are several ways to contact CSCAR. You can request a consultation by email or by filling this form. You can also self-schedule a consultation with a GSRA using this link. Our office is at 3560 Rackham, 915 E. Washington St., Ann Arbor, Michigan.
+:::
+
+## Who am I?
+
++ Abner Heredia Bustos, a data science consultant at CSCAR.
++ I want to make coding as simple and effortless as possible...
++ ...which means learning it well from the beginning.
+
+::: {.notes}
+My name is Abner Heredia Bustos. I am a data science consultant at CSCAR. Apart from this, all you need to know is that, for me, coding is just a means to an end. So, I will try hard to make coding as simple and effortless as possible for you; but to achieve this you will need to put some effort in learning the basics.
+:::
+
+# Why are you trying to learn R?
+
+# Let's start coding
+
+## Coercion
+
+When adding different data types to the same atomic vector, **R** follows specific rules to coerce everything to be of the same type.
+
++ If a character string is present in an atomic vector, **R** will convert all other values to character strings. 
++ If a vector only contains logicals and numbers, **R** will convert the logicals to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`. 
++ `NA`s are never coerced automatically.
+
+## Make a histogram
+
+Use the example I showed to you to make a histogram for variable `height`. Bonus: can you color the bars?
+
+Your histogram result should resemble this one:
+
+```{r histogram of height}
+#| echo: false
+#| fig-width: 6.5
+#| fig-height: 5
+#| fig-align: center
+hist(
+    flower_df$height,
+    breaks = 12,
+    xlim = c(0, 20),
+    xlab = "Height",
+    main = "Few weights are above 20",
+    col = "green"
+)
+```
+
+---
+
+Here is the code for the histogram:
+
+```{r}
+#| echo: true
+#| eval: false
+hist(
+    flower_df$height,
+    breaks = 12,
+    xlim = c(0, 20),
+    xlab = "Height",
+    main = "Few weights are above 20",
+    col = "green"
+)
+```
+
+## Make a boxplot
+
+Use the example I showed to you to make a histogram for variable `leaf_area`. Bonus: can you color the box?
+
+```{r boxplot for leaf_area}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 5
+#| fig-align: center
+boxplot(
+    flower_df$leaf_area, 
+    ylab = "Leaf area", 
+    col = "blue",
+    main = "Most leaf areas are between 11 and 18"
+)
+```
+
+---
+
+Here is the code for the boxplot.
+
+```{r}
+#| echo: true
+#| eval: false
+boxplot(
+    flower_df$leaf_area, 
+    ylab = "Leaf area", 
+    col = "blue",
+    main = "Most leaf areas are between 11 and 18"
+)
+```
+
+
+## Make a scatterplot
+
+Use the example I showed to you to make a scatter plot with `height` and `weight`, coloring by nitrogen level. Remember to add a legend to the plot. Your scatter plot should resemble this one:
+
+---
+
+```{r}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 4.5
+#| fig-align: center
+plot(
+    x = flower_df$weight,
+    y = flower_df$height, 
+    col = flower_df$nitrogen,
+    main = "No clear association between height and weight",
+    xlab = "Weight",
+    ylab = "Height"
+)
+# Add a legend to the plot
+legend(
+    x = "bottomright", 
+    legend = levels(flower_df$nitrogen), 
+    col = 1:length(levels(flower_df$nitrogen)), 
+    pch = 16
+)
+```
+
+---
+
+Here is the code for the scatter plot.
+
+```{r}
+#| echo: true
+#| eval: false
+plot(
+    x = flower_df$weight,
+    y = flower_df$height, 
+    col = flower_df$nitrogen,
+    main = "No clear association between height and weight",
+    xlab = "Weight",
+    ylab = "Height"
+)
+# Add a legend to the plot
+legend(
+    x = "bottomright", 
+    legend = levels(flower_df$nitrogen), 
+    col = 1:length(levels(flower_df$nitrogen)), 
+    pch = 16
+)
+```
+
+
+## Make a mosaic plot
+
+Use the example I showed to you to make a mosaic plot to visualize how frequently the values of nitrogen and treat combine with each other, but only for flowers with a weight below 10. Your plot should resemble this:
+
+---
+
+```{r mosaic plot for nitrogen vs treat}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+nitrogen_by_treat_table = xtabs(
+    formula = ~ nitrogen + treat,
+    data = flower_df[which(flower_df$weight < 10),]
+)
+mosaicplot(nitrogen_by_treat_table, main = "Nitrogen by treat, weight below 10")
+```
+
+---
+
+Here is the code for the mosaic plot
+
+```{r}
+#| echo: true
+#| eval: false
+nitrogen_by_treat_table = xtabs(
+    formula = ~ nitrogen + treat,
+    data = flower_df[which(flower_df$weight < 10),]
+)
+mosaicplot(nitrogen_by_treat_table, main = "Nitrogen by treat, weight below 10")
+```

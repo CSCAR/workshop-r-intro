@@ -249,10 +249,10 @@ window.Quarto = {
 </header>
 
 
-<p>In the previous section we learned how to store, extract, and manipulate numerical vectors. But working with real data requires using multiple types of data with different shapes and sizes. In this section we will learn how <strong>R</strong> handles different data types and structures, and how to use them to study and summarize data.</p>
+<p>There are multiple types of data that can come in different shapes and sizes. In the previous section we learned how to store, extract, and manipulate numerical vectors. In this section we will learn how <strong>R</strong> handles different data types and structures, and how to use them to study and summarize data.</p>
 <section id="data-types" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">3.1</span> Data types</h2>
-<p>Data types are classifications of data that help <strong>R</strong> conform to our intuition. For example, multiplying <span class="math inline">\(2\)</span> by <span class="math inline">\(7\)</span> feels right, but multiplying “pineapple” by “stalactite” does not. There are six data types in <strong>R</strong>: double, integer, logical, character, complex, and raw, each with its own rules for storing and handling. Learning these rules will allow us to analyze data later with less effort and fewer mistakes.</p>
+<p>Data types are classifications of data that help <strong>R</strong> conform to our intuition: multiplying <span class="math inline">\(2\)</span> by <span class="math inline">\(7\)</span> feels right; multiplying “pineapple” by “stalactite” does not. <strong>R</strong> has data types double, integer, logical, character, complex, and raw, each with its own rules for storing and handling. Learning these rules now will allow us to analyze data later with less effort and fewer mistakes.</p>
 <p>Data type <strong>complex</strong> is for imaginary numbers, and type <strong>raw</strong> is for raw bytes of data. It is unlikely that you will ever need these data types, so I will not explain them in these notes.</p>
 <p><strong>Doubles</strong> are regular numbers with a decimal value (which may be zero). In general, <strong>R</strong> will save any number that we type as a double.</p>
 <div class="cell">
@@ -270,7 +270,7 @@ window.Quarto = {
 <pre><code>[1] "integer"</code></pre>
 </div>
 </div>
-<p>As data scientists we rarely use integers because we can save them as doubles. But they can help us do complicated operations because <strong>R</strong> stores them more precisely and with less memory than doubles.</p>
+<p>Many data scientists ignore integers because we can save them as doubles. But <strong>R</strong> stores integers more precisely and with less memory than doubles. This extra efficiency is helpful when the computations are lengthy or imprecise, or when computer memory is limited.</p>
 <p><strong>Logicals</strong> are truth values <code>TRUE</code> and <code>FALSE</code>, which are useful when we compare numbers or objects:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_comparison <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">1</span></span>
@@ -300,7 +300,7 @@ Write TRUE and FALSE explicitly
 <pre><code>[1] "logical"</code></pre>
 </div>
 </div>
-<p>Treating <code>NA</code> as a logical value allows <strong>R</strong> to handle missing data in intuitive ways. Consider, for example, that if a value is missing, we can not know whether it is bigger than a number, or whether it is equal to a word. <strong>R</strong> reflects this intuition by forcing any comparison involving <code>NA</code> to result in another <code>NA</code>.</p>
+<p>Treating <code>NA</code> as a logical value allows <strong>R</strong> to handle missing data in intuitive ways. Consider, for example, that if a value is missing, we cannot know whether it is bigger than a number, or whether it is equal to a word. <strong>R</strong> reflects this intuition by forcing any comparison involving <code>NA</code> to result in another <code>NA</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">&gt;</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -319,7 +319,7 @@ Write TRUE and FALSE explicitly
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
-<p>It is easy to confuse character strings with objects because both look like chunks of text in the code. For example, <code>the_thing</code> and <code>"the_thing"</code> look alike. However, <code>the_thing</code> is the name of an object that can contain any type of data, while <code>"the_thing"</code> is a character string, i.e., a piece of data that we can assign to any name. If we forget the quotation marks when writing a name, <strong>R</strong> will look for an object that likely doesn’t exist, so we will likely get an error.</p>
+<p>It is easy to confuse character strings with objects because both look like chunks of text in the code. <code>the_thing</code> and <code>"the_thing"</code>, for example, look alike. But <code>the_thing</code> is the name of an object that can contain any type of data, while <code>"the_thing"</code> is a piece of data that we can assign to any name. If we forget the quotation marks when writing a name, <strong>R</strong> will look for an object that likely doesn’t exist and will return an error.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>noquotes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -345,7 +345,7 @@ Write TRUE and FALSE explicitly
 <pre><code>[1] "double"</code></pre>
 </div>
 </div>
-<p>A special type of character string is a <em>factor</em>, which stores categorical information like color or level of agreement. Factors can only have certain values called “levels”, which may be ordered (e.g., “agree”, “neutral”, “disagree”) or disordered (e.g., “red” or “green”). To create a factor, we can start with a vector of strings and use function <code>as.factor()</code> to convert it to a factor.</p>
+<p>A special type of character string is a <em>factor</em>, which stores categorical information like color or degree of agreement. Factors can only have certain values called “levels”, which may be ordered (e.g., “agree”, “neutral”, “disagree”) or disordered (e.g., “red” or “green”). To create a factor, we can start with a vector of strings and use function <code>as.factor()</code> to convert it to a factor.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>my_factor <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(<span class="st">"red"</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>my_factor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -586,7 +586,7 @@ Applied inception
 <pre><code>[1] "list"</code></pre>
 </div>
 </div>
-<p>Or we can use double-bracket notation <code>[[ ]]</code> to get only the subelements of an element from the original list (we can not extract multiple elements this way).</p>
+<p>Or we can use double-bracket notation <code>[[ ]]</code> to get only the subelements of an element from the original list (we cannot extract multiple elements this way).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>new_item <span class="ot">&lt;-</span> all_in_one_list[[<span class="dv">1</span>]]</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>new_item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

@@ -391,7 +391,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "\"1\"" "10"    "10"    "1"     "4"     "9"    </code></pre>
 </div>
 </div>
-<p><strong>R</strong> recognizes that the value itself has quotes, so it adds a backslash <code>\</code> to differentiate them from the quotes it uses to print strings. We can manually coerce the column “flowers” to be of type double, but first we must remove those confusing quotes.</p>
+<p><strong>R</strong> recognizes that the value itself has quotes, so it adds a backslash <code>\</code> to differentiate them from the quotes it uses to print strings. Let’s remove these confusing quotes.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>flower_clean_df[<span class="st">"flowers"</span>] <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\"</span><span class="st">"</span>, <span class="co"># \" the backlash tells R to match quotes</span></span>
@@ -404,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "1"  "10" "10" "1"  "4"  "9" </code></pre>
 </div>
 </div>
-<p>Now we can transform the column to be of type “double”.</p>
+<p>Now we can coerce the column “flowers” to be of type “double”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>flower_clean_df[<span class="st">"flowers"</span>] <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(flower_clean_df<span class="sc">$</span>flowers)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(flower_clean_df<span class="sc">$</span>flowers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -433,7 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ flowers   : num  1 10 10 1 4 9 7 6 5 8 ...</code></pre>
 </div>
 </div>
-<p>Column “flowers” looks fine, but column “nitrogen” looks suspicious. It is supposed to have only three levels (“low”, “medium”, and “high”), but its description counts eight. Let’s examine them more closely:</p>
+<p>Column “treat” looks fine, but column “nitrogen” looks suspicious. It is supposed to have only three levels (“low”, “medium”, and “high”), but its description counts eight. Let’s examine these levels:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(flower_clean_df<span class="sc">$</span>nitrogen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

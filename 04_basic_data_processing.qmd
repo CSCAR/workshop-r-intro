@@ -1,6 +1,10 @@
 # Basic data processing
 
-Now we can apply our understanding of **R** to work with pre-made files of data. The first step is to locate our working directory, which is the default location where **R** will look for files we want to load and where it will put any files we save. This directory is different on each computer, but we can find it by running:
+Now we can apply our understanding of **R** to work with pre-made files of data.
+The first step is to locate our working directory, which is the default location
+where **R** will look for files we want to load and where it will put any files
+we save. This directory is different on each computer, but we can find it by
+running:
 ```{r get working directory}
 #| eval: false
 getwd()
@@ -11,7 +15,11 @@ getwd()
 print("C:/Users/user_name/workshop_folder/learning_r/code")
 ```
 
-We can move our working directory to any folder on our computer by writing a new [file path](https://www.codecademy.com/resources/docs/general/file-paths) inside the function `setwd()`. I prefer to set my working directory to a folder dedicated exclusively to whichever project I am currently working on. This way, every file related to my project is in the same place. For example:
+We can move our working directory to any folder on our computer by writing a
+new [file path](https://www.codecademy.com/resources/docs/general/file-paths)
+inside the function `setwd()`. I prefer to set my working directory to a folder
+dedicated exclusively to whichever project I am currently working on. This way,
+every file related to my project is in the same place. For example:
 
 ```{r}
 #| eval: false
@@ -182,7 +190,7 @@ Column "flowers" seems to contain numbers but is classified as type "character".
 head(flower_clean_df[["flowers"]])
 ```
 
-**R** recognizes that the value itself has quotes, so it adds a backslash `\` to differentiate them from the quotes it uses to print strings. We can manually coerce the column "flowers" to be of type double, but first we must remove those confusing quotes.
+**R** recognizes that the value itself has quotes, so it adds a backslash `\` to differentiate them from the quotes it uses to print strings. Let's remove these confusing quotes.
 
 ```{r eliminate quotes from flowers column}
 flower_clean_df["flowers"] <- gsub(
@@ -194,7 +202,7 @@ flower_clean_df["flowers"] <- gsub(
 head(flower_clean_df$flowers)
 ```
 
-Now we can transform the column to be of type "double".
+Now we can coerce the column "flowers" to be of type "double".
 ```{r coerce flowers column into double}
 flower_clean_df["flowers"] <- as.numeric(flower_clean_df$flowers)
 typeof(flower_clean_df$flowers)
@@ -208,7 +216,7 @@ flower_clean_df["nitrogen"] <- factor(flower_clean_df$nitrogen)
 str(flower_clean_df)
 ```
 
-Column "flowers" looks fine, but column "nitrogen" looks suspicious. It is supposed to have only three levels ("low", "medium", and "high"), but its description counts eight. Let's examine them more closely:
+Column "treat" looks fine, but column "nitrogen" looks suspicious. It is supposed to have only three levels ("low", "medium", and "high"), but its description counts eight. Let's examine these levels:
 ```{r check levels of nitrogen column}
 levels(flower_clean_df$nitrogen)
 ```

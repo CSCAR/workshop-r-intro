@@ -1,19 +1,18 @@
 # Data in R
 
-In the previous section we learned how to store, extract, and manipulate
-numerical vectors. But working with real data requires using multiple types of
-data with different shapes and sizes. In this section we will learn how **R**
-handles different data types and structures, and how to use them to study and
-summarize data.
+There are multiple types of data that can come in different shapes and sizes. 
+In the previous section we learned how to store, extract, and manipulate 
+numerical vectors. In this section we will learn how **R** handles different
+data types and structures, and how to use them to study and summarize data.
 
 ## Data types
 
-Data types are classifications of data that help **R** conform to our intuition.
-For example, multiplying $2$ by $7$ feels right, but multiplying "pineapple" by
-"stalactite" does not. There are six data types in **R**: double, integer,
-logical, character, complex, and raw, each with its own rules for storing and
-handling. Learning these rules will allow us to analyze data later with less
-effort and fewer mistakes.
+Data types are classifications of data that help **R** conform to our 
+intuition: multiplying $2$ by $7$ feels right; multiplying "pineapple" by
+"stalactite" does not. **R** has data types double, integer, logical,
+character, complex, and raw, each with its own rules for storing and handling.
+Learning these rules now will allow us to analyze data later with less effort
+and fewer mistakes.
 
 Data type **complex** is for imaginary numbers, and type **raw** is for raw
 bytes of data. It is unlikely that you will ever need these data types, so I
@@ -31,9 +30,9 @@ you must type a number followed by an `L`:
 my_integer <- 5L
 typeof(my_integer)
 ```
-As data scientists we rarely use integers because we can save them as doubles.
-But they can help us do complicated operations because **R** stores them more
-precisely and with less memory than doubles.
+Many data scientists ignore integers because we can save them as doubles. But
+**R** stores integers more precisely and with less memory than doubles. This
+extra efficiency is helpful when the computations are lengthy or imprecise, or when computer memory is limited.
  
 **Logicals** are truth values `TRUE` and `FALSE`, which are useful when we
 compare numbers or objects:
@@ -57,7 +56,7 @@ missing_value <- NA
 typeof(missing_value)
 ```
 Treating `NA` as a logical value allows **R** to handle missing data in
-intuitive ways. Consider, for example, that if a value is missing, we can not
+intuitive ways. Consider, for example, that if a value is missing, we cannot
 know whether it is bigger than a number, or whether it is equal to a word. **R**
 reflects this intuition by forcing any comparison involving `NA` to result in
 another `NA`.
@@ -75,12 +74,11 @@ my_character <- "Somewhere in La Mancha"
 typeof(my_character)
 ```
 It is easy to confuse character strings with objects because both look like
-chunks of text in the code. For example, `the_thing` and `"the_thing"` look
-alike. However, `the_thing` is the name of an object that can contain any type
-of data, while `"the_thing"` is a character string, i.e., a piece of data
-that we can assign to any name. If we forget the quotation marks when writing a
-name, **R** will look for an object that likely doesn't exist, so we will likely
-get an error.
+chunks of text in the code. `the_thing` and `"the_thing"`, for example, look
+alike. But `the_thing` is the name of an object that can contain any type
+of data, while `"the_thing"` is a piece of data that we can assign to any name.
+If we forget the quotation marks when writing a name, **R** will look for an
+object that likely doesn't exist and will return an error.
 ```{r}
 #| error: true
 noquotes
@@ -100,7 +98,7 @@ typeof(9)
 ```
 
 A special type of character string is a *factor*, which stores categorical
-information like color or level of agreement. Factors can only have certain
+information like color or degree of agreement. Factors can only have certain
 values called "levels", which may be ordered (e.g., "agree", "neutral",
 "disagree") or disordered (e.g., "red" or "green"). To create a factor, we can
 start with a vector of strings and use function `as.factor()` to convert it to a
@@ -324,7 +322,7 @@ typeof(new_list)
 ```
 
 Or we can use double-bracket notation `[[ ]]` to get only the subelements of an
-element from the original list (we can not extract multiple elements this way).
+element from the original list (we cannot extract multiple elements this way).
 ```{r extracting a single element without more lists}
 new_item <- all_in_one_list[[1]]
 new_item

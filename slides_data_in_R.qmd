@@ -23,14 +23,14 @@ For beginner **R** coders that want to understand how to manipulate different ty
 
 ## Workshop format
 
-+ From 2:30 to 4:45 pm.
++ From 1:00 to 4:45 pm.
 + Breaks every 45 minutes.
 + A few slides for context and extra information.
 + A lot of hands-on coding and live demonstrations.
 + All materials will be available after the workshop ends.
 
 ::: {.notes}
-This workshop runs from 2:30 to 4:45 pm, with breaks every 45 minutes. Right now I will use a few slides for context and extra information. But this is a WORKshop, so there will be plenty of hands-on coding and live demonstrations. All materials will be available after the workshop ends, so don't worry about copying these slides.
+This workshop runs from 1:00 to 4:45 pm, with breaks every 45 minutes. Right now I will use a few slides for context and extra information. But this is a WORKshop, so there will be plenty of hands-on coding and live demonstrations. All materials will be available after the workshop ends, so don't worry about copying these slides.
 :::
 
 ## Tips for this workshop
@@ -58,7 +58,7 @@ Before we get to the coding part, let me tell you a little bit about the people 
 ## CSCAR is here to help you
 
 + Free, one-hour consultations with full-time statistical consultants.
-+ GSRAs are available for walk-in consultations Monday through Friday, between 9am and 5pm (we close on Tuesdays between noon and 1pm). 
++ GSRAs are available for walk-in consultations Monday through Friday, 9am--5pm (closed on Tuesdays noon--1pm). 
 + All of our scheduled appointments can be either remote or in-person.
 
 ::: {.notes}

@@ -1,14 +1,14 @@
 # The R *Environment*
 
-**R** is an environment for statistical modeling and graphics. That it is an
-*environment* instead of a *package* is one of the main reasons why **R** is 
+R is an environment for statistical modeling and graphics. That it is an
+*environment* instead of a *package* is one of the main reasons why R is 
 distinct from other statistical programs. A package only gives us a fixed set of
 tools. An environment allows us to modify, combine and even create tools to suit
 our specific needs.
 
 ## Why becoming a useR?
 
-**R** is gratis and runs on Windows, MacOS, and several Unix platforms. With **R** you can start with a data set like this:
+R is gratis and runs on Windows, MacOS, and several Unix platforms. With R you can start with a data set like this:
 ```{r loading messy flower data}
 #| echo: false
 flower_df <- read.table("data_files/flower.csv", header = TRUE, sep = ",")
@@ -41,72 +41,79 @@ You can also find many powerful tools to fit statistical models
 - Multivariable analysis (e.g., factor analysis, principal component analysis, 
     and structural equations modeling)
 
-Even better, new tools become available in **R** all the time because, as with
+Even better, new tools become available in R all the time because, as with
 other open source programming languages, everyone can examine and contribute to
-**R**'s code. Users constantly publish their own code packages to expand **R**'s
-capabilities. As of March 2019, users have contributed over 13,700 packages to
-Comprehensive **R** Archive Network (CRAN), many of which perform complex
-statistical routines that are not (and may never be) available in other
-statistical software systems.
+R's code. Users constantly publish their own code packages to expand R's
+capabilities. As of June 2025, there are over 22 thousand packages to the
+Comprehensive R Archive Network (CRAN)[^metacran]. Many of these packages
+perform complex statistical routines that are not (and may never be) available
+in other statistical software systems.
 
-In Windows, there are several ways to use **R**. The standard **R** graphical
+[^metacran]: r-pkg.org. (n.d.). Retrieved July 3, 2025, from
+https://www.r-pkg.org/
+
+In Windows, there are several ways to use R. The standard R graphical
 unit interface (GUI) allows you to point and click to do many basic tasks.
-Another GUI is [**R** Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by 
-John Fox at McMaster University. **R** Commander displays the underlying **R**
+Another GUI is [R Commander](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/), developed by 
+John Fox at McMaster University. R Commander displays the underlying R
 code for each analysis to help the user learn the programming language.
-[Tinn-**R**](http://sourceforge.net/projects/tinn-r/)  is another GUI from Jose
+[Tinn-R](http://sourceforge.net/projects/tinn-r/)  is another GUI from Jose
 Claudio Faria. 
 
 These GUIs are friendly and easy to grasp if you're a beginner. But to use all
-of **R**'s capabilities you will need to do more than point and click. A more
-complete way of using **R** is through an integrated development environment 
-IDE), which, in short, helps you code. The most popular IDE for **R** is
-[**R**Studio](https://www.posit.com), which organizes the user's screen into
-panes that display scripts, objects, graphics, and the **R** console.
+of R's capabilities you will need to do more than point and click. A more
+complete way of using R is through an integrated development environment 
+(IDE), which, in short, helps you code. The most popular IDE for R is
+[RStudio](https://www.posit.com), which organizes the user's screen into
+panes that display scripts, objects, graphics, and the R console.
 
-In these notes, we will use **R**Studio a lot. The goal is for you to start taking full advantage of **R**'s capabilities.
+In these notes, we will use RStudio a lot. The goal is for you to start taking full advantage of R's capabilities.
 
 <!--
 
 ### Easier to make reproducible research
 
-**R**'s availability and accessibility mean that you can share your work with many. This allows consumers to confirm the
+R's availability and accessibility mean that you can share your work with many. This allows consumers to confirm the
 original analysis and to investigate other approaches.
 
 -->
 
 
-## Why Isn't Everyone a Use**R**?
+## Why Isn't Everyone a UseR?
 
-Many users of statistics don't use **R** because they only know how to use one
+Many users of statistics don't use R because they only know how to use one
 statistical software, often the one taught in their first statistics course. In
-the past, **R** rarely was this first language, but nowadays more schools are
+the past, R rarely was this first language, but nowadays more schools are
 teaching how to use it.
 
-Some people have used **R**, but struggled to get comfortable and productive
+Some people have used R, but struggled to get comfortable and productive
 with it, especially if they had little coding experience. Typing commands
-explicitly is more difficult than pointing and clicking. Also, each package has its own rules to learn. We can find a lot of good help for popular packages written by professional developers, but not so much for smaller packages written by other amateur users. Worst of all, some of the messages **R** displays if we make a mistake are uninformative, so fixing the problem can be difficult.
+explicitly is more difficult than pointing and clicking. Also, each package has
+its own rules to learn. We can find a lot of good help for popular packages
+written by professional developers, but not so much for smaller packages written
+by other amateur users. Worst of all, some of the messages R displays if we make
+a mistake are uninformative, so fixing the problem can be difficult.
 
 Don't get frustrated! You don't have to be an expert programmer to use
-**R**, and the benefits are worth spending some time up front.
+R, and the benefits are worth spending some time up front.
 
-## Suggestions for Learning **R**
+## Suggestions for Learning R
 
 - Learn interactively! Retype and experiment with lots of sample code; you won't
     break it. These notes contain many code examples and you can find many more
     online.
-- Don't worry about getting errors. Even experienced **R** users make mistakes
+- Don't worry about getting errors. Even experienced R users make mistakes
     all the time, and you can learn a lot from error messages.
-- Ask other **R** users for help.
+- Ask other R users for help.
 - Some useful links are:
-    -   <https://www.r-project.org>: The **R** Home page, the
-        central webpage for the **R** project. Here you will find
-        links for downloading **R**, downloading additional
-        packages for **R**, and almost everything else that you
+    -   <https://www.r-project.org>: The R Home page, the
+        central webpage for the R project. Here you will find
+        links for downloading R, downloading additional
+        packages for R, and almost everything else that you
         would like to know about the software or the people behind it.
     -   <https://cran.r-project.org/web/views/>: Task views summarize the most
         important packages involved in a subject field or analysis type.
-    -   <https://journal.r-project.org>: The **R** Journal
+    -   <https://journal.r-project.org>: The R Journal
     -   <https://stats.stackexchange.com>: Cross-Validated
     -   <https://www.r-bloggers.com>
     -   <https://stats.idre.ucla.edu/r/>: Institute for Digital Research and
@@ -115,47 +122,47 @@ Don't get frustrated! You don't have to be an expert programmer to use
     -   <https://sas-and-r.blogspot.com/>: Examples of code to perform same task
         in SAS and R.
 
-## How to get **R**
+## How to get R
 
-At the [**R** Project Web Page](https://www.r-project.org) the
+At the [R Project Web Page](https://www.r-project.org) the
 most important link is at the left hand side of the screen, under the "Download"
-heading. Click on the CRAN link (Comprehensive **R** Archive
+heading. Click on the CRAN link (Comprehensive R Archive
 Network), and, after you choose one of the U.S. mirrors, you will be taken to
-the page that you will use to download everything **R**-related.
+the page that you will use to download everything R-related.
 
 Once you find the CRAN web page, take the following steps to obtain
-**R**:
+R:
 
-1.  Click on "Download **R** for X" that best describes your operating system       (Linux, OS X, Windows).
+1.  Click on "Download R for X" that best describes your operating system       (Linux, OS X, Windows).
 2.  When using Windows, click on the "base" subdirectory. This will allow
-    you to download the base **R** packages.
-3.  Click the "Download **R** 4.X.X for Windows" link.
-    **R** is updated quite frequently. At the time of this
+    you to download the base R packages.
+3.  Click the "Download R 4.X.X for Windows" link.
+    R is updated quite frequently. At the time of this
     printing, version 4.4.2 is available. Save the `.exe` file somewhere on your
     computer.
 4.  Double-click on the `.exe` file once it is downloaded. An installation
-    window will appear to guide you through the setup of **R** in your machine.
-5.  Once you finish, you should have an **R** icon on your
-    desktop that gives you a shortcut to the **R** system.
+    window will appear to guide you through the setup of R in your machine.
+5.  Once you finish, you should have an R icon on your
+    desktop that gives you a shortcut to the R system.
 
 ### How to get RStudio
 
-**R**Studio is already installed on the lab workstations. The
+RStudio is already installed on the lab workstations. The
 following information is useful if you need to install
-**R**Studio on another machine. **You must install R before you install RStudio**. Otherwise, **R**Studio will not work.
+RStudio on another machine. **You must install R before you install RStudio**. Otherwise, RStudio will not work.
 
-Visit <https://posit.co/downloads/> and click on "Download **R**Studio". Choose the version for your operating system (Linux, OS X, Windows) and download the installer. Then double click on the installer `.exe` file and follow the instructions on the screen to install **R**Studio.
+Visit <https://posit.co/downloads/> and click on "Download RStudio". Choose the version for your operating system (Linux, OS X, Windows) and download the installer. Then double click on the installer `.exe` file and follow the instructions on the screen to install RStudio.
 
 <!---
 ### Contributed Packages
 
-What exactly are "additional contributed packages"? **R** is an
+What exactly are "additional contributed packages"? R is an
 open source software environment, so users are free to explore the code behind
 the software and to write their own new code. Statisticians, researchers, and
-other users have written additional packages for **R** that
+other users have written additional packages for R that
 perform complex analyses (and simple ones!). In order to use these packages and
 the functions within them, you first need to download them. Base
-**R** comprises many packages, but odds are that you will
+R comprises many packages, but odds are that you will
 discover an uncommon analysis technique in your research that requires you to
 install an additional package that is not included by default.
 

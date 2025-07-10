@@ -2,9 +2,9 @@
 
 ## The RStudio interface
 
-The first screen we see in **R** should look like this:
+The first screen we see in R should look like this:
 
-[![The first screen we see when we open **R**Studio](./images/rstudio_first_screen.jpg)](./images/rstudio_first_screen.jpg)
+[![The first screen we see when we open RStudio](./images/rstudio_first_screen.jpg)](./images/rstudio_first_screen.jpg)
 
 Here, there are three main window panes. The "Console" window is where we type
 the code to tell the computer to do stuff.
@@ -17,14 +17,14 @@ remote databases.
 
 The "Files-Plots-Packages" window has several tabs. "Files" shows us all the 
 files in our current working directory, which is the default location where
-**R** will look for files we want to load and where it will put any files we
-save. "Plots" will display the plots we make in **R**. "Packages" shows us the
+R will look for files we want to load and where it will put any files we
+save. "Plots" will display the plots we make in R. "Packages" shows us the
 packages installed in our computer and whether they are loaded in our current
 session. "Help" allows us to search and read the documentation for packages and 
 functions. "Viewer" can display content that usually belongs to a web browser 
 (i.e., html files).
 
-We can tell **R** to do stuff by typing *commands* in the line that begins with
+We can tell R to do stuff by typing *commands* in the line that begins with
 `>` in the  console window. This line is called "command prompt". Let's begin
 with something simple:
 
@@ -40,7 +40,7 @@ that produce multiple values, like in this case:
 80:110
 ```
 
-If we type an incomplete command, **R** will assume that we are still writing
+If we type an incomplete command, R will assume that we are still writing
 and will show a `+`. This `+` is *not* an arithmetical operator; it is a prompt
 for us to continue writing in the next line and will not go away unless we 
 complete the command or we press the "Escape" key. For example:
@@ -54,7 +54,7 @@ complete the command or we press the "Escape" key. For example:
 [1] 41
 ```
 
-If **R** does not understand a command, it will display an error message.
+If R does not understand a command, it will display an error message.
 
 ```{r}
 #| eval: false
@@ -70,9 +70,9 @@ In this case, what I meant was
 
 ## Using R as a calculator
 
-**R** can perform basic arithmetic operations. Type the
+R can perform basic arithmetic operations. Type the
 following expressions at the command prompt (the line that begins with `>`) in
-the **R** console window.
+the R console window.
 
 ```{r simple arithmetic}
 5 + 3
@@ -81,11 +81,11 @@ the **R** console window.
 5/3
 ```
 
-**R** can also do exponentiation with `^`^[`**` also works for exponentiation,
+R can also do exponentiation with `^`^[`**` also works for exponentiation,
 but it's better to stick to `^`.]; modulus, also known as remainder from
 division, with `%%`; and integer division with `%/%`.
 
-If we try to do shoddy math, **R** will inform us (but not necessarily with an
+If we try to do shoddy math, R will inform us (but not necessarily with an
 error message):
 
 ```{r shoddy math}
@@ -94,7 +94,7 @@ error message):
 -1/0
 ```
 
-**R** also has logical operators that will return "TRUE" or
+R also has logical operators that will return "TRUE" or
 "FALSE".
 
 ```{r logical operators}
@@ -134,14 +134,14 @@ The `all.equal` function will test if two values are "close enough":
 `> ?all.equal`
 -->
 
-This imprecision is not **R**'s fault. All computers have limited space to 
+This imprecision is not R's fault. All computers have limited space to 
 store numbers and decimal positions, so they often use numbers with 
 "hidden" decimals even when it looks like they use round numbers. For example, 
 what looks like a `3` may actually be `3.000005`. You can find more information
 about this imprecision in [FAQ (7.31)](https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f).
 
 Being able to do these computations is nice, but what happens if we want to use
-a result later without redoing or retyping everything? **R** can save numbers
+a result later without redoing or retyping everything? R can save numbers
 (and more) using something called "objects".
 
 ## Objects
@@ -164,7 +164,7 @@ my_object = 42
 ```
 
 In this context, both `<-` and `=` are acting as "assignment operators" because
-they assign the value `42` to the name `my_object`. In **R**, the symbol `=` has
+they assign the value `42` to the name `my_object`. In R, the symbol `=` has
 several common uses, so if you want to avoid confusion, I suggest you use `<-`.
 But you can pick whichever symbol you like the most as long as you are 
 consistent.
@@ -195,7 +195,7 @@ a
 b
 ```
 
-Be careful: if we try to reuse a name, **R** will overwrite the previous object
+Be careful: if we try to reuse a name, R will overwrite the previous object
 without notifying us in any way.
 
 ```{r overwriting object}
@@ -243,8 +243,8 @@ appreciate it.
 
 ## Using functions
 
-**R** has many built-in functions to do anything from basic math to text
-manipulation to advanced statistical models. **R** thinks of functions as
+R has many built-in functions to do anything from basic math to text
+manipulation to advanced statistical models. R thinks of functions as
 objects that store commands that we can apply to an input. For example, we can
 input a number to round it, or to calculate its square root, its factorial, or
 its natural logarithm. To use a function, we must write the name of a function
@@ -302,7 +302,7 @@ The output shows that `round()` has two arguments: `x`, which is the number we
 want to round; and `digits`, which determines how many decimal places to keep.
 The output also shows that `digits` is already set to zero. This means that
 `round` will use 0 as the default value for `digits`, i.e., it will not keep any
-decimal places. We can omit arguments with default values and **R** will
+decimal places. We can omit arguments with default values and R will
 automatically fill them for us in the background.
 
 I encourage you to name all the arguments you define when using a function, or
@@ -312,7 +312,7 @@ remember them in the correct order. It is easy to accidentally switch unnamed
 arguments and get wrong results without even noticing. This is why naming the
 arguments will prevent errors and clarify the function's behavior.
 
-We can also run functions inside other functions. This works because **R** first
+We can also run functions inside other functions. This works because R first
 runs the innermost function and then uses the result in the outermost function.
 
 ```{r nested function}
@@ -325,7 +325,7 @@ explanations to help us?
 
 ## Getting help
 
-The `help()` function allows us to access **R**'s built-in help information on
+The `help()` function allows us to access R's built-in help information on
 any function. For example, to open the help page for `round()`, we do
 
 ```{r help function}
@@ -341,7 +341,7 @@ A shorter way of writing this is to use `?` before the name of the function.
 ```
 
 After you run the code, the help page is displayed in the "Help" tab in the
-"Files-Plots-Packages" pane (usually in the bottom right of **R**Studio).
+"Files-Plots-Packages" pane (usually in the bottom right of RStudio).
 
 As a novice user, help pages may seem arcane---perhaps because they aim for
 shortness and use technical vocabulary. But this short vocabulary makes (most
@@ -369,7 +369,7 @@ the `example()` function (e.g., `example("round")`).
 ## How to get started with help pages?
 Start by reading the help pages of functions that you already understand. This
 will teach you how to understand the structure of the pages and will familiarize
-you with the jargon. As you use **R** you will likely need other, more
+you with the jargon. As you use R you will likely need other, more
 complicated functions, so reading more help pages will happen almost naturally.
 
 Keep in mind that help pages explain the code, not the underlying concepts. If
@@ -377,7 +377,7 @@ you don't know what it means to round a number, reading the documentation for
 `round()` will not help you.
 :::
 
-`help()` is useful if we know the full name of the function. But if all we remember is a key word in the name, we can search through **R**'s help system using `help.search()`
+`help()` is useful if we know the full name of the function. But if all we remember is a key word in the name, we can search through R's help system using `help.search()`
 
 ```{r}
 #| eval: false
@@ -391,7 +391,7 @@ Note that in this case we have to use quotes `" "` around the name of the functi
 ??round
 ```
 
-As before, the 'Help' tab in **R**Studio will display the results of the search.
+As before, the 'Help' tab in RStudio will display the results of the search.
 `help.search()` looks for the pattern in the help documentation, code
 demonstrations, and package vignettes and displays the results as clickable
 links that we can follow.
@@ -401,7 +401,7 @@ specified character string. Note that `apropos()` returns names even when the
 word we used is only part of a larger word, like in "surround". For example, to
 find all functions with `round` in their name, we use^[This output should show 6
 names instead of 3. I can not fix the output in the notes, but the code works
-fine inside **R**Studio.]
+fine inside RStudio.]
 
 ```{r}
 apropos("round")
@@ -425,7 +425,7 @@ Now that we know how to get help, we can move on to more advanced stuff.
 Until now, the console satisfied all our coding needs. But if we wanted to reuse
 a command from before, we would have to either rewrite it from scratch, or look
 tediously through our command history in the "Environment-History-Connections"
-window. Besides, once we close this session in **R**Studio, all of our work will
+window. Besides, once we close this session in RStudio, all of our work will
 be gone, like tears in the rain. It would be much better if we wrote our code in
 a place where we can easily review and modify it.
 
@@ -434,7 +434,7 @@ a place where we can easily review and modify it.
 A script is a plain text file where we write our code. With a script we can
 edit, proofread, and reuse code; we can easily write multi-line code (which is
 cumbersome to do in the console); and we can save our code so we can come back
-to it later or share it with others. I think the best way to code in **R** is to
+to it later or share it with others. I think the best way to code in R is to
 use a script, and I strongly suggest you always use one. 
 
 To open a script, click on `File > New File > R script` in the menu bar on the upper left-hand side of the screen.
@@ -442,7 +442,7 @@ To open a script, click on `File > New File > R script` in the menu bar on the u
 [![A screen with a new script](./images/new_script_screen.jpg)](./images/new_script_screen.jpg)
 
 We can run a line of code in the script using the `Run` button in the upper
-right-hand side of the script window (see picture below). **R** will run
+right-hand side of the script window (see picture below). R will run
 whichever line of code your cursor is on. We can also run all of the code in the
 script by clicking the `Source` button that's next to `Run`. Since I find clicking buttons slow, I use a keyboard shortcut to run a line of code: `Control + Enter` in Windows and Linux; `Command + Enter` in Mac.
 
@@ -451,7 +451,7 @@ script by clicking the `Source` button that's next to `Run`. Since I find clicki
 To save your script, you can click on the blue square^[Young reader, this square
 is a [floppy disk](https://en.wikipedia.org/wiki/Floppy_disk); not-so-young 
 reader, I feel your pain.] right below the tab with the script name. The first 
-time you save your script, **R** will ask you to choose a name and a location 
+time you save your script, R will ask you to choose a name and a location 
 to save your file in. I strongly suggest that you pick a name and a location 
 that you will remember easily in the future.
 
@@ -465,7 +465,7 @@ also work with groups of numbers (and of other stuff) by using something called
 
 ## Working with vectors
 
-In **R**, an ordered group of numbers is called a vector. To create a vector of
+In R, an ordered group of numbers is called a vector. To create a vector of
 numbers, we need to use the function `c()` (short for "combine"). The arguments
 of `c()` are the numbers you want to use in the vector, in the order you want to
 use them.
@@ -477,7 +477,7 @@ my_vec
 
 ::: {.callout-note}
 ## Comments 
-Did you see the text I added next to the code? **R** will ignore everything in a
+Did you see the text I added next to the code? R will ignore everything in a
 line that comes after a hashtag `#`, also known as *commenting symbol*. Comments
 can explain confusing chunks of code, or warn future users about potential
 problems.
@@ -490,7 +490,7 @@ vector_of_words <- c("monday", "lemon")
 vector_of_words
 ```
 
-Note that we must enclose words in quotation marks to let **R** know that we
+Note that we must enclose words in quotation marks to let R know that we
 want to use "monday" and "lemon" as values and not as names for objects. Look at
 what happens if we forget the quotation marks:
 
@@ -516,7 +516,7 @@ us another way of accessing the elements inside the vector.
 
 ### Operations with numerical vectors
 
-**R** is a "vectorized" language, which means that it can often operate on an
+R is a "vectorized" language, which means that it can often operate on an
 entire vector of numbers as easily as on a single number. All the logical and
 mathematical functions we used before work with vectors:
 
@@ -527,21 +527,21 @@ log(my_vec)
 my_vec*my_vec
 ```
 
-In the last example, **R** did not obey the rules of linear algebra to multiply
-two vectors. Instead, **R** used "element-wise execution", which means that
-**R** applied the same operation to each element of the vector independently of
+In the last example, R did not obey the rules of linear algebra to multiply
+two vectors. Instead, R used "element-wise execution", which means that
+R applied the same operation to each element of the vector independently of
 the other elements.
 
-To decide how to apply element-wise execution, **R** considers the *length* of
+To decide how to apply element-wise execution, R considers the *length* of
 the vectors, which refers to the number of elements inside them. When we use two
-vectors with the same length, **R** will line up the vectors and perform a
-sequence of individual operations. For instance, in `my_vec*my_vec`, **R**
+vectors with the same length, R will line up the vectors and perform a
+sequence of individual operations. For instance, in `my_vec*my_vec`, R
 multiplies the first element of vector 1 by the first element of vector 2, then
 the second element of vector 1 by the second element of vector 2, and so on,
 until all elements are multiplied. The result will be a new vector with the same
 length as the first two. 
 
-When we use two vectors with *different* lengths, **R** will repeat the shorter
+When we use two vectors with *different* lengths, R will repeat the shorter
 vector until it has as many elements as the longer vector, and then it will do
 the same as before. For example:
 
@@ -550,22 +550,22 @@ my_vec * c(1, 2)
 ```
 
 If the length of the short vector does not divide evenly into the length of the 
-long vector, **R** will do an incomplete repeat of the shorter vector and return
+long vector, R will do an incomplete repeat of the shorter vector and return
 a warning. 
 
 ```{r recycling vectors 2}
 my_vec * c(1, 2, 3, 4)
 ```
 
-Repeating the numbers of the vector is known as "vector recycling", and it helps **R** do element-wise operations.
+Repeating the numbers of the vector is known as "vector recycling", and it helps R do element-wise operations.
 
 Element-wise execution allows us to apply the same instruction to all elements 
 in an object rather than one element at a time. When working with a data set, 
 element-wise execution will ensure that values from one observation or case are 
 only paired with values from the same observation or case. Element-wise 
-execution also facilitates writing our functions in **R**.
+execution also facilitates writing our functions in R.
 
-**R** can do vector and matrix multiplications, but we have to ask for them 
+R can do vector and matrix multiplications, but we have to ask for them 
 explicitly. For example, to get the inner product, we need the operator `%*%`;
 and to get the outer product, we need `%o%`. Don't worry if you are not familiar
 with matrix operations; you won't need them in these notes.
@@ -612,7 +612,7 @@ my_vec[3:6]
 
 ::: {.callout-note}
 ## Note 
-In **R**, the positional index starts at 1, so to call the first element of a
+In R, the positional index starts at 1, so to call the first element of a
 vector we need to use `[1]`. In many other programming languages (like Python
 and C++), the positional index starts at 0.
 :::
@@ -632,10 +632,10 @@ expression as an index. For example, to extract all elements greater than 4 from
 my_vec[my_vec > 4]
 ```
 
-This works because **R** uses element-wise execution even for logical
+This works because R uses element-wise execution even for logical
 statements. So, `my_vec > 4` asks if each item of `my_vec` meets the condition
 "greater than four" and returns the corresponding vector of `TRUE` and `FALSE`.
-Then, when we add this result to the square brackets, **R** examines each
+Then, when we add this result to the square brackets, R examines each
 element of `my_vec` asking "should I extract this element?". If the answer is
 `TRUE`, the value is extracted; if it's `FALSE`, the value is ignored. Under the
 hood, using `my_vec > 4` is equivalent to
@@ -664,7 +664,7 @@ my_vec[c(5, 6)] <- 55
 my_vec
 ```
 
-**R** can also do element-wise replacement:
+R can also do element-wise replacement:
 
 ```{r}
 my_vec[c(5, 6)] <- c(100, 200)
@@ -734,7 +734,7 @@ use `order()` on one column to make a vector of positional indices. Then we can
 use these indices on both columns to keep the values of each coupled in the
 original way.
 
-So far we have relied on **R**'s built-in capabilities to do everything we need. But sometimes we need to do something for which there isn't a built-in function. In these cases, we can get inventive and write a function ourselves.
+So far we have relied on R's built-in capabilities to do everything we need. But sometimes we need to do something for which there isn't a built-in function. In these cases, we can get inventive and write a function ourselves.
 
 ## Writing our own functions
 
@@ -754,7 +754,7 @@ simple_function <- function() {
 
 :::callout-tip
 ## Indents make code more readable
-Indenting the body of the function helps the reader notice that the code is only supposed to run inside the function. Indentation doesn't affect our functions, but it is helpful and widespread among **R** coders.
+Indenting the body of the function helps the reader notice that the code is only supposed to run inside the function. Indentation doesn't affect our functions, but it is helpful and widespread among R coders.
 :::
 
 To run our function, we have to write its name followed by round brackets, just like with any other function:
@@ -763,9 +763,9 @@ To run our function, we have to write its name followed by round brackets, just 
 simple_function()
 ```
 
-Remember to write the round brackets even if they are empty. The round brackets make **R** *run* the code inside the function. If we don't write these brackets, **R** will *show us* the code inside the function (try it!).
+Remember to write the round brackets even if they are empty. The round brackets make R *run* the code inside the function. If we don't write these brackets, R will *show us* the code inside the function (try it!).
 
-Let's write a function to convert Fahrenheit degrees to Celsius. We want to use this function with different temperatures, so we need to include an argument that will tell **R** which temperature to convert each time.
+Let's write a function to convert Fahrenheit degrees to Celsius. We want to use this function with different temperatures, so we need to include an argument that will tell R which temperature to convert each time.
 
 ```{r fahr to celsius without function}
 fahr_to_cels <- function(temperature) {
@@ -790,7 +790,7 @@ Now all we need is to identify values of $a, b,$ and $c$ to pass as arguments.
 solve_quadratic(a = 1, b = -1, c = -3)
 ```
 
-Why didn't our function show a result? When we run a function, **R** runs the
+Why didn't our function show a result? When we run a function, R runs the
 code in the body and returns the result of the last line of code. In
 `solve_quadratic()`, the last line saves the second solution but doesn't show
 it. We need more code to ensure that the last line displays both solutions.
@@ -827,8 +827,8 @@ into a single vector.
 
 Our function can have as many arguments as we like. It is enough to add their
 names, separated by commas, in the parentheses that follow the function. When
-the function runs, **R** will replace each argument name in the function body
-with the corresponding value that we supply. If we don't supply a value, **R**
+the function runs, R will replace each argument name in the function body
+with the corresponding value that we supply. If we don't supply a value, R
 will replace the argument name with the argument's default value (if we defined
 one).
 
@@ -847,7 +847,7 @@ multiply_solutions(a = 1, b = -1, c = -3, multiplier = 10)
 All of the objects that we create inside a function will disappear after it finishes running. Only the output will remain, and to save it we need to assign it to an object.
 :::
 
-Being able to write our own functions is great, but we don't need to reinvent the wheel every time we need to do something that is not available in **R**'s default version. We can easily download packages from CRAN's online repositories to get many useful functions.
+Being able to write our own functions is great, but we don't need to reinvent the wheel every time we need to do something that is not available in R's default version. We can easily download packages from CRAN's online repositories to get many useful functions.
 
 ## Acquiring external packages
 
@@ -857,19 +857,19 @@ To install a package from CRAN, we can use the `install.packages()` function. Fo
 install.packages("readxl", dependencies = TRUE)
 ```
 
-The argument `dependencies` tells **R** whether it should also download other packages that `readxl` needs to work.
+The argument `dependencies` tells R whether it should also download other packages that `readxl` needs to work.
 
-**R** may ask you to select a CRAN mirror which, simply put, refers to the location of the servers you want to download from. Choose a mirror close to where you are.
+R may ask you to select a CRAN mirror which, simply put, refers to the location of the servers you want to download from. Choose a mirror close to where you are.
 
-After installing a package, we need to load it into **R** before we can use its functions. To load the package `readxl`, we need to use the function `library()`, which will also load any other packages required to load `readxl` and may print additional information.
+After installing a package, we need to load it into R before we can use its functions. To load the package `readxl`, we need to use the function `library()`, which will also load any other packages required to load `readxl` and may print additional information.
 ```{r loading readxl}
 #| eval: false
 library("readxl")
 ```
 
-Whenever we start a new **R** session we need to load the packages we need. If we try to run a function without loading its package first, **R** will not be able to find it and will return an error message. 
+Whenever we start a new R session we need to load the packages we need. If we try to run a function without loading its package first, R will not be able to find it and will return an error message. 
 
-Writing all our `library()` statements at the top of our **R** scripts is almost always good because it helps us know that we need to load the libraries at the start our sessions. It also lets others know quickly that they will need to have those libraries installed to be able to use our code.
+Writing all our `library()` statements at the top of our R scripts is almost always good because it helps us know that we need to load the libraries at the start our sessions. It also lets others know quickly that they will need to have those libraries installed to be able to use our code.
 
 A library can contain many objects, but sometimes we only need one or two of its functions. To avoid loading the entire library, we can access the specific function directly by specifying the package name followed by two colons and then the function name. For example:
 ```{r using specific function from library}
@@ -880,7 +880,7 @@ readxl::read_xlsx("fake_data_file.xlsx")
 
 ## Exercise
 
-Let's try to practice all of the basic features of **R** that you just learned. Write a function that can simulate the roll of a pair of six-sided dice (let's call them red and blue) an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die. Hint: to simulate rolling a die, you can use the function `sample()`.
+Let's try to practice all of the basic features of R that you just learned. Write a function that can simulate the roll of a pair of six-sided dice (let's call them red and blue) an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die. Hint: to simulate rolling a die, you can use the function `sample()`.
 
 ::: {.callout-tip collapse="true"}
 ## Exercise step by step

@@ -85,7 +85,7 @@ R can also do exponentiation with `^`^[`**` also works for exponentiation,
 but it's better to stick to `^`.]; modulus, also known as remainder from
 division, with `%%`; and integer division with `%/%`.
 
-If we try to do shoddy math, R will inform us (but not necessarily with an
+If our math is amiss, R will inform us (but not necessarily with an
 error message):
 
 ```{r shoddy math}
@@ -147,17 +147,16 @@ a result later without redoing or retyping everything? R can save numbers
 ## Objects
 
 In simple terms, an object is a named piece of information that we can access
-whenever we want. A single number, a word, a plot, and a set of instructions can
-all be objects if we name them. To create an object, we must first choose a
-name, then type an arrow `<-` (this is a "lower than" symbol `<` followed by a
-"minus" sign `-`), and then write the value that we want to save.
+whenever we want. A single number, a word, a plot, and a set of instructions
+can all be objects if we name them. To create an object, we must first choose
+a name, then type an arrow `<-` (this is a "lower than" symbol `<` followed by
+a "minus" sign `-`), and then write the value that we want to save.
 
 ```{r create first object}
 my_object <- 42
 ```
 
-Another way of creating the object is to use the "equal to" sign `=` instead of
-the arrow.
+We can also use the "equal to" sign `=` instead of the arrow.
 
 ```{r create first object method 2}
 my_object = 42
@@ -236,10 +235,13 @@ Also, here are a few suggestions that can save you many hours of frustration:
 with an underscore (`my_object`) or a dot (`my.object`), or capitalize the
 different words (`MyObject`). Choose whichever format you like most and be
 consistent with it.
-+ Use informative names. It is quick and easy to use names like `x` or `value1`.
-But your code will be easier and faster to understand if your objects have names
-that illustrate their purposes. Your colleagues and your future self will really
-appreciate it.
++ Use informative names. Writing names like `x` or `value1` is quick and
+easy---but it is also vague. Your code will be clearer if your objects have
+names that describe their contents and purpose. Your colleagues and your
+future self will really appreciate it[^object_names_advice].
+
+[^object_names_advice]: [This page](https://dev.to/gervaisamoah/a-guide-to-clean-code-the-power-of-good-names-3f6i)
+offers more advice for choosing names in code. 
 
 ## Using functions
 
@@ -354,8 +356,8 @@ The first line of the help document displays the name of the function and the
 package that contains the function. Other sections are:
 
 + **Description**: summarizes the function.
-+ **Usage**: names the arguments associated with the function and possible
-default values.
++ **Usage**: names the arguments associated with the function and their
+possible default values.
 + **Arguments**: describes the purpose and format of each input.
 + **Details**: explicates what the function does and how it does it.
 + **Value**: if applicable, describes the type and structure of the object that
@@ -422,12 +424,13 @@ RSiteSearch("regression")
 Now that we know how to get help, we can move on to more advanced stuff.
 --> 
 
-Until now, the console satisfied all our coding needs. But if we wanted to reuse
-a command from before, we would have to either rewrite it from scratch, or look
-tediously through our command history in the "Environment-History-Connections"
-window. Besides, once we close this session in RStudio, all of our work will
-be gone, like tears in the rain. It would be much better if we wrote our code in
-a place where we can easily review and modify it.
+Until now, the console satisfied all our coding needs. But if we wanted to
+reuse a command from before, we would have to either rewrite it from scratch,
+or look tediously through our command history in the
+"Environment-History-Connections" window. Besides, once we close this session
+in RStudio, all of our work will be gone---like tears in the rain. It would be
+much better if we wrote our code in a place where we can easily review and
+modify it.
 
 ## Working with scripts
 
@@ -491,7 +494,7 @@ vector_of_words
 ```
 
 Note that we must enclose words in quotation marks to let R know that we
-want to use "monday" and "lemon" as values and not as names for objects. Look at
+want to use "monday" and "lemon" as values and not as names for objects. See
 what happens if we forget the quotation marks:
 
 ```{r}
@@ -703,21 +706,28 @@ sorted_vec_decreasing <- rev(sort(my_vec))
 sorted_vec_decreasing
 ```
 
-A more useful feature of vectors is that we can reorder their elements based on the values of other vectors. To show this, let's first create a vector of city names and a vector with (my guess of) their typical daily temperatures in degrees Fahrenheit.
+A more useful feature of vectors is that we can reorder their elements based
+on the values of other vectors. To show this, let's first create a vector of
+city names and a vector of (my guess of) their typical daily temperatures in
+degrees Fahrenheit.
 
 ```{r}
 cities <- c("Tokyo", "Cairo", "Mexico City", "Helsinki")
 temps_fahr <- c(50, 90, 65, -10)
 ```
 
-Now imagine that we want to order the vector of cities, going from coldest to hottest. The first step is to use `order()` to create a new variable called "temps_order".
+Now imagine that we want to order the cities from coldest to hottest. The first
+step is to use `order()` to create a new variable called "temps_order".
 
 ```{r}
 temps_order <- order(temps_fahr)
 temps_order
 ```
 
-This output says that the lowest value in `temps_fahr` is in the fourth position, the second lowest value is in the first position, and so on. We can think of `temps_order` as a vector of positional indices of temperatures in ascending order. Now we can use these indices to reorder the vector of cities.
+This output says that the lowest value in `temps_fahr` is in the fourth
+position, the second lowest value is in the first position, and so on. We can
+think of `temps_order` as a vector of positional indices of temperatures in
+ascending order. Now we can use these indices to reorder the vector of cities.
 
 ```{r}
 cities_ordered <- cities[temps_order]
@@ -726,25 +736,32 @@ cities_ordered
 
 Ta-da! 
 
-These vector manipulations can do more than dazzle your friends. Imagine that we
-have a data set with two columns of data and that we want to sort it based on
-the values of the first column. If we use `sort()` on each column separately,
-the values of each column will become uncoupled from each other. Instead, we can
-use `order()` on one column to make a vector of positional indices. Then we can
-use these indices on both columns to keep the values of each coupled in the
-original way.
+These vector manipulations can do more than dazzle your friends. Imagine that
+we have a data set with two columns of data and that we want to sort it based
+on the values of the first column. If we use `sort()` on each column
+separately, the values of each column will become uncoupled from each other.
+Instead, we can use `order()` on one column to make a vector of positional
+indices. Then we can use these indices on both columns to keep the values of
+each coupled in the original way.
 
-So far we have relied on R's built-in capabilities to do everything we need. But sometimes we need to do something for which there isn't a built-in function. In these cases, we can get inventive and write a function ourselves.
+So far we have relied on R's built-in capabilities to do everything we need.
+But sometimes we need to do something for which there isn't a built-in
+function. In these cases, we can get inventive and write a function ourselves.
 
 ## Writing our own functions
 
-Functions, as you may remember, are objects that store commands. The three basic parts of a function are name, code to implement, and arguments. To assemble these parts, we can use the `function()` function (yes, really) followed by a pair of curly brackets `{}`:
+Functions, as you may remember, are objects that store commands. The three
+basic parts of a function are name, code to implement, and arguments. To
+assemble these parts, we can use the `function()` function (yes, really)
+followed by a pair of curly brackets `{}`:
 
 ```{r}
 my_function <- function() {}
 ```
 
-`function()` will run the code that we write inside the curly brackets. This code is called the body of the function. Let's try something simple, like adding 1 + 1:
+`function()` will run the code that we write inside the curly brackets. This
+code is called the body of the function. Let's try something simple, like adding
+1 + 1:
 
 ```{r make simple_function}
 simple_function <- function() {
@@ -754,18 +771,25 @@ simple_function <- function() {
 
 :::callout-tip
 ## Indents make code more readable
-Indenting the body of the function helps the reader notice that the code is only supposed to run inside the function. Indentation doesn't affect our functions, but it is helpful and widespread among R coders.
+Indenting the body of the function helps the reader notice that the code is
+only supposed to run inside the function. Indentation doesn't affect our
+functions, but it is helpful and widespread among R coders.
 :::
 
-To run our function, we have to write its name followed by round brackets, just like with any other function:
+To run our function, we have to write its name followed by round brackets, just
+like with any other function:
 
 ```{r run simple function}
 simple_function()
 ```
 
-Remember to write the round brackets even if they are empty. The round brackets make R *run* the code inside the function. If we don't write these brackets, R will *show us* the code inside the function (try it!).
+Remember to write the round brackets even if they are empty. The round brackets
+make R *run* the code inside the function. If we don't write these brackets, R
+will *show us* the code inside the function (try it!).
 
-Let's write a function to convert Fahrenheit degrees to Celsius. We want to use this function with different temperatures, so we need to include an argument that will tell R which temperature to convert each time.
+Let's write a function to convert Fahrenheit degrees to Celsius. We want to
+use this function with different temperatures, so we need to include an
+argument that will tell R which temperature to convert each time.
 
 ```{r fahr to celsius without function}
 fahr_to_cels <- function(temperature) {
@@ -774,13 +798,16 @@ fahr_to_cels <- function(temperature) {
 fahr_to_cels(27)
 ```
 
-Now let's try something a bit more complicated: solving a quadratic equation. If we have an equation of the form $ax^2 + bx + c = 0$, then the solutions are given by $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$. We can write a function that will apply this formula for us.
+Now let's try something a bit more complicated: solving a quadratic equation. If
+we have an equation of the form $ax^2 + bx + c = 0$, then the solutions are
+given by $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$. We can write a function that
+will apply this formula for us.
 
 ```{r solve_quadratic incomplete}
 solve_quadratic <- function(a, b, c) {
     # Quadratic equations can have two solutions
-    solution_1 <- (-b + sqrt(b**2 - 4*a*c)) / 2*a # First solution
-    solution_2 <- (-b - sqrt(b**2 - 4*a*c)) / 2*a # Second solution
+    solution_1 <- (-b + sqrt(b^2 - 4*a*c)) / 2*a # First solution
+    solution_2 <- (-b - sqrt(b^2 - 4*a*c)) / 2*a # Second solution
 }
 ```
 
@@ -800,20 +827,21 @@ function:
 ```{r solve_quadratic}
 solve_quadratic <- function(a, b, c) {
     # Quadratic equations can have two solutions
-    solution_1 <- (-b + sqrt(b**2 - 4*a*c)) / 2*a # First solution
-    solution_2 <- (-b - sqrt(b**2 - 4*a*c)) / 2*a # Second solution
+    solution_1 <- (-b + sqrt(b^2 - 4*a*c)) / 2*a # First solution
+    solution_2 <- (-b - sqrt(b^2 - 4*a*c)) / 2*a # Second solution
     c(solution_1, solution_2) # Show vector of solutions
 }
 solve_quadratic(a = 1, b = -1, c = -3)
 ```
 
-A more explicit way of ensuring our function will display its result is to use the `return()` statement inside the function:
+A more explicit way of ensuring our function will display its result is to use
+the `return()` statement inside the function:
 
 ```{r solve_quadratic with return()}
 solve_quadratic <- function(a, b, c) {
     # Quadratic equations can have two solutions
-    solution_1 <- (-b + sqrt(b**2 - 4*a*c)) / 2*a # First solution
-    solution_2 <- (-b - sqrt(b**2 - 4*a*c)) / 2*a # Second solution
+    solution_1 <- (-b + sqrt(b^2 - 4*a*c)) / 2*a # First solution
+    solution_2 <- (-b - sqrt(b^2 - 4*a*c)) / 2*a # Second solution
     return(c(solution_1, solution_2)) # Return vector of solutions
 }
 solve_quadratic(a = 1, b = -1, c = -3)
@@ -832,7 +860,12 @@ with the corresponding value that we supply. If we don't supply a value, R
 will replace the argument name with the argument's default value (if we defined
 one).
 
-We can also use our functions to create other functions. Imagine that we want to multiply the solutions to our equation by an arbitrary value (maybe because we want to convert the units of $x$ to something else). And let's pretend that, by default, we want to double the solutions. We can write another function that first calls `solve_quadratic()` and then multiplies the result by our arbitrary number.
+We can also use our functions to create other functions. Imagine that we want
+to multiply the solutions to our equation by an arbitrary value (maybe because
+we want to convert the units of $x$ to something else). And let's pretend
+that, by default, we want to double the solutions. We can write another
+function that first calls `solve_quadratic()` and then multiplies the result
+by our arbitrary number.
 
 ```{r}
 multiply_solutions = function(a, b, c, multiplier = 2) {
@@ -844,34 +877,57 @@ multiply_solutions(a = 1, b = -1, c = -3, multiplier = 10)
 
 ::: {.callout-note}
 ## Objects created in functions disappear
-All of the objects that we create inside a function will disappear after it finishes running. Only the output will remain, and to save it we need to assign it to an object.
+All of the objects that we create inside a function will disappear after it
+finishes running. Only the output will remain, and to save it we need to
+assign it to an object.
 :::
 
-Being able to write our own functions is great, but we don't need to reinvent the wheel every time we need to do something that is not available in R's default version. We can easily download packages from CRAN's online repositories to get many useful functions.
+Being able to write our own functions is great, but we don't need to reinvent
+the wheel every time we need to do something that is not available in R's
+default version. We can easily download packages from CRAN's online
+repositories to get many useful functions.
 
 ## Acquiring external packages
 
-To install a package from CRAN, we can use the `install.packages()` function. For example, if we wanted to install the package `readxl` (for loading .xslx files), we would need:
+To install a package from CRAN, we can use the `install.packages()` function.
+For example, if we wanted to install the package `readxl` (for loading .xslx
+files), we would need:
 ```{r installing readxl}
 #| eval: false
 install.packages("readxl", dependencies = TRUE)
 ```
 
-The argument `dependencies` tells R whether it should also download other packages that `readxl` needs to work.
+The argument `dependencies` tells R whether it should also download other
+packages that `readxl` needs to work.
 
-R may ask you to select a CRAN mirror which, simply put, refers to the location of the servers you want to download from. Choose a mirror close to where you are.
+R may ask you to select a CRAN mirror which, simply put, refers to the
+location of the servers you want to download from. Choose a mirror close to
+where you are.
 
-After installing a package, we need to load it into R before we can use its functions. To load the package `readxl`, we need to use the function `library()`, which will also load any other packages required to load `readxl` and may print additional information.
+After installing a package, we need to load it into R before we can use its
+functions. To load the package `readxl`, we need to use the function
+`library()`, which will also load any other packages required to load `readxl`
+and may print additional information.
+
 ```{r loading readxl}
 #| eval: false
 library("readxl")
 ```
 
-Whenever we start a new R session we need to load the packages we need. If we try to run a function without loading its package first, R will not be able to find it and will return an error message. 
+Whenever we start a new R session we need to load the packages we need. If we
+try to run a function without loading its package first, R will not be able to
+find it and will return an error message. 
 
-Writing all our `library()` statements at the top of our R scripts is almost always good because it helps us know that we need to load the libraries at the start our sessions. It also lets others know quickly that they will need to have those libraries installed to be able to use our code.
+Writing all our `library()` statements at the top of our R scripts is almost
+always good because it helps us know that we need to load the libraries at the
+start our sessions. It also lets others know quickly that they will need to
+have those libraries installed to be able to use our code.
 
-A library can contain many objects, but sometimes we only need one or two of its functions. To avoid loading the entire library, we can access the specific function directly by specifying the package name followed by two colons and then the function name. For example:
+A library can contain many objects, but sometimes we only need one or two of
+its functions. To avoid loading the entire library, we can access the specific
+function directly by specifying the package name followed by two colons and
+then the function name. For example:
+
 ```{r using specific function from library}
 #| eval: false
 readxl::read_xlsx("fake_data_file.xlsx")
@@ -880,7 +936,12 @@ readxl::read_xlsx("fake_data_file.xlsx")
 
 ## Exercise
 
-Let's try to practice all of the basic features of R that you just learned. Write a function that can simulate the roll of a pair of six-sided dice (let's call them red and blue) an arbitrary number of times. This function should return a vector with the values of the red die that were strictly larger than the corresponding values of the blue die. Hint: to simulate rolling a die, you can use the function `sample()`.
+Let's try to practice all of the basic features of R that you just learned.
+Write a function that can simulate the roll of a pair of six-sided dice (let's
+call them red and blue) an arbitrary number of times. This function should
+return a vector with the values of the red die that were strictly larger than
+the corresponding values of the blue die. Hint: to simulate rolling a die, you
+can use the function `sample()`.
 
 ::: {.callout-tip collapse="true"}
 ## Exercise step by step
@@ -894,10 +955,14 @@ if you need to).
 + Step 4: create a vector of indices that identifies the values in the red die
 that were larger than the values in the blue die.
 + Step 5: use this vector of indices to extract the values from the red die.
-+ Step 6: make sure that your function returns the values you extracted in step 5.
++ Step 6: make sure that your function returns the values you extracted in
+step 5.
 
 :::
 
 ## References
 
-Most of this section is based on ["Hands-On Programming with R"](https://rstudio-education.github.io/hopr/), by Garret Grolemund; and on ["An Introduction to R"](https://intro2r.com/), by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto & David Lusseau.
+Most of this section is based on
+["Hands-On Programming with R"](https://rstudio-education.github.io/hopr/),
+by Garret Grolemund; and on ["An Introduction to R"](https://intro2r.com/),
+by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto & David Lusseau.

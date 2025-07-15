@@ -282,13 +282,13 @@ round(x = 2.1415, digits = 3)
 
 Even better, we can pass arguments in any order as long as we name them all.
 
-```{r}
+```{r shuffle named arguments}
 round(digits = 3, x = 2.1415)
 ```
 
 Note that using the wrong name in a function will likely yield an error message.
 
-```{r}
+```{r wrong argument name}
 #| error: true
 round(x = 2.1415, basket = 3)
 ```
@@ -296,7 +296,7 @@ round(x = 2.1415, basket = 3)
 A quick way to check what arguments we can use is to invoke `args()`, which
 takes the name of a function as its argument:
 
-```{r}
+```{r find arguments of function}
 args(round)
 ```
 
@@ -378,6 +378,43 @@ Keep in mind that help pages explain the code, not the underlying concepts. If
 you don't know what it means to round a number, reading the documentation for
 `round()` will not help you.
 :::
+
+### `help()` in action
+
+Using a more complicated function will make `help()`'s uses (and limitations)
+more evident. Imagine, for example, that we need to simulate the roll of a
+12-sided die. This roll is a type of sample: each roll has 12
+potential outcomes, but produces only one random result. So, we need a
+sampling function that allows us to choose the values inscribed in our
+imaginary die (numbers $1$ through $12$), and the number of rolls we want to
+make (for now, just one).
+
+R's `sample()` function seems useful. Running `help(sample)` shows us that
+"`sample` takes a sample of the specified size from the elements of x using
+either with or without replacement." In the *Arguments* section we can see,
+with some effort, that `x` determines the values we can get on each
+simulation, i.e., the numbers in our die; and that `size` determines
+how many simulations we want to run, i.e., the number of rolls. This knowledge
+is enough for us to simulate one die roll:
+
+```{r simulate one die roll}
+sample(x = 1:12, size = 1)
+```
+
+Now imagine that we want to simulate rolling our die 10 times. A fast solution
+is to increase `size` to 10. But asking for multiple rolls forces us to
+consider the `replace` argument. Sampling *without* replacement means that
+each value can appear only once in our ten rolls; if the first roll resulted
+in $2$, the rest of the rolls would have to show other numbers. Sampling
+*with* replacement means that each value can appear multiple times; $2$ can
+appear in one, five or even all ten rolls. Since our imaginary die is the same
+in every roll, we should sample with replacement by setting `replace = TRUE`:
+
+```{r roll die several times}
+sample(x = 1:12, size = 20, replace = TRUE)
+```
+
+### Other functions to get help
 
 `help()` is useful if we know the full name of the function. But if all we remember is a key word in the name, we can search through R's help system using `help.search()`
 

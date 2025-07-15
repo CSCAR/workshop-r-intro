@@ -2,8 +2,9 @@
 title: "Intro to R with RStudio"
 author: "Abner Heredia Bustos, CSCAR"
 format:
-  revealjs:
-    incremental: true
+    revealjs:
+        embed-resources: true
+        incremental: true
 project:
   type: default
   output-dir: docs/
@@ -149,11 +150,12 @@ Better yet, people add more tools every day.
 
 ## Even more tools and models
 
-+ Users constantly publish their own code packages: more than 13 thousand in the Comprehensive **R** Archive Network (CRAN) as of March 2019.
++ Users constantly publish their own code packages: more than 22 thousand in
+the Comprehensive **R** Archive Network (CRAN) as of June 2025.
 + Many complex statistical routines are not (and may never be) available in other statistical software.
 
 ::: {.notes}
-As of March 2019, users like you and I have published more than 13 thousand packages in CRAN. Many of these packages implement complex statistical routines that are not (and may never be) available in other statistical software.
+As of June 2025, users like you and I have published more than 22 thousand packages in CRAN. Many of these packages implement complex statistical routines that are not (and may never be) available in other statistical software.
 :::
 
 ## Why Isn't Everyone a Use**R**?

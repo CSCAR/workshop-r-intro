@@ -2,8 +2,9 @@
 title: "Data in R with RStudio"
 author: "Abner Heredia Bustos, CSCAR"
 format:
-  revealjs:
-    incremental: true
+    revealjs:
+        embed-resources: true
+        incremental: true
 project:
   type: default
   output-dir: docs/
@@ -15,7 +16,7 @@ source("load_clean_flower_df.R")
 
 ## About this workshop
 
-For beginner **R** coders that want to understand how to manipulate different types of data. We will use RStudio to learn:
+For beginner R coders that want to understand how to manipulate different types of data. We will use RStudio to learn:
 
 + How R stores and handles different types of data. 
 + Basic ways to create, import, clean, summarize, and plot data.
@@ -91,10 +92,10 @@ My name is Abner Heredia Bustos. I am a data science consultant at CSCAR. Apart 
 
 ## Coercion
 
-When adding different data types to the same atomic vector, **R** follows specific rules to coerce everything to be of the same type.
+When adding different data types to the same atomic vector, R follows specific rules to coerce everything to be of the same type.
 
-+ If a character string is present in an atomic vector, **R** will convert all other values to character strings. 
-+ If a vector only contains logicals and numbers, **R** will convert the logicals to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`. 
++ If a character string is present in an atomic vector, R will convert all other values to character strings. 
++ If a vector only contains logicals and numbers, R will convert the logicals to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`. 
 + `NA`s are never coerced automatically.
 
 ## Make a histogram

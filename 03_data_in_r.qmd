@@ -2,14 +2,14 @@
 
 There are multiple types of data that can come in different shapes and sizes. 
 In the previous section we learned how to store, extract, and manipulate 
-numerical vectors. In this section we will learn how **R** handles different
+numerical vectors. In this section we will learn how R handles different
 data types and structures, and how to use them to study and summarize data.
 
 ## Data types
 
-Data types are classifications of data that help **R** conform to our 
+Data types are classifications of data that help R conform to our 
 intuition: multiplying $2$ by $7$ feels right; multiplying "pineapple" by
-"stalactite" does not. **R** has data types double, integer, logical,
+"stalactite" does not. R has data types double, integer, logical,
 character, complex, and raw, each with its own rules for storing and handling.
 Learning these rules now will allow us to analyze data later with less effort
 and fewer mistakes.
@@ -18,7 +18,7 @@ Data type **complex** is for imaginary numbers, and type **raw** is for raw
 bytes of data. It is unlikely that you will ever need these data types, so I
 will not explain them in these notes.
 
-**Doubles** are regular numbers with a decimal value (which may be zero). In general, **R** will save any number that we type as a double.
+**Doubles** are regular numbers with a decimal value (which may be zero). In general, R will save any number that we type as a double.
 ```{r double value}
 my_double <- 5
 typeof(my_double)
@@ -31,7 +31,7 @@ my_integer <- 5L
 typeof(my_integer)
 ```
 Many data scientists ignore integers because we can save them as doubles. But
-**R** stores integers more precisely and with less memory than doubles. This
+R stores integers more precisely and with less memory than doubles. This
 extra efficiency is helpful when the computations are lengthy or imprecise, or when computer memory is limited.
  
 **Logicals** are truth values `TRUE` and `FALSE`, which are useful when we
@@ -42,7 +42,7 @@ typeof(my_comparison)
 ```
 ::: {.callout-tip}
 #### Write TRUE and FALSE explicitly
-At the beginning of every session, **R** saves `T` and `F` as shortcuts for
+At the beginning of every session, R saves `T` and `F` as shortcuts for
 `TRUE` and `FALSE`. But `T` and `F` are not reserved words; they are regular
 objects that we can modify and even delete inadvertently. Fixing an accidental
 misuse of `T` or `F` will cost you more time and effort than whatever you may
@@ -55,9 +55,9 @@ missing value.
 missing_value <- NA
 typeof(missing_value)
 ```
-Treating `NA` as a logical value allows **R** to handle missing data in
+Treating `NA` as a logical value allows R to handle missing data in
 intuitive ways. Consider, for example, that if a value is missing, we cannot
-know whether it is bigger than a number, or whether it is equal to a word. **R**
+know whether it is bigger than a number, or whether it is equal to a word. R
 reflects this intuition by forcing any comparison involving `NA` to result in
 another `NA`.
 ```{r compare NA}
@@ -77,20 +77,20 @@ It is easy to confuse character strings with objects because both look like
 chunks of text in the code. `the_thing` and `"the_thing"`, for example, look
 alike. But `the_thing` is the name of an object that can contain any type
 of data, while `"the_thing"` is a piece of data that we can assign to any name.
-If we forget the quotation marks when writing a name, **R** will look for an
+If we forget the quotation marks when writing a name, R will look for an
 object that likely doesn't exist and will return an error.
 ```{r}
 #| error: true
 noquotes
 ```
 
-Also, notice that **R** will treat *anything* surrounded by quotation marks as a
+Also, notice that R will treat *anything* surrounded by quotation marks as a
 character string---regardless of what is between the quotes.
 ```{r numbers as characters}
 nums_as_chars <- "-5 + 71"
 typeof(nums_as_chars)
 ```
-Still, we can identify strings because **R** always shows them surrounded by
+Still, we can identify strings because R always shows them surrounded by
 quotation marks and in a color different from other data types.
 ```{r character vs double}
 typeof("9")
@@ -108,13 +108,18 @@ my_factor <- as.factor("red")
 my_factor
 ```
 
-They may seem pointless now, but factors will matter more after we understand
-the different ways that **R** can group and organize data.
+Factors *look* like a simple character string to us. But R stores factors more
+efficiently than regular characters. In rough terms, R invisibly replaces the
+words in the factor vector with integers, and associates each integer with a
+level of the original vector. This allows R to handle the factor internally
+as if it was a vector of integers, which is fast. Then, whenever we need to
+look at the data, R swaps the internal integers for their corresponding 
+character values.
 
 ## Data structures
 
-Data structures are ways of organizing data that make it easier for us to
-manipulate and understand it. I will explain five different data structures,
+A data structure is a way of organizing data that makes it easier for us to
+manipulate and understand them. I will explain five different data structures,
 each with its own advantages and limitations: atomic vectors, matrices, arrays,
 lists, and data frames.
 
@@ -133,7 +138,7 @@ quijote_characters <- c("Don Quijote", "Sancho Panza", NA)
 ```
 
 Atomic vectors can have almost^[The maximum length (number of elements) of a
-vector is $2^{31} - 1 \approx 2*10^9$. Run `help(.Machine)` in your **R**
+vector is $2^{31} - 1 \approx 2*10^9$. Run `help(.Machine)` in your R
 console to learn more about this.] as many elements as you want (including
 zero).
 
@@ -147,10 +152,10 @@ length(c())
 #### Coercion
 
 Adding different data types to the same atomic vector does not produce an error.
-Instead, **R** automatically follows specific rules to *coerce* everything
+Instead, R automatically follows specific rules to *coerce* everything
 inside the vector to be of the same type. If a character string is present in an
-atomic vector, **R** will convert all other values to character strings. If a
-vector only contains logical values and numbers, **R** will convert the logicals
+atomic vector, R will convert all other values to character strings. If a
+vector only contains logical values and numbers, R will convert the logicals
 to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`. The
 only values that are not coerced are `NA`s.
 
@@ -194,7 +199,7 @@ scores_mat <- matrix(data = scores_vec, nrow = 3, byrow = TRUE)
 scores_mat
 ```
 
-When showing a matrix, **R** shows expressions with square brackets (e.g.,
+When showing a matrix, R shows expressions with square brackets (e.g.,
 `[,1]`). The numbers inside the square brackets are positional indices that
 denote the "coordinates" of the matrix. Two-dimensional objects like matrices
 have two indices. The first index always refers to the row, and the second
@@ -212,7 +217,7 @@ scores_mat[, 1] # Extract entire first column
 
 ::: {.callout-note}
 ## Matrices are fancy vectors
-Deep down, **R** thinks of a matrix as a vector folded to look like a square.
+Deep down, R thinks of a matrix as a vector folded to look like a square.
 That means, among other things, that you can reference an element of a vector
 with a single positional index. Check what happens if you run `scores_mat[5]`.
 :::
@@ -266,7 +271,7 @@ element is the number of matrices, and so on.
 
 Note that the total number of elements in the array is equal to multiplying the
 sizes of all dimensions. If the vector we use to build the array has a different
-number of elements, **R** will discard or recycle values from the vector. Check
+number of elements, R will discard or recycle values from the vector. Check
 it yourself.
 
 ::: {.callout-tip}
@@ -286,17 +291,17 @@ array(c(1:48), dim = c(2, 2, 4, 3))
 Vectors, matrices, and arrays need all of its values to be of the same type.
 This requirement seems severe, but it allows the computer to store large sets of
 numbers in a simple and efficient way; and it accelerates computations because
-it tells **R** that it can manipulate all values in the object in the same way. 
+it tells R that it can manipulate all values in the object in the same way. 
 
 However, we often need to store different types of data in a single
 place---maybe because all the data belong to the same underlying subject of
 study. For example, we can describe a dog based on its height, weight, and age
 (numerical values), and on its color and breed (character strings or factors).
-**R** can keep all this information in a single place.
+R can keep all this information in a single place.
 
 ### Lists
 
-Lists can group **R** objects like vectors, arrays, and other lists in a set of
+Lists can group R objects like vectors, arrays, and other lists in a set of
 one dimension. To create a list, use the function `list()` and separate each of
 its elements with a comma.
 
@@ -359,7 +364,7 @@ Usually, each row of a data frame represents an individual observation and each
 column represents a different measurement or variable of that observation.
 
 Different vectors in a data frame can have different data types, but they must
-all have the same length. If we use vectors of different lengths, **R** will
+all have the same length. If we use vectors of different lengths, R will
 recycle values of the shorter vectors to ensure that the data frame has a square
 shape.
 
@@ -388,7 +393,7 @@ str(aliens_df)
 As you can see, `str()` gives us the data frame dimensions, reminds us that
 `aliens_df` is of type data.frame, lists the names and data types of all of the variables (columns) contained in the data frame, and prints the first five values.
 
-To us, a data frame resembles a matrix, but to **R** it is a list with an
+To us, a data frame resembles a matrix, but to R it is a list with an
 attribute "class" set to "data.frame"
 
 ```{r type and class of data frame}
@@ -419,7 +424,7 @@ aliens_df[c(1,2), "fingers_per_hand"]
 ```
 
 Creating data frames from scratch is cumbersome and prone to errors. In the next
-section, we will see how to import data from different sources into **R**, as
+section, we will see how to import data from different sources into R, as
 well as basic ways to prepare it for analysis.
 
 ## References

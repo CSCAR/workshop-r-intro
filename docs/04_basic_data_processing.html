@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Now we can apply our understanding of <strong>R</strong> to work with pre-made files of data. The first step is to locate our working directory, which is the default location where <strong>R</strong> will look for files we want to load and where it will put any files we save. This directory is different on each computer, but we can find it by running:</p>
+<p>Now we can apply our understanding of R to work with pre-made files of data. The first step is to locate our working directory, which is the default location where R will look for files we want to load and where it will put any files we save. This directory is different on each computer, but we can find it by running:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -232,24 +232,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/user_name/workshop_folder/learning_r/code"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can also change our working directory by clicking on <code>Session &gt; Set Working Directory &gt; Choose Directory</code> in the <strong>R</strong>Studio menu bar. The graphical user interfaces in Windows and Mac have similar options. If we start <strong>R</strong> from a UNIX command line (as on Linux machines), the working directory will be whichever directory we were in when we called <strong>R</strong>.</p>
+<p>We can also change our working directory by clicking on <code>Session &gt; Set Working Directory &gt; Choose Directory</code> in the RStudio menu bar. The graphical user interfaces in Windows and Mac have similar options. If we start R from a UNIX command line (as on Linux machines), the working directory will be whichever directory we were in when we called R.</p>
 <p><code>list.files()</code> will show us what files are in our working directory. If the file that we want to open is in our working directory, then we are ready to proceed.</p>
 <section id="loading-data" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">4.1</span> Loading data</h2>
-<p>Once we can locate files in our computer, we can load them into <strong>R</strong>. Note, however, that we need specific ways to open different file formats.</p>
+<p>Once we can locate files in our computer, we can load them into R. Note, however, that we need specific ways to open different file formats.</p>
 <section id="plain-text-files" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="plain-text-files"><span class="header-section-number">4.1.1</span> Plain text files</h3>
-<p>A plain-text file stores a table of data in a text document. Each row of the table is saved in its own line, and a simple symbol separates the cells within a row. This symbol is most often a comma, and sometimes a tab or a pipe delimiter <code>|</code>, but it can also be any other character. Each file only uses one symbol to separate cells, which minimizes confusion.</p>
+<p>A plain-text file stores a table of data in a text document. Each row of the table is saved in its own line, and a simple symbol separates the cells within a row. This symbol is most often a comma, and sometimes a tab or a pipe delimiter <code>|</code>, but it can also be any other character. Each file uses only one symbol to separate cells, which minimizes confusion.</p>
 <p>Plain-text files are simple and many programs can read them. This is why many organizations (e.g., the Census Bureau and the Social Security Administration) publish their data as plain-text files.</p>
-<p>We will work with data from<a href="https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower.csv">this</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> plain text file. Use <code>Ctrl+Shift+s</code> to download the file. I will save it in a folder called “data_files” inside my working directory under the name “flower.csv”. You can save it wherever you want as long as you can keep track of it.</p>
-<section id="read.table" class="level4" data-number="4.1.1.1">
-<h4 data-number="4.1.1.1" class="anchored" data-anchor-id="read.table"><span class="header-section-number">4.1.1.1</span> read.table</h4>
-<p><code>read.table()</code> can load plain-text files. The first argument of <code>read.table()</code> is a string with the name of our file (if it is in your working directory), or with the file path to our file (if it is not in our working directory).</p>
+<p>We will work with data from <a href="https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower.csv">this</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> plain text file. Use <code>Ctrl+Shift+s</code> to download the file. I will save it in a folder called <em>data_files</em> inside my working directory under the name <em>flower.csv</em>. You can save it wherever you want as long as you can keep track of it.</p>
+<p>We can use <code>read.table()</code> to load plain-text files into R. The first argument of <code>read.table()</code> is a string with the name of our file (if it is in your working directory), or with the file path to our file (if it is not in our working directory).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>flower_df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data_files/flower.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In the code above, I added arguments <code>header</code> and <code>sep</code>. <code>header</code> tells <strong>R</strong> whether the first line of the file contains variable names instead of values; this will help us identify the variables in the data frame. <code>sep</code> tells <strong>R</strong> the symbol that the file uses to separate the cells; this will help us preserve the correct location of the data cells.</p>
-<p>Other useful arguments are <code>skip</code> and <code>nrow</code>. <code>skip</code> tells <strong>R</strong> to omit a specific number of lines before it starts reading values from the file. This argument is helpful when the file starts with text that is not part of the data set, or when we want to read only part of a data set. <code>nrow</code> tells <strong>R</strong> to only read a certain number of lines, starting from the top. Keep in mind that <code>nrow</code> does not count the header in the number of rows it reads.</p>
+<p>In the code above, I added arguments <code>header</code> and <code>sep</code>. <code>header</code> tells R whether the first line of the file contains variable names instead of values; this will help us identify the variables in the data frame. <code>sep</code> tells R the symbol that the file uses to separate the cells; this will help us preserve the correct location of the data cells.</p>
+<p>Other useful arguments are <code>skip</code> and <code>nrow</code>. <code>skip</code> tells R to omit a specific number of lines before it starts reading values from the file. This argument is helpful when the file starts with text that is not part of the data set, or when we want to read only part of a data set. <code>nrow</code> tells R to only read a certain number of lines, starting from the top. Keep in mind that <code>nrow</code> does not count the header in the number of rows it reads.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>flower_df_chunk <span class="ot">&lt;-</span> <span class="fu">read.table</span>(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"data_files/flower.csv"</span>, </span>
@@ -266,11 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3   tip   medium     1   11.2  12.76      7.1      66.7      10</code></pre>
 </div>
 </div>
-<p><code>read.table()</code> has other arguments that we can tweak. You can read more about them in the function’s help page.</p>
-</section>
-<section id="shortcuts-for-read.table" class="level4" data-number="4.1.1.2">
-<h4 data-number="4.1.1.2" class="anchored" data-anchor-id="shortcuts-for-read.table"><span class="header-section-number">4.1.1.2</span> Shortcuts for read.table</h4>
-<p><strong>R</strong> has shortcut functions that call <code>read.table()</code> in the background with different default values for popular types of files:</p>
+<p>R has shortcut functions that call <code>read.table()</code> in the background with different default values for popular types of files:</p>
 <ul>
 <li><code>read.table</code> is the general purpose read function.</li>
 <li><code>read.csv</code> reads comma-separated values (.csv) files.</li>
@@ -278,14 +272,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>read.csv2</code> reads .csv files with European decimal format.</li>
 <li><code>read.delim2</code> reads tab-delimited files with European decimal format.</li>
 </ul>
-</section>
-<section id="html-links" class="level4" data-number="4.1.1.3">
-<h4 data-number="4.1.1.3" class="anchored" data-anchor-id="html-links"><span class="header-section-number">4.1.1.3</span> HTML links</h4>
 <p><code>read.table()</code> and its shortcuts allow us to load data files directly from a website. Instead of using the file’s path or name, we can directly use a web address in the <code>file</code> argument of the function. Make sure to use the web address that links directly to the file, not to a web page that has a link to the file.</p>
-</section>
-<section id="read.fwf" class="level4" data-number="4.1.1.4">
-<h4 data-number="4.1.1.4" class="anchored" data-anchor-id="read.fwf"><span class="header-section-number">4.1.1.4</span> read.fwf</h4>
-<p>A <em>fixed-width file</em> (.fwf) is a type of plain-text file that, instead of a symbol, uses its layout to separate data cells. Each row is still in a single line, and each column begins at a specific number of characters from the left-hand side of the document. To correctly position its data, the file adds an arbitrary number of character spaces between data entries.</p>
+<p>There is a special type of plain-text file called <em>fixed-width file</em> (.fwf). Instead of a symbol, a fixed-width file uses its layout to separate data cells. Each row is still in a single line, and each column begins at a specific number of characters from the left-hand side of the document. To correctly position its data, the file adds an arbitrary number of character spaces between data entries.</p>
 <p>If our flowers data came in a fixed-width file, the first few lines would look like this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>treat  nitrogen block  height  weight  leafarea  shootarea  flowers</span>
@@ -296,14 +284,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>tip    medium   <span class="dv">1</span>      <span class="fl">10.4</span>    <span class="fl">13.58</span>   <span class="fl">14.5</span>      <span class="fl">26.9</span>       <span class="dv">4</span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>tip    medium   <span class="dv">1</span>      <span class="fl">9.8</span>     <span class="fl">10.08</span>   <span class="fl">12.2</span>      <span class="fl">72.7</span>       <span class="dv">9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Fixed-width files may be visually intuitive, but computers find them difficult to work with. This may explain why <strong>R</strong> has a function for reading fixed-width files, but not for creating or saving them.</p>
-<p>We can read fixed-width files into <strong>R</strong> with the function <code>read.fwf()</code>. This function adds another argument to the ones from <code>read.table()</code>: <code>widths</code>, which should be a vector of numbers. Each ith entry of the <code>widths</code> vector should state the width (in characters) of the ith column of the data set.</p>
-</section>
+<p>Fixed-width files may be visually intuitive, but computers find them difficult to work with. This may explain why R has a function for reading fixed-width files, but not for creating or saving them.</p>
+<p>We can read fixed-width files into R with the function <code>read.fwf()</code>. This function adds another argument to the ones from <code>read.table()</code>: <code>widths</code>, which should be a vector of numbers. Each ith entry of the <code>widths</code> vector should state the width (in characters) of the ith column of the data set.</p>
 </section>
 <section id="excel-files" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="excel-files"><span class="header-section-number">4.1.2</span> Excel files</h3>
-<p>The best way to load data from Excel files (.xlsx) is to first save these files as .csv or .txt files and then use <code>read.table</code>. Excel files can include multiple spreadsheets, macros, colors, dynamic tables, and other complicated features that make it difficult for <strong>R</strong> to read the files properly. Plain text files are simpler, so we can load and transfer them more easily.</p>
-<p>Still, it is possible to load Excel files if we <em>really</em> need to. <strong>R</strong> has no native way of loading these files, but we can use the package <code>readxl</code>, which works on Windows, OS X, and Linux. We install it using <code>install.packages("readxl")</code> and then load it using <code>library(readxl)</code>. Once we load the package, we can use the function <code>read_excel()</code> to load files of the type .xls and .xlsx (see <code>help("read_excel")</code> for more information).</p>
+<p>The best way to load data from Excel files (.xlsx) is to first save these files as .csv or .txt files and then use <code>read.table</code>. Excel files can include multiple spreadsheets, macros, colors, dynamic tables, and other complicated features that make it difficult for R to read the files properly. Plain text files are simpler, so we can load and transfer them more easily.</p>
+<p>Still, it is possible to load Excel files directly if we <em>really</em> need to. R has no native way of loading these files, but we can use the package <code>readxl</code>, which works on Windows, OS X, and Linux. We install it using <code>install.packages("readxl")</code> and then load it using <code>library(readxl)</code>. Once we load the package, we can use the function <code>read_excel()</code> to load files of the type .xls and .xlsx (see <code>help("read_excel")</code> for more information).</p>
 </section>
 <section id="files-from-other-programs" class="level3" data-number="4.1.3">
 <h3 data-number="4.1.3" class="anchored" data-anchor-id="files-from-other-programs"><span class="header-section-number">4.1.3</span> Files from other programs</h3>
@@ -331,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [6] "leaf.area"  "shoot.area" "FLOWERS"   </code></pre>
 </div>
 </div>
-<p>If we opened the data file using something like Excel or Notepad, we would see that the names for columns 6 and 7 had blank spaces inside it. When loading the data, <code>read.csv()</code> automatically substitutes these blank spaces with periods <code>.</code>, so that the names conform to <strong>R</strong>’s conventions. <code>read.csv()</code> is pretty good at checking column names and other things, but it’s not perfect. So, it’s always a good idea to double-check everything ourselves.</p>
+<p>If we opened the data file using something like Excel or Notepad, we would see that the names for columns 6 and 7 had blank spaces inside it. When loading the data, <code>read.csv()</code> automatically substitutes these blank spaces with periods <code>.</code>, so that the names conform to R’s conventions. <code>read.csv()</code> is pretty good at checking column names and other things, but it’s not perfect. So, it’s always a good idea to double-check everything ourselves.</p>
 <p>The column names of <code>flower_messy_df</code> are legible, but we don’t want to struggle with their mix of upper and lower-case letters. Let’s rewrite all the names in lower case, which is quick and easy if we use <code>tolower()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>new_colnames <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">colnames</span>(flower_messy_df)) <span class="co"># Modify column names</span></span>
@@ -355,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [6] "leaf.area"  "shoot.area" "flowers"   </code></pre>
 </div>
 </div>
-<p>The last change to these column names will be to substitute the periods with underscores. In <strong>R</strong>, this is purely out of personal preference, but it’s a good excuse to meet <code>gsub()</code>, which substitutes patterns of strings:</p>
+<p>The last change to these column names will be to substitute the periods with underscores. In R, this is purely out of personal preference, but it’s a good excuse to meet <code>gsub()</code>, which substitutes patterns of strings:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(flower_clean_df) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>, <span class="co"># What we want to remove</span></span>
@@ -391,7 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "\"1\"" "10"    "10"    "1"     "4"     "9"    </code></pre>
 </div>
 </div>
-<p><strong>R</strong> recognizes that the value itself has quotes, so it adds a backslash <code>\</code> to differentiate them from the quotes it uses to print strings. Let’s remove these confusing quotes.</p>
+<p>R recognizes that the value itself has quotes, so it adds a backslash <code>\</code> to differentiate them from the quotes it uses to print strings. Let’s remove these confusing quotes.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>flower_clean_df[<span class="st">"flowers"</span>] <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\"</span><span class="st">"</span>, <span class="co"># \" the backlash tells R to match quotes</span></span>
@@ -440,7 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "high"   "High"   "HIGH"   "low"    "lOw"    "Low"    "medium" "Medium"</code></pre>
 </div>
 </div>
-<p>Remember that <strong>R</strong> is case sensitive, so it interprets each of spelling “high” and “low” as a different value. We can fix this using <code>tolower()</code> once more. Note that this will convert the “nitrogen” column back to a simple character type, so we have to reconvert it to factor.</p>
+<p>Remember that R is case sensitive, so it interprets each of spelling “high” and “low” as a different value. We can fix this using <code>tolower()</code> once more. Note that this will convert the “nitrogen” column back to a simple character type, so we have to reconvert it to factor.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>flower_clean_df[<span class="st">"nitrogen"</span>] <span class="ot">&lt;-</span> <span class="fu">tolower</span>(flower_clean_df<span class="sc">$</span>nitrogen)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>flower_clean_df[<span class="st">"nitrogen"</span>] <span class="ot">&lt;-</span> <span class="fu">factor</span>(flower_clean_df<span class="sc">$</span>nitrogen)</span>
@@ -573,7 +560,7 @@ nitrogen notip tip
 </section>
 <section id="success" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="success"><span class="header-section-number">4.4</span> Success!</h2>
-<p>Dear reader, you are now a capable use<strong>R</strong>. I hope this humble introduction helps you learn more about many different topics in <strong>R</strong>. Be curious, be bold, and, above all, be patient. <strong>R</strong>ome wasn’t built in a day. Best of luck!</p>
+<p>Dear reader, you are now a capable useR. I hope this humble introduction helps you learn more about many different topics in R. Be curious, be bold, and, above all, be patient. Rome wasn’t built in a day. Best of luck!</p>
 </section>
 <section id="references" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="references"><span class="header-section-number">4.5</span> References</h2>

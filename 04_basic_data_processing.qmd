@@ -39,24 +39,21 @@ Once we can locate files in our computer, we can load them into R. Note, however
 A plain-text file stores a table of data in a text document. Each row of the
 table is saved in its own line, and a simple symbol separates the cells within a
 row. This symbol is most often a comma, and sometimes a tab or a pipe delimiter
-`|`, but it can also be any other character. Each file only uses one symbol to
+`|`, but it can also be any other character. Each file uses only one symbol to
 separate cells, which minimizes confusion.
 
 Plain-text files are simple and many programs can read them. This is why many
 organizations (e.g., the Census Bureau and the Social Security Administration)
 publish their data as plain-text files.
 
-We will work with data from[this](https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower.csv)^[You can find the original file [here](https://alexd106.github.io/intro2R/data.html),
+We will work with data
+from [this](https://github.com/CSCAR/workshop-r-intro/blob/main/data_files/flower.csv)^[You can find the original file [here](https://alexd106.github.io/intro2R/data.html),
 courtesy of Douglas et al. (see references).] plain text file. Use
 `Ctrl+Shift+s` to download the file. I will save it in a folder called
-"data_files" inside my working directory under the name "flower.csv". You can
+*data_files* inside my working directory under the name *flower.csv*. You can
 save it wherever you want as long as you can keep track of it.
 
-#### read.table
-
-`read.table()` can load plain-text files. The first argument of `read.table()`
-is a string with the name of our file (if it is in your working directory), or
-with the file path to our file (if it is not in our working directory). 
+We can use `read.table()` to load plain-text files into R. The first argument of `read.table()` is a string with the name of our file (if it is in your working directory), or with the file path to our file (if it is not in our working directory). 
 ```{r loading flower_df}
 flower_df <- read.table("data_files/flower.csv", header = TRUE, sep = ",")
 ```
@@ -85,11 +82,6 @@ flower_df_chunk <- read.table(
 flower_df_chunk
 ```
 
-`read.table()` has other arguments that we can tweak. You can read more about
-them in the function's help page. 
-
-#### Shortcuts for read.table
-
 R has shortcut functions that call `read.table()` in the background with
 different default values for popular types of files:
 
@@ -99,20 +91,17 @@ different default values for popular types of files:
 + `read.csv2` reads .csv files with European decimal format.
 + `read.delim2` reads tab-delimited files with European decimal format.
 
-#### HTML links
-
 `read.table()` and its shortcuts allow us to load data files directly from a
 website. Instead of using the file's path or name, we can directly use a web
 address in the `file` argument of the function. Make sure to use the web address
 that links directly to the file, not to a web page that has a link to the file.
 
-#### read.fwf
-
-A *fixed-width file* (.fwf) is a type of plain-text file that, instead of a
-symbol, uses its layout to separate data cells. Each row is still in a single
-line, and each column begins at a specific number of characters from the
-left-hand side of the document. To correctly position its data, the file adds an
-arbitrary number of character spaces between data entries.
+There is a special type of plain-text file called *fixed-width file* (.fwf).
+Instead of a symbol, a fixed-width file uses its layout to separate data cells.
+Each row is still in a single line, and each column begins at a specific number
+of characters from the left-hand side of the document. To correctly position
+its data, the file adds an arbitrary number of character spaces between data
+entries.
 
 If our flowers data came in a fixed-width file, the first few lines would look
 like this:
@@ -126,7 +115,6 @@ tip    medium   1      10.4    8.78    11.9      20.3       1
 tip    medium   1      10.4    13.58   14.5      26.9       4
 tip    medium   1      9.8     10.08   12.2      72.7       9
 ```
-
 
 Fixed-width files may be visually intuitive, but computers find them difficult
 to work with. This may explain why R has a function for reading fixed-width
@@ -156,7 +144,7 @@ multiple spreadsheets, macros, colors, dynamic tables, and other complicated
 features that make it difficult for R to read the files properly. Plain text
 files are simpler, so we can load and transfer them more easily.
 
-Still, it is possible to load Excel files if we *really* need to. R has no
+Still, it is possible to load Excel files directly if we *really* need to. R has no
 native way of loading these files, but we can use the package `readxl`, which
 works on Windows, OS X, and Linux. We install it using
 `install.packages("readxl")` and then load it using `library(readxl)`. Once we

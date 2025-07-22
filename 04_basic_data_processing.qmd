@@ -1,8 +1,8 @@
 # Basic data processing
 
-Now we can apply our understanding of **R** to work with pre-made files of data.
+Now we can apply our understanding of R to work with pre-made files of data.
 The first step is to locate our working directory, which is the default location
-where **R** will look for files we want to load and where it will put any files
+where R will look for files we want to load and where it will put any files
 we save. This directory is different on each computer, but we can find it by
 running:
 ```{r get working directory}
@@ -26,13 +26,13 @@ every file related to my project is in the same place. For example:
 setwd("C:/Users/user_name/workshop_folder/learning_r/code")
 ```
 
-We can also change our working directory by clicking on `Session > Set Working Directory > Choose Directory` in the **R**Studio menu bar. The graphical user interfaces in Windows and Mac  have similar options. If we start **R** from a UNIX command line (as on Linux machines), the working directory will be whichever directory we were in when we called **R**.
+We can also change our working directory by clicking on `Session > Set Working Directory > Choose Directory` in the RStudio menu bar. The graphical user interfaces in Windows and Mac  have similar options. If we start R from a UNIX command line (as on Linux machines), the working directory will be whichever directory we were in when we called R.
 
 `list.files()` will show us what files are in our working directory. If the file that we want to open is in our working directory, then we are ready to proceed.
 
 ## Loading data
 
-Once we can locate files in our computer, we can load them into **R**. Note, however, that we need specific ways to open different file formats.
+Once we can locate files in our computer, we can load them into R. Note, however, that we need specific ways to open different file formats.
 
 ### Plain text files
 
@@ -61,16 +61,16 @@ with the file path to our file (if it is not in our working directory).
 flower_df <- read.table("data_files/flower.csv", header = TRUE, sep = ",")
 ```
 
-In the code above, I added arguments `header` and `sep`. `header` tells **R**
+In the code above, I added arguments `header` and `sep`. `header` tells R
 whether the first line of the file contains variable names instead of values;
-this will help us identify the variables in the data frame. `sep` tells **R**
+this will help us identify the variables in the data frame. `sep` tells R
 the symbol that the file uses to separate the cells; this will help us preserve
 the correct location of the data cells.
 
-Other useful arguments are `skip` and `nrow`. `skip` tells **R** to omit a
+Other useful arguments are `skip` and `nrow`. `skip` tells R to omit a
 specific number of lines before it starts reading values from the file. This
 argument is helpful when the file starts with text that is not part of the data
-set, or when we want to read only part of a data set. `nrow` tells **R** to only
+set, or when we want to read only part of a data set. `nrow` tells R to only
 read a certain number of lines, starting from the top. Keep in mind that `nrow`
 does not count the header in the number of rows it reads.
 
@@ -90,7 +90,7 @@ them in the function's help page.
 
 #### Shortcuts for read.table
 
-**R** has shortcut functions that call `read.table()` in the background with
+R has shortcut functions that call `read.table()` in the background with
 different default values for popular types of files:
 
 + `read.table` is the general purpose read function.
@@ -129,10 +129,10 @@ tip    medium   1      9.8     10.08   12.2      72.7       9
 
 
 Fixed-width files may be visually intuitive, but computers find them difficult
-to work with. This may explain why **R** has a function for reading fixed-width
+to work with. This may explain why R has a function for reading fixed-width
 files, but not for creating or saving them.
 
-We can read fixed-width files into **R** with the function `read.fwf()`. This
+We can read fixed-width files into R with the function `read.fwf()`. This
 function adds another argument to the ones from `read.table()`: `widths`, which
 should be a vector of numbers. Each ith entry of the `widths` vector should
 state the width (in characters) of the ith column of the data set.
@@ -153,10 +153,10 @@ flowers_fwf_df
 The best way to load data from Excel files (.xlsx) is to first save these files
 as .csv or .txt files and then use `read.table`. Excel files can include
 multiple spreadsheets, macros, colors, dynamic tables, and other complicated
-features that make it difficult for **R** to read the files properly. Plain text
+features that make it difficult for R to read the files properly. Plain text
 files are simpler, so we can load and transfer them more easily.
 
-Still, it is possible to load Excel files if we *really* need to. **R** has no
+Still, it is possible to load Excel files if we *really* need to. R has no
 native way of loading these files, but we can use the package `readxl`, which
 works on Windows, OS X, and Linux. We install it using
 `install.packages("readxl")` and then load it using `library(readxl)`. Once we
@@ -202,7 +202,7 @@ colnames(flower_messy_df)
 If we opened the data file using something like Excel or Notepad, we would see
 that the names for columns 6 and 7 had blank spaces inside it. When loading the
 data, `read.csv()` automatically substitutes these blank spaces with periods
-`.`, so that the names conform to **R**'s conventions. `read.csv()` is pretty
+`.`, so that the names conform to R's conventions. `read.csv()` is pretty
 good at checking column names and other things, but it's not perfect. So, it's
 always a good idea to double-check everything ourselves.
 
@@ -233,7 +233,7 @@ colnames(flower_clean_df) # Verify replacement
 ```
 
 The last change to these column names will be to substitute the periods with
-underscores. In **R**, this is purely out of personal preference, but it's a
+underscores. In R, this is purely out of personal preference, but it's a
 good excuse to meet `gsub()`, which substitutes patterns of strings:
 ```{r substitute periods with underscores in colnames}
 colnames(flower_clean_df) <- gsub(
@@ -266,7 +266,7 @@ The reason is that there are quotes around the first value in this column:
 head(flower_clean_df[["flowers"]])
 ```
 
-**R** recognizes that the value itself has quotes, so it adds a backslash `\` to
+R recognizes that the value itself has quotes, so it adds a backslash `\` to
 differentiate them from the quotes it uses to print strings. Let's remove these
 confusing quotes.
 
@@ -302,7 +302,7 @@ description counts eight. Let's examine these levels:
 levels(flower_clean_df$nitrogen)
 ```
 
-Remember that **R** is case sensitive, so it interprets each of spelling "high"
+Remember that R is case sensitive, so it interprets each of spelling "high"
 and "low" as a different value. We can fix this using `tolower()` once more.
 Note that this will convert the "nitrogen" column back to a simple character
 type, so we have to reconvert it to factor.
@@ -400,9 +400,9 @@ mosaicplot(nitrogen_by_treat_table, main = "Nitrogen by treat table")
 
 ## Success!
 
-Dear reader, you are now a capable use**R**. I hope this humble introduction
-helps you learn more about many different topics in **R**. Be curious, be bold,
-and, above all, be patient. **R**ome wasn't built in a day. Best of luck!
+Dear reader, you are now a capable useR. I hope this humble introduction
+helps you learn more about many different topics in R. Be curious, be bold,
+and, above all, be patient. Rome wasn't built in a day. Best of luck!
 
 ## References
 

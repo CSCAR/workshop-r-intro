@@ -7,21 +7,32 @@ Last modified: `r Sys.Date()`
 # Preface {.unnumbered}
 
 These self-contained notes are intended for anyone that wants to use **R** but 
-has little or no experience using it, and little or no experience in programming.
-Faculty and staff from "Consulting for Statistics, Computing & Analytics
-Research" (CSCAR) wrote these notes to support in-person workshops at
-the University of Michigan. During these workshops, we also use a slideshow 
-based on these notes, which is available [here](https://cscar.github.io/workshop-r-intro/slideshow.html).
+has little or no experience using it, and little or no experience in
+programming. Faculty and staff from "Consulting for Statistics, Computing &
+Analytics Research" (CSCAR) wrote these notes to support in-person workshops
+at the University of Michigan.
 
-CSCAR is a unit of the Office of the Vice President of Research at the University of Michigan. We offer U-M researchers guidance and training in data collection, management, and analysis; and in the use of technical software and advanced computing in research. 
+CSCAR is a unit of the Office of the Vice President of Research at the
+University of Michigan. We offer U-M researchers guidance and training in data
+collection, management, and analysis; and in the use of technical software and
+advanced computing in research. 
 
-If you are a member of the faculty, professional staff, or a student at the University of Michigan, you can access our free, one-hour consultations with graduate-level statisticians. To request an appointment---which can be remote or in person---you can send an email to
-<deskpeople@umich.edu>, or you can fill [this form](https://docs.google.com/forms/d/e/1FAIpQLSei-twcjFkoobUrVwSQTmSxdKKEc1Ub8w5LHmeIZUmTV1wmIg/viewform?pli=1). You can also walk-in for a consultation with one of our Graduate Student Research Assistants (GSRAs). GSRAs are available Monday through Friday, between 9am and 5pm (we close on Tuesdays between noon and 1pm).
+If you are a faculty member, professional staff, or a student at the
+University of Michigan, you can access our free, one-hour consultations with
+graduate-level statisticians. To request a consultation---which can be remote
+or in person---you can send an email to <deskpeople@umich.edu>, or you can fill
+[this form](https://docs.google.com/forms/d/e/1FAIpQLSei-twcjFkoobUrVwSQTmSxdKKEc1Ub8w5LHmeIZUmTV1wmIg/viewform?pli=1).
+You can also walk in for a consultation with one of our Graduate Student
+Research Assistants (GSRAs). GSRAs are available in person and
+[remotely](https://calendar.google.com/calendar/u/0/appointments/AcZssZ1DT776EMK1EGFFmBRyW-FrQrzo35QnU2nIv1E=)
+Monday through Friday, between 9am and 5pm (we close on Tuesdays between noon
+and 1pm).
 
 CSCAR can also help with simple statistical questions through email. You can
 write to <stats-consulting@umich.edu>.
 
-For more information on CSCAR, please visit <http://cscar.research.umich.edu/>.
+Visit <http://cscar.research.umich.edu/> to learn more about who we are and
+what we can do for you.
 
 <!--
 Or you can use [this link](https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUMyTFpCR1RXbmhYfGRlZmF1bHR8ZWNjNGJlMWZlYTA4ZWE5NzYzNmNkNzgyZjUyZDYxNDg) to 
@@ -30,7 +41,8 @@ self-schedule an appointment with a GSRA at your own convenience.
 
 ## Creation of this document {.unnumbered}
 
-These notes are published using [Quarto](https://quarto.org); the source code is available at <https://github.com/CSCAR/workshop-r-intro>.
+These notes are published using [Quarto](https://quarto.org); the source code
+is available at <https://github.com/CSCAR/workshop-r-intro>.
 
 You can switch between light and dark modes using the button in the top left 
 corner of the screen. Dark mode reverses the colors of the images to reduce 
@@ -38,10 +50,12 @@ brightness. To show an image in its original colors, move your mouse over it
 (or press it if you are on a mobile device). All images link to more detailed 
 full-size versions.
 
-If you have any questions or comments about these notes, you can contact Abner Heredia Bustos (<abnerhb@umich.edu>).
+If you have any questions or comments about these notes, you can contact Abner
+Heredia Bustos (<abnerhb@umich.edu>).
 
 ## Acknowledgments {.unnumbered}
 
-We thank Abner Heredia Bustos, Josh Errickson, Xiru Lyu, and Chris Andrews for their contributions to these notes over the years.
+We thank Abner Heredia Bustos, Josh Errickson, Xiru Lyu, and Chris Andrews for
+their contributions to these notes over the years.
 
 

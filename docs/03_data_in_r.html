@@ -252,7 +252,7 @@ window.Quarto = {
 <p>There are multiple types of data that can come in different shapes and sizes. In the previous section we learned how to store, extract, and manipulate numerical vectors. In this section we will learn how R handles different data types and structures, and how to use them to study and summarize data.</p>
 <section id="data-types" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">3.1</span> Data types</h2>
-<p>Data types are classifications of data that help R conform to our intuition: multiplying <span class="math inline">\(2\)</span> by <span class="math inline">\(7\)</span> feels right; multiplying “pineapple” by “stalactite” does not. R has data types double, integer, logical, character, complex, and raw, each with its own rules for storing and handling. Learning these rules now will allow us to analyze data later with less effort and fewer mistakes.</p>
+<p>Data types are classifications of data that help R conform to our intuition: multiplying <span class="math inline">\(2\)</span> by <span class="math inline">\(7\)</span> feels right, but multiplying “pineapple” by “stalactite” feels wrong. R has data types double, integer, logical, character, complex, and raw, each with its own rules for storing and handling. Learning these rules now will allow us to analyze data later with less effort and fewer mistakes.</p>
 <p>Data type <strong>complex</strong> is for imaginary numbers, and type <strong>raw</strong> is for raw bytes of data. It is unlikely that you will ever need these data types, so I will not explain them in these notes.</p>
 <p><strong>Doubles</strong> are regular numbers with a decimal value (which may be zero). In general, R will save any number that we type as a double.</p>
 <div class="cell">
@@ -358,7 +358,7 @@ Levels: red</code></pre>
 </section>
 <section id="data-structures" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">3.2</span> Data structures</h2>
-<p>A data structure is a way of organizing data that makes it easier for us to manipulate and understand them. I will explain five different data structures, each with its own advantages and limitations: atomic vectors, matrices, arrays, lists, and data frames.</p>
+<p>Data structures are convenient ways of organizing data. I will explain five different data structures, each with its own advantages and limitations: atomic vectors, matrices, arrays, lists, and data frames.</p>
 <section id="atomic-vectors" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="atomic-vectors"><span class="header-section-number">3.2.1</span> Atomic vectors</h3>
 <p>Atomic vectors are the most basic type of data structure. They are one-dimensional groups of data where all values must be of the same type. There is only one exception: any vector can include <code>NA</code> as a value regardless of the type of the other values. This internal consistency of vectors makes it easy for us to store values that are supposed to describe the same property.</p>
@@ -389,7 +389,7 @@ Coercion
 </div>
 <div class="callout-body-container callout-body">
 <p>Adding different data types to the same atomic vector does not produce an error. Instead, R automatically follows specific rules to <em>coerce</em> everything inside the vector to be of the same type. If a character string is present in an atomic vector, R will convert all other values to character strings. If a vector only contains logical values and numbers, R will convert the logicals to numbers; every <code>TRUE</code> becomes a <code>1</code>, and every <code>FALSE</code> becomes a <code>0</code>. The only values that are not coerced are <code>NA</code>s.</p>
-<p>Following these rules helps preserve information. It is easy, for example, to recognize the original types of strings <code>"TRUE"</code> and <code>"3.14"</code>, or to transform a vector of <code>1</code>s and <code>0</code>s back to <code>TRUE</code>s and <code>FALSE</code>s.</p>
+<p>Following these rules helps us preserve information. It is easy, for example, to recognize the original types of strings <code>"TRUE"</code> and <code>"3.14"</code>, or to transform a vector of <code>1</code>s and <code>0</code>s back to <code>TRUE</code>s and <code>FALSE</code>s.</p>
 </div>
 </div>
 </section>
@@ -416,24 +416,11 @@ Coercion
 [3,]    2   35    4</code></pre>
 </div>
 </div>
-<p>Like atomic vectors, matrices can have any data type, but only one (or <code>NA</code>).</p>
+<p>By default <code>matrix()</code>, fills the matrix column by column, but we can ask to fill it row by row with <code>byrow = TRUE</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>character_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">c</span>(<span class="st">"Mario"</span>, <span class="st">"Peach"</span>, <span class="st">"Luigi"</span>, <span class="st">"Yoshi"</span>), </span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ncol =</span> <span class="dv">2</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>character_mat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1]    [,2]   
-[1,] "Mario" "Luigi"
-[2,] "Peach" "Yoshi"</code></pre>
-</div>
-</div>
-<p>By default <code>matrix()</code> will fill up the matrix column by column. But we can fill the matrix row by row if we include the argument <code>byrow = TRUE</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>scores_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">27</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">14</span>, <span class="sc">-</span><span class="dv">28</span>, <span class="dv">35</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">4</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>scores_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> scores_vec, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>scores_mat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>scores_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">27</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">14</span>, <span class="sc">-</span><span class="dv">28</span>, <span class="dv">35</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">4</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>scores_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> scores_vec, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>scores_mat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3]
 [1,]  -27    2    2
@@ -441,7 +428,21 @@ Coercion
 [3,]    8   13    4</code></pre>
 </div>
 </div>
-<p>When showing a matrix, R shows expressions with square brackets (e.g., <code>[,1]</code>). The numbers inside the square brackets are positional indices that denote the “coordinates” of the matrix. Two-dimensional objects like matrices have two indices. The first index always refers to the row, and the second always refers to the column. So, as with vectors, we can use square bracket notation <code>[ ]</code> to extract values from matrices.</p>
+<p>The square brackets that surround the matrix (e.g., <code>[,1]</code>) contain positional indices that denote its “coordinates”. Matrices and other two-dimensional objects have two indices. The first index always refers to the row, and the second always refers to the column.</p>
+<p>Like atomic vectors, matrices can have any data type, but only one (or <code>NA</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>character_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">c</span>(<span class="st">"Mario"</span>, <span class="st">"Peach"</span>, <span class="st">"Luigi"</span>, <span class="st">"Yoshi"</span>), </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ncol =</span> <span class="dv">2</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>character_mat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]    [,2]   
+[1,] "Mario" "Luigi"
+[2,] "Peach" "Yoshi"</code></pre>
+</div>
+</div>
+<p>Also, as with vectors, we can use square bracket notation <code>[ ]</code> to extract values from matrices.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>scores_mat[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dv">2</span>] <span class="co"># Rows 1 and 3 in column 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -469,10 +470,10 @@ Matrices are fancy vectors
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Deep down, R thinks of a matrix as a vector folded to look like a square. That means, among other things, that you can reference an element of a vector with a single positional index. Check what happens if you run <code>scores_mat[5]</code>.</p>
+<p>Deep down, R thinks of a matrix as a vector folded to look like a square. That means, among other things, that we can reference an element of a vector with a single positional index. Check what happens if you run <code>scores_mat[5]</code>.</p>
 </div>
 </div>
-<p>We can define names for the rows and the columns of a matrix using the <code>rownames()</code> and <code>colnames()</code> functions.</p>
+<p>We can define names for the rows and columns of a matrix using the functions <code>rownames()</code> and <code>colnames()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(scores_mat) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Andrew"</span>, <span class="st">"Booker"</span>, <span class="st">"Comstock"</span>)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(scores_mat) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Columbia"</span>, <span class="st">"Rapture"</span>, <span class="st">"Atlantic"</span>)</span>
@@ -492,7 +493,7 @@ Comstock        8      13        4</code></pre>
        2      -27 </code></pre>
 </div>
 </div>
-<p>There are several useful functions to do matrix operations. For example:</p>
+<p>There are several useful functions to do matrix operations, like:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(scores_mat) <span class="co"># Transpose the matrix</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(scores_mat) <span class="co"># Extract values in diagonal</span></span>

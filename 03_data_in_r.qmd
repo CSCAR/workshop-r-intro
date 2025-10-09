@@ -8,8 +8,8 @@ data types and structures, and how to use them to study and summarize data.
 ## Data types
 
 Data types are classifications of data that help R conform to our 
-intuition: multiplying $2$ by $7$ feels right; multiplying "pineapple" by
-"stalactite" does not. R has data types double, integer, logical,
+intuition: multiplying $2$ by $7$ feels right, but multiplying "pineapple" by
+"stalactite" feels wrong. R has data types double, integer, logical,
 character, complex, and raw, each with its own rules for storing and handling.
 Learning these rules now will allow us to analyze data later with less effort
 and fewer mistakes.
@@ -118,10 +118,9 @@ character values.
 
 ## Data structures
 
-A data structure is a way of organizing data that makes it easier for us to
-manipulate and understand them. I will explain five different data structures,
-each with its own advantages and limitations: atomic vectors, matrices, arrays,
-lists, and data frames.
+Data structures are convenient ways of organizing data. I will explain five
+different data structures, each with its own advantages and limitations: atomic
+vectors, matrices, arrays, lists, and data frames.
 
 ### Atomic vectors
 
@@ -159,18 +158,18 @@ vector only contains logical values and numbers, R will convert the logicals
 to numbers; every `TRUE` becomes a `1`, and every `FALSE` becomes a `0`. The
 only values that are not coerced are `NA`s.
 
-Following these rules helps preserve information. It is easy, for example, to
-recognize the original types of strings `"TRUE"` and `"3.14"`, or to transform a
-vector of `1`s and `0`s back to `TRUE`s and `FALSE`s. 
+Following these rules helps us preserve information. It is easy, for example,
+to recognize the original types of strings `"TRUE"` and `"3.14"`, or to
+transform a vector of `1`s and `0`s back to `TRUE`s and `FALSE`s. 
 :::
 
 ### Matrices
 
 Matrices are two-dimensional "sheets" of data. To create a matrix, first give
-`matrix()` an atomic vector to reorganize into a matrix. Then, define the number
-of rows using the `nrow` argument, or the number of columns using the `ncol`
-argument. `matrix()` will reshape your vector into a matrix with the specified
-number of rows (or columns).
+`matrix()` an atomic vector to reorganize into a matrix. Then, define the
+number of rows using the `nrow` argument, or the number of columns using the
+`ncol` argument. `matrix()` will reshape your vector into a matrix with the
+specified number of rows (or columns).
 
 ```{r create matrix}
 scores_vec <- c(-27, 2, 2, 14, -28, 35, 8, 13, 4)
@@ -181,6 +180,20 @@ scores_mat <- matrix(data = scores_vec, ncol = 3)
 scores_mat
 ```
 
+By default `matrix()`, fills the matrix column by column, but we can ask to
+fill it row by row with `byrow = TRUE`:
+
+```{r create matrix filling by row}
+scores_vec <- c(-27, 2, 2, 14, -28, 35, 8, 13, 4)
+scores_mat <- matrix(data = scores_vec, nrow = 3, byrow = TRUE)
+scores_mat
+```
+
+The square brackets that surround the matrix (e.g., `[,1]`) contain positional
+indices that denote its "coordinates". Matrices and other two-dimensional
+objects have two indices. The first index always refers to the row, and the
+second always refers to the column.
+
 Like atomic vectors, matrices can have any data type, but only one (or `NA`).
 ```{r}
 character_mat <- matrix(
@@ -190,21 +203,8 @@ character_mat <- matrix(
 character_mat
 ```
 
-By default `matrix()` will fill up the matrix column by column. But we can fill
-the matrix row by row if we include the argument `byrow = TRUE`:
-
-```{r create matrix filling by row}
-scores_vec <- c(-27, 2, 2, 14, -28, 35, 8, 13, 4)
-scores_mat <- matrix(data = scores_vec, nrow = 3, byrow = TRUE)
-scores_mat
-```
-
-When showing a matrix, R shows expressions with square brackets (e.g.,
-`[,1]`). The numbers inside the square brackets are positional indices that
-denote the "coordinates" of the matrix. Two-dimensional objects like matrices
-have two indices. The first index always refers to the row, and the second
-always refers to the column. So, as with vectors, we can use square bracket
-notation `[ ]` to extract values from matrices.
+Also, as with vectors, we can use square bracket notation `[ ]` to extract
+values from matrices.
 ```{r extract value from matrix}
 scores_mat[c(1, 3), 2] # Rows 1 and 3 in column 2
 ```
@@ -218,12 +218,11 @@ scores_mat[, 1] # Extract entire first column
 ::: {.callout-note}
 ## Matrices are fancy vectors
 Deep down, R thinks of a matrix as a vector folded to look like a square.
-That means, among other things, that you can reference an element of a vector
+That means, among other things, that we can reference an element of a vector
 with a single positional index. Check what happens if you run `scores_mat[5]`.
 :::
 
-We can define names for the rows and the columns of a matrix using the
-`rownames()` and `colnames()` functions.
+We can define names for the rows and columns of a matrix using the functions `rownames()` and `colnames()`.
 ```{r naming rows and columns of matrix}
 rownames(scores_mat) <- c("Andrew", "Booker", "Comstock")
 colnames(scores_mat) <- c("Columbia", "Rapture", "Atlantic")
@@ -235,7 +234,7 @@ Now we can use these names to extract values:
 scores_mat["Andrew", c("Rapture", "Columbia")]
 ```
 
-There are several useful functions to do matrix operations. For example:
+There are several useful functions to do matrix operations, like:
 ```{r matrix operations}
 #| eval: false
 t(scores_mat) # Transpose the matrix

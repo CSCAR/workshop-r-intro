@@ -6,7 +6,7 @@ Last modified: `r Sys.Date()`
 
 # Preface {.unnumbered}
 
-These self-contained notes are intended for anyone that wants to use **R** but 
+These self-contained notes are intended for anyone that wants to use R but 
 has little or no experience using it, and little or no experience in
 programming. Faculty and staff from "Consulting for Statistics, Computing &
 Analytics Research" (CSCAR) wrote these notes to support in-person workshops
